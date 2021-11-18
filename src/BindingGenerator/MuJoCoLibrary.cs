@@ -8,32 +8,45 @@ namespace BindingGenerator
 {
     public class MuJoCoLibrary : ILibrary
     {
-        private static string libName = "MuJoCo";
-        private string libPath;
+        private static string libName = "mujoco210";
+        private string libRoot;
 
-        public MuJoCoLibrary(string libPath)
+        public MuJoCoLibrary(string libRoot)
         {
-            this.libPath = Path.GetFullPath(libPath);
+            this.libRoot = Path.GetFullPath(libRoot);
         }
 
         public void Setup(Driver driver)
         {
-            var includePath = Path.Combine(libPath, "include");
+            var includePath = Path.Combine(this.libRoot, "include");
             var includeFiles = Directory.GetFiles(includePath);
-            var libDir = Path.Combine(libPath, "bin");
-            var libFile = "libmujoco210.so";
+            var libPath = Path.Combine(this.libRoot, "bin");
 
             var options = driver.Options;
+            var parserOptions = driver.ParserOptions;
+
             options.Verbose = true;
+            parserOptions.Verbose = true;
             options.GeneratorKind = GeneratorKind.CSharp;
-            //driver.ParserOptions.TargetTriple = "x86_64-linux-gnu";
             var module = options.AddModule(MuJoCoLibrary.libName);
 
             module.IncludeDirs.Add(includePath);
             module.Headers.AddRange(includeFiles);
 
-            module.LibraryDirs.Add(libDir);
-            module.Libraries.Add(libFile);
+#if Windows
+            var libExt = "*.dll";
+            parserOptions.SetupMSVC(VisualStudioVersion.VS2019);
+            module.IncludeDirs.Add(@"C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt");
+            module.IncludeDirs.Add(@"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.28.29333\include");
+#elif Linux
+            var libExt = "*.so";
+            //driver.ParserOptions.TargetTriple = "x86_64-linux-gnu";
+#endif
+            var libFiles = Directory.GetFiles(libPath, libExt);
+
+            module.LibraryDirs.Add(libPath);
+            // module.Libraries.Add(libFile);
+            module.Libraries.AddRange(libFiles);
         }
 
         public void SetupPasses(Driver driver)
