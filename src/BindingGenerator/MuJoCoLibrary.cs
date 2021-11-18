@@ -1,4 +1,5 @@
 using System.IO;
+using System.Linq;
 using CppSharp;
 using CppSharp.AST;
 using CppSharp.Generators;
@@ -18,10 +19,6 @@ namespace BindingGenerator
 
         public void Setup(Driver driver)
         {
-            var includePath = Path.Combine(this.libRoot, "include");
-            var includeFiles = Directory.GetFiles(includePath);
-            var libPath = Path.Combine(this.libRoot, "bin");
-
             var options = driver.Options;
             var parserOptions = driver.ParserOptions;
 
@@ -29,6 +26,12 @@ namespace BindingGenerator
             parserOptions.Verbose = true;
             options.GeneratorKind = GeneratorKind.CSharp;
             var module = options.AddModule(MuJoCoLibrary.libName);
+
+            var includePath = Path.Combine(this.libRoot, "include");
+            var libPath = Path.Combine(this.libRoot, "bin");
+
+            var includeFiles = new DirectoryInfo(includePath).GetFiles().Select(x => x.Name);
+            // // var includeFiles = Directory.GetFiles(includePath);
 
             module.IncludeDirs.Add(includePath);
             module.Headers.AddRange(includeFiles);
@@ -42,7 +45,8 @@ namespace BindingGenerator
             var libExt = "*.so";
             //driver.ParserOptions.TargetTriple = "x86_64-linux-gnu";
 #endif
-            var libFiles = Directory.GetFiles(libPath, libExt);
+            var libFiles = new DirectoryInfo(includePath).GetFiles(libExt).Select(x => x.Name);
+            // // var libFiles = Directory.GetFiles(libPath, libExt);
 
             module.LibraryDirs.Add(libPath);
             // module.Libraries.Add(libFile);
