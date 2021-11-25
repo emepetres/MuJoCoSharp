@@ -1,6 +1,4 @@
-﻿using System;
-using CppSharp;
-
+﻿
 namespace BindingGenerator
 {
     class Program
@@ -9,7 +7,7 @@ namespace BindingGenerator
         {
             var lib = new MuJoCoLibrary(@"./build/mujoco210");
 
-            ConsoleDriver.Run(lib);
+            lib.ConvertToCSharp("./mujoco.cs");
         }
     }
 }

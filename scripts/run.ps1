@@ -1,15 +1,15 @@
-pushd $PSScriptRoot\..
+Push-Location $PSScriptRoot\..
 
 if (-Not (Test-Path -Path '.\build\mujoco210'))
 {
     mkdir -F build
-    pushd build
+    Push-Location build
     Invoke-WebRequest -Uri https://mujoco.org/download/mujoco210-windows-x86_64.zip -OutFile ./mujoco210.tar.gz
     tar -xf mujoco210.tar.gz
-    rm mujoco210.tar.gz
-    popd
+    Remove-Item mujoco210.tar.gz
+    Pop-Location
 }
 
-dotnet run -p src\BindingGenerator
+dotnet run --project src\BindingGenerator
 
-popd
+Pop-Location

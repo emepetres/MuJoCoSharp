@@ -1,70 +1,99 @@
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using CppSharp;
-using CppSharp.AST;
-using CppSharp.Generators;
-using CppSharp.Passes;
+using CppAst.CodeGen.Common;
+using CppAst.CodeGen.CSharp;
+using Zio;
+using Zio.FileSystems;
+using System;
+using System.Text.RegularExpressions;
 
 namespace BindingGenerator
 {
-    public class MuJoCoLibrary : ILibrary
+    public class MuJoCoLibrary
     {
         private static string libName = "mujoco210";
         private string libRoot;
 
+        private List<string> includeFiles;
+
         public MuJoCoLibrary(string libRoot)
         {
             this.libRoot = Path.GetFullPath(libRoot);
-        }
-
-        public void Setup(Driver driver)
-        {
-            var options = driver.Options;
-            var parserOptions = driver.ParserOptions;
-
-            options.Verbose = true;
-            parserOptions.Verbose = true;
-            options.GeneratorKind = GeneratorKind.CSharp;
-            var module = options.AddModule(MuJoCoLibrary.libName);
-
             var includePath = Path.Combine(this.libRoot, "include");
             var libPath = Path.Combine(this.libRoot, "bin");
 
-            var includeFiles = new DirectoryInfo(includePath).GetFiles().Select(x => x.Name);
-            // // var includeFiles = Directory.GetFiles(includePath);
+            //this.includeFiles = new DirectoryInfo(includePath).GetFiles().Select(x => x.FullName).ToList();
+            this.includeFiles = new DirectoryInfo(includePath).GetFiles().Where(x => x.Name=="mujoco.h").Select(x => x.FullName).ToList();
+        }
 
-            module.IncludeDirs.Add(includePath);
-            module.Headers.AddRange(includeFiles);
-
+        private static string GetUniformPath(string path)
+        {
 #if Windows
-            var libExt = "*.dll";
-            parserOptions.SetupMSVC(VisualStudioVersion.VS2019);
-            module.IncludeDirs.Add(@"C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt");
-            module.IncludeDirs.Add(@"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.28.29333\include");
+            var fullPath = Path.GetFullPath(path);
+            var match = Regex.Match(fullPath, @"^([A-Z]):\\");
+            var driveLetter = match.Groups[1].Value.ToLower();
+            var uniformPath = Regex.Replace(Regex.Replace(fullPath, @"\\", "/"), @"^[A-Z]:", $"/mnt/{driveLetter}");
 #elif Linux
-            var libExt = "*.so";
-            //driver.ParserOptions.TargetTriple = "x86_64-linux-gnu";
+            var uniformPath = Path.GetFullPath(path);
 #endif
-            var libFiles = new DirectoryInfo(includePath).GetFiles(libExt).Select(x => x.Name);
-            // // var libFiles = Directory.GetFiles(libPath, libExt);
-
-            module.LibraryDirs.Add(libPath);
-            // module.Libraries.Add(libFile);
-            module.Libraries.AddRange(libFiles);
+            return uniformPath;
         }
 
-        public void SetupPasses(Driver driver)
+        public void ConvertToCSharp(string outputPath)
         {
-            driver.Context.TranslationUnitPasses.RenameDeclsUpperCase(RenameTargets.Any);
-            driver.Context.TranslationUnitPasses.AddPass(new FunctionToInstanceMethodPass());
+            var options = new CSharpConverterOptions();
+            options.DefaultOutputFilePath = GetUniformPath(outputPath);
+
+            var csCompilation = CSharpConverter.Convert(includeFiles, options);
+
+            if (csCompilation.HasErrors)
+            {
+                foreach (var message in csCompilation.Diagnostics.Messages)
+                {
+                    Console.WriteLine(message);
+                }
+                return;
+            }
+
+            var fs = new PhysicalFileSystem();
+            var writer = new CodeWriter(new CodeWriterOptions(fs));
+
+            csCompilation.DumpTo(writer);
+
+            //var text = fs.ReadAllText(options.DefaultOutputFilePath);
+            //File.WriteAllText(@"C:\Users\jcarnero\_mujoco\lib.cs", text);
         }
 
-        public void Preprocess(Driver driver, ASTContext ctx)
+        public static void Test()
         {
-        }
+            var options = new CSharpConverterOptions();
 
-        public void Postprocess(Driver driver, ASTContext ctx)
-        {
+            var csCompilation = CSharpConverter.Convert(@"
+struct {
+    int a;
+    int b;
+    void (*ptr)(int arg0, int arg1, void (*arg2)(int arg3));
+    union
+    {
+        int c;
+        int d;
+    } e;
+} outer;
+            ", options);
+
+            if (csCompilation.HasErrors)
+            {
+                Console.WriteLine($"ERROR: {csCompilation.Diagnostics}");
+                return;
+            }
+
+            var fs = new MemoryFileSystem();
+            var codeWriter = new CodeWriter(new CodeWriterOptions(fs));
+            csCompilation.DumpTo(codeWriter);
+
+            var text = fs.ReadAllText(options.DefaultOutputFilePath);
+            Console.WriteLine(text);
         }
     }
 }

@@ -9,3 +9,7 @@
 ## Build and run
 
 `scripts/run.sh`
+
+### Manual Replaces
+fixed IEquatable<mjtNum> -> fixed double
+fixed IEquatable<mjtByte> -> fixed byte

@@ -14,6 +14,6 @@ then
     popd
 fi
 
-dotnet run -p src/BindingGenerator
+dotnet run --project src/BindingGenerator
 
 popd
