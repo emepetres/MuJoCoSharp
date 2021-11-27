@@ -7127,14 +7127,14 @@ namespace LibNative
             /// <summary>
             /// line colors
             /// </summary>
-            [MarshalAs(UnmanagedType.LPArray, SizeConst = 100)]
-            public float[3][] linergb;
+            [MarshalAs(UnmanagedType.LPArray, SizeConst = 300)]
+            public float[][] linergb;
 
             /// <summary>
             /// axis ranges; (min&gt;=max) automatic
             /// </summary>
-            [MarshalAs(UnmanagedType.LPArray, SizeConst = 2)]
-            public float[2][] range;
+            [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)]
+            public float[][] range;
 
             /// <summary>
             /// x-tick label format for sprintf
@@ -7205,8 +7205,8 @@ namespace LibNative
             /// <summary>
             /// line data (x,y)
             /// </summary>
-            [MarshalAs(UnmanagedType.LPArray, SizeConst = 100)]
-            public float[2000][] linedata;
+            [MarshalAs(UnmanagedType.LPArray, SizeConst = 200000)]
+            public float[][] linedata;
 
             /// <summary>
             /// range of x-axis in pixels
@@ -7908,8 +7908,8 @@ namespace LibNative
             /// <summary>
             /// element range (min&gt;=max: ignore)
             /// </summary>
-            [MarshalAs(UnmanagedType.LPArray, SizeConst = 7)]
-            public double[2][] range;
+            [MarshalAs(UnmanagedType.LPArray, SizeConst = 14)]
+            public double[][] range;
         }
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
