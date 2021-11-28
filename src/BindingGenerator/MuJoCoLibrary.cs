@@ -7,6 +7,7 @@ using Zio;
 using Zio.FileSystems;
 using System;
 using System.Text.RegularExpressions;
+using CppAst;
 
 namespace BindingGenerator
 {
@@ -28,7 +29,23 @@ namespace BindingGenerator
 
         public void ConvertToCSharp(string outputFilePath)
         {
-            var options = new MuJoCoConverterOptions(outputFilePath);
+            var options = new MuJoCoConverterOptions(outputFilePath)
+            {
+                Defines = {
+                    "_WIN32"
+                },
+                ////TypedefWrapWhiteList =
+                ////{
+                ////    "mjtNum"
+                ////}
+                ////MappingRules =
+                ////{
+                ////    ////e => e.MapMacroToConst("mjtNum", "double"),
+                ////    ////e => e.MapMacroToConst("mjtByte", "byte"),
+                ////    ////e => e.Map<CppElement>("mjtNum", "double"),
+                ////    e => e.Map("mjtNum").Name("double"),
+                ////}
+            };
 
             var csCompilation = CSharpConverter.Convert(includeFiles, options);
 

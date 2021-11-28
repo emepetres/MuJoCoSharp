@@ -25,6 +25,9 @@ namespace BindingGenerator
             AllowFixedSizeBuffers = true;
             DefaultMarshalForString = new CSharpMarshalAttribute(CSharpUnmanagedKind.LPStr);
             DefaultMarshalForBool = new CSharpMarshalAttribute(CSharpUnmanagedKind.U1);
+
+            ParseMacros = true;
+            
         }
 
         private static string GetUniformPath(string path)
