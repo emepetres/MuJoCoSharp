@@ -9,7 +9,7 @@
 
 using System;
 
-namespace LibNative
+namespace MuJoCoSharp
 {
     using System.Runtime.InteropServices;
 
@@ -3385,8 +3385,9 @@ namespace LibNative
             /// <summary>
             /// file name without path
             /// </summary>
-            [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.ByValTStr, SizeConst = 2000)]
-            public string[] filename;
+            //[MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPStr, SizeConst = 2000)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2000)]
+            public IntPtr[] filename;
 
             /// <summary>
             /// file size in bytes
@@ -3396,7 +3397,8 @@ namespace LibNative
             /// <summary>
             /// buffer with file data
             /// </summary>
-            [MarshalAs(UnmanagedType.LPArray, SizeConst = 2000)]
+            //[MarshalAs(UnmanagedType.LPArray, SizeConst = 2000)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2000)]
             public IntPtr[] filedata;
         }
 
@@ -9631,49 +9633,49 @@ namespace LibNative
         /// <summary>
         /// Return 1 (for backward compatibility).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mj_activate([MarshalAs(UnmanagedType.LPStr)] string filename);
 
         /// <summary>
         /// Do nothing (for backward compatibility).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_deactivate();
 
         /// <summary>
         /// Initialize VFS to empty (no deallocation).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_defaultVFS(ref libnative.mjVFS vfs);
 
         /// <summary>
         /// Add file to VFS, return 0: success, 1: full, 2: repeated name, -1: not found on disk.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mj_addFileVFS(ref libnative.mjVFS vfs, [MarshalAs(UnmanagedType.LPStr)] string directory, [MarshalAs(UnmanagedType.LPStr)] string filename);
 
         /// <summary>
         /// Make empty file in VFS, return 0: success, 1: full, 2: repeated name.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mj_makeEmptyFileVFS(ref libnative.mjVFS vfs, [MarshalAs(UnmanagedType.LPStr)] string filename, int filesize);
 
         /// <summary>
         /// Return file index in VFS, or -1 if not found in VFS.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mj_findFileVFS(ref libnative.mjVFS vfs, [MarshalAs(UnmanagedType.LPStr)] string filename);
 
         /// <summary>
         /// Delete file from VFS, return 0: success, -1: not found in VFS.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mj_deleteFileVFS(ref libnative.mjVFS vfs, [MarshalAs(UnmanagedType.LPStr)] string filename);
 
         /// <summary>
         /// Delete all files from VFS.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_deleteVFS(ref libnative.mjVFS vfs);
 
         /// <summary>
@@ -9681,613 +9683,613 @@ namespace LibNative
         /// If vfs is not NULL, look up files in vfs before reading from disk.
         /// If error is not NULL, it must have size error_sz.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern ref libnative.mjModel mj_loadXML([MarshalAs(UnmanagedType.LPStr)] string filename, ref libnative.mjVFS vfs, IntPtr error, int error_sz);
 
         /// <summary>
         /// Update XML data structures with info from low-level model, save as MJCF.
         /// If error is not NULL, it must have size error_sz.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mj_saveLastXML([MarshalAs(UnmanagedType.LPStr)] string filename, ref libnative.mjModel m, IntPtr error, int error_sz);
 
         /// <summary>
         /// Free last XML model if loaded. Called internally at each load.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_freeLastXML();
 
         /// <summary>
         /// Print internal XML schema as plain text or HTML, with style-padding or
         /// .
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mj_printSchema([MarshalAs(UnmanagedType.LPStr)] string filename, IntPtr buffer, int buffer_sz, int flg_html, int flg_pad);
 
         /// <summary>
         /// Advance simulation, use control callback to obtain external force and control.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_step(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Advance simulation in two steps: before external force and control is set by user.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_step1(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Advance simulation in two steps: after external force and control is set by user.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_step2(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Forward dynamics: same as mj_step but do not integrate in time.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_forward(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Inverse dynamics: qacc must be set before calling.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_inverse(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Forward dynamics with skip; skipstage is mjtStage.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_forwardSkip(ref libnative.mjModel m, ref libnative.mjData d, int skipstage, int skipsensor);
 
         /// <summary>
         /// Inverse dynamics with skip; skipstage is mjtStage.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_inverseSkip(ref libnative.mjModel m, ref libnative.mjData d, int skipstage, int skipsensor);
 
         /// <summary>
         /// Set default options for length range computation.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_defaultLROpt(ref libnative.mjLROpt opt);
 
         /// <summary>
         /// Set solver parameters to default values.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_defaultSolRefImp(ref libnative.mjtNum solref, ref libnative.mjtNum solimp);
 
         /// <summary>
         /// Set physics options to default values.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_defaultOption(ref libnative.mjOption opt);
 
         /// <summary>
         /// Set visual options to default values.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_defaultVisual(ref libnative.mjVisual vis);
 
         /// <summary>
         /// Copy mjModel, allocate new if dest is NULL.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern ref libnative.mjModel mj_copyModel(ref libnative.mjModel dest, ref libnative.mjModel src);
 
         /// <summary>
         /// Save model to binary MJB file or memory buffer; buffer has precedence when given.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_saveModel(ref libnative.mjModel m, [MarshalAs(UnmanagedType.LPStr)] string filename, IntPtr buffer, int buffer_sz);
 
         /// <summary>
         /// Load model from binary MJB file.
         /// If vfs is not NULL, look up file in vfs before reading from disk.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern ref libnative.mjModel mj_loadModel([MarshalAs(UnmanagedType.LPStr)] string filename, ref libnative.mjVFS vfs);
 
         /// <summary>
         /// Free memory allocation in model.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_deleteModel(ref libnative.mjModel m);
 
         /// <summary>
         /// Return size of buffer needed to hold model.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mj_sizeModel(ref libnative.mjModel m);
 
         /// <summary>
         /// Allocate mjData correponding to given model.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern ref libnative.mjData mj_makeData(ref libnative.mjModel m);
 
         /// <summary>
         /// Copy mjData.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern ref libnative.mjData mj_copyData(ref libnative.mjData dest, ref libnative.mjModel m, ref libnative.mjData src);
 
         /// <summary>
         /// Reset data to defaults.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_resetData(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Reset data to defaults, fill everything else with debug_value.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_resetDataDebug(ref libnative.mjModel m, ref libnative.mjData d, byte debug_value);
 
         /// <summary>
         /// Reset data, set fields from specified keyframe.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_resetDataKeyframe(ref libnative.mjModel m, ref libnative.mjData d, int key);
 
         /// <summary>
         /// Allocate array of specified size on mjData stack. Call mju_error on stack overflow.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern ref libnative.mjtNum mj_stackAlloc(ref libnative.mjData d, int size);
 
         /// <summary>
         /// Free memory allocation in mjData.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_deleteData(ref libnative.mjData d);
 
         /// <summary>
         /// Reset all callbacks to NULL pointers (NULL is the default).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_resetCallbacks();
 
         /// <summary>
         /// Set constant fields of mjModel, corresponding to qpos0 configuration.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_setConst(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Set actuator_lengthrange for specified actuator; return 1 if ok, 0 if error.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mj_setLengthRange(ref libnative.mjModel m, ref libnative.mjData d, int index, ref libnative.mjLROpt opt, IntPtr error, int error_sz);
 
         /// <summary>
         /// Print model to text file.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_printModel(ref libnative.mjModel m, [MarshalAs(UnmanagedType.LPStr)] string filename);
 
         /// <summary>
         /// Print data to text file.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_printData(ref libnative.mjModel m, ref libnative.mjData d, [MarshalAs(UnmanagedType.LPStr)] string filename);
 
         /// <summary>
         /// Print matrix to screen.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_printMat(ref libnative.mjtNum mat, int nr, int nc);
 
         /// <summary>
         /// Print sparse matrix to screen.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_printMatSparse(ref libnative.mjtNum mat, int nr, ref int rownnz, ref int rowadr, ref int colind);
 
         /// <summary>
         /// Run position-dependent computations.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_fwdPosition(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Run velocity-dependent computations.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_fwdVelocity(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Compute actuator force qfrc_actuation.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_fwdActuation(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Add up all non-constraint forces, compute qacc_unc.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_fwdAcceleration(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Run selected constraint solver.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_fwdConstraint(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Euler integrator, semi-implicit in velocity.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_Euler(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Runge-Kutta explicit order-N integrator.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_RungeKutta(ref libnative.mjModel m, ref libnative.mjData d, int N);
 
         /// <summary>
         /// Run position-dependent computations in inverse dynamics.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_invPosition(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Run velocity-dependent computations in inverse dynamics.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_invVelocity(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Apply the analytical formula for inverse constraint dynamics.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_invConstraint(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Compare forward and inverse dynamics, save results in fwdinv.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_compareFwdInv(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Evaluate position-dependent sensors.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_sensorPos(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Evaluate velocity-dependent sensors.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_sensorVel(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Evaluate acceleration and force-dependent sensors.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_sensorAcc(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Evaluate position-dependent energy (potential).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_energyPos(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Evaluate velocity-dependent energy (kinetic).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_energyVel(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Check qpos, reset if any element is too big or nan.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_checkPos(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Check qvel, reset if any element is too big or nan.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_checkVel(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Check qacc, reset if any element is too big or nan.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_checkAcc(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Run forward kinematics.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_kinematics(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Map inertias and motion dofs to global frame centered at CoM.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_comPos(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Compute camera and light positions and orientations.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_camlight(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Compute tendon lengths, velocities and moment arms.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_tendon(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Compute actuator transmission lengths and moments.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_transmission(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Run composite rigid body inertia algorithm (CRB).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_crb(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Compute sparse L'*D*L factorizaton of inertia matrix.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_factorM(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Solve linear system M * x = y using factorization:  x = inv(L'*D*L)*y
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_solveM(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum x, ref libnative.mjtNum y, int n);
 
         /// <summary>
         /// Half of linear solve:  x = sqrt(inv(D))*inv(L')*y
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_solveM2(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum x, ref libnative.mjtNum y, int n);
 
         /// <summary>
         /// Compute cvel, cdof_dot.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_comVel(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Compute qfrc_passive from spring-dampers, viscosity and density.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_passive(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// subtree linear velocity and angular momentum
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_subtreeVel(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// RNE: compute M(qpos)*qacc + C(qpos,qvel); flg_acc=0 removes inertial term.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_rne(ref libnative.mjModel m, ref libnative.mjData d, int flg_acc, ref libnative.mjtNum result);
 
         /// <summary>
         /// RNE with complete data: compute cacc, cfrc_ext, cfrc_int.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_rnePostConstraint(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Run collision detection.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_collision(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Construct constraints.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_makeConstraint(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Compute inverse constaint inertia efc_AR.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_projectConstraint(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Compute efc_vel, efc_aref.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_referenceConstraint(ref libnative.mjModel m, ref libnative.mjData d);
 
         /// <summary>
         /// Compute efc_state, efc_force, qfrc_constraint, and (optionally) cone Hessians.
         /// If cost is not NULL, set *cost = s(jar) where jar = Jac*qacc-aref.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_constraintUpdate(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum jar, ref libnative.mjtNum cost, int flg_coneHessian);
 
         /// <summary>
         /// Add contact to d-&gt;contact list; return 0 if success; 1 if buffer full.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mj_addContact(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjContact con);
 
         /// <summary>
         /// Determine type of friction cone.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mj_isPyramidal(ref libnative.mjModel m);
 
         /// <summary>
         /// Determine type of constraint Jacobian.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mj_isSparse(ref libnative.mjModel m);
 
         /// <summary>
         /// Determine type of solver (PGS is dual, CG and Newton are primal).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mj_isDual(ref libnative.mjModel m);
 
         /// <summary>
         /// Multiply dense or sparse constraint Jacobian by vector.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_mulJacVec(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum res, ref libnative.mjtNum vec);
 
         /// <summary>
         /// Multiply dense or sparse constraint Jacobian transpose by vector.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_mulJacTVec(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum res, ref libnative.mjtNum vec);
 
         /// <summary>
         /// Compute 3/6-by-nv end-effector Jacobian of global point attached to given body.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_jac(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum jacp, ref libnative.mjtNum jacr, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] point, int body);
 
         /// <summary>
         /// Compute body frame end-effector Jacobian.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_jacBody(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum jacp, ref libnative.mjtNum jacr, int body);
 
         /// <summary>
         /// Compute body center-of-mass end-effector Jacobian.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_jacBodyCom(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum jacp, ref libnative.mjtNum jacr, int body);
 
         /// <summary>
         /// Compute geom end-effector Jacobian.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_jacGeom(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum jacp, ref libnative.mjtNum jacr, int geom);
 
         /// <summary>
         /// Compute site end-effector Jacobian.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_jacSite(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum jacp, ref libnative.mjtNum jacr, int site);
 
         /// <summary>
         /// Compute translation end-effector Jacobian of point, and rotation Jacobian of axis.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_jacPointAxis(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum jacPoint, ref libnative.mjtNum jacAxis, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] point, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] axis, int body);
 
         /// <summary>
         /// Get id of object with specified name, return -1 if not found; type is mjtObj.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mj_name2id(ref libnative.mjModel m, int type, [MarshalAs(UnmanagedType.LPStr)] string name);
 
         /// <summary>
         /// Get name of object with specified id, return 0 if invalid type or id; type is mjtObj.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.LPStr)]
         public static extern string mj_id2name(ref libnative.mjModel m, int type, int id);
 
         /// <summary>
         /// Convert sparse inertia matrix M into full (i.e. dense) matrix.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_fullM(ref libnative.mjModel m, ref libnative.mjtNum dst, ref libnative.mjtNum M);
 
         /// <summary>
         /// Multiply vector by inertia matrix.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_mulM(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum res, ref libnative.mjtNum vec);
 
         /// <summary>
         /// Multiply vector by (inertia matrix)^(1/2).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_mulM2(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum res, ref libnative.mjtNum vec);
 
         /// <summary>
         /// Add inertia matrix to destination matrix.
         /// Destination can be sparse uncompressed, or dense when all int* are NULL
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_addM(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum dst, ref int rownnz, ref int rowadr, ref int colind);
 
         /// <summary>
         /// Apply cartesian force and torque (outside xfrc_applied mechanism).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_applyFT(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum force, ref libnative.mjtNum torque, ref libnative.mjtNum point, int body, ref libnative.mjtNum qfrc_target);
 
         /// <summary>
         /// Compute object 6D velocity in object-centered frame, world/local orientation.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_objectVelocity(ref libnative.mjModel m, ref libnative.mjData d, int objtype, int objid, ref libnative.mjtNum res, int flg_local);
 
         /// <summary>
         /// Compute object 6D acceleration in object-centered frame, world/local orientation.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_objectAcceleration(ref libnative.mjModel m, ref libnative.mjData d, int objtype, int objid, ref libnative.mjtNum res, int flg_local);
 
         /// <summary>
         /// Extract 6D force:torque for one contact, in contact frame.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_contactForce(ref libnative.mjModel m, ref libnative.mjData d, int id, ref libnative.mjtNum result);
 
         /// <summary>
         /// Compute velocity by finite-differencing two positions.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_differentiatePos(ref libnative.mjModel m, ref libnative.mjtNum qvel, libnative.mjtNum dt, ref libnative.mjtNum qpos1, ref libnative.mjtNum qpos2);
 
         /// <summary>
         /// Integrate position with given velocity.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_integratePos(ref libnative.mjModel m, ref libnative.mjtNum qpos, ref libnative.mjtNum qvel, libnative.mjtNum dt);
 
         /// <summary>
         /// Normalize all quaterions in qpos-type vector.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_normalizeQuat(ref libnative.mjModel m, ref libnative.mjtNum qpos);
 
         /// <summary>
         /// Map from body local to global Cartesian coordinates.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_local2Global(ref libnative.mjData d, ref libnative.mjtNum xpos, ref libnative.mjtNum xmat, ref libnative.mjtNum pos, ref libnative.mjtNum quat, int body, libnative.mjtByte sameframe);
 
         /// <summary>
         /// Sum all body masses.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mj_getTotalmass(ref libnative.mjModel m);
 
         /// <summary>
         /// Scale body masses and inertias to achieve specified total mass.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_setTotalmass(ref libnative.mjModel m, libnative.mjtNum newmass);
 
         /// <summary>
         /// Return version number: 1.0.2 is encoded as 102.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mj_version();
 
         /// <summary>
@@ -10295,451 +10297,451 @@ namespace LibNative
         /// Return geomid and distance (x) to nearest surface, or -1 if no intersection.
         /// geomgroup, flg_static are as in mjvOption; geomgroup==NULL skips group exclusion.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mj_ray(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum pnt, ref libnative.mjtNum vec, ref libnative.mjtByte geomgroup, libnative.mjtByte flg_static, int bodyexclude, ref int geomid);
 
         /// <summary>
         /// Interect ray with hfield, return nearest distance or -1 if no intersection.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mj_rayHfield(ref libnative.mjModel m, ref libnative.mjData d, int geomid, ref libnative.mjtNum pnt, ref libnative.mjtNum vec);
 
         /// <summary>
         /// Interect ray with mesh, return nearest distance or -1 if no intersection.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mj_rayMesh(ref libnative.mjModel m, ref libnative.mjData d, int geomid, ref libnative.mjtNum pnt, ref libnative.mjtNum vec);
 
         /// <summary>
         /// Interect ray with pure geom, return nearest distance or -1 if no intersection.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_rayGeom(ref libnative.mjtNum pos, ref libnative.mjtNum mat, ref libnative.mjtNum size, ref libnative.mjtNum pnt, ref libnative.mjtNum vec, int geomtype);
 
         /// <summary>
         /// Interect ray with skin, return nearest vertex id.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_raySkin(int nface, int nvert, ref int face, ref float vert, ref libnative.mjtNum pnt, ref libnative.mjtNum vec, ref int vertid);
 
         /// <summary>
         /// Set default camera.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_defaultCamera(ref libnative.mjvCamera cam);
 
         /// <summary>
         /// Set default perturbation.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_defaultPerturb(ref libnative.mjvPerturb pert);
 
         /// <summary>
         /// Transform pose from room to model space.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_room2model(ref libnative.mjtNum modelpos, ref libnative.mjtNum modelquat, ref libnative.mjtNum roompos, ref libnative.mjtNum roomquat, ref libnative.mjvScene scn);
 
         /// <summary>
         /// Transform pose from model to room space.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_model2room(ref libnative.mjtNum roompos, ref libnative.mjtNum roomquat, ref libnative.mjtNum modelpos, ref libnative.mjtNum modelquat, ref libnative.mjvScene scn);
 
         /// <summary>
         /// Get camera info in model space; average left and right OpenGL cameras.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_cameraInModel(ref libnative.mjtNum headpos, ref libnative.mjtNum forward, ref libnative.mjtNum up, ref libnative.mjvScene scn);
 
         /// <summary>
         /// Get camera info in room space; average left and right OpenGL cameras.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_cameraInRoom(ref libnative.mjtNum headpos, ref libnative.mjtNum forward, ref libnative.mjtNum up, ref libnative.mjvScene scn);
 
         /// <summary>
         /// Get frustum height at unit distance from camera; average left and right OpenGL cameras.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mjv_frustumHeight(ref libnative.mjvScene scn);
 
         /// <summary>
         /// Rotate 3D vec in horizontal plane by angle between (0,1) and (forward_x,forward_y).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_alignToCamera(ref libnative.mjtNum res, ref libnative.mjtNum vec, ref libnative.mjtNum forward);
 
         /// <summary>
         /// Move camera with mouse; action is mjtMouse.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_moveCamera(ref libnative.mjModel m, int action, libnative.mjtNum reldx, libnative.mjtNum reldy, ref libnative.mjvScene scn, ref libnative.mjvCamera cam);
 
         /// <summary>
         /// Move perturb object with mouse; action is mjtMouse.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_movePerturb(ref libnative.mjModel m, ref libnative.mjData d, int action, libnative.mjtNum reldx, libnative.mjtNum reldy, ref libnative.mjvScene scn, ref libnative.mjvPerturb pert);
 
         /// <summary>
         /// Move model with mouse; action is mjtMouse.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_moveModel(ref libnative.mjModel m, int action, libnative.mjtNum reldx, libnative.mjtNum reldy, ref libnative.mjtNum roomup, ref libnative.mjvScene scn);
 
         /// <summary>
         /// Copy perturb pos,quat from selected body; set scale for perturbation.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_initPerturb(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjvScene scn, ref libnative.mjvPerturb pert);
 
         /// <summary>
         /// Set perturb pos,quat in d-&gt;mocap when selected body is mocap, and in d-&gt;qpos otherwise.
         /// Write d-&gt;qpos only if flg_paused and subtree root for selected body has free joint.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_applyPerturbPose(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjvPerturb pert, int flg_paused);
 
         /// <summary>
         /// Set perturb force,torque in d-&gt;xfrc_applied, if selected body is dynamic.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_applyPerturbForce(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjvPerturb pert);
 
         /// <summary>
         /// Return the average of two OpenGL cameras.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjvGLCamera mjv_averageCamera(ref libnative.mjvGLCamera cam1, ref libnative.mjvGLCamera cam2);
 
         /// <summary>
         /// Select geom or skin with mouse, return bodyid; -1: none selected.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mjv_select(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjvOption vopt, libnative.mjtNum aspectratio, libnative.mjtNum relx, libnative.mjtNum rely, ref libnative.mjvScene scn, ref libnative.mjtNum selpnt, ref int geomid, ref int skinid);
 
         /// <summary>
         /// Set default visualization options.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_defaultOption(ref libnative.mjvOption opt);
 
         /// <summary>
         /// Set default figure.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_defaultFigure(ref libnative.mjvFigure fig);
 
         /// <summary>
         /// Initialize given geom fields when not NULL, set the rest to their default values.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_initGeom(ref libnative.mjvGeom geom, int type, ref libnative.mjtNum size, ref libnative.mjtNum pos, ref libnative.mjtNum mat, ref float rgba);
 
         /// <summary>
         /// Set (type, size, pos, mat) for connector-type geom between given points.
         /// Assume that mjv_initGeom was already called to set all other properties.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_makeConnector(ref libnative.mjvGeom geom, int type, libnative.mjtNum width, libnative.mjtNum a0, libnative.mjtNum a1, libnative.mjtNum a2, libnative.mjtNum b0, libnative.mjtNum b1, libnative.mjtNum b2);
 
         /// <summary>
         /// Set default abstract scene.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_defaultScene(ref libnative.mjvScene scn);
 
         /// <summary>
         /// Allocate resources in abstract scene.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_makeScene(ref libnative.mjModel m, ref libnative.mjvScene scn, int maxgeom);
 
         /// <summary>
         /// Free abstract scene.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_freeScene(ref libnative.mjvScene scn);
 
         /// <summary>
         /// Update entire scene given model state.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_updateScene(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjvOption opt, ref libnative.mjvPerturb pert, ref libnative.mjvCamera cam, int catmask, ref libnative.mjvScene scn);
 
         /// <summary>
         /// Add geoms from selected categories.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_addGeoms(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjvOption opt, ref libnative.mjvPerturb pert, int catmask, ref libnative.mjvScene scn);
 
         /// <summary>
         /// Make list of lights.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_makeLights(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjvScene scn);
 
         /// <summary>
         /// Update camera.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_updateCamera(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjvCamera cam, ref libnative.mjvScene scn);
 
         /// <summary>
         /// Update skins.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjv_updateSkin(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjvScene scn);
 
         /// <summary>
         /// Set default mjrContext.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_defaultContext(ref libnative.mjrContext con);
 
         /// <summary>
         /// Allocate resources in custom OpenGL context; fontscale is mjtFontScale.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_makeContext(ref libnative.mjModel m, ref libnative.mjrContext con, int fontscale);
 
         /// <summary>
         /// Change font of existing context.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_changeFont(int fontscale, ref libnative.mjrContext con);
 
         /// <summary>
         /// Add Aux buffer with given index to context; free previous Aux buffer.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_addAux(int index, int width, int height, int samples, ref libnative.mjrContext con);
 
         /// <summary>
         /// Free resources in custom OpenGL context, set to default.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_freeContext(ref libnative.mjrContext con);
 
         /// <summary>
         /// Upload texture to GPU, overwriting previous upload if any.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_uploadTexture(ref libnative.mjModel m, ref libnative.mjrContext con, int texid);
 
         /// <summary>
         /// Upload mesh to GPU, overwriting previous upload if any.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_uploadMesh(ref libnative.mjModel m, ref libnative.mjrContext con, int meshid);
 
         /// <summary>
         /// Upload height field to GPU, overwriting previous upload if any.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_uploadHField(ref libnative.mjModel m, ref libnative.mjrContext con, int hfieldid);
 
         /// <summary>
         /// Make con-&gt;currentBuffer current again.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_restoreBuffer(ref libnative.mjrContext con);
 
         /// <summary>
         /// Set OpenGL framebuffer for rendering: mjFB_WINDOW or mjFB_OFFSCREEN.
         /// If only one buffer is available, set that buffer and ignore framebuffer argument.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_setBuffer(int framebuffer, ref libnative.mjrContext con);
 
         /// <summary>
         /// Read pixels from current OpenGL framebuffer to client buffer.
         /// Viewport is in OpenGL framebuffer; client buffer starts at (0,0).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_readPixels(IntPtr rgb, ref float depth, libnative.mjrRect viewport, ref libnative.mjrContext con);
 
         /// <summary>
         /// Draw pixels from client buffer to current OpenGL framebuffer.
         /// Viewport is in OpenGL framebuffer; client buffer starts at (0,0).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_drawPixels(IntPtr rgb, ref float depth, libnative.mjrRect viewport, ref libnative.mjrContext con);
 
         /// <summary>
         /// Blit from src viewpoint in current framebuffer to dst viewport in other framebuffer.
         /// If src, dst have different size and flg_depth==0, color is interpolated with GL_LINEAR.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_blitBuffer(libnative.mjrRect src, libnative.mjrRect dst, int flg_color, int flg_depth, ref libnative.mjrContext con);
 
         /// <summary>
         /// Set Aux buffer for custom OpenGL rendering (call restoreBuffer when done).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_setAux(int index, ref libnative.mjrContext con);
 
         /// <summary>
         /// Blit from Aux buffer to con-&gt;currentBuffer.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_blitAux(int index, libnative.mjrRect src, int left, int bottom, ref libnative.mjrContext con);
 
         /// <summary>
         /// Draw text at (x,y) in relative coordinates; font is mjtFont.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_text(int font, [MarshalAs(UnmanagedType.LPStr)] string txt, ref libnative.mjrContext con, float x, float y, float r, float g, float b);
 
         /// <summary>
         /// Draw text overlay; font is mjtFont; gridpos is mjtGridPos.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_overlay(int font, int gridpos, libnative.mjrRect viewport, [MarshalAs(UnmanagedType.LPStr)] string overlay, [MarshalAs(UnmanagedType.LPStr)] string overlay2, ref libnative.mjrContext con);
 
         /// <summary>
         /// Get maximum viewport for active buffer.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjrRect mjr_maxViewport(ref libnative.mjrContext con);
 
         /// <summary>
         /// Draw rectangle.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_rectangle(libnative.mjrRect viewport, float r, float g, float b, float a);
 
         /// <summary>
         /// Draw rectangle with centered text.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_label(libnative.mjrRect viewport, int font, [MarshalAs(UnmanagedType.LPStr)] string txt, float r, float g, float b, float a, float rt, float gt, float bt, ref libnative.mjrContext con);
 
         /// <summary>
         /// Draw 2D figure.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_figure(libnative.mjrRect viewport, ref libnative.mjvFigure fig, ref libnative.mjrContext con);
 
         /// <summary>
         /// Render 3D scene.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_render(libnative.mjrRect viewport, ref libnative.mjvScene scn, ref libnative.mjrContext con);
 
         /// <summary>
         /// Call glFinish.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_finish();
 
         /// <summary>
         /// Call glGetError and return result.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mjr_getError();
 
         /// <summary>
         /// Find first rectangle containing mouse, -1: not found.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mjr_findRect(int x, int y, int nrect, ref libnative.mjrRect rect);
 
         /// <summary>
         /// Get builtin UI theme spacing (ind: 0-1).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjuiThemeSpacing mjui_themeSpacing(int ind);
 
         /// <summary>
         /// Get builtin UI theme color (ind: 0-3).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjuiThemeColor mjui_themeColor(int ind);
 
         /// <summary>
         /// Add definitions to UI.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjui_add(ref libnative.mjUI ui, ref libnative.mjuiDef def);
 
         /// <summary>
         /// Add definitions to UI section.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjui_addToSection(ref libnative.mjUI ui, int sect, ref libnative.mjuiDef def);
 
         /// <summary>
         /// Compute UI sizes.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjui_resize(ref libnative.mjUI ui, ref libnative.mjrContext con);
 
         /// <summary>
         /// Update specific section/item; -1: update all.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjui_update(int section, int item, ref libnative.mjUI ui, ref libnative.mjuiState state, ref libnative.mjrContext con);
 
         /// <summary>
         /// Handle UI event, return pointer to changed item, NULL if no change.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern ref libnative.mjuiItem mjui_event(ref libnative.mjUI ui, ref libnative.mjuiState state, ref libnative.mjrContext con);
 
         /// <summary>
         /// Copy UI image to current buffer.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjui_render(ref libnative.mjUI ui, ref libnative.mjuiState state, ref libnative.mjrContext con);
 
         /// <summary>
         /// Main error function; does not return to caller.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_error([MarshalAs(UnmanagedType.LPStr)] string msg);
 
         /// <summary>
         /// Error function with int argument; msg is a printf format string.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_error_i([MarshalAs(UnmanagedType.LPStr)] string msg, int i);
 
         /// <summary>
         /// Error function with string argument.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_error_s([MarshalAs(UnmanagedType.LPStr)] string msg, [MarshalAs(UnmanagedType.LPStr)] string text);
 
         /// <summary>
         /// Main warning function; returns to caller.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_warning([MarshalAs(UnmanagedType.LPStr)] string msg);
 
         /// <summary>
         /// Warning function with int argument.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_warning_i([MarshalAs(UnmanagedType.LPStr)] string msg, int i);
 
         /// <summary>
         /// Warning function with string argument.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_warning_s([MarshalAs(UnmanagedType.LPStr)] string msg, [MarshalAs(UnmanagedType.LPStr)] string text);
 
         /// <summary>
         /// Clear user error and memory handlers.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_clearHandlers();
 
         /// <summary>
         /// Allocate memory; byte-align on 8; pad size to multiple of 8.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr mju_malloc(libnative.size_t size);
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
@@ -10769,532 +10771,532 @@ namespace LibNative
         /// <summary>
         /// Free memory, using free() by default.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_free(IntPtr ptr);
 
         /// <summary>
         /// High-level warning function: count warnings in mjData, print only the first.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_warning(ref libnative.mjData d, int warning, int info);
 
         /// <summary>
         /// Write [datetime, type: message] to MUJOCO_LOG.TXT.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_writeLog([MarshalAs(UnmanagedType.LPStr)] string type, [MarshalAs(UnmanagedType.LPStr)] string msg);
 
         /// <summary>
         /// Set res = 0.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_zero3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res);
 
         /// <summary>
         /// Set res = vec.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_copy3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] data);
 
         /// <summary>
         /// Set res = vec*scl.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_scl3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec, libnative.mjtNum scl);
 
         /// <summary>
         /// Set res = vec1 + vec2.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_add3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec2);
 
         /// <summary>
         /// Set res = vec1 - vec2.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_sub3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec2);
 
         /// <summary>
         /// Set res = res + vec.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_addTo3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec);
 
         /// <summary>
         /// Set res = res - vec.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_subFrom3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec);
 
         /// <summary>
         /// Set res = res + vec*scl.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_addToScl3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec, libnative.mjtNum scl);
 
         /// <summary>
         /// Set res = vec1 + vec2*scl.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_addScl3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec2, libnative.mjtNum scl);
 
         /// <summary>
         /// Normalize vector, return length before normalization.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_normalize3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res);
 
         /// <summary>
         /// Return vector length (without normalizing the vector).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_norm3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec);
 
         /// <summary>
         /// Return dot-product of vec1 and vec2.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_dot3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec2);
 
         /// <summary>
         /// Return Cartesian distance between 3D vectors pos1 and pos2.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_dist3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] pos1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] pos2);
 
         /// <summary>
         /// Multiply vector by 3D rotation matrix: res = mat * vec.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_rotVecMat([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] libnative.mjtNum[] mat);
 
         /// <summary>
         /// Multiply vector by transposed 3D rotation matrix: res = mat' * vec.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_rotVecMatT([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] libnative.mjtNum[] mat);
 
         /// <summary>
         /// Compute cross-product: res = cross(a, b).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_cross([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] a, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] b);
 
         /// <summary>
         /// Set res = 0.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_zero4([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] res);
 
         /// <summary>
         /// Set res = (1,0,0,0).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_unit4([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] res);
 
         /// <summary>
         /// Set res = vec.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_copy4([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] data);
 
         /// <summary>
         /// Normalize vector, return length before normalization.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_normalize4([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] res);
 
         /// <summary>
         /// Set res = 0.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_zero(ref libnative.mjtNum res, int n);
 
         /// <summary>
         /// Set res = vec.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_copy(ref libnative.mjtNum res, ref libnative.mjtNum data, int n);
 
         /// <summary>
         /// Return sum(vec).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_sum(ref libnative.mjtNum vec, int n);
 
         /// <summary>
         /// Return L1 norm: sum(abs(vec)).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_L1(ref libnative.mjtNum vec, int n);
 
         /// <summary>
         /// Set res = vec*scl.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_scl(ref libnative.mjtNum res, ref libnative.mjtNum vec, libnative.mjtNum scl, int n);
 
         /// <summary>
         /// Set res = vec1 + vec2.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_add(ref libnative.mjtNum res, ref libnative.mjtNum vec1, ref libnative.mjtNum vec2, int n);
 
         /// <summary>
         /// Set res = vec1 - vec2.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_sub(ref libnative.mjtNum res, ref libnative.mjtNum vec1, ref libnative.mjtNum vec2, int n);
 
         /// <summary>
         /// Set res = res + vec.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_addTo(ref libnative.mjtNum res, ref libnative.mjtNum vec, int n);
 
         /// <summary>
         /// Set res = res - vec.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_subFrom(ref libnative.mjtNum res, ref libnative.mjtNum vec, int n);
 
         /// <summary>
         /// Set res = res + vec*scl.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_addToScl(ref libnative.mjtNum res, ref libnative.mjtNum vec, libnative.mjtNum scl, int n);
 
         /// <summary>
         /// Set res = vec1 + vec2*scl.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_addScl(ref libnative.mjtNum res, ref libnative.mjtNum vec1, ref libnative.mjtNum vec2, libnative.mjtNum scl, int n);
 
         /// <summary>
         /// Normalize vector, return length before normalization.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_normalize(ref libnative.mjtNum res, int n);
 
         /// <summary>
         /// Return vector length (without normalizing vector).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_norm(ref libnative.mjtNum res, int n);
 
         /// <summary>
         /// Return dot-product of vec1 and vec2.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_dot(ref libnative.mjtNum vec1, ref libnative.mjtNum vec2, int n);
 
         /// <summary>
         /// Multiply matrix and vector: res = mat * vec.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_mulMatVec(ref libnative.mjtNum res, ref libnative.mjtNum mat, ref libnative.mjtNum vec, int nr, int nc);
 
         /// <summary>
         /// Multiply transposed matrix and vector: res = mat' * vec.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_mulMatTVec(ref libnative.mjtNum res, ref libnative.mjtNum mat, ref libnative.mjtNum vec, int nr, int nc);
 
         /// <summary>
         /// Transpose matrix: res = mat'.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_transpose(ref libnative.mjtNum res, ref libnative.mjtNum mat, int nr, int nc);
 
         /// <summary>
         /// Multiply matrices: res = mat1 * mat2.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_mulMatMat(ref libnative.mjtNum res, ref libnative.mjtNum mat1, ref libnative.mjtNum mat2, int r1, int c1, int c2);
 
         /// <summary>
         /// Multiply matrices, second argument transposed: res = mat1 * mat2'.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_mulMatMatT(ref libnative.mjtNum res, ref libnative.mjtNum mat1, ref libnative.mjtNum mat2, int r1, int c1, int r2);
 
         /// <summary>
         /// Multiply matrices, first argument transposed: res = mat1' * mat2.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_mulMatTMat(ref libnative.mjtNum res, ref libnative.mjtNum mat1, ref libnative.mjtNum mat2, int r1, int c1, int c2);
 
         /// <summary>
         /// Set res = mat' * diag * mat if diag is not NULL, and res = mat' * mat otherwise.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_sqrMatTD(ref libnative.mjtNum res, ref libnative.mjtNum mat, ref libnative.mjtNum diag, int nr, int nc);
 
         /// <summary>
         /// Coordinate transform of 6D motion or force vector in rotation:translation format.
         /// rotnew2old is 3-by-3, NULL means no rotation; flg_force specifies force or motion type.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_transformSpatial([MarshalAs(UnmanagedType.LPArray, SizeConst = 6)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 6)] libnative.mjtNum[] vec, int flg_force, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] newpos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] oldpos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] libnative.mjtNum[] rotnew2old);
 
         /// <summary>
         /// Rotate vector by quaternion.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_rotVecQuat([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat);
 
         /// <summary>
         /// Conjugate quaternion, corresponding to opposite rotation.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_negQuat([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat);
 
         /// <summary>
         /// Muiltiply quaternions.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_mulQuat([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat2);
 
         /// <summary>
         /// Muiltiply quaternion and axis.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_mulQuatAxis([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] axis);
 
         /// <summary>
         /// Convert axisAngle to quaternion.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_axisAngle2Quat([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] axis, libnative.mjtNum angle);
 
         /// <summary>
         /// Convert quaternion (corresponding to orientation difference) to 3D velocity.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_quat2Vel([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat, libnative.mjtNum dt);
 
         /// <summary>
         /// Subtract quaternions, express as 3D velocity: qb*quat(res) = qa.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_subQuat([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] qa, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] qb);
 
         /// <summary>
         /// Convert quaternion to 3D rotation matrix.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_quat2Mat([MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat);
 
         /// <summary>
         /// Convert 3D rotation matrix to quaterion.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_mat2Quat([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] libnative.mjtNum[] mat);
 
         /// <summary>
         /// Compute time-derivative of quaternion, given 3D rotational velocity.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_derivQuat([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vel);
 
         /// <summary>
         /// Integrate quaterion given 3D angular velocity.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_quatIntegrate([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vel, libnative.mjtNum scale);
 
         /// <summary>
         /// Construct quaternion performing rotation from z-axis to given vector.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_quatZ2Vec([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec);
 
         /// <summary>
         /// Multiply two poses.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_mulPose([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] posres, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quatres, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] pos1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] pos2, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat2);
 
         /// <summary>
         /// Conjugate pose, corresponding to the opposite spatial transformation.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_negPose([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] posres, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quatres, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] pos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat);
 
         /// <summary>
         /// Transform vector by pose.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_trnVecPose([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] pos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec);
 
         /// <summary>
         /// Cholesky decomposition: mat = L*L'; return rank.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mju_cholFactor(ref libnative.mjtNum mat, int n, libnative.mjtNum mindiag);
 
         /// <summary>
         /// Solve mat * res = vec, where mat is Cholesky-factorized
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_cholSolve(ref libnative.mjtNum res, ref libnative.mjtNum mat, ref libnative.mjtNum vec, int n);
 
         /// <summary>
         /// Cholesky rank-one update: L*L' +/- x*x'; return rank.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mju_cholUpdate(ref libnative.mjtNum mat, ref libnative.mjtNum x, int n, int flg_plus);
 
         /// <summary>
         /// Eigenvalue decomposition of symmetric 3x3 matrix.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mju_eig3(ref libnative.mjtNum eigval, ref libnative.mjtNum eigvec, ref libnative.mjtNum quat, ref libnative.mjtNum mat);
 
         /// <summary>
         /// Muscle active force, prm = (range[2], force, scale, lmin, lmax, vmax, fpmax, fvmax).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_muscleGain(libnative.mjtNum len, libnative.mjtNum vel, [MarshalAs(UnmanagedType.LPArray, SizeConst = 2)] libnative.mjtNum[] lengthrange, libnative.mjtNum acc0, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] libnative.mjtNum[] prm);
 
         /// <summary>
         /// Muscle passive force, prm = (range[2], force, scale, lmin, lmax, vmax, fpmax, fvmax).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_muscleBias(libnative.mjtNum len, [MarshalAs(UnmanagedType.LPArray, SizeConst = 2)] libnative.mjtNum[] lengthrange, libnative.mjtNum acc0, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] libnative.mjtNum[] prm);
 
         /// <summary>
         /// Muscle activation dynamics, prm = (tau_act, tau_deact).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_muscleDynamics(libnative.mjtNum ctrl, libnative.mjtNum act, [MarshalAs(UnmanagedType.LPArray, SizeConst = 2)] libnative.mjtNum[] prm);
 
         /// <summary>
         /// Convert contact force to pyramid representation.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_encodePyramid(ref libnative.mjtNum pyramid, ref libnative.mjtNum force, ref libnative.mjtNum mu, int dim);
 
         /// <summary>
         /// Convert pyramid representation to contact force.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_decodePyramid(ref libnative.mjtNum force, ref libnative.mjtNum pyramid, ref libnative.mjtNum mu, int dim);
 
         /// <summary>
         /// Integrate spring-damper analytically, return pos(dt).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_springDamper(libnative.mjtNum pos0, libnative.mjtNum vel0, libnative.mjtNum Kp, libnative.mjtNum Kv, libnative.mjtNum dt);
 
         /// <summary>
         /// Return min(a,b) with single evaluation of a and b.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_min(libnative.mjtNum a, libnative.mjtNum b);
 
         /// <summary>
         /// Return max(a,b) with single evaluation of a and b.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_max(libnative.mjtNum a, libnative.mjtNum b);
 
         /// <summary>
         /// Return sign of x: +1, -1 or 0.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_sign(libnative.mjtNum x);
 
         /// <summary>
         /// Round x to nearest integer.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mju_round(libnative.mjtNum x);
 
         /// <summary>
         /// Convert type id (mjtObj) to type name.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.LPStr)]
         public static extern string mju_type2Str(int type);
 
         /// <summary>
         /// Convert type name to type id (mjtObj).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mju_str2Type([MarshalAs(UnmanagedType.LPStr)] string str);
 
         /// <summary>
         /// Construct a warning message given the warning type and info.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.LPStr)]
         public static extern string mju_warningText(int warning, int info);
 
         /// <summary>
         /// Return 1 if nan or abs(x)&gt;mjMAXVAL, 0 otherwise. Used by check functions.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mju_isBad(libnative.mjtNum x);
 
         /// <summary>
         /// Return 1 if all elements are 0.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mju_isZero(ref libnative.mjtNum vec, int n);
 
         /// <summary>
         /// Standard normal random number generator (optional second number).
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_standardNormal(ref libnative.mjtNum num2);
 
         /// <summary>
         /// Convert from float to mjtNum.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_f2n(ref libnative.mjtNum res, ref float vec, int n);
 
         /// <summary>
         /// Convert from mjtNum to float.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_n2f(ref float res, ref libnative.mjtNum vec, int n);
 
         /// <summary>
         /// Convert from double to mjtNum.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_d2n(ref libnative.mjtNum res, ref double vec, int n);
 
         /// <summary>
         /// Convert from mjtNum to double.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_n2d(ref double res, ref libnative.mjtNum vec, int n);
 
         /// <summary>
         /// Insertion sort, resulting list is in increasing order.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_insertionSort(ref libnative.mjtNum list, int n);
 
         /// <summary>
         /// Integer insertion sort, resulting list is in increasing order.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_insertionSortInt(ref int list, int n);
 
         /// <summary>
         /// Generate Halton sequence.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_Halton(int index, int @base);
 
         /// <summary>
         /// Call strncpy, then set dst[n-1] = 0.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr mju_strncpy(IntPtr dst, [MarshalAs(UnmanagedType.LPStr)] string src, int n);
 
         /// <summary>
@@ -11304,7 +11306,7 @@ namespace LibNative
         /// &lt;
         /// =1 constructed from half-quadratics.
         /// </summary>
-        [DllImport("libnative", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
         public static extern libnative.mjtNum mju_sigmoid(libnative.mjtNum x);
     }
 }
