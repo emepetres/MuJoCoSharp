@@ -12,7 +12,6 @@ namespace BindingGenerator
 {
     public class MuJoCoLibrary
     {
-        private static string libName = "mujoco210";
         private string libRoot;
 
         private List<string> includeFiles;
@@ -27,23 +26,9 @@ namespace BindingGenerator
             this.includeFiles = new DirectoryInfo(includePath).GetFiles().Where(x => x.Name=="mujoco.h").Select(x => x.FullName).ToList();
         }
 
-        private static string GetUniformPath(string path)
+        public void ConvertToCSharp(string outputFilePath)
         {
-#if Windows
-            var fullPath = Path.GetFullPath(path);
-            var match = Regex.Match(fullPath, @"^([A-Z]):\\");
-            var driveLetter = match.Groups[1].Value.ToLower();
-            var uniformPath = Regex.Replace(Regex.Replace(fullPath, @"\\", "/"), @"^[A-Z]:", $"/mnt/{driveLetter}");
-#elif Linux
-            var uniformPath = Path.GetFullPath(path);
-#endif
-            return uniformPath;
-        }
-
-        public void ConvertToCSharp(string outputPath)
-        {
-            var options = new CSharpConverterOptions();
-            options.DefaultOutputFilePath = GetUniformPath(outputPath);
+            var options = new MuJoCoConverterOptions(outputFilePath);
 
             var csCompilation = CSharpConverter.Convert(includeFiles, options);
 

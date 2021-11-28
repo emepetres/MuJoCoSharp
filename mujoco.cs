@@ -3385,7 +3385,8 @@ namespace MuJoCoSharp
             /// <summary>
             /// file name without path
             /// </summary>
-            //[MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPStr, SizeConst = 2000)]
+            ////[MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.ByValTStr, SizeConst = 2000)]
+            ////public string[] filename;
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2000)]
             public IntPtr[] filename;
 
@@ -3397,7 +3398,7 @@ namespace MuJoCoSharp
             /// <summary>
             /// buffer with file data
             /// </summary>
-            //[MarshalAs(UnmanagedType.LPArray, SizeConst = 2000)]
+            ////[MarshalAs(UnmanagedType.LPArray, SizeConst = 2000)]
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2000)]
             public IntPtr[] filedata;
         }
@@ -9700,7 +9701,7 @@ namespace MuJoCoSharp
         public static extern void mj_freeLastXML();
 
         /// <summary>
-        /// Print internal XML schema as plain text or HTML, with style-padding or
+        /// Print internal XML schema as plain text or HTML, with style-padding or 
         /// .
         /// </summary>
         [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
