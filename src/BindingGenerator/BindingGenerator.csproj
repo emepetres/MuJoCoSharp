@@ -23,10 +23,9 @@
 	<PropertyGroup Condition="'$(IsLinux)'=='true'">
 		<DefineConstants>Linux</DefineConstants>
 	</PropertyGroup>
-
-
 	<ItemGroup>
-		<PackageReference Include="CppAst.CodeGen" Version="0.7.0" />
+	  <PackageReference Include="CppAst" Version="0.7.3" />
+	  <PackageReference Include="System.CodeDom" Version="6.0.0" />
 	</ItemGroup>
 
 </Project>

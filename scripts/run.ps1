@@ -1,9 +1,9 @@
 Push-Location $PSScriptRoot\..
 
-if (-Not (Test-Path -Path '.\build\mujoco210'))
+if (-Not (Test-Path -Path '.\lib\mujoco210'))
 {
-    mkdir -F build
-    Push-Location build
+    mkdir -F lib
+    Push-Location lib
     Invoke-WebRequest -Uri https://mujoco.org/download/mujoco210-windows-x86_64.zip -OutFile ./mujoco210.tar.gz
     tar -xf mujoco210.tar.gz
     Remove-Item mujoco210.tar.gz

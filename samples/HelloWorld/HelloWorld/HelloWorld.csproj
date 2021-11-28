@@ -9,7 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="Z:\source\MuJoCoSharp\src\MuJoCoSharp\MuJoCoSharp.csproj" />
+    <ProjectReference Include="..\..\..\MuJoCoSharp\MuJoCoSharp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="hello.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

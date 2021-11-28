@@ -1,19 +1,8 @@
-# MuJoCoSharp
+using System;
 
-.NET wrapper for the MuJoCo physics library - WIP
-
-## Prerequisites
-
-* dotnet 5.0 sdk & runtime
-
-## Build and run
-
-`scripts/run.sh`
-
-### Manual Typedefs
-
-```csharp
-    using mjtNum = Double;
+namespace MuJoCoSharp
+{
+	using mjtNum = Double;
 	using mjtByte = Byte;
 	using mjOption = _mjOption;
 	using mjVisual = _mjVisual;
@@ -43,4 +32,39 @@
 	using mjUI = _mjUI;
 	using mjuiDef = _mjuiDef;
 	using mjuiState = _mjuiState;
-```
+
+	public unsafe delegate void mjfGeneric(
+		 mjModel* m,
+		 mjData* d);
+
+	public unsafe delegate int mjfConFilt(
+		 mjModel* m,
+		 mjData* d,
+		 int geom1,
+		 int geom2);
+
+	public unsafe delegate void mjfSensor(
+		 mjModel* m,
+		 mjData* d,
+		 int stage);
+
+	public unsafe delegate mjtNum mjfTime();
+
+	public unsafe delegate mjtNum mjfAct(
+		 mjModel* m,
+		 mjData* d,
+		 int id);
+
+	public unsafe delegate int mjfCollision(
+		 mjModel* m,
+		 mjData* d,
+		 mjContact* con,
+		 int g1,
+		 int g2,
+		 mjtNum margin);
+
+	public unsafe delegate int mjfItemEnable(
+		 int category,
+		 void* data);
+
+}
