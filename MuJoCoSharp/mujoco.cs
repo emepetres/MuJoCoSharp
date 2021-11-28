@@ -9701,7 +9701,7 @@ namespace MuJoCoSharp
         public static extern void mj_freeLastXML();
 
         /// <summary>
-        /// Print internal XML schema as plain text or HTML, with style-padding or 
+        /// Print internal XML schema as plain text or HTML, with style-padding or
         /// .
         /// </summary>
         [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]

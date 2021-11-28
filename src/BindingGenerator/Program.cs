@@ -5,9 +5,9 @@ namespace BindingGenerator
     {
         static void Main(string[] args)
         {
-            var lib = new MuJoCoLibrary(@"./build/mujoco210");
+            var lib = new MuJoCoLibrary(@"./lib/mujoco210");
 
-            lib.ConvertToCSharp("./mujoco.cs");
+            lib.ConvertToCSharp("./MuJoCoSharp/MuJoCo.cs");
         }
     }
 }
