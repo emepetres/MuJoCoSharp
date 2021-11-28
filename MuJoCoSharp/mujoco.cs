@@ -9685,7 +9685,7 @@ namespace MuJoCoSharp
         /// If error is not NULL, it must have size error_sz.
         /// </summary>
         [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern ref libnative.mjModel mj_loadXML([MarshalAs(UnmanagedType.LPStr)] string filename, ref libnative.mjVFS vfs, IntPtr error, int error_sz);
+        public static unsafe extern ref libnative.mjModel mj_loadXML([MarshalAs(UnmanagedType.LPStr)] string filename, ref libnative.mjVFS vfs, IntPtr error, int error_sz);
 
         /// <summary>
         /// Update XML data structures with info from low-level model, save as MJCF.

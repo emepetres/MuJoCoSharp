@@ -11,6 +11,11 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\MuJoCoSharp\MuJoCoSharp.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="hello.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
