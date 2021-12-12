@@ -14,6 +14,7 @@ then
     popd
 fi
 
-dotnet run --project src/BindingGenerator
+swig -csharp src/mujoco.i
+gcc -c -fpic src/mujoco_wrap.c
 
 popd
