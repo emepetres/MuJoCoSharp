@@ -8,6 +8,7 @@ using Zio.FileSystems;
 using System;
 using System.Text.RegularExpressions;
 using CppAst;
+using System.Diagnostics;
 
 namespace BindingGenerator
 {
@@ -34,6 +35,7 @@ namespace BindingGenerator
                 Defines = {
                     "_WIN32"
                 },
+                TypedefCodeGenKind = CppTypedefCodeGenKind.NoWrap
                 ////TypedefWrapWhiteList =
                 ////{
                 ////    "mjtNum"
@@ -53,7 +55,7 @@ namespace BindingGenerator
             {
                 foreach (var message in csCompilation.Diagnostics.Messages)
                 {
-                    Console.WriteLine(message);
+                    Console.WriteLine(message.ToString());
                 }
                 return;
             }

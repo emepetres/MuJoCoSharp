@@ -17,7 +17,7 @@ namespace BindingGenerator
             DefaultNamespace = "MuJoCoSharp";
             DefaultOutputFilePath = GetUniformPath(outputFilePath);
             DefaultClassLib = "libnative";
-            DefaultDllImportNameAndArguments = "\"mujoco210\"";
+            DefaultDllImportNameAndArguments = "\"mujoco\"";
             GenerateAsInternal = false;
             GenerateEnumItemAsFields = true;
             TypedefCodeGenKind = CppTypedefCodeGenKind.Wrap;

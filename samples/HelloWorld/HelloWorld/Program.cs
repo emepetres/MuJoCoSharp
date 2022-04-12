@@ -6,14 +6,14 @@ unsafe
 {
     char* error = stackalloc char[1000];
     IntPtr error_ptr = new IntPtr(error);
-    libnative.mjModel m;
-    libnative.mjData d;
+    libnative.mjModel_ m;
+    libnative.mjData_ d;
 
     // See https://aka.ms/new-console-template for more information
     Console.WriteLine("Hello, World!");
 
     // load model from file and check for errors
-    var null_vfs = new libnative.mjVFS();
+    var null_vfs = new libnative.mjVFS_();
     m = libnative.mj_loadXML("hello.xml", ref null_vfs, error_ptr, 1000);
 
     Debug.WriteLine("Error:");
@@ -24,7 +24,7 @@ unsafe
     d = libnative.mj_makeData(ref m);
 
     // run simulation for 10 seconds
-    while (d.Value.time < 10)
+    while (d.time < 10)
     {
         libnative.mj_step(ref m, ref d);
     }

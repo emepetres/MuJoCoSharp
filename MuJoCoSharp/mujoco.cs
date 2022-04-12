@@ -12,580 +12,580 @@ using System;
 namespace MuJoCoSharp
 {
     using System.Runtime.InteropServices;
-
+    
     public static partial class libnative
     {
         [Flags]
-        public enum _mjtDisableBit : int
+        public enum mjtDisableBit_ : int
         {
             /// <summary>
             /// entire constraint solver
             /// </summary>
-            mjDSBL_CONSTRAINT = unchecked((int)1 << (int)0),
-
+            mjDSBL_CONSTRAINT = unchecked((int)1  << (int) 0),
+            
             /// <summary>
             /// equality constraints
             /// </summary>
-            mjDSBL_EQUALITY = unchecked((int)1 << (int)1),
-
+            mjDSBL_EQUALITY = unchecked((int)1  << (int) 1),
+            
             /// <summary>
             /// joint and tendon frictionloss constraints
             /// </summary>
-            mjDSBL_FRICTIONLOSS = unchecked((int)1 << (int)2),
-
+            mjDSBL_FRICTIONLOSS = unchecked((int)1  << (int) 2),
+            
             /// <summary>
             /// joint and tendon limit constraints
             /// </summary>
-            mjDSBL_LIMIT = unchecked((int)1 << (int)3),
-
+            mjDSBL_LIMIT = unchecked((int)1  << (int) 3),
+            
             /// <summary>
             /// contact constraints
             /// </summary>
-            mjDSBL_CONTACT = unchecked((int)1 << (int)4),
-
+            mjDSBL_CONTACT = unchecked((int)1  << (int) 4),
+            
             /// <summary>
             /// passive forces
             /// </summary>
-            mjDSBL_PASSIVE = unchecked((int)1 << (int)5),
-
+            mjDSBL_PASSIVE = unchecked((int)1  << (int) 5),
+            
             /// <summary>
             /// gravitational forces
             /// </summary>
-            mjDSBL_GRAVITY = unchecked((int)1 << (int)6),
-
+            mjDSBL_GRAVITY = unchecked((int)1  << (int) 6),
+            
             /// <summary>
             /// clamp control to specified range
             /// </summary>
-            mjDSBL_CLAMPCTRL = unchecked((int)1 << (int)7),
-
+            mjDSBL_CLAMPCTRL = unchecked((int)1  << (int) 7),
+            
             /// <summary>
             /// warmstart constraint solver
             /// </summary>
-            mjDSBL_WARMSTART = unchecked((int)1 << (int)8),
-
+            mjDSBL_WARMSTART = unchecked((int)1  << (int) 8),
+            
             /// <summary>
             /// remove collisions with parent body
             /// </summary>
-            mjDSBL_FILTERPARENT = unchecked((int)1 << (int)9),
-
+            mjDSBL_FILTERPARENT = unchecked((int)1  << (int) 9),
+            
             /// <summary>
             /// apply actuation forces
             /// </summary>
-            mjDSBL_ACTUATION = unchecked((int)1 << (int)10),
-
+            mjDSBL_ACTUATION = unchecked((int)1  << (int) 10),
+            
             /// <summary>
             /// integrator safety: make ref[0]&gt;=2*timestep
             /// </summary>
-            mjDSBL_REFSAFE = unchecked((int)1 << (int)11),
-
+            mjDSBL_REFSAFE = unchecked((int)1  << (int) 11),
+            
             /// <summary>
             /// number of disable flags
             /// </summary>
             mjNDISABLE = unchecked((int)12),
         }
-
+        
         /// <summary>
         /// entire constraint solver
         /// </summary>
-        public const libnative._mjtDisableBit mjDSBL_CONSTRAINT = _mjtDisableBit.mjDSBL_CONSTRAINT;
-
+        public const libnative.mjtDisableBit_ mjDSBL_CONSTRAINT = mjtDisableBit_.mjDSBL_CONSTRAINT;
+        
         /// <summary>
         /// equality constraints
         /// </summary>
-        public const libnative._mjtDisableBit mjDSBL_EQUALITY = _mjtDisableBit.mjDSBL_EQUALITY;
-
+        public const libnative.mjtDisableBit_ mjDSBL_EQUALITY = mjtDisableBit_.mjDSBL_EQUALITY;
+        
         /// <summary>
         /// joint and tendon frictionloss constraints
         /// </summary>
-        public const libnative._mjtDisableBit mjDSBL_FRICTIONLOSS = _mjtDisableBit.mjDSBL_FRICTIONLOSS;
-
+        public const libnative.mjtDisableBit_ mjDSBL_FRICTIONLOSS = mjtDisableBit_.mjDSBL_FRICTIONLOSS;
+        
         /// <summary>
         /// joint and tendon limit constraints
         /// </summary>
-        public const libnative._mjtDisableBit mjDSBL_LIMIT = _mjtDisableBit.mjDSBL_LIMIT;
-
+        public const libnative.mjtDisableBit_ mjDSBL_LIMIT = mjtDisableBit_.mjDSBL_LIMIT;
+        
         /// <summary>
         /// contact constraints
         /// </summary>
-        public const libnative._mjtDisableBit mjDSBL_CONTACT = _mjtDisableBit.mjDSBL_CONTACT;
-
+        public const libnative.mjtDisableBit_ mjDSBL_CONTACT = mjtDisableBit_.mjDSBL_CONTACT;
+        
         /// <summary>
         /// passive forces
         /// </summary>
-        public const libnative._mjtDisableBit mjDSBL_PASSIVE = _mjtDisableBit.mjDSBL_PASSIVE;
-
+        public const libnative.mjtDisableBit_ mjDSBL_PASSIVE = mjtDisableBit_.mjDSBL_PASSIVE;
+        
         /// <summary>
         /// gravitational forces
         /// </summary>
-        public const libnative._mjtDisableBit mjDSBL_GRAVITY = _mjtDisableBit.mjDSBL_GRAVITY;
-
+        public const libnative.mjtDisableBit_ mjDSBL_GRAVITY = mjtDisableBit_.mjDSBL_GRAVITY;
+        
         /// <summary>
         /// clamp control to specified range
         /// </summary>
-        public const libnative._mjtDisableBit mjDSBL_CLAMPCTRL = _mjtDisableBit.mjDSBL_CLAMPCTRL;
-
+        public const libnative.mjtDisableBit_ mjDSBL_CLAMPCTRL = mjtDisableBit_.mjDSBL_CLAMPCTRL;
+        
         /// <summary>
         /// warmstart constraint solver
         /// </summary>
-        public const libnative._mjtDisableBit mjDSBL_WARMSTART = _mjtDisableBit.mjDSBL_WARMSTART;
-
+        public const libnative.mjtDisableBit_ mjDSBL_WARMSTART = mjtDisableBit_.mjDSBL_WARMSTART;
+        
         /// <summary>
         /// remove collisions with parent body
         /// </summary>
-        public const libnative._mjtDisableBit mjDSBL_FILTERPARENT = _mjtDisableBit.mjDSBL_FILTERPARENT;
-
+        public const libnative.mjtDisableBit_ mjDSBL_FILTERPARENT = mjtDisableBit_.mjDSBL_FILTERPARENT;
+        
         /// <summary>
         /// apply actuation forces
         /// </summary>
-        public const libnative._mjtDisableBit mjDSBL_ACTUATION = _mjtDisableBit.mjDSBL_ACTUATION;
-
+        public const libnative.mjtDisableBit_ mjDSBL_ACTUATION = mjtDisableBit_.mjDSBL_ACTUATION;
+        
         /// <summary>
         /// integrator safety: make ref[0]&gt;=2*timestep
         /// </summary>
-        public const libnative._mjtDisableBit mjDSBL_REFSAFE = _mjtDisableBit.mjDSBL_REFSAFE;
-
+        public const libnative.mjtDisableBit_ mjDSBL_REFSAFE = mjtDisableBit_.mjDSBL_REFSAFE;
+        
         /// <summary>
         /// number of disable flags
         /// </summary>
-        public const libnative._mjtDisableBit mjNDISABLE = _mjtDisableBit.mjNDISABLE;
-
+        public const libnative.mjtDisableBit_ mjNDISABLE = mjtDisableBit_.mjNDISABLE;
+        
         [Flags]
-        public enum _mjtEnableBit : int
+        public enum mjtEnableBit_ : int
         {
             /// <summary>
             /// override contact parameters
             /// </summary>
-            mjENBL_OVERRIDE = unchecked((int)1 << (int)0),
-
+            mjENBL_OVERRIDE = unchecked((int)1  << (int) 0),
+            
             /// <summary>
             /// energy computation
             /// </summary>
-            mjENBL_ENERGY = unchecked((int)1 << (int)1),
-
+            mjENBL_ENERGY = unchecked((int)1  << (int) 1),
+            
             /// <summary>
             /// record solver statistics
             /// </summary>
-            mjENBL_FWDINV = unchecked((int)1 << (int)2),
-
+            mjENBL_FWDINV = unchecked((int)1  << (int) 2),
+            
             /// <summary>
             /// add noise to sensor data
             /// </summary>
-            mjENBL_SENSORNOISE = unchecked((int)1 << (int)3),
-
+            mjENBL_SENSORNOISE = unchecked((int)1  << (int) 3),
+            
             /// <summary>
             /// number of enable flags
             /// </summary>
             mjNENABLE = unchecked((int)4),
         }
-
+        
         /// <summary>
         /// override contact parameters
         /// </summary>
-        public const libnative._mjtEnableBit mjENBL_OVERRIDE = _mjtEnableBit.mjENBL_OVERRIDE;
-
+        public const libnative.mjtEnableBit_ mjENBL_OVERRIDE = mjtEnableBit_.mjENBL_OVERRIDE;
+        
         /// <summary>
         /// energy computation
         /// </summary>
-        public const libnative._mjtEnableBit mjENBL_ENERGY = _mjtEnableBit.mjENBL_ENERGY;
-
+        public const libnative.mjtEnableBit_ mjENBL_ENERGY = mjtEnableBit_.mjENBL_ENERGY;
+        
         /// <summary>
         /// record solver statistics
         /// </summary>
-        public const libnative._mjtEnableBit mjENBL_FWDINV = _mjtEnableBit.mjENBL_FWDINV;
-
+        public const libnative.mjtEnableBit_ mjENBL_FWDINV = mjtEnableBit_.mjENBL_FWDINV;
+        
         /// <summary>
         /// add noise to sensor data
         /// </summary>
-        public const libnative._mjtEnableBit mjENBL_SENSORNOISE = _mjtEnableBit.mjENBL_SENSORNOISE;
-
+        public const libnative.mjtEnableBit_ mjENBL_SENSORNOISE = mjtEnableBit_.mjENBL_SENSORNOISE;
+        
         /// <summary>
         /// number of enable flags
         /// </summary>
-        public const libnative._mjtEnableBit mjNENABLE = _mjtEnableBit.mjNENABLE;
-
-        public enum _mjtJoint : int
+        public const libnative.mjtEnableBit_ mjNENABLE = mjtEnableBit_.mjNENABLE;
+        
+        public enum mjtJoint_ : int
         {
             /// <summary>
             /// global position and orientation (quat)       (7)
             /// </summary>
             mjJNT_FREE = unchecked((int)0),
-
+            
             /// <summary>
             /// orientation (quat) relative to parent        (4)
             /// </summary>
             mjJNT_BALL,
-
+            
             /// <summary>
             /// sliding distance along body-fixed axis       (1)
             /// </summary>
             mjJNT_SLIDE,
-
+            
             /// <summary>
             /// rotation angle (rad) around body-fixed axis  (1)
             /// </summary>
             mjJNT_HINGE,
         }
-
+        
         /// <summary>
         /// global position and orientation (quat)       (7)
         /// </summary>
-        public const libnative._mjtJoint mjJNT_FREE = _mjtJoint.mjJNT_FREE;
-
+        public const libnative.mjtJoint_ mjJNT_FREE = mjtJoint_.mjJNT_FREE;
+        
         /// <summary>
         /// orientation (quat) relative to parent        (4)
         /// </summary>
-        public const libnative._mjtJoint mjJNT_BALL = _mjtJoint.mjJNT_BALL;
-
+        public const libnative.mjtJoint_ mjJNT_BALL = mjtJoint_.mjJNT_BALL;
+        
         /// <summary>
         /// sliding distance along body-fixed axis       (1)
         /// </summary>
-        public const libnative._mjtJoint mjJNT_SLIDE = _mjtJoint.mjJNT_SLIDE;
-
+        public const libnative.mjtJoint_ mjJNT_SLIDE = mjtJoint_.mjJNT_SLIDE;
+        
         /// <summary>
         /// rotation angle (rad) around body-fixed axis  (1)
         /// </summary>
-        public const libnative._mjtJoint mjJNT_HINGE = _mjtJoint.mjJNT_HINGE;
-
-        public enum _mjtGeom : int
+        public const libnative.mjtJoint_ mjJNT_HINGE = mjtJoint_.mjJNT_HINGE;
+        
+        public enum mjtGeom_ : int
         {
             /// <summary>
             /// plane
             /// </summary>
             mjGEOM_PLANE = unchecked((int)0),
-
+            
             /// <summary>
             /// height field
             /// </summary>
             mjGEOM_HFIELD,
-
+            
             /// <summary>
             /// sphere
             /// </summary>
             mjGEOM_SPHERE,
-
+            
             /// <summary>
             /// capsule
             /// </summary>
             mjGEOM_CAPSULE,
-
+            
             /// <summary>
             /// ellipsoid
             /// </summary>
             mjGEOM_ELLIPSOID,
-
+            
             /// <summary>
             /// cylinder
             /// </summary>
             mjGEOM_CYLINDER,
-
+            
             /// <summary>
             /// box
             /// </summary>
             mjGEOM_BOX,
-
+            
             /// <summary>
             /// mesh
             /// </summary>
             mjGEOM_MESH,
-
+            
             /// <summary>
             /// number of regular geom types
             /// </summary>
             mjNGEOMTYPES,
-
+            
             /// <summary>
             /// arrow
             /// </summary>
             mjGEOM_ARROW = unchecked((int)100),
-
+            
             /// <summary>
             /// arrow without wedges
             /// </summary>
             mjGEOM_ARROW1,
-
+            
             /// <summary>
             /// arrow in both directions
             /// </summary>
             mjGEOM_ARROW2,
-
+            
             /// <summary>
             /// line
             /// </summary>
             mjGEOM_LINE,
-
+            
             /// <summary>
             /// skin
             /// </summary>
             mjGEOM_SKIN,
-
+            
             /// <summary>
             /// text label
             /// </summary>
             mjGEOM_LABEL,
-
+            
             /// <summary>
             /// missing geom type
             /// </summary>
             mjGEOM_NONE = unchecked((int)1001),
         }
-
+        
         /// <summary>
         /// plane
         /// </summary>
-        public const libnative._mjtGeom mjGEOM_PLANE = _mjtGeom.mjGEOM_PLANE;
-
+        public const libnative.mjtGeom_ mjGEOM_PLANE = mjtGeom_.mjGEOM_PLANE;
+        
         /// <summary>
         /// height field
         /// </summary>
-        public const libnative._mjtGeom mjGEOM_HFIELD = _mjtGeom.mjGEOM_HFIELD;
-
+        public const libnative.mjtGeom_ mjGEOM_HFIELD = mjtGeom_.mjGEOM_HFIELD;
+        
         /// <summary>
         /// sphere
         /// </summary>
-        public const libnative._mjtGeom mjGEOM_SPHERE = _mjtGeom.mjGEOM_SPHERE;
-
+        public const libnative.mjtGeom_ mjGEOM_SPHERE = mjtGeom_.mjGEOM_SPHERE;
+        
         /// <summary>
         /// capsule
         /// </summary>
-        public const libnative._mjtGeom mjGEOM_CAPSULE = _mjtGeom.mjGEOM_CAPSULE;
-
+        public const libnative.mjtGeom_ mjGEOM_CAPSULE = mjtGeom_.mjGEOM_CAPSULE;
+        
         /// <summary>
         /// ellipsoid
         /// </summary>
-        public const libnative._mjtGeom mjGEOM_ELLIPSOID = _mjtGeom.mjGEOM_ELLIPSOID;
-
+        public const libnative.mjtGeom_ mjGEOM_ELLIPSOID = mjtGeom_.mjGEOM_ELLIPSOID;
+        
         /// <summary>
         /// cylinder
         /// </summary>
-        public const libnative._mjtGeom mjGEOM_CYLINDER = _mjtGeom.mjGEOM_CYLINDER;
-
+        public const libnative.mjtGeom_ mjGEOM_CYLINDER = mjtGeom_.mjGEOM_CYLINDER;
+        
         /// <summary>
         /// box
         /// </summary>
-        public const libnative._mjtGeom mjGEOM_BOX = _mjtGeom.mjGEOM_BOX;
-
+        public const libnative.mjtGeom_ mjGEOM_BOX = mjtGeom_.mjGEOM_BOX;
+        
         /// <summary>
         /// mesh
         /// </summary>
-        public const libnative._mjtGeom mjGEOM_MESH = _mjtGeom.mjGEOM_MESH;
-
+        public const libnative.mjtGeom_ mjGEOM_MESH = mjtGeom_.mjGEOM_MESH;
+        
         /// <summary>
         /// number of regular geom types
         /// </summary>
-        public const libnative._mjtGeom mjNGEOMTYPES = _mjtGeom.mjNGEOMTYPES;
-
+        public const libnative.mjtGeom_ mjNGEOMTYPES = mjtGeom_.mjNGEOMTYPES;
+        
         /// <summary>
         /// arrow
         /// </summary>
-        public const libnative._mjtGeom mjGEOM_ARROW = _mjtGeom.mjGEOM_ARROW;
-
+        public const libnative.mjtGeom_ mjGEOM_ARROW = mjtGeom_.mjGEOM_ARROW;
+        
         /// <summary>
         /// arrow without wedges
         /// </summary>
-        public const libnative._mjtGeom mjGEOM_ARROW1 = _mjtGeom.mjGEOM_ARROW1;
-
+        public const libnative.mjtGeom_ mjGEOM_ARROW1 = mjtGeom_.mjGEOM_ARROW1;
+        
         /// <summary>
         /// arrow in both directions
         /// </summary>
-        public const libnative._mjtGeom mjGEOM_ARROW2 = _mjtGeom.mjGEOM_ARROW2;
-
+        public const libnative.mjtGeom_ mjGEOM_ARROW2 = mjtGeom_.mjGEOM_ARROW2;
+        
         /// <summary>
         /// line
         /// </summary>
-        public const libnative._mjtGeom mjGEOM_LINE = _mjtGeom.mjGEOM_LINE;
-
+        public const libnative.mjtGeom_ mjGEOM_LINE = mjtGeom_.mjGEOM_LINE;
+        
         /// <summary>
         /// skin
         /// </summary>
-        public const libnative._mjtGeom mjGEOM_SKIN = _mjtGeom.mjGEOM_SKIN;
-
+        public const libnative.mjtGeom_ mjGEOM_SKIN = mjtGeom_.mjGEOM_SKIN;
+        
         /// <summary>
         /// text label
         /// </summary>
-        public const libnative._mjtGeom mjGEOM_LABEL = _mjtGeom.mjGEOM_LABEL;
-
+        public const libnative.mjtGeom_ mjGEOM_LABEL = mjtGeom_.mjGEOM_LABEL;
+        
         /// <summary>
         /// missing geom type
         /// </summary>
-        public const libnative._mjtGeom mjGEOM_NONE = _mjtGeom.mjGEOM_NONE;
-
-        public enum _mjtCamLight : int
+        public const libnative.mjtGeom_ mjGEOM_NONE = mjtGeom_.mjGEOM_NONE;
+        
+        public enum mjtCamLight_ : int
         {
             /// <summary>
             /// pos and rot fixed in body
             /// </summary>
             mjCAMLIGHT_FIXED = unchecked((int)0),
-
+            
             /// <summary>
             /// pos tracks body, rot fixed in global
             /// </summary>
             mjCAMLIGHT_TRACK,
-
+            
             /// <summary>
             /// pos tracks subtree com, rot fixed in body
             /// </summary>
             mjCAMLIGHT_TRACKCOM,
-
+            
             /// <summary>
             /// pos fixed in body, rot tracks target body
             /// </summary>
             mjCAMLIGHT_TARGETBODY,
-
+            
             /// <summary>
             /// pos fixed in body, rot tracks target subtree com
             /// </summary>
             mjCAMLIGHT_TARGETBODYCOM,
         }
-
+        
         /// <summary>
         /// pos and rot fixed in body
         /// </summary>
-        public const libnative._mjtCamLight mjCAMLIGHT_FIXED = _mjtCamLight.mjCAMLIGHT_FIXED;
-
+        public const libnative.mjtCamLight_ mjCAMLIGHT_FIXED = mjtCamLight_.mjCAMLIGHT_FIXED;
+        
         /// <summary>
         /// pos tracks body, rot fixed in global
         /// </summary>
-        public const libnative._mjtCamLight mjCAMLIGHT_TRACK = _mjtCamLight.mjCAMLIGHT_TRACK;
-
+        public const libnative.mjtCamLight_ mjCAMLIGHT_TRACK = mjtCamLight_.mjCAMLIGHT_TRACK;
+        
         /// <summary>
         /// pos tracks subtree com, rot fixed in body
         /// </summary>
-        public const libnative._mjtCamLight mjCAMLIGHT_TRACKCOM = _mjtCamLight.mjCAMLIGHT_TRACKCOM;
-
+        public const libnative.mjtCamLight_ mjCAMLIGHT_TRACKCOM = mjtCamLight_.mjCAMLIGHT_TRACKCOM;
+        
         /// <summary>
         /// pos fixed in body, rot tracks target body
         /// </summary>
-        public const libnative._mjtCamLight mjCAMLIGHT_TARGETBODY = _mjtCamLight.mjCAMLIGHT_TARGETBODY;
-
+        public const libnative.mjtCamLight_ mjCAMLIGHT_TARGETBODY = mjtCamLight_.mjCAMLIGHT_TARGETBODY;
+        
         /// <summary>
         /// pos fixed in body, rot tracks target subtree com
         /// </summary>
-        public const libnative._mjtCamLight mjCAMLIGHT_TARGETBODYCOM = _mjtCamLight.mjCAMLIGHT_TARGETBODYCOM;
-
-        public enum _mjtTexture : int
+        public const libnative.mjtCamLight_ mjCAMLIGHT_TARGETBODYCOM = mjtCamLight_.mjCAMLIGHT_TARGETBODYCOM;
+        
+        public enum mjtTexture_ : int
         {
             /// <summary>
             /// 2d texture, suitable for planes and hfields
             /// </summary>
             mjTEXTURE_2D = unchecked((int)0),
-
+            
             /// <summary>
             /// cube texture, suitable for all other geom types
             /// </summary>
             mjTEXTURE_CUBE,
-
+            
             /// <summary>
             /// cube texture used as skybox
             /// </summary>
             mjTEXTURE_SKYBOX,
         }
-
+        
         /// <summary>
         /// 2d texture, suitable for planes and hfields
         /// </summary>
-        public const libnative._mjtTexture mjTEXTURE_2D = _mjtTexture.mjTEXTURE_2D;
-
+        public const libnative.mjtTexture_ mjTEXTURE_2D = mjtTexture_.mjTEXTURE_2D;
+        
         /// <summary>
         /// cube texture, suitable for all other geom types
         /// </summary>
-        public const libnative._mjtTexture mjTEXTURE_CUBE = _mjtTexture.mjTEXTURE_CUBE;
-
+        public const libnative.mjtTexture_ mjTEXTURE_CUBE = mjtTexture_.mjTEXTURE_CUBE;
+        
         /// <summary>
         /// cube texture used as skybox
         /// </summary>
-        public const libnative._mjtTexture mjTEXTURE_SKYBOX = _mjtTexture.mjTEXTURE_SKYBOX;
-
-        public enum _mjtIntegrator : int
+        public const libnative.mjtTexture_ mjTEXTURE_SKYBOX = mjtTexture_.mjTEXTURE_SKYBOX;
+        
+        public enum mjtIntegrator_ : int
         {
             /// <summary>
             /// semi-implicit Euler
             /// </summary>
             mjINT_EULER = unchecked((int)0),
-
+            
             /// <summary>
             /// 4th-order Runge Kutta
             /// </summary>
             mjINT_RK4,
         }
-
+        
         /// <summary>
         /// semi-implicit Euler
         /// </summary>
-        public const libnative._mjtIntegrator mjINT_EULER = _mjtIntegrator.mjINT_EULER;
-
+        public const libnative.mjtIntegrator_ mjINT_EULER = mjtIntegrator_.mjINT_EULER;
+        
         /// <summary>
         /// 4th-order Runge Kutta
         /// </summary>
-        public const libnative._mjtIntegrator mjINT_RK4 = _mjtIntegrator.mjINT_RK4;
-
-        public enum _mjtCollision : int
+        public const libnative.mjtIntegrator_ mjINT_RK4 = mjtIntegrator_.mjINT_RK4;
+        
+        public enum mjtCollision_ : int
         {
             /// <summary>
             /// test precomputed and dynamic pairs
             /// </summary>
             mjCOL_ALL = unchecked((int)0),
-
+            
             /// <summary>
             /// test predefined pairs only
             /// </summary>
             mjCOL_PAIR,
-
+            
             /// <summary>
             /// test dynamic pairs only
             /// </summary>
             mjCOL_DYNAMIC,
         }
-
+        
         /// <summary>
         /// test precomputed and dynamic pairs
         /// </summary>
-        public const libnative._mjtCollision mjCOL_ALL = _mjtCollision.mjCOL_ALL;
-
+        public const libnative.mjtCollision_ mjCOL_ALL = mjtCollision_.mjCOL_ALL;
+        
         /// <summary>
         /// test predefined pairs only
         /// </summary>
-        public const libnative._mjtCollision mjCOL_PAIR = _mjtCollision.mjCOL_PAIR;
-
+        public const libnative.mjtCollision_ mjCOL_PAIR = mjtCollision_.mjCOL_PAIR;
+        
         /// <summary>
         /// test dynamic pairs only
         /// </summary>
-        public const libnative._mjtCollision mjCOL_DYNAMIC = _mjtCollision.mjCOL_DYNAMIC;
-
-        public enum _mjtCone : int
+        public const libnative.mjtCollision_ mjCOL_DYNAMIC = mjtCollision_.mjCOL_DYNAMIC;
+        
+        public enum mjtCone_ : int
         {
             /// <summary>
             /// pyramidal
             /// </summary>
             mjCONE_PYRAMIDAL = unchecked((int)0),
-
+            
             /// <summary>
             /// elliptic
             /// </summary>
             mjCONE_ELLIPTIC,
         }
-
+        
         /// <summary>
         /// pyramidal
         /// </summary>
-        public const libnative._mjtCone mjCONE_PYRAMIDAL = _mjtCone.mjCONE_PYRAMIDAL;
-
+        public const libnative.mjtCone_ mjCONE_PYRAMIDAL = mjtCone_.mjCONE_PYRAMIDAL;
+        
         /// <summary>
         /// elliptic
         /// </summary>
-        public const libnative._mjtCone mjCONE_ELLIPTIC = _mjtCone.mjCONE_ELLIPTIC;
-
-        public enum _mjtJacobian : int
+        public const libnative.mjtCone_ mjCONE_ELLIPTIC = mjtCone_.mjCONE_ELLIPTIC;
+        
+        public enum mjtJacobian_ : int
         {
             /// <summary>
             /// dense
             /// </summary>
             mjJAC_DENSE = unchecked((int)0),
-
+            
             /// <summary>
             /// sparse
             /// </summary>
             mjJAC_SPARSE,
-
+            
             /// <summary>
             /// dense if nv
             /// &lt;
@@ -593,4468 +593,4465 @@ namespace MuJoCoSharp
             /// </summary>
             mjJAC_AUTO,
         }
-
+        
         /// <summary>
         /// dense
         /// </summary>
-        public const libnative._mjtJacobian mjJAC_DENSE = _mjtJacobian.mjJAC_DENSE;
-
+        public const libnative.mjtJacobian_ mjJAC_DENSE = mjtJacobian_.mjJAC_DENSE;
+        
         /// <summary>
         /// sparse
         /// </summary>
-        public const libnative._mjtJacobian mjJAC_SPARSE = _mjtJacobian.mjJAC_SPARSE;
-
+        public const libnative.mjtJacobian_ mjJAC_SPARSE = mjtJacobian_.mjJAC_SPARSE;
+        
         /// <summary>
         /// dense if nv
         /// &lt;
         /// 60, sparse otherwise
         /// </summary>
-        public const libnative._mjtJacobian mjJAC_AUTO = _mjtJacobian.mjJAC_AUTO;
-
-        public enum _mjtSolver : int
+        public const libnative.mjtJacobian_ mjJAC_AUTO = mjtJacobian_.mjJAC_AUTO;
+        
+        public enum mjtSolver_ : int
         {
             /// <summary>
             /// PGS    (dual)
             /// </summary>
             mjSOL_PGS = unchecked((int)0),
-
+            
             /// <summary>
             /// CG     (primal)
             /// </summary>
             mjSOL_CG,
-
+            
             /// <summary>
             /// Newton (primal)
             /// </summary>
             mjSOL_NEWTON,
         }
-
+        
         /// <summary>
         /// PGS    (dual)
         /// </summary>
-        public const libnative._mjtSolver mjSOL_PGS = _mjtSolver.mjSOL_PGS;
-
+        public const libnative.mjtSolver_ mjSOL_PGS = mjtSolver_.mjSOL_PGS;
+        
         /// <summary>
         /// CG     (primal)
         /// </summary>
-        public const libnative._mjtSolver mjSOL_CG = _mjtSolver.mjSOL_CG;
-
+        public const libnative.mjtSolver_ mjSOL_CG = mjtSolver_.mjSOL_CG;
+        
         /// <summary>
         /// Newton (primal)
         /// </summary>
-        public const libnative._mjtSolver mjSOL_NEWTON = _mjtSolver.mjSOL_NEWTON;
-
-        public enum _mjtEq : int
+        public const libnative.mjtSolver_ mjSOL_NEWTON = mjtSolver_.mjSOL_NEWTON;
+        
+        public enum mjtEq_ : int
         {
             /// <summary>
             /// connect two bodies at a point (ball joint)
             /// </summary>
             mjEQ_CONNECT = unchecked((int)0),
-
+            
             /// <summary>
             /// fix relative position and orientation of two bodies
             /// </summary>
             mjEQ_WELD,
-
+            
             /// <summary>
             /// couple the values of two scalar joints with cubic
             /// </summary>
             mjEQ_JOINT,
-
+            
             /// <summary>
             /// couple the lengths of two tendons with cubic
             /// </summary>
             mjEQ_TENDON,
-
+            
             /// <summary>
             /// fix the contact distance betweent two geoms
             /// </summary>
             mjEQ_DISTANCE,
         }
-
+        
         /// <summary>
         /// connect two bodies at a point (ball joint)
         /// </summary>
-        public const libnative._mjtEq mjEQ_CONNECT = _mjtEq.mjEQ_CONNECT;
-
+        public const libnative.mjtEq_ mjEQ_CONNECT = mjtEq_.mjEQ_CONNECT;
+        
         /// <summary>
         /// fix relative position and orientation of two bodies
         /// </summary>
-        public const libnative._mjtEq mjEQ_WELD = _mjtEq.mjEQ_WELD;
-
+        public const libnative.mjtEq_ mjEQ_WELD = mjtEq_.mjEQ_WELD;
+        
         /// <summary>
         /// couple the values of two scalar joints with cubic
         /// </summary>
-        public const libnative._mjtEq mjEQ_JOINT = _mjtEq.mjEQ_JOINT;
-
+        public const libnative.mjtEq_ mjEQ_JOINT = mjtEq_.mjEQ_JOINT;
+        
         /// <summary>
         /// couple the lengths of two tendons with cubic
         /// </summary>
-        public const libnative._mjtEq mjEQ_TENDON = _mjtEq.mjEQ_TENDON;
-
+        public const libnative.mjtEq_ mjEQ_TENDON = mjtEq_.mjEQ_TENDON;
+        
         /// <summary>
         /// fix the contact distance betweent two geoms
         /// </summary>
-        public const libnative._mjtEq mjEQ_DISTANCE = _mjtEq.mjEQ_DISTANCE;
-
-        public enum _mjtWrap : int
+        public const libnative.mjtEq_ mjEQ_DISTANCE = mjtEq_.mjEQ_DISTANCE;
+        
+        public enum mjtWrap_ : int
         {
             /// <summary>
             /// null object
             /// </summary>
             mjWRAP_NONE = unchecked((int)0),
-
+            
             /// <summary>
             /// constant moment arm
             /// </summary>
             mjWRAP_JOINT,
-
+            
             /// <summary>
             /// pulley used to split tendon
             /// </summary>
             mjWRAP_PULLEY,
-
+            
             /// <summary>
             /// pass through site
             /// </summary>
             mjWRAP_SITE,
-
+            
             /// <summary>
             /// wrap around sphere
             /// </summary>
             mjWRAP_SPHERE,
-
+            
             /// <summary>
             /// wrap around (infinite) cylinder
             /// </summary>
             mjWRAP_CYLINDER,
         }
-
+        
         /// <summary>
         /// null object
         /// </summary>
-        public const libnative._mjtWrap mjWRAP_NONE = _mjtWrap.mjWRAP_NONE;
-
+        public const libnative.mjtWrap_ mjWRAP_NONE = mjtWrap_.mjWRAP_NONE;
+        
         /// <summary>
         /// constant moment arm
         /// </summary>
-        public const libnative._mjtWrap mjWRAP_JOINT = _mjtWrap.mjWRAP_JOINT;
-
+        public const libnative.mjtWrap_ mjWRAP_JOINT = mjtWrap_.mjWRAP_JOINT;
+        
         /// <summary>
         /// pulley used to split tendon
         /// </summary>
-        public const libnative._mjtWrap mjWRAP_PULLEY = _mjtWrap.mjWRAP_PULLEY;
-
+        public const libnative.mjtWrap_ mjWRAP_PULLEY = mjtWrap_.mjWRAP_PULLEY;
+        
         /// <summary>
         /// pass through site
         /// </summary>
-        public const libnative._mjtWrap mjWRAP_SITE = _mjtWrap.mjWRAP_SITE;
-
+        public const libnative.mjtWrap_ mjWRAP_SITE = mjtWrap_.mjWRAP_SITE;
+        
         /// <summary>
         /// wrap around sphere
         /// </summary>
-        public const libnative._mjtWrap mjWRAP_SPHERE = _mjtWrap.mjWRAP_SPHERE;
-
+        public const libnative.mjtWrap_ mjWRAP_SPHERE = mjtWrap_.mjWRAP_SPHERE;
+        
         /// <summary>
         /// wrap around (infinite) cylinder
         /// </summary>
-        public const libnative._mjtWrap mjWRAP_CYLINDER = _mjtWrap.mjWRAP_CYLINDER;
-
-        public enum _mjtTrn : int
+        public const libnative.mjtWrap_ mjWRAP_CYLINDER = mjtWrap_.mjWRAP_CYLINDER;
+        
+        public enum mjtTrn_ : int
         {
             /// <summary>
             /// force on joint
             /// </summary>
             mjTRN_JOINT = unchecked((int)0),
-
+            
             /// <summary>
             /// force on joint, expressed in parent frame
             /// </summary>
             mjTRN_JOINTINPARENT,
-
+            
             /// <summary>
             /// force via slider-crank linkage
             /// </summary>
             mjTRN_SLIDERCRANK,
-
+            
             /// <summary>
             /// force on tendon
             /// </summary>
             mjTRN_TENDON,
-
+            
             /// <summary>
             /// force on site
             /// </summary>
             mjTRN_SITE,
-
+            
             /// <summary>
             /// undefined transmission type
             /// </summary>
             mjTRN_UNDEFINED = unchecked((int)1000),
         }
-
+        
         /// <summary>
         /// force on joint
         /// </summary>
-        public const libnative._mjtTrn mjTRN_JOINT = _mjtTrn.mjTRN_JOINT;
-
+        public const libnative.mjtTrn_ mjTRN_JOINT = mjtTrn_.mjTRN_JOINT;
+        
         /// <summary>
         /// force on joint, expressed in parent frame
         /// </summary>
-        public const libnative._mjtTrn mjTRN_JOINTINPARENT = _mjtTrn.mjTRN_JOINTINPARENT;
-
+        public const libnative.mjtTrn_ mjTRN_JOINTINPARENT = mjtTrn_.mjTRN_JOINTINPARENT;
+        
         /// <summary>
         /// force via slider-crank linkage
         /// </summary>
-        public const libnative._mjtTrn mjTRN_SLIDERCRANK = _mjtTrn.mjTRN_SLIDERCRANK;
-
+        public const libnative.mjtTrn_ mjTRN_SLIDERCRANK = mjtTrn_.mjTRN_SLIDERCRANK;
+        
         /// <summary>
         /// force on tendon
         /// </summary>
-        public const libnative._mjtTrn mjTRN_TENDON = _mjtTrn.mjTRN_TENDON;
-
+        public const libnative.mjtTrn_ mjTRN_TENDON = mjtTrn_.mjTRN_TENDON;
+        
         /// <summary>
         /// force on site
         /// </summary>
-        public const libnative._mjtTrn mjTRN_SITE = _mjtTrn.mjTRN_SITE;
-
+        public const libnative.mjtTrn_ mjTRN_SITE = mjtTrn_.mjTRN_SITE;
+        
         /// <summary>
         /// undefined transmission type
         /// </summary>
-        public const libnative._mjtTrn mjTRN_UNDEFINED = _mjtTrn.mjTRN_UNDEFINED;
-
-        public enum _mjtDyn : int
+        public const libnative.mjtTrn_ mjTRN_UNDEFINED = mjtTrn_.mjTRN_UNDEFINED;
+        
+        public enum mjtDyn_ : int
         {
             /// <summary>
             /// no internal dynamics; ctrl specifies force
             /// </summary>
             mjDYN_NONE = unchecked((int)0),
-
+            
             /// <summary>
             /// integrator: da/dt = u
             /// </summary>
             mjDYN_INTEGRATOR,
-
+            
             /// <summary>
             /// linear filter: da/dt = (u-a) / tau
             /// </summary>
             mjDYN_FILTER,
-
+            
             /// <summary>
             /// piece-wise linear filter with two time constants
             /// </summary>
             mjDYN_MUSCLE,
-
+            
             /// <summary>
             /// user-defined dynamics type
             /// </summary>
             mjDYN_USER,
         }
-
+        
         /// <summary>
         /// no internal dynamics; ctrl specifies force
         /// </summary>
-        public const libnative._mjtDyn mjDYN_NONE = _mjtDyn.mjDYN_NONE;
-
+        public const libnative.mjtDyn_ mjDYN_NONE = mjtDyn_.mjDYN_NONE;
+        
         /// <summary>
         /// integrator: da/dt = u
         /// </summary>
-        public const libnative._mjtDyn mjDYN_INTEGRATOR = _mjtDyn.mjDYN_INTEGRATOR;
-
+        public const libnative.mjtDyn_ mjDYN_INTEGRATOR = mjtDyn_.mjDYN_INTEGRATOR;
+        
         /// <summary>
         /// linear filter: da/dt = (u-a) / tau
         /// </summary>
-        public const libnative._mjtDyn mjDYN_FILTER = _mjtDyn.mjDYN_FILTER;
-
+        public const libnative.mjtDyn_ mjDYN_FILTER = mjtDyn_.mjDYN_FILTER;
+        
         /// <summary>
         /// piece-wise linear filter with two time constants
         /// </summary>
-        public const libnative._mjtDyn mjDYN_MUSCLE = _mjtDyn.mjDYN_MUSCLE;
-
+        public const libnative.mjtDyn_ mjDYN_MUSCLE = mjtDyn_.mjDYN_MUSCLE;
+        
         /// <summary>
         /// user-defined dynamics type
         /// </summary>
-        public const libnative._mjtDyn mjDYN_USER = _mjtDyn.mjDYN_USER;
-
-        public enum _mjtGain : int
+        public const libnative.mjtDyn_ mjDYN_USER = mjtDyn_.mjDYN_USER;
+        
+        public enum mjtGain_ : int
         {
             /// <summary>
             /// fixed gain
             /// </summary>
             mjGAIN_FIXED = unchecked((int)0),
-
+            
             /// <summary>
             /// muscle FLV curve computed by mju_muscleGain()
             /// </summary>
             mjGAIN_MUSCLE,
-
+            
             /// <summary>
             /// user-defined gain type
             /// </summary>
             mjGAIN_USER,
         }
-
+        
         /// <summary>
         /// fixed gain
         /// </summary>
-        public const libnative._mjtGain mjGAIN_FIXED = _mjtGain.mjGAIN_FIXED;
-
+        public const libnative.mjtGain_ mjGAIN_FIXED = mjtGain_.mjGAIN_FIXED;
+        
         /// <summary>
         /// muscle FLV curve computed by mju_muscleGain()
         /// </summary>
-        public const libnative._mjtGain mjGAIN_MUSCLE = _mjtGain.mjGAIN_MUSCLE;
-
+        public const libnative.mjtGain_ mjGAIN_MUSCLE = mjtGain_.mjGAIN_MUSCLE;
+        
         /// <summary>
         /// user-defined gain type
         /// </summary>
-        public const libnative._mjtGain mjGAIN_USER = _mjtGain.mjGAIN_USER;
-
-        public enum _mjtBias : int
+        public const libnative.mjtGain_ mjGAIN_USER = mjtGain_.mjGAIN_USER;
+        
+        public enum mjtBias_ : int
         {
             /// <summary>
             /// no bias
             /// </summary>
             mjBIAS_NONE = unchecked((int)0),
-
+            
             /// <summary>
             /// const + kp*length + kv*velocity
             /// </summary>
             mjBIAS_AFFINE,
-
+            
             /// <summary>
             /// muscle passive force computed by mju_muscleBias()
             /// </summary>
             mjBIAS_MUSCLE,
-
+            
             /// <summary>
             /// user-defined bias type
             /// </summary>
             mjBIAS_USER,
         }
-
+        
         /// <summary>
         /// no bias
         /// </summary>
-        public const libnative._mjtBias mjBIAS_NONE = _mjtBias.mjBIAS_NONE;
-
+        public const libnative.mjtBias_ mjBIAS_NONE = mjtBias_.mjBIAS_NONE;
+        
         /// <summary>
         /// const + kp*length + kv*velocity
         /// </summary>
-        public const libnative._mjtBias mjBIAS_AFFINE = _mjtBias.mjBIAS_AFFINE;
-
+        public const libnative.mjtBias_ mjBIAS_AFFINE = mjtBias_.mjBIAS_AFFINE;
+        
         /// <summary>
         /// muscle passive force computed by mju_muscleBias()
         /// </summary>
-        public const libnative._mjtBias mjBIAS_MUSCLE = _mjtBias.mjBIAS_MUSCLE;
-
+        public const libnative.mjtBias_ mjBIAS_MUSCLE = mjtBias_.mjBIAS_MUSCLE;
+        
         /// <summary>
         /// user-defined bias type
         /// </summary>
-        public const libnative._mjtBias mjBIAS_USER = _mjtBias.mjBIAS_USER;
-
-        public enum _mjtObj : int
+        public const libnative.mjtBias_ mjBIAS_USER = mjtBias_.mjBIAS_USER;
+        
+        public enum mjtObj_ : int
         {
             /// <summary>
             /// unknown object type
             /// </summary>
             mjOBJ_UNKNOWN = unchecked((int)0),
-
+            
             /// <summary>
             /// body
             /// </summary>
             mjOBJ_BODY,
-
+            
             /// <summary>
             /// body, used to access regular frame instead of i-frame
             /// </summary>
             mjOBJ_XBODY,
-
+            
             /// <summary>
             /// joint
             /// </summary>
             mjOBJ_JOINT,
-
+            
             /// <summary>
             /// dof
             /// </summary>
             mjOBJ_DOF,
-
+            
             /// <summary>
             /// geom
             /// </summary>
             mjOBJ_GEOM,
-
+            
             /// <summary>
             /// site
             /// </summary>
             mjOBJ_SITE,
-
+            
             /// <summary>
             /// camera
             /// </summary>
             mjOBJ_CAMERA,
-
+            
             /// <summary>
             /// light
             /// </summary>
             mjOBJ_LIGHT,
-
+            
             /// <summary>
             /// mesh
             /// </summary>
             mjOBJ_MESH,
-
+            
             /// <summary>
             /// skin
             /// </summary>
             mjOBJ_SKIN,
-
+            
             /// <summary>
             /// heightfield
             /// </summary>
             mjOBJ_HFIELD,
-
+            
             /// <summary>
             /// texture
             /// </summary>
             mjOBJ_TEXTURE,
-
+            
             /// <summary>
             /// material for rendering
             /// </summary>
             mjOBJ_MATERIAL,
-
+            
             /// <summary>
             /// geom pair to include
             /// </summary>
             mjOBJ_PAIR,
-
+            
             /// <summary>
             /// body pair to exclude
             /// </summary>
             mjOBJ_EXCLUDE,
-
+            
             /// <summary>
             /// equality constraint
             /// </summary>
             mjOBJ_EQUALITY,
-
+            
             /// <summary>
             /// tendon
             /// </summary>
             mjOBJ_TENDON,
-
+            
             /// <summary>
             /// actuator
             /// </summary>
             mjOBJ_ACTUATOR,
-
+            
             /// <summary>
             /// sensor
             /// </summary>
             mjOBJ_SENSOR,
-
+            
             /// <summary>
             /// numeric
             /// </summary>
             mjOBJ_NUMERIC,
-
+            
             /// <summary>
             /// text
             /// </summary>
             mjOBJ_TEXT,
-
+            
             /// <summary>
             /// tuple
             /// </summary>
             mjOBJ_TUPLE,
-
+            
             /// <summary>
             /// keyframe
             /// </summary>
             mjOBJ_KEY,
         }
-
+        
         /// <summary>
         /// unknown object type
         /// </summary>
-        public const libnative._mjtObj mjOBJ_UNKNOWN = _mjtObj.mjOBJ_UNKNOWN;
-
+        public const libnative.mjtObj_ mjOBJ_UNKNOWN = mjtObj_.mjOBJ_UNKNOWN;
+        
         /// <summary>
         /// body
         /// </summary>
-        public const libnative._mjtObj mjOBJ_BODY = _mjtObj.mjOBJ_BODY;
-
+        public const libnative.mjtObj_ mjOBJ_BODY = mjtObj_.mjOBJ_BODY;
+        
         /// <summary>
         /// body, used to access regular frame instead of i-frame
         /// </summary>
-        public const libnative._mjtObj mjOBJ_XBODY = _mjtObj.mjOBJ_XBODY;
-
+        public const libnative.mjtObj_ mjOBJ_XBODY = mjtObj_.mjOBJ_XBODY;
+        
         /// <summary>
         /// joint
         /// </summary>
-        public const libnative._mjtObj mjOBJ_JOINT = _mjtObj.mjOBJ_JOINT;
-
+        public const libnative.mjtObj_ mjOBJ_JOINT = mjtObj_.mjOBJ_JOINT;
+        
         /// <summary>
         /// dof
         /// </summary>
-        public const libnative._mjtObj mjOBJ_DOF = _mjtObj.mjOBJ_DOF;
-
+        public const libnative.mjtObj_ mjOBJ_DOF = mjtObj_.mjOBJ_DOF;
+        
         /// <summary>
         /// geom
         /// </summary>
-        public const libnative._mjtObj mjOBJ_GEOM = _mjtObj.mjOBJ_GEOM;
-
+        public const libnative.mjtObj_ mjOBJ_GEOM = mjtObj_.mjOBJ_GEOM;
+        
         /// <summary>
         /// site
         /// </summary>
-        public const libnative._mjtObj mjOBJ_SITE = _mjtObj.mjOBJ_SITE;
-
+        public const libnative.mjtObj_ mjOBJ_SITE = mjtObj_.mjOBJ_SITE;
+        
         /// <summary>
         /// camera
         /// </summary>
-        public const libnative._mjtObj mjOBJ_CAMERA = _mjtObj.mjOBJ_CAMERA;
-
+        public const libnative.mjtObj_ mjOBJ_CAMERA = mjtObj_.mjOBJ_CAMERA;
+        
         /// <summary>
         /// light
         /// </summary>
-        public const libnative._mjtObj mjOBJ_LIGHT = _mjtObj.mjOBJ_LIGHT;
-
+        public const libnative.mjtObj_ mjOBJ_LIGHT = mjtObj_.mjOBJ_LIGHT;
+        
         /// <summary>
         /// mesh
         /// </summary>
-        public const libnative._mjtObj mjOBJ_MESH = _mjtObj.mjOBJ_MESH;
-
+        public const libnative.mjtObj_ mjOBJ_MESH = mjtObj_.mjOBJ_MESH;
+        
         /// <summary>
         /// skin
         /// </summary>
-        public const libnative._mjtObj mjOBJ_SKIN = _mjtObj.mjOBJ_SKIN;
-
+        public const libnative.mjtObj_ mjOBJ_SKIN = mjtObj_.mjOBJ_SKIN;
+        
         /// <summary>
         /// heightfield
         /// </summary>
-        public const libnative._mjtObj mjOBJ_HFIELD = _mjtObj.mjOBJ_HFIELD;
-
+        public const libnative.mjtObj_ mjOBJ_HFIELD = mjtObj_.mjOBJ_HFIELD;
+        
         /// <summary>
         /// texture
         /// </summary>
-        public const libnative._mjtObj mjOBJ_TEXTURE = _mjtObj.mjOBJ_TEXTURE;
-
+        public const libnative.mjtObj_ mjOBJ_TEXTURE = mjtObj_.mjOBJ_TEXTURE;
+        
         /// <summary>
         /// material for rendering
         /// </summary>
-        public const libnative._mjtObj mjOBJ_MATERIAL = _mjtObj.mjOBJ_MATERIAL;
-
+        public const libnative.mjtObj_ mjOBJ_MATERIAL = mjtObj_.mjOBJ_MATERIAL;
+        
         /// <summary>
         /// geom pair to include
         /// </summary>
-        public const libnative._mjtObj mjOBJ_PAIR = _mjtObj.mjOBJ_PAIR;
-
+        public const libnative.mjtObj_ mjOBJ_PAIR = mjtObj_.mjOBJ_PAIR;
+        
         /// <summary>
         /// body pair to exclude
         /// </summary>
-        public const libnative._mjtObj mjOBJ_EXCLUDE = _mjtObj.mjOBJ_EXCLUDE;
-
+        public const libnative.mjtObj_ mjOBJ_EXCLUDE = mjtObj_.mjOBJ_EXCLUDE;
+        
         /// <summary>
         /// equality constraint
         /// </summary>
-        public const libnative._mjtObj mjOBJ_EQUALITY = _mjtObj.mjOBJ_EQUALITY;
-
+        public const libnative.mjtObj_ mjOBJ_EQUALITY = mjtObj_.mjOBJ_EQUALITY;
+        
         /// <summary>
         /// tendon
         /// </summary>
-        public const libnative._mjtObj mjOBJ_TENDON = _mjtObj.mjOBJ_TENDON;
-
+        public const libnative.mjtObj_ mjOBJ_TENDON = mjtObj_.mjOBJ_TENDON;
+        
         /// <summary>
         /// actuator
         /// </summary>
-        public const libnative._mjtObj mjOBJ_ACTUATOR = _mjtObj.mjOBJ_ACTUATOR;
-
+        public const libnative.mjtObj_ mjOBJ_ACTUATOR = mjtObj_.mjOBJ_ACTUATOR;
+        
         /// <summary>
         /// sensor
         /// </summary>
-        public const libnative._mjtObj mjOBJ_SENSOR = _mjtObj.mjOBJ_SENSOR;
-
+        public const libnative.mjtObj_ mjOBJ_SENSOR = mjtObj_.mjOBJ_SENSOR;
+        
         /// <summary>
         /// numeric
         /// </summary>
-        public const libnative._mjtObj mjOBJ_NUMERIC = _mjtObj.mjOBJ_NUMERIC;
-
+        public const libnative.mjtObj_ mjOBJ_NUMERIC = mjtObj_.mjOBJ_NUMERIC;
+        
         /// <summary>
         /// text
         /// </summary>
-        public const libnative._mjtObj mjOBJ_TEXT = _mjtObj.mjOBJ_TEXT;
-
+        public const libnative.mjtObj_ mjOBJ_TEXT = mjtObj_.mjOBJ_TEXT;
+        
         /// <summary>
         /// tuple
         /// </summary>
-        public const libnative._mjtObj mjOBJ_TUPLE = _mjtObj.mjOBJ_TUPLE;
-
+        public const libnative.mjtObj_ mjOBJ_TUPLE = mjtObj_.mjOBJ_TUPLE;
+        
         /// <summary>
         /// keyframe
         /// </summary>
-        public const libnative._mjtObj mjOBJ_KEY = _mjtObj.mjOBJ_KEY;
-
-        public enum _mjtConstraint : int
+        public const libnative.mjtObj_ mjOBJ_KEY = mjtObj_.mjOBJ_KEY;
+        
+        public enum mjtConstraint_ : int
         {
             /// <summary>
             /// equality constraint
             /// </summary>
             mjCNSTR_EQUALITY = unchecked((int)0),
-
+            
             /// <summary>
             /// dof friction
             /// </summary>
             mjCNSTR_FRICTION_DOF,
-
+            
             /// <summary>
             /// tendon friction
             /// </summary>
             mjCNSTR_FRICTION_TENDON,
-
+            
             /// <summary>
             /// joint limit
             /// </summary>
             mjCNSTR_LIMIT_JOINT,
-
+            
             /// <summary>
             /// tendon limit
             /// </summary>
             mjCNSTR_LIMIT_TENDON,
-
+            
             /// <summary>
             /// frictionless contact
             /// </summary>
             mjCNSTR_CONTACT_FRICTIONLESS,
-
+            
             /// <summary>
             /// frictional contact, pyramidal friction cone
             /// </summary>
             mjCNSTR_CONTACT_PYRAMIDAL,
-
+            
             /// <summary>
             /// frictional contact, elliptic friction cone
             /// </summary>
             mjCNSTR_CONTACT_ELLIPTIC,
         }
-
+        
         /// <summary>
         /// equality constraint
         /// </summary>
-        public const libnative._mjtConstraint mjCNSTR_EQUALITY = _mjtConstraint.mjCNSTR_EQUALITY;
-
+        public const libnative.mjtConstraint_ mjCNSTR_EQUALITY = mjtConstraint_.mjCNSTR_EQUALITY;
+        
         /// <summary>
         /// dof friction
         /// </summary>
-        public const libnative._mjtConstraint mjCNSTR_FRICTION_DOF = _mjtConstraint.mjCNSTR_FRICTION_DOF;
-
+        public const libnative.mjtConstraint_ mjCNSTR_FRICTION_DOF = mjtConstraint_.mjCNSTR_FRICTION_DOF;
+        
         /// <summary>
         /// tendon friction
         /// </summary>
-        public const libnative._mjtConstraint mjCNSTR_FRICTION_TENDON = _mjtConstraint.mjCNSTR_FRICTION_TENDON;
-
+        public const libnative.mjtConstraint_ mjCNSTR_FRICTION_TENDON = mjtConstraint_.mjCNSTR_FRICTION_TENDON;
+        
         /// <summary>
         /// joint limit
         /// </summary>
-        public const libnative._mjtConstraint mjCNSTR_LIMIT_JOINT = _mjtConstraint.mjCNSTR_LIMIT_JOINT;
-
+        public const libnative.mjtConstraint_ mjCNSTR_LIMIT_JOINT = mjtConstraint_.mjCNSTR_LIMIT_JOINT;
+        
         /// <summary>
         /// tendon limit
         /// </summary>
-        public const libnative._mjtConstraint mjCNSTR_LIMIT_TENDON = _mjtConstraint.mjCNSTR_LIMIT_TENDON;
-
+        public const libnative.mjtConstraint_ mjCNSTR_LIMIT_TENDON = mjtConstraint_.mjCNSTR_LIMIT_TENDON;
+        
         /// <summary>
         /// frictionless contact
         /// </summary>
-        public const libnative._mjtConstraint mjCNSTR_CONTACT_FRICTIONLESS = _mjtConstraint.mjCNSTR_CONTACT_FRICTIONLESS;
-
+        public const libnative.mjtConstraint_ mjCNSTR_CONTACT_FRICTIONLESS = mjtConstraint_.mjCNSTR_CONTACT_FRICTIONLESS;
+        
         /// <summary>
         /// frictional contact, pyramidal friction cone
         /// </summary>
-        public const libnative._mjtConstraint mjCNSTR_CONTACT_PYRAMIDAL = _mjtConstraint.mjCNSTR_CONTACT_PYRAMIDAL;
-
+        public const libnative.mjtConstraint_ mjCNSTR_CONTACT_PYRAMIDAL = mjtConstraint_.mjCNSTR_CONTACT_PYRAMIDAL;
+        
         /// <summary>
         /// frictional contact, elliptic friction cone
         /// </summary>
-        public const libnative._mjtConstraint mjCNSTR_CONTACT_ELLIPTIC = _mjtConstraint.mjCNSTR_CONTACT_ELLIPTIC;
-
-        public enum _mjtConstraintState : int
+        public const libnative.mjtConstraint_ mjCNSTR_CONTACT_ELLIPTIC = mjtConstraint_.mjCNSTR_CONTACT_ELLIPTIC;
+        
+        public enum mjtConstraintState_ : int
         {
             /// <summary>
             /// constraint satisfied, zero cost (limit, contact)
             /// </summary>
             mjCNSTRSTATE_SATISFIED = unchecked((int)0),
-
+            
             /// <summary>
             /// quadratic cost (equality, friction, limit, contact)
             /// </summary>
             mjCNSTRSTATE_QUADRATIC,
-
+            
             /// <summary>
             /// linear cost, negative side (friction)
             /// </summary>
             mjCNSTRSTATE_LINEARNEG,
-
+            
             /// <summary>
             /// linear cost, positive side (friction)
             /// </summary>
             mjCNSTRSTATE_LINEARPOS,
-
+            
             /// <summary>
             /// squared distance to cone cost (elliptic contact)
             /// </summary>
             mjCNSTRSTATE_CONE,
         }
-
+        
         /// <summary>
         /// constraint satisfied, zero cost (limit, contact)
         /// </summary>
-        public const libnative._mjtConstraintState mjCNSTRSTATE_SATISFIED = _mjtConstraintState.mjCNSTRSTATE_SATISFIED;
-
+        public const libnative.mjtConstraintState_ mjCNSTRSTATE_SATISFIED = mjtConstraintState_.mjCNSTRSTATE_SATISFIED;
+        
         /// <summary>
         /// quadratic cost (equality, friction, limit, contact)
         /// </summary>
-        public const libnative._mjtConstraintState mjCNSTRSTATE_QUADRATIC = _mjtConstraintState.mjCNSTRSTATE_QUADRATIC;
-
+        public const libnative.mjtConstraintState_ mjCNSTRSTATE_QUADRATIC = mjtConstraintState_.mjCNSTRSTATE_QUADRATIC;
+        
         /// <summary>
         /// linear cost, negative side (friction)
         /// </summary>
-        public const libnative._mjtConstraintState mjCNSTRSTATE_LINEARNEG = _mjtConstraintState.mjCNSTRSTATE_LINEARNEG;
-
+        public const libnative.mjtConstraintState_ mjCNSTRSTATE_LINEARNEG = mjtConstraintState_.mjCNSTRSTATE_LINEARNEG;
+        
         /// <summary>
         /// linear cost, positive side (friction)
         /// </summary>
-        public const libnative._mjtConstraintState mjCNSTRSTATE_LINEARPOS = _mjtConstraintState.mjCNSTRSTATE_LINEARPOS;
-
+        public const libnative.mjtConstraintState_ mjCNSTRSTATE_LINEARPOS = mjtConstraintState_.mjCNSTRSTATE_LINEARPOS;
+        
         /// <summary>
         /// squared distance to cone cost (elliptic contact)
         /// </summary>
-        public const libnative._mjtConstraintState mjCNSTRSTATE_CONE = _mjtConstraintState.mjCNSTRSTATE_CONE;
-
-        public enum _mjtSensor : int
+        public const libnative.mjtConstraintState_ mjCNSTRSTATE_CONE = mjtConstraintState_.mjCNSTRSTATE_CONE;
+        
+        public enum mjtSensor_ : int
         {
             /// <summary>
             /// scalar contact normal forces summed over sensor zone
             /// </summary>
             mjSENS_TOUCH = unchecked((int)0),
-
+            
             /// <summary>
             /// 3D linear acceleration, in local frame
             /// </summary>
             mjSENS_ACCELEROMETER,
-
+            
             /// <summary>
             /// 3D linear velocity, in local frame
             /// </summary>
             mjSENS_VELOCIMETER,
-
+            
             /// <summary>
             /// 3D angular velocity, in local frame
             /// </summary>
             mjSENS_GYRO,
-
+            
             /// <summary>
             /// 3D force between site's body and its parent body
             /// </summary>
             mjSENS_FORCE,
-
+            
             /// <summary>
             /// 3D torque between site's body and its parent body
             /// </summary>
             mjSENS_TORQUE,
-
+            
             /// <summary>
             /// 3D magnetometer
             /// </summary>
             mjSENS_MAGNETOMETER,
-
+            
             /// <summary>
             /// scalar distance to nearest geom or site along z-axis
             /// </summary>
             mjSENS_RANGEFINDER,
-
+            
             /// <summary>
             /// scalar joint position (hinge and slide only)
             /// </summary>
             mjSENS_JOINTPOS,
-
+            
             /// <summary>
             /// scalar joint velocity (hinge and slide only)
             /// </summary>
             mjSENS_JOINTVEL,
-
+            
             /// <summary>
             /// scalar tendon position
             /// </summary>
             mjSENS_TENDONPOS,
-
+            
             /// <summary>
             /// scalar tendon velocity
             /// </summary>
             mjSENS_TENDONVEL,
-
+            
             /// <summary>
             /// scalar actuator position
             /// </summary>
             mjSENS_ACTUATORPOS,
-
+            
             /// <summary>
             /// scalar actuator velocity
             /// </summary>
             mjSENS_ACTUATORVEL,
-
+            
             /// <summary>
             /// scalar actuator force
             /// </summary>
             mjSENS_ACTUATORFRC,
-
+            
             /// <summary>
             /// 4D ball joint quaterion
             /// </summary>
             mjSENS_BALLQUAT,
-
+            
             /// <summary>
             /// 3D ball joint angular velocity
             /// </summary>
             mjSENS_BALLANGVEL,
-
+            
             /// <summary>
             /// joint limit distance-margin
             /// </summary>
             mjSENS_JOINTLIMITPOS,
-
+            
             /// <summary>
             /// joint limit velocity
             /// </summary>
             mjSENS_JOINTLIMITVEL,
-
+            
             /// <summary>
             /// joint limit force
             /// </summary>
             mjSENS_JOINTLIMITFRC,
-
+            
             /// <summary>
             /// tendon limit distance-margin
             /// </summary>
             mjSENS_TENDONLIMITPOS,
-
+            
             /// <summary>
             /// tendon limit velocity
             /// </summary>
             mjSENS_TENDONLIMITVEL,
-
+            
             /// <summary>
             /// tendon limit force
             /// </summary>
             mjSENS_TENDONLIMITFRC,
-
+            
             /// <summary>
             /// 3D position
             /// </summary>
             mjSENS_FRAMEPOS,
-
+            
             /// <summary>
             /// 4D unit quaternion orientation
             /// </summary>
             mjSENS_FRAMEQUAT,
-
+            
             /// <summary>
             /// 3D unit vector: x-axis of object's frame
             /// </summary>
             mjSENS_FRAMEXAXIS,
-
+            
             /// <summary>
             /// 3D unit vector: y-axis of object's frame
             /// </summary>
             mjSENS_FRAMEYAXIS,
-
+            
             /// <summary>
             /// 3D unit vector: z-axis of object's frame
             /// </summary>
             mjSENS_FRAMEZAXIS,
-
+            
             /// <summary>
             /// 3D linear velocity
             /// </summary>
             mjSENS_FRAMELINVEL,
-
+            
             /// <summary>
             /// 3D angular velocity
             /// </summary>
             mjSENS_FRAMEANGVEL,
-
+            
             /// <summary>
             /// 3D linear acceleration
             /// </summary>
             mjSENS_FRAMELINACC,
-
+            
             /// <summary>
             /// 3D angular acceleration
             /// </summary>
             mjSENS_FRAMEANGACC,
-
+            
             /// <summary>
             /// 3D center of mass of subtree
             /// </summary>
             mjSENS_SUBTREECOM,
-
+            
             /// <summary>
             /// 3D linear velocity of subtree
             /// </summary>
             mjSENS_SUBTREELINVEL,
-
+            
             /// <summary>
             /// 3D angular momentum of subtree
             /// </summary>
             mjSENS_SUBTREEANGMOM,
-
+            
             /// <summary>
             /// sensor data provided by mjcb_sensor callback
             /// </summary>
             mjSENS_USER,
         }
-
+        
         /// <summary>
         /// scalar contact normal forces summed over sensor zone
         /// </summary>
-        public const libnative._mjtSensor mjSENS_TOUCH = _mjtSensor.mjSENS_TOUCH;
-
+        public const libnative.mjtSensor_ mjSENS_TOUCH = mjtSensor_.mjSENS_TOUCH;
+        
         /// <summary>
         /// 3D linear acceleration, in local frame
         /// </summary>
-        public const libnative._mjtSensor mjSENS_ACCELEROMETER = _mjtSensor.mjSENS_ACCELEROMETER;
-
+        public const libnative.mjtSensor_ mjSENS_ACCELEROMETER = mjtSensor_.mjSENS_ACCELEROMETER;
+        
         /// <summary>
         /// 3D linear velocity, in local frame
         /// </summary>
-        public const libnative._mjtSensor mjSENS_VELOCIMETER = _mjtSensor.mjSENS_VELOCIMETER;
-
+        public const libnative.mjtSensor_ mjSENS_VELOCIMETER = mjtSensor_.mjSENS_VELOCIMETER;
+        
         /// <summary>
         /// 3D angular velocity, in local frame
         /// </summary>
-        public const libnative._mjtSensor mjSENS_GYRO = _mjtSensor.mjSENS_GYRO;
-
+        public const libnative.mjtSensor_ mjSENS_GYRO = mjtSensor_.mjSENS_GYRO;
+        
         /// <summary>
         /// 3D force between site's body and its parent body
         /// </summary>
-        public const libnative._mjtSensor mjSENS_FORCE = _mjtSensor.mjSENS_FORCE;
-
+        public const libnative.mjtSensor_ mjSENS_FORCE = mjtSensor_.mjSENS_FORCE;
+        
         /// <summary>
         /// 3D torque between site's body and its parent body
         /// </summary>
-        public const libnative._mjtSensor mjSENS_TORQUE = _mjtSensor.mjSENS_TORQUE;
-
+        public const libnative.mjtSensor_ mjSENS_TORQUE = mjtSensor_.mjSENS_TORQUE;
+        
         /// <summary>
         /// 3D magnetometer
         /// </summary>
-        public const libnative._mjtSensor mjSENS_MAGNETOMETER = _mjtSensor.mjSENS_MAGNETOMETER;
-
+        public const libnative.mjtSensor_ mjSENS_MAGNETOMETER = mjtSensor_.mjSENS_MAGNETOMETER;
+        
         /// <summary>
         /// scalar distance to nearest geom or site along z-axis
         /// </summary>
-        public const libnative._mjtSensor mjSENS_RANGEFINDER = _mjtSensor.mjSENS_RANGEFINDER;
-
+        public const libnative.mjtSensor_ mjSENS_RANGEFINDER = mjtSensor_.mjSENS_RANGEFINDER;
+        
         /// <summary>
         /// scalar joint position (hinge and slide only)
         /// </summary>
-        public const libnative._mjtSensor mjSENS_JOINTPOS = _mjtSensor.mjSENS_JOINTPOS;
-
+        public const libnative.mjtSensor_ mjSENS_JOINTPOS = mjtSensor_.mjSENS_JOINTPOS;
+        
         /// <summary>
         /// scalar joint velocity (hinge and slide only)
         /// </summary>
-        public const libnative._mjtSensor mjSENS_JOINTVEL = _mjtSensor.mjSENS_JOINTVEL;
-
+        public const libnative.mjtSensor_ mjSENS_JOINTVEL = mjtSensor_.mjSENS_JOINTVEL;
+        
         /// <summary>
         /// scalar tendon position
         /// </summary>
-        public const libnative._mjtSensor mjSENS_TENDONPOS = _mjtSensor.mjSENS_TENDONPOS;
-
+        public const libnative.mjtSensor_ mjSENS_TENDONPOS = mjtSensor_.mjSENS_TENDONPOS;
+        
         /// <summary>
         /// scalar tendon velocity
         /// </summary>
-        public const libnative._mjtSensor mjSENS_TENDONVEL = _mjtSensor.mjSENS_TENDONVEL;
-
+        public const libnative.mjtSensor_ mjSENS_TENDONVEL = mjtSensor_.mjSENS_TENDONVEL;
+        
         /// <summary>
         /// scalar actuator position
         /// </summary>
-        public const libnative._mjtSensor mjSENS_ACTUATORPOS = _mjtSensor.mjSENS_ACTUATORPOS;
-
+        public const libnative.mjtSensor_ mjSENS_ACTUATORPOS = mjtSensor_.mjSENS_ACTUATORPOS;
+        
         /// <summary>
         /// scalar actuator velocity
         /// </summary>
-        public const libnative._mjtSensor mjSENS_ACTUATORVEL = _mjtSensor.mjSENS_ACTUATORVEL;
-
+        public const libnative.mjtSensor_ mjSENS_ACTUATORVEL = mjtSensor_.mjSENS_ACTUATORVEL;
+        
         /// <summary>
         /// scalar actuator force
         /// </summary>
-        public const libnative._mjtSensor mjSENS_ACTUATORFRC = _mjtSensor.mjSENS_ACTUATORFRC;
-
+        public const libnative.mjtSensor_ mjSENS_ACTUATORFRC = mjtSensor_.mjSENS_ACTUATORFRC;
+        
         /// <summary>
         /// 4D ball joint quaterion
         /// </summary>
-        public const libnative._mjtSensor mjSENS_BALLQUAT = _mjtSensor.mjSENS_BALLQUAT;
-
+        public const libnative.mjtSensor_ mjSENS_BALLQUAT = mjtSensor_.mjSENS_BALLQUAT;
+        
         /// <summary>
         /// 3D ball joint angular velocity
         /// </summary>
-        public const libnative._mjtSensor mjSENS_BALLANGVEL = _mjtSensor.mjSENS_BALLANGVEL;
-
+        public const libnative.mjtSensor_ mjSENS_BALLANGVEL = mjtSensor_.mjSENS_BALLANGVEL;
+        
         /// <summary>
         /// joint limit distance-margin
         /// </summary>
-        public const libnative._mjtSensor mjSENS_JOINTLIMITPOS = _mjtSensor.mjSENS_JOINTLIMITPOS;
-
+        public const libnative.mjtSensor_ mjSENS_JOINTLIMITPOS = mjtSensor_.mjSENS_JOINTLIMITPOS;
+        
         /// <summary>
         /// joint limit velocity
         /// </summary>
-        public const libnative._mjtSensor mjSENS_JOINTLIMITVEL = _mjtSensor.mjSENS_JOINTLIMITVEL;
-
+        public const libnative.mjtSensor_ mjSENS_JOINTLIMITVEL = mjtSensor_.mjSENS_JOINTLIMITVEL;
+        
         /// <summary>
         /// joint limit force
         /// </summary>
-        public const libnative._mjtSensor mjSENS_JOINTLIMITFRC = _mjtSensor.mjSENS_JOINTLIMITFRC;
-
+        public const libnative.mjtSensor_ mjSENS_JOINTLIMITFRC = mjtSensor_.mjSENS_JOINTLIMITFRC;
+        
         /// <summary>
         /// tendon limit distance-margin
         /// </summary>
-        public const libnative._mjtSensor mjSENS_TENDONLIMITPOS = _mjtSensor.mjSENS_TENDONLIMITPOS;
-
+        public const libnative.mjtSensor_ mjSENS_TENDONLIMITPOS = mjtSensor_.mjSENS_TENDONLIMITPOS;
+        
         /// <summary>
         /// tendon limit velocity
         /// </summary>
-        public const libnative._mjtSensor mjSENS_TENDONLIMITVEL = _mjtSensor.mjSENS_TENDONLIMITVEL;
-
+        public const libnative.mjtSensor_ mjSENS_TENDONLIMITVEL = mjtSensor_.mjSENS_TENDONLIMITVEL;
+        
         /// <summary>
         /// tendon limit force
         /// </summary>
-        public const libnative._mjtSensor mjSENS_TENDONLIMITFRC = _mjtSensor.mjSENS_TENDONLIMITFRC;
-
+        public const libnative.mjtSensor_ mjSENS_TENDONLIMITFRC = mjtSensor_.mjSENS_TENDONLIMITFRC;
+        
         /// <summary>
         /// 3D position
         /// </summary>
-        public const libnative._mjtSensor mjSENS_FRAMEPOS = _mjtSensor.mjSENS_FRAMEPOS;
-
+        public const libnative.mjtSensor_ mjSENS_FRAMEPOS = mjtSensor_.mjSENS_FRAMEPOS;
+        
         /// <summary>
         /// 4D unit quaternion orientation
         /// </summary>
-        public const libnative._mjtSensor mjSENS_FRAMEQUAT = _mjtSensor.mjSENS_FRAMEQUAT;
-
+        public const libnative.mjtSensor_ mjSENS_FRAMEQUAT = mjtSensor_.mjSENS_FRAMEQUAT;
+        
         /// <summary>
         /// 3D unit vector: x-axis of object's frame
         /// </summary>
-        public const libnative._mjtSensor mjSENS_FRAMEXAXIS = _mjtSensor.mjSENS_FRAMEXAXIS;
-
+        public const libnative.mjtSensor_ mjSENS_FRAMEXAXIS = mjtSensor_.mjSENS_FRAMEXAXIS;
+        
         /// <summary>
         /// 3D unit vector: y-axis of object's frame
         /// </summary>
-        public const libnative._mjtSensor mjSENS_FRAMEYAXIS = _mjtSensor.mjSENS_FRAMEYAXIS;
-
+        public const libnative.mjtSensor_ mjSENS_FRAMEYAXIS = mjtSensor_.mjSENS_FRAMEYAXIS;
+        
         /// <summary>
         /// 3D unit vector: z-axis of object's frame
         /// </summary>
-        public const libnative._mjtSensor mjSENS_FRAMEZAXIS = _mjtSensor.mjSENS_FRAMEZAXIS;
-
+        public const libnative.mjtSensor_ mjSENS_FRAMEZAXIS = mjtSensor_.mjSENS_FRAMEZAXIS;
+        
         /// <summary>
         /// 3D linear velocity
         /// </summary>
-        public const libnative._mjtSensor mjSENS_FRAMELINVEL = _mjtSensor.mjSENS_FRAMELINVEL;
-
+        public const libnative.mjtSensor_ mjSENS_FRAMELINVEL = mjtSensor_.mjSENS_FRAMELINVEL;
+        
         /// <summary>
         /// 3D angular velocity
         /// </summary>
-        public const libnative._mjtSensor mjSENS_FRAMEANGVEL = _mjtSensor.mjSENS_FRAMEANGVEL;
-
+        public const libnative.mjtSensor_ mjSENS_FRAMEANGVEL = mjtSensor_.mjSENS_FRAMEANGVEL;
+        
         /// <summary>
         /// 3D linear acceleration
         /// </summary>
-        public const libnative._mjtSensor mjSENS_FRAMELINACC = _mjtSensor.mjSENS_FRAMELINACC;
-
+        public const libnative.mjtSensor_ mjSENS_FRAMELINACC = mjtSensor_.mjSENS_FRAMELINACC;
+        
         /// <summary>
         /// 3D angular acceleration
         /// </summary>
-        public const libnative._mjtSensor mjSENS_FRAMEANGACC = _mjtSensor.mjSENS_FRAMEANGACC;
-
+        public const libnative.mjtSensor_ mjSENS_FRAMEANGACC = mjtSensor_.mjSENS_FRAMEANGACC;
+        
         /// <summary>
         /// 3D center of mass of subtree
         /// </summary>
-        public const libnative._mjtSensor mjSENS_SUBTREECOM = _mjtSensor.mjSENS_SUBTREECOM;
-
+        public const libnative.mjtSensor_ mjSENS_SUBTREECOM = mjtSensor_.mjSENS_SUBTREECOM;
+        
         /// <summary>
         /// 3D linear velocity of subtree
         /// </summary>
-        public const libnative._mjtSensor mjSENS_SUBTREELINVEL = _mjtSensor.mjSENS_SUBTREELINVEL;
-
+        public const libnative.mjtSensor_ mjSENS_SUBTREELINVEL = mjtSensor_.mjSENS_SUBTREELINVEL;
+        
         /// <summary>
         /// 3D angular momentum of subtree
         /// </summary>
-        public const libnative._mjtSensor mjSENS_SUBTREEANGMOM = _mjtSensor.mjSENS_SUBTREEANGMOM;
-
+        public const libnative.mjtSensor_ mjSENS_SUBTREEANGMOM = mjtSensor_.mjSENS_SUBTREEANGMOM;
+        
         /// <summary>
         /// sensor data provided by mjcb_sensor callback
         /// </summary>
-        public const libnative._mjtSensor mjSENS_USER = _mjtSensor.mjSENS_USER;
-
-        public enum _mjtStage : int
+        public const libnative.mjtSensor_ mjSENS_USER = mjtSensor_.mjSENS_USER;
+        
+        public enum mjtStage_ : int
         {
             /// <summary>
             /// no computations
             /// </summary>
             mjSTAGE_NONE = unchecked((int)0),
-
+            
             /// <summary>
             /// position-dependent computations
             /// </summary>
             mjSTAGE_POS,
-
+            
             /// <summary>
             /// velocity-dependent computations
             /// </summary>
             mjSTAGE_VEL,
-
+            
             /// <summary>
             /// acceleration/force-dependent computations
             /// </summary>
             mjSTAGE_ACC,
         }
-
+        
         /// <summary>
         /// no computations
         /// </summary>
-        public const libnative._mjtStage mjSTAGE_NONE = _mjtStage.mjSTAGE_NONE;
-
+        public const libnative.mjtStage_ mjSTAGE_NONE = mjtStage_.mjSTAGE_NONE;
+        
         /// <summary>
         /// position-dependent computations
         /// </summary>
-        public const libnative._mjtStage mjSTAGE_POS = _mjtStage.mjSTAGE_POS;
-
+        public const libnative.mjtStage_ mjSTAGE_POS = mjtStage_.mjSTAGE_POS;
+        
         /// <summary>
         /// velocity-dependent computations
         /// </summary>
-        public const libnative._mjtStage mjSTAGE_VEL = _mjtStage.mjSTAGE_VEL;
-
+        public const libnative.mjtStage_ mjSTAGE_VEL = mjtStage_.mjSTAGE_VEL;
+        
         /// <summary>
         /// acceleration/force-dependent computations
         /// </summary>
-        public const libnative._mjtStage mjSTAGE_ACC = _mjtStage.mjSTAGE_ACC;
-
-        public enum _mjtDataType : int
+        public const libnative.mjtStage_ mjSTAGE_ACC = mjtStage_.mjSTAGE_ACC;
+        
+        public enum mjtDataType_ : int
         {
             /// <summary>
             /// real values, no constraints
             /// </summary>
             mjDATATYPE_REAL = unchecked((int)0),
-
+            
             /// <summary>
             /// positive values; 0 or negative: inactive
             /// </summary>
             mjDATATYPE_POSITIVE,
-
+            
             /// <summary>
             /// 3D unit vector
             /// </summary>
             mjDATATYPE_AXIS,
-
+            
             /// <summary>
             /// unit quaternion
             /// </summary>
             mjDATATYPE_QUATERNION,
         }
-
+        
         /// <summary>
         /// real values, no constraints
         /// </summary>
-        public const libnative._mjtDataType mjDATATYPE_REAL = _mjtDataType.mjDATATYPE_REAL;
-
+        public const libnative.mjtDataType_ mjDATATYPE_REAL = mjtDataType_.mjDATATYPE_REAL;
+        
         /// <summary>
         /// positive values; 0 or negative: inactive
         /// </summary>
-        public const libnative._mjtDataType mjDATATYPE_POSITIVE = _mjtDataType.mjDATATYPE_POSITIVE;
-
+        public const libnative.mjtDataType_ mjDATATYPE_POSITIVE = mjtDataType_.mjDATATYPE_POSITIVE;
+        
         /// <summary>
         /// 3D unit vector
         /// </summary>
-        public const libnative._mjtDataType mjDATATYPE_AXIS = _mjtDataType.mjDATATYPE_AXIS;
-
+        public const libnative.mjtDataType_ mjDATATYPE_AXIS = mjtDataType_.mjDATATYPE_AXIS;
+        
         /// <summary>
         /// unit quaternion
         /// </summary>
-        public const libnative._mjtDataType mjDATATYPE_QUATERNION = _mjtDataType.mjDATATYPE_QUATERNION;
-
-        public enum _mjtLRMode : int
+        public const libnative.mjtDataType_ mjDATATYPE_QUATERNION = mjtDataType_.mjDATATYPE_QUATERNION;
+        
+        public enum mjtLRMode_ : int
         {
             /// <summary>
             /// do not process any actuators
             /// </summary>
             mjLRMODE_NONE = unchecked((int)0),
-
+            
             /// <summary>
             /// process muscle actuators
             /// </summary>
             mjLRMODE_MUSCLE,
-
+            
             /// <summary>
             /// process muscle and user actuators
             /// </summary>
             mjLRMODE_MUSCLEUSER,
-
+            
             /// <summary>
             /// process all actuators
             /// </summary>
             mjLRMODE_ALL,
         }
-
+        
         /// <summary>
         /// do not process any actuators
         /// </summary>
-        public const libnative._mjtLRMode mjLRMODE_NONE = _mjtLRMode.mjLRMODE_NONE;
-
+        public const libnative.mjtLRMode_ mjLRMODE_NONE = mjtLRMode_.mjLRMODE_NONE;
+        
         /// <summary>
         /// process muscle actuators
         /// </summary>
-        public const libnative._mjtLRMode mjLRMODE_MUSCLE = _mjtLRMode.mjLRMODE_MUSCLE;
-
+        public const libnative.mjtLRMode_ mjLRMODE_MUSCLE = mjtLRMode_.mjLRMODE_MUSCLE;
+        
         /// <summary>
         /// process muscle and user actuators
         /// </summary>
-        public const libnative._mjtLRMode mjLRMODE_MUSCLEUSER = _mjtLRMode.mjLRMODE_MUSCLEUSER;
-
+        public const libnative.mjtLRMode_ mjLRMODE_MUSCLEUSER = mjtLRMode_.mjLRMODE_MUSCLEUSER;
+        
         /// <summary>
         /// process all actuators
         /// </summary>
-        public const libnative._mjtLRMode mjLRMODE_ALL = _mjtLRMode.mjLRMODE_ALL;
-
+        public const libnative.mjtLRMode_ mjLRMODE_ALL = mjtLRMode_.mjLRMODE_ALL;
+        
         /// <summary>
-        /// ---------------------------- primitive types (mjt) ------------------------------------
+        /// ---------------------------------- primitive types (mjt) -----------------------------------------
         /// </summary>
-        public enum _mjtWarning : int
+        public enum mjtWarning_ : int
         {
             /// <summary>
             /// (near) singular inertia matrix
             /// </summary>
             mjWARN_INERTIA = unchecked((int)0),
-
+            
             /// <summary>
             /// too many contacts in contact list
             /// </summary>
             mjWARN_CONTACTFULL,
-
+            
             /// <summary>
             /// too many constraints
             /// </summary>
             mjWARN_CNSTRFULL,
-
+            
             /// <summary>
             /// too many visual geoms
             /// </summary>
             mjWARN_VGEOMFULL,
-
+            
             /// <summary>
             /// bad number in qpos
             /// </summary>
             mjWARN_BADQPOS,
-
+            
             /// <summary>
             /// bad number in qvel
             /// </summary>
             mjWARN_BADQVEL,
-
+            
             /// <summary>
             /// bad number in qacc
             /// </summary>
             mjWARN_BADQACC,
-
+            
             /// <summary>
             /// bad number in ctrl
             /// </summary>
             mjWARN_BADCTRL,
-
+            
             /// <summary>
             /// number of warnings
             /// </summary>
             mjNWARNING,
         }
-
+        
         /// <summary>
         /// (near) singular inertia matrix
         /// </summary>
-        public const libnative._mjtWarning mjWARN_INERTIA = _mjtWarning.mjWARN_INERTIA;
-
+        public const libnative.mjtWarning_ mjWARN_INERTIA = mjtWarning_.mjWARN_INERTIA;
+        
         /// <summary>
         /// too many contacts in contact list
         /// </summary>
-        public const libnative._mjtWarning mjWARN_CONTACTFULL = _mjtWarning.mjWARN_CONTACTFULL;
-
+        public const libnative.mjtWarning_ mjWARN_CONTACTFULL = mjtWarning_.mjWARN_CONTACTFULL;
+        
         /// <summary>
         /// too many constraints
         /// </summary>
-        public const libnative._mjtWarning mjWARN_CNSTRFULL = _mjtWarning.mjWARN_CNSTRFULL;
-
+        public const libnative.mjtWarning_ mjWARN_CNSTRFULL = mjtWarning_.mjWARN_CNSTRFULL;
+        
         /// <summary>
         /// too many visual geoms
         /// </summary>
-        public const libnative._mjtWarning mjWARN_VGEOMFULL = _mjtWarning.mjWARN_VGEOMFULL;
-
+        public const libnative.mjtWarning_ mjWARN_VGEOMFULL = mjtWarning_.mjWARN_VGEOMFULL;
+        
         /// <summary>
         /// bad number in qpos
         /// </summary>
-        public const libnative._mjtWarning mjWARN_BADQPOS = _mjtWarning.mjWARN_BADQPOS;
-
+        public const libnative.mjtWarning_ mjWARN_BADQPOS = mjtWarning_.mjWARN_BADQPOS;
+        
         /// <summary>
         /// bad number in qvel
         /// </summary>
-        public const libnative._mjtWarning mjWARN_BADQVEL = _mjtWarning.mjWARN_BADQVEL;
-
+        public const libnative.mjtWarning_ mjWARN_BADQVEL = mjtWarning_.mjWARN_BADQVEL;
+        
         /// <summary>
         /// bad number in qacc
         /// </summary>
-        public const libnative._mjtWarning mjWARN_BADQACC = _mjtWarning.mjWARN_BADQACC;
-
+        public const libnative.mjtWarning_ mjWARN_BADQACC = mjtWarning_.mjWARN_BADQACC;
+        
         /// <summary>
         /// bad number in ctrl
         /// </summary>
-        public const libnative._mjtWarning mjWARN_BADCTRL = _mjtWarning.mjWARN_BADCTRL;
-
+        public const libnative.mjtWarning_ mjWARN_BADCTRL = mjtWarning_.mjWARN_BADCTRL;
+        
         /// <summary>
         /// number of warnings
         /// </summary>
-        public const libnative._mjtWarning mjNWARNING = _mjtWarning.mjNWARNING;
-
-        public enum _mjtTimer : int
+        public const libnative.mjtWarning_ mjNWARNING = mjtWarning_.mjNWARNING;
+        
+        public enum mjtTimer_ : int
         {
             /// <summary>
             /// step
             /// </summary>
             mjTIMER_STEP = unchecked((int)0),
-
+            
             /// <summary>
             /// forward
             /// </summary>
             mjTIMER_FORWARD,
-
+            
             /// <summary>
             /// inverse
             /// </summary>
             mjTIMER_INVERSE,
-
+            
             /// <summary>
             /// fwdPosition
             /// </summary>
             mjTIMER_POSITION,
-
+            
             /// <summary>
             /// fwdVelocity
             /// </summary>
             mjTIMER_VELOCITY,
-
+            
             /// <summary>
             /// fwdActuation
             /// </summary>
             mjTIMER_ACTUATION,
-
+            
             /// <summary>
             /// fwdAcceleration
             /// </summary>
             mjTIMER_ACCELERATION,
-
+            
             /// <summary>
             /// fwdConstraint
             /// </summary>
             mjTIMER_CONSTRAINT,
-
+            
             /// <summary>
             /// kinematics, com, tendon, transmission
             /// </summary>
             mjTIMER_POS_KINEMATICS,
-
+            
             /// <summary>
             /// inertia computations
             /// </summary>
             mjTIMER_POS_INERTIA,
-
+            
             /// <summary>
             /// collision detection
             /// </summary>
             mjTIMER_POS_COLLISION,
-
+            
             /// <summary>
             /// make constraints
             /// </summary>
             mjTIMER_POS_MAKE,
-
+            
             /// <summary>
             /// project constraints
             /// </summary>
             mjTIMER_POS_PROJECT,
-
+            
             /// <summary>
             /// number of timers
             /// </summary>
             mjNTIMER,
         }
-
+        
         /// <summary>
         /// step
         /// </summary>
-        public const libnative._mjtTimer mjTIMER_STEP = _mjtTimer.mjTIMER_STEP;
-
+        public const libnative.mjtTimer_ mjTIMER_STEP = mjtTimer_.mjTIMER_STEP;
+        
         /// <summary>
         /// forward
         /// </summary>
-        public const libnative._mjtTimer mjTIMER_FORWARD = _mjtTimer.mjTIMER_FORWARD;
-
+        public const libnative.mjtTimer_ mjTIMER_FORWARD = mjtTimer_.mjTIMER_FORWARD;
+        
         /// <summary>
         /// inverse
         /// </summary>
-        public const libnative._mjtTimer mjTIMER_INVERSE = _mjtTimer.mjTIMER_INVERSE;
-
+        public const libnative.mjtTimer_ mjTIMER_INVERSE = mjtTimer_.mjTIMER_INVERSE;
+        
         /// <summary>
         /// fwdPosition
         /// </summary>
-        public const libnative._mjtTimer mjTIMER_POSITION = _mjtTimer.mjTIMER_POSITION;
-
+        public const libnative.mjtTimer_ mjTIMER_POSITION = mjtTimer_.mjTIMER_POSITION;
+        
         /// <summary>
         /// fwdVelocity
         /// </summary>
-        public const libnative._mjtTimer mjTIMER_VELOCITY = _mjtTimer.mjTIMER_VELOCITY;
-
+        public const libnative.mjtTimer_ mjTIMER_VELOCITY = mjtTimer_.mjTIMER_VELOCITY;
+        
         /// <summary>
         /// fwdActuation
         /// </summary>
-        public const libnative._mjtTimer mjTIMER_ACTUATION = _mjtTimer.mjTIMER_ACTUATION;
-
+        public const libnative.mjtTimer_ mjTIMER_ACTUATION = mjtTimer_.mjTIMER_ACTUATION;
+        
         /// <summary>
         /// fwdAcceleration
         /// </summary>
-        public const libnative._mjtTimer mjTIMER_ACCELERATION = _mjtTimer.mjTIMER_ACCELERATION;
-
+        public const libnative.mjtTimer_ mjTIMER_ACCELERATION = mjtTimer_.mjTIMER_ACCELERATION;
+        
         /// <summary>
         /// fwdConstraint
         /// </summary>
-        public const libnative._mjtTimer mjTIMER_CONSTRAINT = _mjtTimer.mjTIMER_CONSTRAINT;
-
+        public const libnative.mjtTimer_ mjTIMER_CONSTRAINT = mjtTimer_.mjTIMER_CONSTRAINT;
+        
         /// <summary>
         /// kinematics, com, tendon, transmission
         /// </summary>
-        public const libnative._mjtTimer mjTIMER_POS_KINEMATICS = _mjtTimer.mjTIMER_POS_KINEMATICS;
-
+        public const libnative.mjtTimer_ mjTIMER_POS_KINEMATICS = mjtTimer_.mjTIMER_POS_KINEMATICS;
+        
         /// <summary>
         /// inertia computations
         /// </summary>
-        public const libnative._mjtTimer mjTIMER_POS_INERTIA = _mjtTimer.mjTIMER_POS_INERTIA;
-
+        public const libnative.mjtTimer_ mjTIMER_POS_INERTIA = mjtTimer_.mjTIMER_POS_INERTIA;
+        
         /// <summary>
         /// collision detection
         /// </summary>
-        public const libnative._mjtTimer mjTIMER_POS_COLLISION = _mjtTimer.mjTIMER_POS_COLLISION;
-
+        public const libnative.mjtTimer_ mjTIMER_POS_COLLISION = mjtTimer_.mjTIMER_POS_COLLISION;
+        
         /// <summary>
         /// make constraints
         /// </summary>
-        public const libnative._mjtTimer mjTIMER_POS_MAKE = _mjtTimer.mjTIMER_POS_MAKE;
-
+        public const libnative.mjtTimer_ mjTIMER_POS_MAKE = mjtTimer_.mjTIMER_POS_MAKE;
+        
         /// <summary>
         /// project constraints
         /// </summary>
-        public const libnative._mjtTimer mjTIMER_POS_PROJECT = _mjtTimer.mjTIMER_POS_PROJECT;
-
+        public const libnative.mjtTimer_ mjTIMER_POS_PROJECT = mjtTimer_.mjTIMER_POS_PROJECT;
+        
         /// <summary>
         /// number of timers
         /// </summary>
-        public const libnative._mjtTimer mjNTIMER = _mjtTimer.mjNTIMER;
-
-        public enum _mjtCatBit : int
-        {
-            /// <summary>
-            /// model elements in body 0
-            /// </summary>
-            mjCAT_STATIC = unchecked((int)1),
-
-            /// <summary>
-            /// model elements in all other bodies
-            /// </summary>
-            mjCAT_DYNAMIC = unchecked((int)2),
-
-            /// <summary>
-            /// decorative geoms
-            /// </summary>
-            mjCAT_DECOR = unchecked((int)4),
-
-            /// <summary>
-            /// select all categories
-            /// </summary>
-            mjCAT_ALL = unchecked((int)7),
-        }
-
+        public const libnative.mjtTimer_ mjNTIMER = mjtTimer_.mjNTIMER;
+        
         /// <summary>
-        /// model elements in body 0
+        /// ---------------------------------- primitive types (mjt) -----------------------------------------
         /// </summary>
-        public const libnative._mjtCatBit mjCAT_STATIC = _mjtCatBit.mjCAT_STATIC;
-
-        /// <summary>
-        /// model elements in all other bodies
-        /// </summary>
-        public const libnative._mjtCatBit mjCAT_DYNAMIC = _mjtCatBit.mjCAT_DYNAMIC;
-
-        /// <summary>
-        /// decorative geoms
-        /// </summary>
-        public const libnative._mjtCatBit mjCAT_DECOR = _mjtCatBit.mjCAT_DECOR;
-
-        /// <summary>
-        /// select all categories
-        /// </summary>
-        public const libnative._mjtCatBit mjCAT_ALL = _mjtCatBit.mjCAT_ALL;
-
-        public enum _mjtMouse : int
-        {
-            /// <summary>
-            /// no action
-            /// </summary>
-            mjMOUSE_NONE = unchecked((int)0),
-
-            /// <summary>
-            /// rotate, vertical plane
-            /// </summary>
-            mjMOUSE_ROTATE_V,
-
-            /// <summary>
-            /// rotate, horizontal plane
-            /// </summary>
-            mjMOUSE_ROTATE_H,
-
-            /// <summary>
-            /// move, vertical plane
-            /// </summary>
-            mjMOUSE_MOVE_V,
-
-            /// <summary>
-            /// move, horizontal plane
-            /// </summary>
-            mjMOUSE_MOVE_H,
-
-            /// <summary>
-            /// zoom
-            /// </summary>
-            mjMOUSE_ZOOM,
-
-            /// <summary>
-            /// selection
-            /// </summary>
-            mjMOUSE_SELECT,
-        }
-
-        /// <summary>
-        /// no action
-        /// </summary>
-        public const libnative._mjtMouse mjMOUSE_NONE = _mjtMouse.mjMOUSE_NONE;
-
-        /// <summary>
-        /// rotate, vertical plane
-        /// </summary>
-        public const libnative._mjtMouse mjMOUSE_ROTATE_V = _mjtMouse.mjMOUSE_ROTATE_V;
-
-        /// <summary>
-        /// rotate, horizontal plane
-        /// </summary>
-        public const libnative._mjtMouse mjMOUSE_ROTATE_H = _mjtMouse.mjMOUSE_ROTATE_H;
-
-        /// <summary>
-        /// move, vertical plane
-        /// </summary>
-        public const libnative._mjtMouse mjMOUSE_MOVE_V = _mjtMouse.mjMOUSE_MOVE_V;
-
-        /// <summary>
-        /// move, horizontal plane
-        /// </summary>
-        public const libnative._mjtMouse mjMOUSE_MOVE_H = _mjtMouse.mjMOUSE_MOVE_H;
-
-        /// <summary>
-        /// zoom
-        /// </summary>
-        public const libnative._mjtMouse mjMOUSE_ZOOM = _mjtMouse.mjMOUSE_ZOOM;
-
-        /// <summary>
-        /// selection
-        /// </summary>
-        public const libnative._mjtMouse mjMOUSE_SELECT = _mjtMouse.mjMOUSE_SELECT;
-
-        public enum _mjtPertBit : int
-        {
-            /// <summary>
-            /// translation
-            /// </summary>
-            mjPERT_TRANSLATE = unchecked((int)1),
-
-            /// <summary>
-            /// rotation
-            /// </summary>
-            mjPERT_ROTATE = unchecked((int)2),
-        }
-
-        /// <summary>
-        /// translation
-        /// </summary>
-        public const libnative._mjtPertBit mjPERT_TRANSLATE = _mjtPertBit.mjPERT_TRANSLATE;
-
-        /// <summary>
-        /// rotation
-        /// </summary>
-        public const libnative._mjtPertBit mjPERT_ROTATE = _mjtPertBit.mjPERT_ROTATE;
-
-        public enum _mjtCamera : int
-        {
-            /// <summary>
-            /// free camera
-            /// </summary>
-            mjCAMERA_FREE = unchecked((int)0),
-
-            /// <summary>
-            /// tracking camera; uses trackbodyid
-            /// </summary>
-            mjCAMERA_TRACKING,
-
-            /// <summary>
-            /// fixed camera; uses fixedcamid
-            /// </summary>
-            mjCAMERA_FIXED,
-
-            /// <summary>
-            /// user is responsible for setting OpenGL camera
-            /// </summary>
-            mjCAMERA_USER,
-        }
-
-        /// <summary>
-        /// free camera
-        /// </summary>
-        public const libnative._mjtCamera mjCAMERA_FREE = _mjtCamera.mjCAMERA_FREE;
-
-        /// <summary>
-        /// tracking camera; uses trackbodyid
-        /// </summary>
-        public const libnative._mjtCamera mjCAMERA_TRACKING = _mjtCamera.mjCAMERA_TRACKING;
-
-        /// <summary>
-        /// fixed camera; uses fixedcamid
-        /// </summary>
-        public const libnative._mjtCamera mjCAMERA_FIXED = _mjtCamera.mjCAMERA_FIXED;
-
-        /// <summary>
-        /// user is responsible for setting OpenGL camera
-        /// </summary>
-        public const libnative._mjtCamera mjCAMERA_USER = _mjtCamera.mjCAMERA_USER;
-
-        public enum _mjtLabel : int
-        {
-            /// <summary>
-            /// nothing
-            /// </summary>
-            mjLABEL_NONE = unchecked((int)0),
-
-            /// <summary>
-            /// body labels
-            /// </summary>
-            mjLABEL_BODY,
-
-            /// <summary>
-            /// joint labels
-            /// </summary>
-            mjLABEL_JOINT,
-
-            /// <summary>
-            /// geom labels
-            /// </summary>
-            mjLABEL_GEOM,
-
-            /// <summary>
-            /// site labels
-            /// </summary>
-            mjLABEL_SITE,
-
-            /// <summary>
-            /// camera labels
-            /// </summary>
-            mjLABEL_CAMERA,
-
-            /// <summary>
-            /// light labels
-            /// </summary>
-            mjLABEL_LIGHT,
-
-            /// <summary>
-            /// tendon labels
-            /// </summary>
-            mjLABEL_TENDON,
-
-            /// <summary>
-            /// actuator labels
-            /// </summary>
-            mjLABEL_ACTUATOR,
-
-            /// <summary>
-            /// constraint labels
-            /// </summary>
-            mjLABEL_CONSTRAINT,
-
-            /// <summary>
-            /// skin labels
-            /// </summary>
-            mjLABEL_SKIN,
-
-            /// <summary>
-            /// selected object
-            /// </summary>
-            mjLABEL_SELECTION,
-
-            /// <summary>
-            /// coordinates of selection point
-            /// </summary>
-            mjLABEL_SELPNT,
-
-            /// <summary>
-            /// magnitude of contact force
-            /// </summary>
-            mjLABEL_CONTACTFORCE,
-
-            /// <summary>
-            /// number of label types
-            /// </summary>
-            mjNLABEL,
-        }
-
-        /// <summary>
-        /// nothing
-        /// </summary>
-        public const libnative._mjtLabel mjLABEL_NONE = _mjtLabel.mjLABEL_NONE;
-
-        /// <summary>
-        /// body labels
-        /// </summary>
-        public const libnative._mjtLabel mjLABEL_BODY = _mjtLabel.mjLABEL_BODY;
-
-        /// <summary>
-        /// joint labels
-        /// </summary>
-        public const libnative._mjtLabel mjLABEL_JOINT = _mjtLabel.mjLABEL_JOINT;
-
-        /// <summary>
-        /// geom labels
-        /// </summary>
-        public const libnative._mjtLabel mjLABEL_GEOM = _mjtLabel.mjLABEL_GEOM;
-
-        /// <summary>
-        /// site labels
-        /// </summary>
-        public const libnative._mjtLabel mjLABEL_SITE = _mjtLabel.mjLABEL_SITE;
-
-        /// <summary>
-        /// camera labels
-        /// </summary>
-        public const libnative._mjtLabel mjLABEL_CAMERA = _mjtLabel.mjLABEL_CAMERA;
-
-        /// <summary>
-        /// light labels
-        /// </summary>
-        public const libnative._mjtLabel mjLABEL_LIGHT = _mjtLabel.mjLABEL_LIGHT;
-
-        /// <summary>
-        /// tendon labels
-        /// </summary>
-        public const libnative._mjtLabel mjLABEL_TENDON = _mjtLabel.mjLABEL_TENDON;
-
-        /// <summary>
-        /// actuator labels
-        /// </summary>
-        public const libnative._mjtLabel mjLABEL_ACTUATOR = _mjtLabel.mjLABEL_ACTUATOR;
-
-        /// <summary>
-        /// constraint labels
-        /// </summary>
-        public const libnative._mjtLabel mjLABEL_CONSTRAINT = _mjtLabel.mjLABEL_CONSTRAINT;
-
-        /// <summary>
-        /// skin labels
-        /// </summary>
-        public const libnative._mjtLabel mjLABEL_SKIN = _mjtLabel.mjLABEL_SKIN;
-
-        /// <summary>
-        /// selected object
-        /// </summary>
-        public const libnative._mjtLabel mjLABEL_SELECTION = _mjtLabel.mjLABEL_SELECTION;
-
-        /// <summary>
-        /// coordinates of selection point
-        /// </summary>
-        public const libnative._mjtLabel mjLABEL_SELPNT = _mjtLabel.mjLABEL_SELPNT;
-
-        /// <summary>
-        /// magnitude of contact force
-        /// </summary>
-        public const libnative._mjtLabel mjLABEL_CONTACTFORCE = _mjtLabel.mjLABEL_CONTACTFORCE;
-
-        /// <summary>
-        /// number of label types
-        /// </summary>
-        public const libnative._mjtLabel mjNLABEL = _mjtLabel.mjNLABEL;
-
-        public enum _mjtFrame : int
-        {
-            /// <summary>
-            /// no frames
-            /// </summary>
-            mjFRAME_NONE = unchecked((int)0),
-
-            /// <summary>
-            /// body frames
-            /// </summary>
-            mjFRAME_BODY,
-
-            /// <summary>
-            /// geom frames
-            /// </summary>
-            mjFRAME_GEOM,
-
-            /// <summary>
-            /// site frames
-            /// </summary>
-            mjFRAME_SITE,
-
-            /// <summary>
-            /// camera frames
-            /// </summary>
-            mjFRAME_CAMERA,
-
-            /// <summary>
-            /// light frames
-            /// </summary>
-            mjFRAME_LIGHT,
-
-            /// <summary>
-            /// world frame
-            /// </summary>
-            mjFRAME_WORLD,
-
-            /// <summary>
-            /// number of visualization frames
-            /// </summary>
-            mjNFRAME,
-        }
-
-        /// <summary>
-        /// no frames
-        /// </summary>
-        public const libnative._mjtFrame mjFRAME_NONE = _mjtFrame.mjFRAME_NONE;
-
-        /// <summary>
-        /// body frames
-        /// </summary>
-        public const libnative._mjtFrame mjFRAME_BODY = _mjtFrame.mjFRAME_BODY;
-
-        /// <summary>
-        /// geom frames
-        /// </summary>
-        public const libnative._mjtFrame mjFRAME_GEOM = _mjtFrame.mjFRAME_GEOM;
-
-        /// <summary>
-        /// site frames
-        /// </summary>
-        public const libnative._mjtFrame mjFRAME_SITE = _mjtFrame.mjFRAME_SITE;
-
-        /// <summary>
-        /// camera frames
-        /// </summary>
-        public const libnative._mjtFrame mjFRAME_CAMERA = _mjtFrame.mjFRAME_CAMERA;
-
-        /// <summary>
-        /// light frames
-        /// </summary>
-        public const libnative._mjtFrame mjFRAME_LIGHT = _mjtFrame.mjFRAME_LIGHT;
-
-        /// <summary>
-        /// world frame
-        /// </summary>
-        public const libnative._mjtFrame mjFRAME_WORLD = _mjtFrame.mjFRAME_WORLD;
-
-        /// <summary>
-        /// number of visualization frames
-        /// </summary>
-        public const libnative._mjtFrame mjNFRAME = _mjtFrame.mjNFRAME;
-
-        public enum _mjtVisFlag : int
-        {
-            /// <summary>
-            /// mesh convex hull
-            /// </summary>
-            mjVIS_CONVEXHULL = unchecked((int)0),
-
-            /// <summary>
-            /// textures
-            /// </summary>
-            mjVIS_TEXTURE,
-
-            /// <summary>
-            /// joints
-            /// </summary>
-            mjVIS_JOINT,
-
-            /// <summary>
-            /// actuators
-            /// </summary>
-            mjVIS_ACTUATOR,
-
-            /// <summary>
-            /// cameras
-            /// </summary>
-            mjVIS_CAMERA,
-
-            /// <summary>
-            /// lights
-            /// </summary>
-            mjVIS_LIGHT,
-
-            /// <summary>
-            /// tendons
-            /// </summary>
-            mjVIS_TENDON,
-
-            /// <summary>
-            /// rangefinder sensors
-            /// </summary>
-            mjVIS_RANGEFINDER,
-
-            /// <summary>
-            /// point constraints
-            /// </summary>
-            mjVIS_CONSTRAINT,
-
-            /// <summary>
-            /// equivalent inertia boxes
-            /// </summary>
-            mjVIS_INERTIA,
-
-            /// <summary>
-            /// scale equivalent inertia boxes with mass
-            /// </summary>
-            mjVIS_SCLINERTIA,
-
-            /// <summary>
-            /// perturbation force
-            /// </summary>
-            mjVIS_PERTFORCE,
-
-            /// <summary>
-            /// perturbation object
-            /// </summary>
-            mjVIS_PERTOBJ,
-
-            /// <summary>
-            /// contact points
-            /// </summary>
-            mjVIS_CONTACTPOINT,
-
-            /// <summary>
-            /// contact force
-            /// </summary>
-            mjVIS_CONTACTFORCE,
-
-            /// <summary>
-            /// split contact force into normal and tanget
-            /// </summary>
-            mjVIS_CONTACTSPLIT,
-
-            /// <summary>
-            /// make dynamic geoms more transparent
-            /// </summary>
-            mjVIS_TRANSPARENT,
-
-            /// <summary>
-            /// auto connect joints and body coms
-            /// </summary>
-            mjVIS_AUTOCONNECT,
-
-            /// <summary>
-            /// center of mass
-            /// </summary>
-            mjVIS_COM,
-
-            /// <summary>
-            /// selection point
-            /// </summary>
-            mjVIS_SELECT,
-
-            /// <summary>
-            /// static bodies
-            /// </summary>
-            mjVIS_STATIC,
-
-            /// <summary>
-            /// skin
-            /// </summary>
-            mjVIS_SKIN,
-
-            /// <summary>
-            /// number of visualization flags
-            /// </summary>
-            mjNVISFLAG,
-        }
-
-        /// <summary>
-        /// mesh convex hull
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_CONVEXHULL = _mjtVisFlag.mjVIS_CONVEXHULL;
-
-        /// <summary>
-        /// textures
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_TEXTURE = _mjtVisFlag.mjVIS_TEXTURE;
-
-        /// <summary>
-        /// joints
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_JOINT = _mjtVisFlag.mjVIS_JOINT;
-
-        /// <summary>
-        /// actuators
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_ACTUATOR = _mjtVisFlag.mjVIS_ACTUATOR;
-
-        /// <summary>
-        /// cameras
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_CAMERA = _mjtVisFlag.mjVIS_CAMERA;
-
-        /// <summary>
-        /// lights
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_LIGHT = _mjtVisFlag.mjVIS_LIGHT;
-
-        /// <summary>
-        /// tendons
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_TENDON = _mjtVisFlag.mjVIS_TENDON;
-
-        /// <summary>
-        /// rangefinder sensors
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_RANGEFINDER = _mjtVisFlag.mjVIS_RANGEFINDER;
-
-        /// <summary>
-        /// point constraints
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_CONSTRAINT = _mjtVisFlag.mjVIS_CONSTRAINT;
-
-        /// <summary>
-        /// equivalent inertia boxes
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_INERTIA = _mjtVisFlag.mjVIS_INERTIA;
-
-        /// <summary>
-        /// scale equivalent inertia boxes with mass
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_SCLINERTIA = _mjtVisFlag.mjVIS_SCLINERTIA;
-
-        /// <summary>
-        /// perturbation force
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_PERTFORCE = _mjtVisFlag.mjVIS_PERTFORCE;
-
-        /// <summary>
-        /// perturbation object
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_PERTOBJ = _mjtVisFlag.mjVIS_PERTOBJ;
-
-        /// <summary>
-        /// contact points
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_CONTACTPOINT = _mjtVisFlag.mjVIS_CONTACTPOINT;
-
-        /// <summary>
-        /// contact force
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_CONTACTFORCE = _mjtVisFlag.mjVIS_CONTACTFORCE;
-
-        /// <summary>
-        /// split contact force into normal and tanget
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_CONTACTSPLIT = _mjtVisFlag.mjVIS_CONTACTSPLIT;
-
-        /// <summary>
-        /// make dynamic geoms more transparent
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_TRANSPARENT = _mjtVisFlag.mjVIS_TRANSPARENT;
-
-        /// <summary>
-        /// auto connect joints and body coms
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_AUTOCONNECT = _mjtVisFlag.mjVIS_AUTOCONNECT;
-
-        /// <summary>
-        /// center of mass
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_COM = _mjtVisFlag.mjVIS_COM;
-
-        /// <summary>
-        /// selection point
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_SELECT = _mjtVisFlag.mjVIS_SELECT;
-
-        /// <summary>
-        /// static bodies
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_STATIC = _mjtVisFlag.mjVIS_STATIC;
-
-        /// <summary>
-        /// skin
-        /// </summary>
-        public const libnative._mjtVisFlag mjVIS_SKIN = _mjtVisFlag.mjVIS_SKIN;
-
-        /// <summary>
-        /// number of visualization flags
-        /// </summary>
-        public const libnative._mjtVisFlag mjNVISFLAG = _mjtVisFlag.mjNVISFLAG;
-
-        public enum _mjtRndFlag : int
-        {
-            /// <summary>
-            /// shadows
-            /// </summary>
-            mjRND_SHADOW = unchecked((int)0),
-
-            /// <summary>
-            /// wireframe
-            /// </summary>
-            mjRND_WIREFRAME,
-
-            /// <summary>
-            /// reflections
-            /// </summary>
-            mjRND_REFLECTION,
-
-            /// <summary>
-            /// additive transparency
-            /// </summary>
-            mjRND_ADDITIVE,
-
-            /// <summary>
-            /// skybox
-            /// </summary>
-            mjRND_SKYBOX,
-
-            /// <summary>
-            /// fog
-            /// </summary>
-            mjRND_FOG,
-
-            /// <summary>
-            /// haze
-            /// </summary>
-            mjRND_HAZE,
-
-            /// <summary>
-            /// segmentation with random color
-            /// </summary>
-            mjRND_SEGMENT,
-
-            /// <summary>
-            /// segmentation with segid color
-            /// </summary>
-            mjRND_IDCOLOR,
-
-            /// <summary>
-            /// number of rendering flags
-            /// </summary>
-            mjNRNDFLAG,
-        }
-
-        /// <summary>
-        /// shadows
-        /// </summary>
-        public const libnative._mjtRndFlag mjRND_SHADOW = _mjtRndFlag.mjRND_SHADOW;
-
-        /// <summary>
-        /// wireframe
-        /// </summary>
-        public const libnative._mjtRndFlag mjRND_WIREFRAME = _mjtRndFlag.mjRND_WIREFRAME;
-
-        /// <summary>
-        /// reflections
-        /// </summary>
-        public const libnative._mjtRndFlag mjRND_REFLECTION = _mjtRndFlag.mjRND_REFLECTION;
-
-        /// <summary>
-        /// additive transparency
-        /// </summary>
-        public const libnative._mjtRndFlag mjRND_ADDITIVE = _mjtRndFlag.mjRND_ADDITIVE;
-
-        /// <summary>
-        /// skybox
-        /// </summary>
-        public const libnative._mjtRndFlag mjRND_SKYBOX = _mjtRndFlag.mjRND_SKYBOX;
-
-        /// <summary>
-        /// fog
-        /// </summary>
-        public const libnative._mjtRndFlag mjRND_FOG = _mjtRndFlag.mjRND_FOG;
-
-        /// <summary>
-        /// haze
-        /// </summary>
-        public const libnative._mjtRndFlag mjRND_HAZE = _mjtRndFlag.mjRND_HAZE;
-
-        /// <summary>
-        /// segmentation with random color
-        /// </summary>
-        public const libnative._mjtRndFlag mjRND_SEGMENT = _mjtRndFlag.mjRND_SEGMENT;
-
-        /// <summary>
-        /// segmentation with segid color
-        /// </summary>
-        public const libnative._mjtRndFlag mjRND_IDCOLOR = _mjtRndFlag.mjRND_IDCOLOR;
-
-        /// <summary>
-        /// number of rendering flags
-        /// </summary>
-        public const libnative._mjtRndFlag mjNRNDFLAG = _mjtRndFlag.mjNRNDFLAG;
-
-        public enum _mjtStereo : int
-        {
-            /// <summary>
-            /// no stereo; use left eye only
-            /// </summary>
-            mjSTEREO_NONE = unchecked((int)0),
-
-            /// <summary>
-            /// quad buffered; revert to side-by-side if no hardware support
-            /// </summary>
-            mjSTEREO_QUADBUFFERED,
-
-            /// <summary>
-            /// side-by-side
-            /// </summary>
-            mjSTEREO_SIDEBYSIDE,
-        }
-
-        /// <summary>
-        /// no stereo; use left eye only
-        /// </summary>
-        public const libnative._mjtStereo mjSTEREO_NONE = _mjtStereo.mjSTEREO_NONE;
-
-        /// <summary>
-        /// quad buffered; revert to side-by-side if no hardware support
-        /// </summary>
-        public const libnative._mjtStereo mjSTEREO_QUADBUFFERED = _mjtStereo.mjSTEREO_QUADBUFFERED;
-
-        /// <summary>
-        /// side-by-side
-        /// </summary>
-        public const libnative._mjtStereo mjSTEREO_SIDEBYSIDE = _mjtStereo.mjSTEREO_SIDEBYSIDE;
-
-        public enum _mjtGridPos : int
+        public enum mjtGridPos_ : int
         {
             /// <summary>
             /// top left
             /// </summary>
             mjGRID_TOPLEFT = unchecked((int)0),
-
+            
             /// <summary>
             /// top right
             /// </summary>
             mjGRID_TOPRIGHT,
-
+            
             /// <summary>
             /// bottom left
             /// </summary>
             mjGRID_BOTTOMLEFT,
-
+            
             /// <summary>
             /// bottom right
             /// </summary>
             mjGRID_BOTTOMRIGHT,
         }
-
+        
         /// <summary>
         /// top left
         /// </summary>
-        public const libnative._mjtGridPos mjGRID_TOPLEFT = _mjtGridPos.mjGRID_TOPLEFT;
-
+        public const libnative.mjtGridPos_ mjGRID_TOPLEFT = mjtGridPos_.mjGRID_TOPLEFT;
+        
         /// <summary>
         /// top right
         /// </summary>
-        public const libnative._mjtGridPos mjGRID_TOPRIGHT = _mjtGridPos.mjGRID_TOPRIGHT;
-
+        public const libnative.mjtGridPos_ mjGRID_TOPRIGHT = mjtGridPos_.mjGRID_TOPRIGHT;
+        
         /// <summary>
         /// bottom left
         /// </summary>
-        public const libnative._mjtGridPos mjGRID_BOTTOMLEFT = _mjtGridPos.mjGRID_BOTTOMLEFT;
-
+        public const libnative.mjtGridPos_ mjGRID_BOTTOMLEFT = mjtGridPos_.mjGRID_BOTTOMLEFT;
+        
         /// <summary>
         /// bottom right
         /// </summary>
-        public const libnative._mjtGridPos mjGRID_BOTTOMRIGHT = _mjtGridPos.mjGRID_BOTTOMRIGHT;
-
-        public enum _mjtFramebuffer : int
+        public const libnative.mjtGridPos_ mjGRID_BOTTOMRIGHT = mjtGridPos_.mjGRID_BOTTOMRIGHT;
+        
+        public enum mjtFramebuffer_ : int
         {
             /// <summary>
             /// default/window buffer
             /// </summary>
             mjFB_WINDOW = unchecked((int)0),
-
+            
             /// <summary>
             /// offscreen buffer
             /// </summary>
             mjFB_OFFSCREEN,
         }
-
+        
         /// <summary>
         /// default/window buffer
         /// </summary>
-        public const libnative._mjtFramebuffer mjFB_WINDOW = _mjtFramebuffer.mjFB_WINDOW;
-
+        public const libnative.mjtFramebuffer_ mjFB_WINDOW = mjtFramebuffer_.mjFB_WINDOW;
+        
         /// <summary>
         /// offscreen buffer
         /// </summary>
-        public const libnative._mjtFramebuffer mjFB_OFFSCREEN = _mjtFramebuffer.mjFB_OFFSCREEN;
-
-        public enum _mjtFontScale : int
+        public const libnative.mjtFramebuffer_ mjFB_OFFSCREEN = mjtFramebuffer_.mjFB_OFFSCREEN;
+        
+        public enum mjtFontScale_ : int
         {
             /// <summary>
             /// 50% scale, suitable for low-res rendering
             /// </summary>
             mjFONTSCALE_50 = unchecked((int)50),
-
+            
             /// <summary>
             /// normal scale, suitable in the absence of DPI scaling
             /// </summary>
             mjFONTSCALE_100 = unchecked((int)100),
-
+            
             /// <summary>
             /// 150% scale
             /// </summary>
             mjFONTSCALE_150 = unchecked((int)150),
-
+            
             /// <summary>
             /// 200% scale
             /// </summary>
             mjFONTSCALE_200 = unchecked((int)200),
-
+            
             /// <summary>
             /// 250% scale
             /// </summary>
             mjFONTSCALE_250 = unchecked((int)250),
-
+            
             /// <summary>
             /// 300% scale
             /// </summary>
             mjFONTSCALE_300 = unchecked((int)300),
         }
-
+        
         /// <summary>
         /// 50% scale, suitable for low-res rendering
         /// </summary>
-        public const libnative._mjtFontScale mjFONTSCALE_50 = _mjtFontScale.mjFONTSCALE_50;
-
+        public const libnative.mjtFontScale_ mjFONTSCALE_50 = mjtFontScale_.mjFONTSCALE_50;
+        
         /// <summary>
         /// normal scale, suitable in the absence of DPI scaling
         /// </summary>
-        public const libnative._mjtFontScale mjFONTSCALE_100 = _mjtFontScale.mjFONTSCALE_100;
-
+        public const libnative.mjtFontScale_ mjFONTSCALE_100 = mjtFontScale_.mjFONTSCALE_100;
+        
         /// <summary>
         /// 150% scale
         /// </summary>
-        public const libnative._mjtFontScale mjFONTSCALE_150 = _mjtFontScale.mjFONTSCALE_150;
-
+        public const libnative.mjtFontScale_ mjFONTSCALE_150 = mjtFontScale_.mjFONTSCALE_150;
+        
         /// <summary>
         /// 200% scale
         /// </summary>
-        public const libnative._mjtFontScale mjFONTSCALE_200 = _mjtFontScale.mjFONTSCALE_200;
-
+        public const libnative.mjtFontScale_ mjFONTSCALE_200 = mjtFontScale_.mjFONTSCALE_200;
+        
         /// <summary>
         /// 250% scale
         /// </summary>
-        public const libnative._mjtFontScale mjFONTSCALE_250 = _mjtFontScale.mjFONTSCALE_250;
-
+        public const libnative.mjtFontScale_ mjFONTSCALE_250 = mjtFontScale_.mjFONTSCALE_250;
+        
         /// <summary>
         /// 300% scale
         /// </summary>
-        public const libnative._mjtFontScale mjFONTSCALE_300 = _mjtFontScale.mjFONTSCALE_300;
-
-        public enum _mjtFont : int
+        public const libnative.mjtFontScale_ mjFONTSCALE_300 = mjtFontScale_.mjFONTSCALE_300;
+        
+        public enum mjtFont_ : int
         {
             /// <summary>
             /// normal font
             /// </summary>
             mjFONT_NORMAL = unchecked((int)0),
-
+            
             /// <summary>
             /// normal font with shadow (for higher contrast)
             /// </summary>
             mjFONT_SHADOW,
-
+            
             /// <summary>
             /// big font (for user alerts)
             /// </summary>
             mjFONT_BIG,
         }
-
+        
         /// <summary>
         /// normal font
         /// </summary>
-        public const libnative._mjtFont mjFONT_NORMAL = _mjtFont.mjFONT_NORMAL;
-
+        public const libnative.mjtFont_ mjFONT_NORMAL = mjtFont_.mjFONT_NORMAL;
+        
         /// <summary>
         /// normal font with shadow (for higher contrast)
         /// </summary>
-        public const libnative._mjtFont mjFONT_SHADOW = _mjtFont.mjFONT_SHADOW;
-
+        public const libnative.mjtFont_ mjFONT_SHADOW = mjtFont_.mjFONT_SHADOW;
+        
         /// <summary>
         /// big font (for user alerts)
         /// </summary>
-        public const libnative._mjtFont mjFONT_BIG = _mjtFont.mjFONT_BIG;
-
-        public enum _mjtButton : int
+        public const libnative.mjtFont_ mjFONT_BIG = mjtFont_.mjFONT_BIG;
+        
+        /// <summary>
+        /// ---------------------------------- primitive types (mjt) -----------------------------------------
+        /// </summary>
+        public enum mjtButton_ : int
         {
             /// <summary>
             /// no button
             /// </summary>
             mjBUTTON_NONE = unchecked((int)0),
-
+            
             /// <summary>
             /// left button
             /// </summary>
             mjBUTTON_LEFT,
-
+            
             /// <summary>
             /// right button
             /// </summary>
             mjBUTTON_RIGHT,
-
+            
             /// <summary>
             /// middle button
             /// </summary>
             mjBUTTON_MIDDLE,
         }
-
+        
         /// <summary>
         /// no button
         /// </summary>
-        public const libnative._mjtButton mjBUTTON_NONE = _mjtButton.mjBUTTON_NONE;
-
+        public const libnative.mjtButton_ mjBUTTON_NONE = mjtButton_.mjBUTTON_NONE;
+        
         /// <summary>
         /// left button
         /// </summary>
-        public const libnative._mjtButton mjBUTTON_LEFT = _mjtButton.mjBUTTON_LEFT;
-
+        public const libnative.mjtButton_ mjBUTTON_LEFT = mjtButton_.mjBUTTON_LEFT;
+        
         /// <summary>
         /// right button
         /// </summary>
-        public const libnative._mjtButton mjBUTTON_RIGHT = _mjtButton.mjBUTTON_RIGHT;
-
+        public const libnative.mjtButton_ mjBUTTON_RIGHT = mjtButton_.mjBUTTON_RIGHT;
+        
         /// <summary>
         /// middle button
         /// </summary>
-        public const libnative._mjtButton mjBUTTON_MIDDLE = _mjtButton.mjBUTTON_MIDDLE;
-
-        public enum _mjtEvent : int
+        public const libnative.mjtButton_ mjBUTTON_MIDDLE = mjtButton_.mjBUTTON_MIDDLE;
+        
+        public enum mjtEvent_ : int
         {
             /// <summary>
             /// no event
             /// </summary>
             mjEVENT_NONE = unchecked((int)0),
-
+            
             /// <summary>
             /// mouse move
             /// </summary>
             mjEVENT_MOVE,
-
+            
             /// <summary>
             /// mouse button press
             /// </summary>
             mjEVENT_PRESS,
-
+            
             /// <summary>
             /// mouse button release
             /// </summary>
             mjEVENT_RELEASE,
-
+            
             /// <summary>
             /// scroll
             /// </summary>
             mjEVENT_SCROLL,
-
+            
             /// <summary>
             /// key press
             /// </summary>
             mjEVENT_KEY,
-
+            
             /// <summary>
             /// resize
             /// </summary>
             mjEVENT_RESIZE,
         }
-
+        
         /// <summary>
         /// no event
         /// </summary>
-        public const libnative._mjtEvent mjEVENT_NONE = _mjtEvent.mjEVENT_NONE;
-
+        public const libnative.mjtEvent_ mjEVENT_NONE = mjtEvent_.mjEVENT_NONE;
+        
         /// <summary>
         /// mouse move
         /// </summary>
-        public const libnative._mjtEvent mjEVENT_MOVE = _mjtEvent.mjEVENT_MOVE;
-
+        public const libnative.mjtEvent_ mjEVENT_MOVE = mjtEvent_.mjEVENT_MOVE;
+        
         /// <summary>
         /// mouse button press
         /// </summary>
-        public const libnative._mjtEvent mjEVENT_PRESS = _mjtEvent.mjEVENT_PRESS;
-
+        public const libnative.mjtEvent_ mjEVENT_PRESS = mjtEvent_.mjEVENT_PRESS;
+        
         /// <summary>
         /// mouse button release
         /// </summary>
-        public const libnative._mjtEvent mjEVENT_RELEASE = _mjtEvent.mjEVENT_RELEASE;
-
+        public const libnative.mjtEvent_ mjEVENT_RELEASE = mjtEvent_.mjEVENT_RELEASE;
+        
         /// <summary>
         /// scroll
         /// </summary>
-        public const libnative._mjtEvent mjEVENT_SCROLL = _mjtEvent.mjEVENT_SCROLL;
-
+        public const libnative.mjtEvent_ mjEVENT_SCROLL = mjtEvent_.mjEVENT_SCROLL;
+        
         /// <summary>
         /// key press
         /// </summary>
-        public const libnative._mjtEvent mjEVENT_KEY = _mjtEvent.mjEVENT_KEY;
-
+        public const libnative.mjtEvent_ mjEVENT_KEY = mjtEvent_.mjEVENT_KEY;
+        
         /// <summary>
         /// resize
         /// </summary>
-        public const libnative._mjtEvent mjEVENT_RESIZE = _mjtEvent.mjEVENT_RESIZE;
-
-        public enum _mjtItem : int
+        public const libnative.mjtEvent_ mjEVENT_RESIZE = mjtEvent_.mjEVENT_RESIZE;
+        
+        public enum mjtItem_ : int
         {
             /// <summary>
             /// end of definition list (not an item)
             /// </summary>
             mjITEM_END = unchecked((int)-2),
-
+            
             /// <summary>
             /// section (not an item)
             /// </summary>
             mjITEM_SECTION = unchecked((int)-1),
-
+            
             /// <summary>
             /// separator
             /// </summary>
             mjITEM_SEPARATOR = unchecked((int)0),
-
+            
             /// <summary>
             /// static text
             /// </summary>
             mjITEM_STATIC,
-
+            
             /// <summary>
             /// button
             /// </summary>
             mjITEM_BUTTON,
-
+            
             /// <summary>
             /// check box, int value
             /// </summary>
             mjITEM_CHECKINT,
-
+            
             /// <summary>
             /// check box, mjtByte value
             /// </summary>
             mjITEM_CHECKBYTE,
-
+            
             /// <summary>
             /// radio group
             /// </summary>
             mjITEM_RADIO,
-
+            
             /// <summary>
             /// radio group, single line
             /// </summary>
             mjITEM_RADIOLINE,
-
+            
             /// <summary>
             /// selection box
             /// </summary>
             mjITEM_SELECT,
-
+            
             /// <summary>
             /// slider, int value
             /// </summary>
             mjITEM_SLIDERINT,
-
+            
             /// <summary>
             /// slider, mjtNum value
             /// </summary>
             mjITEM_SLIDERNUM,
-
+            
             /// <summary>
             /// editable array, int values
             /// </summary>
             mjITEM_EDITINT,
-
+            
             /// <summary>
             /// editable array, mjtNum values
             /// </summary>
             mjITEM_EDITNUM,
-
+            
             /// <summary>
             /// editable text
             /// </summary>
             mjITEM_EDITTXT,
-
+            
             /// <summary>
             /// number of item types
             /// </summary>
             mjNITEM,
         }
-
+        
         /// <summary>
         /// end of definition list (not an item)
         /// </summary>
-        public const libnative._mjtItem mjITEM_END = _mjtItem.mjITEM_END;
-
+        public const libnative.mjtItem_ mjITEM_END = mjtItem_.mjITEM_END;
+        
         /// <summary>
         /// section (not an item)
         /// </summary>
-        public const libnative._mjtItem mjITEM_SECTION = _mjtItem.mjITEM_SECTION;
-
+        public const libnative.mjtItem_ mjITEM_SECTION = mjtItem_.mjITEM_SECTION;
+        
         /// <summary>
         /// separator
         /// </summary>
-        public const libnative._mjtItem mjITEM_SEPARATOR = _mjtItem.mjITEM_SEPARATOR;
-
+        public const libnative.mjtItem_ mjITEM_SEPARATOR = mjtItem_.mjITEM_SEPARATOR;
+        
         /// <summary>
         /// static text
         /// </summary>
-        public const libnative._mjtItem mjITEM_STATIC = _mjtItem.mjITEM_STATIC;
-
+        public const libnative.mjtItem_ mjITEM_STATIC = mjtItem_.mjITEM_STATIC;
+        
         /// <summary>
         /// button
         /// </summary>
-        public const libnative._mjtItem mjITEM_BUTTON = _mjtItem.mjITEM_BUTTON;
-
+        public const libnative.mjtItem_ mjITEM_BUTTON = mjtItem_.mjITEM_BUTTON;
+        
         /// <summary>
         /// check box, int value
         /// </summary>
-        public const libnative._mjtItem mjITEM_CHECKINT = _mjtItem.mjITEM_CHECKINT;
-
+        public const libnative.mjtItem_ mjITEM_CHECKINT = mjtItem_.mjITEM_CHECKINT;
+        
         /// <summary>
         /// check box, mjtByte value
         /// </summary>
-        public const libnative._mjtItem mjITEM_CHECKBYTE = _mjtItem.mjITEM_CHECKBYTE;
-
+        public const libnative.mjtItem_ mjITEM_CHECKBYTE = mjtItem_.mjITEM_CHECKBYTE;
+        
         /// <summary>
         /// radio group
         /// </summary>
-        public const libnative._mjtItem mjITEM_RADIO = _mjtItem.mjITEM_RADIO;
-
+        public const libnative.mjtItem_ mjITEM_RADIO = mjtItem_.mjITEM_RADIO;
+        
         /// <summary>
         /// radio group, single line
         /// </summary>
-        public const libnative._mjtItem mjITEM_RADIOLINE = _mjtItem.mjITEM_RADIOLINE;
-
+        public const libnative.mjtItem_ mjITEM_RADIOLINE = mjtItem_.mjITEM_RADIOLINE;
+        
         /// <summary>
         /// selection box
         /// </summary>
-        public const libnative._mjtItem mjITEM_SELECT = _mjtItem.mjITEM_SELECT;
-
+        public const libnative.mjtItem_ mjITEM_SELECT = mjtItem_.mjITEM_SELECT;
+        
         /// <summary>
         /// slider, int value
         /// </summary>
-        public const libnative._mjtItem mjITEM_SLIDERINT = _mjtItem.mjITEM_SLIDERINT;
-
+        public const libnative.mjtItem_ mjITEM_SLIDERINT = mjtItem_.mjITEM_SLIDERINT;
+        
         /// <summary>
         /// slider, mjtNum value
         /// </summary>
-        public const libnative._mjtItem mjITEM_SLIDERNUM = _mjtItem.mjITEM_SLIDERNUM;
-
+        public const libnative.mjtItem_ mjITEM_SLIDERNUM = mjtItem_.mjITEM_SLIDERNUM;
+        
         /// <summary>
         /// editable array, int values
         /// </summary>
-        public const libnative._mjtItem mjITEM_EDITINT = _mjtItem.mjITEM_EDITINT;
-
+        public const libnative.mjtItem_ mjITEM_EDITINT = mjtItem_.mjITEM_EDITINT;
+        
         /// <summary>
         /// editable array, mjtNum values
         /// </summary>
-        public const libnative._mjtItem mjITEM_EDITNUM = _mjtItem.mjITEM_EDITNUM;
-
+        public const libnative.mjtItem_ mjITEM_EDITNUM = mjtItem_.mjITEM_EDITNUM;
+        
         /// <summary>
         /// editable text
         /// </summary>
-        public const libnative._mjtItem mjITEM_EDITTXT = _mjtItem.mjITEM_EDITTXT;
-
+        public const libnative.mjtItem_ mjITEM_EDITTXT = mjtItem_.mjITEM_EDITTXT;
+        
         /// <summary>
         /// number of item types
         /// </summary>
-        public const libnative._mjtItem mjNITEM = _mjtItem.mjNITEM;
-
+        public const libnative.mjtItem_ mjNITEM = mjtItem_.mjNITEM;
+        
         /// <summary>
-        /// ------------------------------ mjLROpt ------------------------------------------------
+        /// ---------------------------------- primitive types (mjt) -----------------------------------------
+        /// </summary>
+        public enum mjtCatBit_ : int
+        {
+            /// <summary>
+            /// model elements in body 0
+            /// </summary>
+            mjCAT_STATIC = unchecked((int)1),
+            
+            /// <summary>
+            /// model elements in all other bodies
+            /// </summary>
+            mjCAT_DYNAMIC = unchecked((int)2),
+            
+            /// <summary>
+            /// decorative geoms
+            /// </summary>
+            mjCAT_DECOR = unchecked((int)4),
+            
+            /// <summary>
+            /// select all categories
+            /// </summary>
+            mjCAT_ALL = unchecked((int)7),
+        }
+        
+        /// <summary>
+        /// model elements in body 0
+        /// </summary>
+        public const libnative.mjtCatBit_ mjCAT_STATIC = mjtCatBit_.mjCAT_STATIC;
+        
+        /// <summary>
+        /// model elements in all other bodies
+        /// </summary>
+        public const libnative.mjtCatBit_ mjCAT_DYNAMIC = mjtCatBit_.mjCAT_DYNAMIC;
+        
+        /// <summary>
+        /// decorative geoms
+        /// </summary>
+        public const libnative.mjtCatBit_ mjCAT_DECOR = mjtCatBit_.mjCAT_DECOR;
+        
+        /// <summary>
+        /// select all categories
+        /// </summary>
+        public const libnative.mjtCatBit_ mjCAT_ALL = mjtCatBit_.mjCAT_ALL;
+        
+        public enum mjtMouse_ : int
+        {
+            /// <summary>
+            /// no action
+            /// </summary>
+            mjMOUSE_NONE = unchecked((int)0),
+            
+            /// <summary>
+            /// rotate, vertical plane
+            /// </summary>
+            mjMOUSE_ROTATE_V,
+            
+            /// <summary>
+            /// rotate, horizontal plane
+            /// </summary>
+            mjMOUSE_ROTATE_H,
+            
+            /// <summary>
+            /// move, vertical plane
+            /// </summary>
+            mjMOUSE_MOVE_V,
+            
+            /// <summary>
+            /// move, horizontal plane
+            /// </summary>
+            mjMOUSE_MOVE_H,
+            
+            /// <summary>
+            /// zoom
+            /// </summary>
+            mjMOUSE_ZOOM,
+            
+            /// <summary>
+            /// selection
+            /// </summary>
+            mjMOUSE_SELECT,
+        }
+        
+        /// <summary>
+        /// no action
+        /// </summary>
+        public const libnative.mjtMouse_ mjMOUSE_NONE = mjtMouse_.mjMOUSE_NONE;
+        
+        /// <summary>
+        /// rotate, vertical plane
+        /// </summary>
+        public const libnative.mjtMouse_ mjMOUSE_ROTATE_V = mjtMouse_.mjMOUSE_ROTATE_V;
+        
+        /// <summary>
+        /// rotate, horizontal plane
+        /// </summary>
+        public const libnative.mjtMouse_ mjMOUSE_ROTATE_H = mjtMouse_.mjMOUSE_ROTATE_H;
+        
+        /// <summary>
+        /// move, vertical plane
+        /// </summary>
+        public const libnative.mjtMouse_ mjMOUSE_MOVE_V = mjtMouse_.mjMOUSE_MOVE_V;
+        
+        /// <summary>
+        /// move, horizontal plane
+        /// </summary>
+        public const libnative.mjtMouse_ mjMOUSE_MOVE_H = mjtMouse_.mjMOUSE_MOVE_H;
+        
+        /// <summary>
+        /// zoom
+        /// </summary>
+        public const libnative.mjtMouse_ mjMOUSE_ZOOM = mjtMouse_.mjMOUSE_ZOOM;
+        
+        /// <summary>
+        /// selection
+        /// </summary>
+        public const libnative.mjtMouse_ mjMOUSE_SELECT = mjtMouse_.mjMOUSE_SELECT;
+        
+        public enum mjtPertBit_ : int
+        {
+            /// <summary>
+            /// translation
+            /// </summary>
+            mjPERT_TRANSLATE = unchecked((int)1),
+            
+            /// <summary>
+            /// rotation
+            /// </summary>
+            mjPERT_ROTATE = unchecked((int)2),
+        }
+        
+        /// <summary>
+        /// translation
+        /// </summary>
+        public const libnative.mjtPertBit_ mjPERT_TRANSLATE = mjtPertBit_.mjPERT_TRANSLATE;
+        
+        /// <summary>
+        /// rotation
+        /// </summary>
+        public const libnative.mjtPertBit_ mjPERT_ROTATE = mjtPertBit_.mjPERT_ROTATE;
+        
+        public enum mjtCamera_ : int
+        {
+            /// <summary>
+            /// free camera
+            /// </summary>
+            mjCAMERA_FREE = unchecked((int)0),
+            
+            /// <summary>
+            /// tracking camera; uses trackbodyid
+            /// </summary>
+            mjCAMERA_TRACKING,
+            
+            /// <summary>
+            /// fixed camera; uses fixedcamid
+            /// </summary>
+            mjCAMERA_FIXED,
+            
+            /// <summary>
+            /// user is responsible for setting OpenGL camera
+            /// </summary>
+            mjCAMERA_USER,
+        }
+        
+        /// <summary>
+        /// free camera
+        /// </summary>
+        public const libnative.mjtCamera_ mjCAMERA_FREE = mjtCamera_.mjCAMERA_FREE;
+        
+        /// <summary>
+        /// tracking camera; uses trackbodyid
+        /// </summary>
+        public const libnative.mjtCamera_ mjCAMERA_TRACKING = mjtCamera_.mjCAMERA_TRACKING;
+        
+        /// <summary>
+        /// fixed camera; uses fixedcamid
+        /// </summary>
+        public const libnative.mjtCamera_ mjCAMERA_FIXED = mjtCamera_.mjCAMERA_FIXED;
+        
+        /// <summary>
+        /// user is responsible for setting OpenGL camera
+        /// </summary>
+        public const libnative.mjtCamera_ mjCAMERA_USER = mjtCamera_.mjCAMERA_USER;
+        
+        public enum mjtLabel_ : int
+        {
+            /// <summary>
+            /// nothing
+            /// </summary>
+            mjLABEL_NONE = unchecked((int)0),
+            
+            /// <summary>
+            /// body labels
+            /// </summary>
+            mjLABEL_BODY,
+            
+            /// <summary>
+            /// joint labels
+            /// </summary>
+            mjLABEL_JOINT,
+            
+            /// <summary>
+            /// geom labels
+            /// </summary>
+            mjLABEL_GEOM,
+            
+            /// <summary>
+            /// site labels
+            /// </summary>
+            mjLABEL_SITE,
+            
+            /// <summary>
+            /// camera labels
+            /// </summary>
+            mjLABEL_CAMERA,
+            
+            /// <summary>
+            /// light labels
+            /// </summary>
+            mjLABEL_LIGHT,
+            
+            /// <summary>
+            /// tendon labels
+            /// </summary>
+            mjLABEL_TENDON,
+            
+            /// <summary>
+            /// actuator labels
+            /// </summary>
+            mjLABEL_ACTUATOR,
+            
+            /// <summary>
+            /// constraint labels
+            /// </summary>
+            mjLABEL_CONSTRAINT,
+            
+            /// <summary>
+            /// skin labels
+            /// </summary>
+            mjLABEL_SKIN,
+            
+            /// <summary>
+            /// selected object
+            /// </summary>
+            mjLABEL_SELECTION,
+            
+            /// <summary>
+            /// coordinates of selection point
+            /// </summary>
+            mjLABEL_SELPNT,
+            
+            /// <summary>
+            /// magnitude of contact force
+            /// </summary>
+            mjLABEL_CONTACTFORCE,
+            
+            /// <summary>
+            /// number of label types
+            /// </summary>
+            mjNLABEL,
+        }
+        
+        /// <summary>
+        /// nothing
+        /// </summary>
+        public const libnative.mjtLabel_ mjLABEL_NONE = mjtLabel_.mjLABEL_NONE;
+        
+        /// <summary>
+        /// body labels
+        /// </summary>
+        public const libnative.mjtLabel_ mjLABEL_BODY = mjtLabel_.mjLABEL_BODY;
+        
+        /// <summary>
+        /// joint labels
+        /// </summary>
+        public const libnative.mjtLabel_ mjLABEL_JOINT = mjtLabel_.mjLABEL_JOINT;
+        
+        /// <summary>
+        /// geom labels
+        /// </summary>
+        public const libnative.mjtLabel_ mjLABEL_GEOM = mjtLabel_.mjLABEL_GEOM;
+        
+        /// <summary>
+        /// site labels
+        /// </summary>
+        public const libnative.mjtLabel_ mjLABEL_SITE = mjtLabel_.mjLABEL_SITE;
+        
+        /// <summary>
+        /// camera labels
+        /// </summary>
+        public const libnative.mjtLabel_ mjLABEL_CAMERA = mjtLabel_.mjLABEL_CAMERA;
+        
+        /// <summary>
+        /// light labels
+        /// </summary>
+        public const libnative.mjtLabel_ mjLABEL_LIGHT = mjtLabel_.mjLABEL_LIGHT;
+        
+        /// <summary>
+        /// tendon labels
+        /// </summary>
+        public const libnative.mjtLabel_ mjLABEL_TENDON = mjtLabel_.mjLABEL_TENDON;
+        
+        /// <summary>
+        /// actuator labels
+        /// </summary>
+        public const libnative.mjtLabel_ mjLABEL_ACTUATOR = mjtLabel_.mjLABEL_ACTUATOR;
+        
+        /// <summary>
+        /// constraint labels
+        /// </summary>
+        public const libnative.mjtLabel_ mjLABEL_CONSTRAINT = mjtLabel_.mjLABEL_CONSTRAINT;
+        
+        /// <summary>
+        /// skin labels
+        /// </summary>
+        public const libnative.mjtLabel_ mjLABEL_SKIN = mjtLabel_.mjLABEL_SKIN;
+        
+        /// <summary>
+        /// selected object
+        /// </summary>
+        public const libnative.mjtLabel_ mjLABEL_SELECTION = mjtLabel_.mjLABEL_SELECTION;
+        
+        /// <summary>
+        /// coordinates of selection point
+        /// </summary>
+        public const libnative.mjtLabel_ mjLABEL_SELPNT = mjtLabel_.mjLABEL_SELPNT;
+        
+        /// <summary>
+        /// magnitude of contact force
+        /// </summary>
+        public const libnative.mjtLabel_ mjLABEL_CONTACTFORCE = mjtLabel_.mjLABEL_CONTACTFORCE;
+        
+        /// <summary>
+        /// number of label types
+        /// </summary>
+        public const libnative.mjtLabel_ mjNLABEL = mjtLabel_.mjNLABEL;
+        
+        public enum mjtFrame_ : int
+        {
+            /// <summary>
+            /// no frames
+            /// </summary>
+            mjFRAME_NONE = unchecked((int)0),
+            
+            /// <summary>
+            /// body frames
+            /// </summary>
+            mjFRAME_BODY,
+            
+            /// <summary>
+            /// geom frames
+            /// </summary>
+            mjFRAME_GEOM,
+            
+            /// <summary>
+            /// site frames
+            /// </summary>
+            mjFRAME_SITE,
+            
+            /// <summary>
+            /// camera frames
+            /// </summary>
+            mjFRAME_CAMERA,
+            
+            /// <summary>
+            /// light frames
+            /// </summary>
+            mjFRAME_LIGHT,
+            
+            /// <summary>
+            /// contact frames
+            /// </summary>
+            mjFRAME_CONTACT,
+            
+            /// <summary>
+            /// world frame
+            /// </summary>
+            mjFRAME_WORLD,
+            
+            /// <summary>
+            /// number of visualization frames
+            /// </summary>
+            mjNFRAME,
+        }
+        
+        /// <summary>
+        /// no frames
+        /// </summary>
+        public const libnative.mjtFrame_ mjFRAME_NONE = mjtFrame_.mjFRAME_NONE;
+        
+        /// <summary>
+        /// body frames
+        /// </summary>
+        public const libnative.mjtFrame_ mjFRAME_BODY = mjtFrame_.mjFRAME_BODY;
+        
+        /// <summary>
+        /// geom frames
+        /// </summary>
+        public const libnative.mjtFrame_ mjFRAME_GEOM = mjtFrame_.mjFRAME_GEOM;
+        
+        /// <summary>
+        /// site frames
+        /// </summary>
+        public const libnative.mjtFrame_ mjFRAME_SITE = mjtFrame_.mjFRAME_SITE;
+        
+        /// <summary>
+        /// camera frames
+        /// </summary>
+        public const libnative.mjtFrame_ mjFRAME_CAMERA = mjtFrame_.mjFRAME_CAMERA;
+        
+        /// <summary>
+        /// light frames
+        /// </summary>
+        public const libnative.mjtFrame_ mjFRAME_LIGHT = mjtFrame_.mjFRAME_LIGHT;
+        
+        /// <summary>
+        /// contact frames
+        /// </summary>
+        public const libnative.mjtFrame_ mjFRAME_CONTACT = mjtFrame_.mjFRAME_CONTACT;
+        
+        /// <summary>
+        /// world frame
+        /// </summary>
+        public const libnative.mjtFrame_ mjFRAME_WORLD = mjtFrame_.mjFRAME_WORLD;
+        
+        /// <summary>
+        /// number of visualization frames
+        /// </summary>
+        public const libnative.mjtFrame_ mjNFRAME = mjtFrame_.mjNFRAME;
+        
+        public enum mjtVisFlag_ : int
+        {
+            /// <summary>
+            /// mesh convex hull
+            /// </summary>
+            mjVIS_CONVEXHULL = unchecked((int)0),
+            
+            /// <summary>
+            /// textures
+            /// </summary>
+            mjVIS_TEXTURE,
+            
+            /// <summary>
+            /// joints
+            /// </summary>
+            mjVIS_JOINT,
+            
+            /// <summary>
+            /// actuators
+            /// </summary>
+            mjVIS_ACTUATOR,
+            
+            /// <summary>
+            /// cameras
+            /// </summary>
+            mjVIS_CAMERA,
+            
+            /// <summary>
+            /// lights
+            /// </summary>
+            mjVIS_LIGHT,
+            
+            /// <summary>
+            /// tendons
+            /// </summary>
+            mjVIS_TENDON,
+            
+            /// <summary>
+            /// rangefinder sensors
+            /// </summary>
+            mjVIS_RANGEFINDER,
+            
+            /// <summary>
+            /// point constraints
+            /// </summary>
+            mjVIS_CONSTRAINT,
+            
+            /// <summary>
+            /// equivalent inertia boxes
+            /// </summary>
+            mjVIS_INERTIA,
+            
+            /// <summary>
+            /// scale equivalent inertia boxes with mass
+            /// </summary>
+            mjVIS_SCLINERTIA,
+            
+            /// <summary>
+            /// perturbation force
+            /// </summary>
+            mjVIS_PERTFORCE,
+            
+            /// <summary>
+            /// perturbation object
+            /// </summary>
+            mjVIS_PERTOBJ,
+            
+            /// <summary>
+            /// contact points
+            /// </summary>
+            mjVIS_CONTACTPOINT,
+            
+            /// <summary>
+            /// contact force
+            /// </summary>
+            mjVIS_CONTACTFORCE,
+            
+            /// <summary>
+            /// split contact force into normal and tanget
+            /// </summary>
+            mjVIS_CONTACTSPLIT,
+            
+            /// <summary>
+            /// make dynamic geoms more transparent
+            /// </summary>
+            mjVIS_TRANSPARENT,
+            
+            /// <summary>
+            /// auto connect joints and body coms
+            /// </summary>
+            mjVIS_AUTOCONNECT,
+            
+            /// <summary>
+            /// center of mass
+            /// </summary>
+            mjVIS_COM,
+            
+            /// <summary>
+            /// selection point
+            /// </summary>
+            mjVIS_SELECT,
+            
+            /// <summary>
+            /// static bodies
+            /// </summary>
+            mjVIS_STATIC,
+            
+            /// <summary>
+            /// skin
+            /// </summary>
+            mjVIS_SKIN,
+            
+            /// <summary>
+            /// number of visualization flags
+            /// </summary>
+            mjNVISFLAG,
+        }
+        
+        /// <summary>
+        /// mesh convex hull
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_CONVEXHULL = mjtVisFlag_.mjVIS_CONVEXHULL;
+        
+        /// <summary>
+        /// textures
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_TEXTURE = mjtVisFlag_.mjVIS_TEXTURE;
+        
+        /// <summary>
+        /// joints
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_JOINT = mjtVisFlag_.mjVIS_JOINT;
+        
+        /// <summary>
+        /// actuators
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_ACTUATOR = mjtVisFlag_.mjVIS_ACTUATOR;
+        
+        /// <summary>
+        /// cameras
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_CAMERA = mjtVisFlag_.mjVIS_CAMERA;
+        
+        /// <summary>
+        /// lights
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_LIGHT = mjtVisFlag_.mjVIS_LIGHT;
+        
+        /// <summary>
+        /// tendons
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_TENDON = mjtVisFlag_.mjVIS_TENDON;
+        
+        /// <summary>
+        /// rangefinder sensors
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_RANGEFINDER = mjtVisFlag_.mjVIS_RANGEFINDER;
+        
+        /// <summary>
+        /// point constraints
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_CONSTRAINT = mjtVisFlag_.mjVIS_CONSTRAINT;
+        
+        /// <summary>
+        /// equivalent inertia boxes
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_INERTIA = mjtVisFlag_.mjVIS_INERTIA;
+        
+        /// <summary>
+        /// scale equivalent inertia boxes with mass
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_SCLINERTIA = mjtVisFlag_.mjVIS_SCLINERTIA;
+        
+        /// <summary>
+        /// perturbation force
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_PERTFORCE = mjtVisFlag_.mjVIS_PERTFORCE;
+        
+        /// <summary>
+        /// perturbation object
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_PERTOBJ = mjtVisFlag_.mjVIS_PERTOBJ;
+        
+        /// <summary>
+        /// contact points
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_CONTACTPOINT = mjtVisFlag_.mjVIS_CONTACTPOINT;
+        
+        /// <summary>
+        /// contact force
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_CONTACTFORCE = mjtVisFlag_.mjVIS_CONTACTFORCE;
+        
+        /// <summary>
+        /// split contact force into normal and tanget
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_CONTACTSPLIT = mjtVisFlag_.mjVIS_CONTACTSPLIT;
+        
+        /// <summary>
+        /// make dynamic geoms more transparent
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_TRANSPARENT = mjtVisFlag_.mjVIS_TRANSPARENT;
+        
+        /// <summary>
+        /// auto connect joints and body coms
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_AUTOCONNECT = mjtVisFlag_.mjVIS_AUTOCONNECT;
+        
+        /// <summary>
+        /// center of mass
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_COM = mjtVisFlag_.mjVIS_COM;
+        
+        /// <summary>
+        /// selection point
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_SELECT = mjtVisFlag_.mjVIS_SELECT;
+        
+        /// <summary>
+        /// static bodies
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_STATIC = mjtVisFlag_.mjVIS_STATIC;
+        
+        /// <summary>
+        /// skin
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjVIS_SKIN = mjtVisFlag_.mjVIS_SKIN;
+        
+        /// <summary>
+        /// number of visualization flags
+        /// </summary>
+        public const libnative.mjtVisFlag_ mjNVISFLAG = mjtVisFlag_.mjNVISFLAG;
+        
+        public enum mjtRndFlag_ : int
+        {
+            /// <summary>
+            /// shadows
+            /// </summary>
+            mjRND_SHADOW = unchecked((int)0),
+            
+            /// <summary>
+            /// wireframe
+            /// </summary>
+            mjRND_WIREFRAME,
+            
+            /// <summary>
+            /// reflections
+            /// </summary>
+            mjRND_REFLECTION,
+            
+            /// <summary>
+            /// additive transparency
+            /// </summary>
+            mjRND_ADDITIVE,
+            
+            /// <summary>
+            /// skybox
+            /// </summary>
+            mjRND_SKYBOX,
+            
+            /// <summary>
+            /// fog
+            /// </summary>
+            mjRND_FOG,
+            
+            /// <summary>
+            /// haze
+            /// </summary>
+            mjRND_HAZE,
+            
+            /// <summary>
+            /// segmentation with random color
+            /// </summary>
+            mjRND_SEGMENT,
+            
+            /// <summary>
+            /// segmentation with segid color
+            /// </summary>
+            mjRND_IDCOLOR,
+            
+            /// <summary>
+            /// number of rendering flags
+            /// </summary>
+            mjNRNDFLAG,
+        }
+        
+        /// <summary>
+        /// shadows
+        /// </summary>
+        public const libnative.mjtRndFlag_ mjRND_SHADOW = mjtRndFlag_.mjRND_SHADOW;
+        
+        /// <summary>
+        /// wireframe
+        /// </summary>
+        public const libnative.mjtRndFlag_ mjRND_WIREFRAME = mjtRndFlag_.mjRND_WIREFRAME;
+        
+        /// <summary>
+        /// reflections
+        /// </summary>
+        public const libnative.mjtRndFlag_ mjRND_REFLECTION = mjtRndFlag_.mjRND_REFLECTION;
+        
+        /// <summary>
+        /// additive transparency
+        /// </summary>
+        public const libnative.mjtRndFlag_ mjRND_ADDITIVE = mjtRndFlag_.mjRND_ADDITIVE;
+        
+        /// <summary>
+        /// skybox
+        /// </summary>
+        public const libnative.mjtRndFlag_ mjRND_SKYBOX = mjtRndFlag_.mjRND_SKYBOX;
+        
+        /// <summary>
+        /// fog
+        /// </summary>
+        public const libnative.mjtRndFlag_ mjRND_FOG = mjtRndFlag_.mjRND_FOG;
+        
+        /// <summary>
+        /// haze
+        /// </summary>
+        public const libnative.mjtRndFlag_ mjRND_HAZE = mjtRndFlag_.mjRND_HAZE;
+        
+        /// <summary>
+        /// segmentation with random color
+        /// </summary>
+        public const libnative.mjtRndFlag_ mjRND_SEGMENT = mjtRndFlag_.mjRND_SEGMENT;
+        
+        /// <summary>
+        /// segmentation with segid color
+        /// </summary>
+        public const libnative.mjtRndFlag_ mjRND_IDCOLOR = mjtRndFlag_.mjRND_IDCOLOR;
+        
+        /// <summary>
+        /// number of rendering flags
+        /// </summary>
+        public const libnative.mjtRndFlag_ mjNRNDFLAG = mjtRndFlag_.mjNRNDFLAG;
+        
+        public enum mjtStereo_ : int
+        {
+            /// <summary>
+            /// no stereo; use left eye only
+            /// </summary>
+            mjSTEREO_NONE = unchecked((int)0),
+            
+            /// <summary>
+            /// quad buffered; revert to side-by-side if no hardware support
+            /// </summary>
+            mjSTEREO_QUADBUFFERED,
+            
+            /// <summary>
+            /// side-by-side
+            /// </summary>
+            mjSTEREO_SIDEBYSIDE,
+        }
+        
+        /// <summary>
+        /// no stereo; use left eye only
+        /// </summary>
+        public const libnative.mjtStereo_ mjSTEREO_NONE = mjtStereo_.mjSTEREO_NONE;
+        
+        /// <summary>
+        /// quad buffered; revert to side-by-side if no hardware support
+        /// </summary>
+        public const libnative.mjtStereo_ mjSTEREO_QUADBUFFERED = mjtStereo_.mjSTEREO_QUADBUFFERED;
+        
+        /// <summary>
+        /// side-by-side
+        /// </summary>
+        public const libnative.mjtStereo_ mjSTEREO_SIDEBYSIDE = mjtStereo_.mjSTEREO_SIDEBYSIDE;
+        
+        /// <summary>
+        /// ---------------------------------- mjLROpt -------------------------------------------------------
         /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public partial struct _mjLROpt
+        public partial struct mjLROpt_
         {
             /// <summary>
             /// which actuators to process (mjtLRMode)
             /// </summary>
             public int mode;
-
+            
             /// <summary>
             /// use existing length range if available
             /// </summary>
             public int useexisting;
-
+            
             /// <summary>
             /// use joint and tendon limits if available
             /// </summary>
             public int uselimit;
-
+            
             /// <summary>
             /// target acceleration used to compute force
             /// </summary>
-            public libnative.mjtNum accel;
-
+            public double accel;
+            
             /// <summary>
             /// maximum force; 0: no limit
             /// </summary>
-            public libnative.mjtNum maxforce;
-
+            public double maxforce;
+            
             /// <summary>
             /// time constant for velocity reduction; min 0.01
             /// </summary>
-            public libnative.mjtNum timeconst;
-
+            public double timeconst;
+            
             /// <summary>
             /// simulation timestep; 0: use mjOption.timestep
             /// </summary>
-            public libnative.mjtNum timestep;
-
+            public double timestep;
+            
             /// <summary>
             /// total simulation time interval
             /// </summary>
-            public libnative.mjtNum inttotal;
-
+            public double inttotal;
+            
             /// <summary>
             /// evaluation time interval (at the end)
             /// </summary>
-            public libnative.mjtNum inteval;
-
+            public double inteval;
+            
             /// <summary>
             /// convergence tolerance (relative to range)
             /// </summary>
-            public libnative.mjtNum tolrange;
+            public double tolrange;
         }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtNum : IEquatable<mjtNum>
-        {
-            public mjtNum(double value) => this.Value = value;
-
-            public readonly double Value;
-
-            public bool Equals(mjtNum other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtNum other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator double(mjtNum from) => from.Value;
-
-            public static implicit operator mjtNum(double from) => new mjtNum(from);
-
-            public static bool operator ==(mjtNum left, mjtNum right) => left.Equals(right);
-
-            public static bool operator !=(mjtNum left, mjtNum right) => !left.Equals(right);
-        }
-
+        
         /// <summary>
-        /// ------------------------------ mjVFS --------------------------------------------------
+        /// ---------------------------------- mjVFS ---------------------------------------------------------
         /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public unsafe partial struct _mjVFS
+        public unsafe partial struct mjVFS_
         {
             /// <summary>
             /// number of files present
             /// </summary>
             public int nfile;
-
+            
             /// <summary>
             /// file name without path
             /// </summary>
-            ////[MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.ByValTStr, SizeConst = 2000)]
-            ////public string[] filename;
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2000)]
-            public IntPtr[] filename;
-
+            [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.ByValTStr, SizeConst = 2000)]
+            public string[] filename;
+            
             /// <summary>
             /// file size in bytes
             /// </summary>
             public fixed int filesize[2000];
-
+            
             /// <summary>
             /// buffer with file data
             /// </summary>
-            ////[MarshalAs(UnmanagedType.LPArray, SizeConst = 2000)]
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2000)]
+            [MarshalAs(UnmanagedType.LPArray, SizeConst = 2000)]
             public IntPtr[] filedata;
         }
-
+        
         /// <summary>
-        /// ------------------------------ mjOption -----------------------------------------------
+        /// ---------------------------------- mjOption ------------------------------------------------------
         /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public unsafe partial struct _mjOption
+        public unsafe partial struct mjOption_
         {
             /// <summary>
             /// timestep
             /// </summary>
-            public libnative.mjtNum timestep;
-
+            public double timestep;
+            
             /// <summary>
             /// update rate for remote API (Hz)
             /// </summary>
-            public libnative.mjtNum apirate;
-
+            public double apirate;
+            
             /// <summary>
             /// ratio of friction-to-normal contact impedance
             /// </summary>
-            public libnative.mjtNum impratio;
-
+            public double impratio;
+            
             /// <summary>
             /// main solver tolerance
             /// </summary>
-            public libnative.mjtNum tolerance;
-
+            public double tolerance;
+            
             /// <summary>
             /// noslip solver tolerance
             /// </summary>
-            public libnative.mjtNum noslip_tolerance;
-
+            public double noslip_tolerance;
+            
             /// <summary>
             /// MPR solver tolerance
             /// </summary>
-            public libnative.mjtNum mpr_tolerance;
-
+            public double mpr_tolerance;
+            
             /// <summary>
             /// gravitational acceleration
             /// </summary>
             public fixed double gravity[3];
-
+            
             /// <summary>
             /// wind (for lift, drag and viscosity)
             /// </summary>
             public fixed double wind[3];
-
+            
             /// <summary>
             /// global magnetic flux
             /// </summary>
             public fixed double magnetic[3];
-
+            
             /// <summary>
             /// density of medium
             /// </summary>
-            public libnative.mjtNum density;
-
+            public double density;
+            
             /// <summary>
             /// viscosity of medium
             /// </summary>
-            public libnative.mjtNum viscosity;
-
+            public double viscosity;
+            
             /// <summary>
             /// margin
             /// </summary>
-            public libnative.mjtNum o_margin;
-
+            public double o_margin;
+            
             /// <summary>
             /// solref
             /// </summary>
             public fixed double o_solref[2];
-
+            
             /// <summary>
             /// solimp
             /// </summary>
             public fixed double o_solimp[5];
-
+            
             /// <summary>
             /// integration mode (mjtIntegrator)
             /// </summary>
             public int integrator;
-
+            
             /// <summary>
             /// collision mode (mjtCollision)
             /// </summary>
             public int collision;
-
+            
             /// <summary>
             /// type of friction cone (mjtCone)
             /// </summary>
             public int cone;
-
+            
             /// <summary>
             /// type of Jacobian (mjtJacobian)
             /// </summary>
             public int jacobian;
-
+            
             /// <summary>
             /// solver algorithm (mjtSolver)
             /// </summary>
             public int solver;
-
+            
             /// <summary>
             /// maximum number of main solver iterations
             /// </summary>
             public int iterations;
-
+            
             /// <summary>
             /// maximum number of noslip solver iterations
             /// </summary>
             public int noslip_iterations;
-
+            
             /// <summary>
             /// maximum number of MPR solver iterations
             /// </summary>
             public int mpr_iterations;
-
+            
             /// <summary>
             /// bit flags for disabling standard features
             /// </summary>
             public int disableflags;
-
+            
             /// <summary>
             /// bit flags for enabling optional features
             /// </summary>
             public int enableflags;
         }
-
+        
         /// <summary>
-        /// ------------------------------ mjVisual -----------------------------------------------
+        /// ---------------------------------- mjVisual ------------------------------------------------------
         /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public partial struct _mjVisual
+        public partial struct mjVisual_
         {
             [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-            public partial struct _mjVisual_global
+            public partial struct mjVisual__global
             {
                 /// <summary>
                 /// y-field of view (deg) for free camera
                 /// </summary>
                 public float fovy;
-
+                
                 /// <summary>
                 /// inter-pupilary distance for free camera
                 /// </summary>
                 public float ipd;
-
+                
                 /// <summary>
                 /// line width for wireframe and ray rendering
                 /// </summary>
                 public float linewidth;
-
+                
                 /// <summary>
                 /// glow coefficient for selected body
                 /// </summary>
                 public float glow;
-
+                
                 /// <summary>
                 /// width of offscreen buffer
                 /// </summary>
                 public int offwidth;
-
+                
                 /// <summary>
                 /// height of offscreen buffer
                 /// </summary>
                 public int offheight;
             }
-
+            
             [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-            public partial struct _mjVisual_quality
+            public partial struct mjVisual__quality
             {
                 /// <summary>
                 /// size of shadowmap texture
                 /// </summary>
                 public int shadowsize;
-
+                
                 /// <summary>
                 /// number of multisamples for offscreen rendering
                 /// </summary>
                 public int offsamples;
-
+                
                 /// <summary>
                 /// number of slices for builtin geom drawing
                 /// </summary>
                 public int numslices;
-
+                
                 /// <summary>
                 /// number of stacks for builtin geom drawing
                 /// </summary>
                 public int numstacks;
-
+                
                 /// <summary>
                 /// number of quads for box rendering
                 /// </summary>
                 public int numquads;
             }
-
+            
             [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-            public unsafe partial struct _mjVisual_headlight
+            public unsafe partial struct mjVisual__headlight
             {
                 /// <summary>
                 /// ambient rgb (alpha=1)
                 /// </summary>
                 public fixed float ambient[3];
-
+                
                 /// <summary>
                 /// diffuse rgb (alpha=1)
                 /// </summary>
                 public fixed float diffuse[3];
-
+                
                 /// <summary>
                 /// specular rgb (alpha=1)
                 /// </summary>
                 public fixed float specular[3];
-
+                
                 /// <summary>
                 /// is headlight active
                 /// </summary>
                 public int active;
             }
-
+            
             [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-            public partial struct _mjVisual_map
+            public partial struct mjVisual__map
             {
                 /// <summary>
                 /// mouse perturbation stiffness (space-&gt;force)
                 /// </summary>
                 public float stiffness;
-
+                
                 /// <summary>
                 /// mouse perturbation stiffness (space-&gt;torque)
                 /// </summary>
                 public float stiffnessrot;
-
+                
                 /// <summary>
                 /// from force units to space units
                 /// </summary>
                 public float force;
-
+                
                 /// <summary>
                 /// from torque units to space units
                 /// </summary>
                 public float torque;
-
+                
                 /// <summary>
                 /// scale geom alphas when transparency is enabled
                 /// </summary>
                 public float alpha;
-
+                
                 /// <summary>
                 /// OpenGL fog starts at fogstart * mjModel.stat.extent
                 /// </summary>
                 public float fogstart;
-
+                
                 /// <summary>
                 /// OpenGL fog ends at fogend * mjModel.stat.extent
                 /// </summary>
                 public float fogend;
-
+                
                 /// <summary>
                 /// near clipping plane = znear * mjModel.stat.extent
                 /// </summary>
                 public float znear;
-
+                
                 /// <summary>
                 /// far clipping plane = zfar * mjModel.stat.extent
                 /// </summary>
                 public float zfar;
-
+                
                 /// <summary>
                 /// haze ratio
                 /// </summary>
                 public float haze;
-
+                
                 /// <summary>
                 /// directional light: shadowclip * mjModel.stat.extent
                 /// </summary>
                 public float shadowclip;
-
+                
                 /// <summary>
                 /// spot light: shadowscale * light.cutoff
                 /// </summary>
                 public float shadowscale;
-
+                
                 /// <summary>
                 /// scale tendon width
                 /// </summary>
                 public float actuatortendon;
             }
-
+            
             [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-            public partial struct _mjVisual_scale
+            public partial struct mjVisual__scale
             {
                 /// <summary>
                 /// width of force arrow
                 /// </summary>
                 public float forcewidth;
-
+                
                 /// <summary>
                 /// contact width
                 /// </summary>
                 public float contactwidth;
-
+                
                 /// <summary>
                 /// contact height
                 /// </summary>
                 public float contactheight;
-
+                
                 /// <summary>
                 /// autoconnect capsule width
                 /// </summary>
                 public float connect;
-
+                
                 /// <summary>
                 /// com radius
                 /// </summary>
                 public float com;
-
+                
                 /// <summary>
                 /// camera object
                 /// </summary>
                 public float camera;
-
+                
                 /// <summary>
                 /// light object
                 /// </summary>
                 public float light;
-
+                
                 /// <summary>
                 /// selection point
                 /// </summary>
                 public float selectpoint;
-
+                
                 /// <summary>
                 /// joint length
                 /// </summary>
                 public float jointlength;
-
+                
                 /// <summary>
                 /// joint width
                 /// </summary>
                 public float jointwidth;
-
+                
                 /// <summary>
                 /// actuator length
                 /// </summary>
                 public float actuatorlength;
-
+                
                 /// <summary>
                 /// actuator width
                 /// </summary>
                 public float actuatorwidth;
-
+                
                 /// <summary>
                 /// bodyframe axis length
                 /// </summary>
                 public float framelength;
-
+                
                 /// <summary>
                 /// bodyframe axis width
                 /// </summary>
                 public float framewidth;
-
+                
                 /// <summary>
                 /// constraint width
                 /// </summary>
                 public float constraint;
-
+                
                 /// <summary>
                 /// slidercrank width
                 /// </summary>
                 public float slidercrank;
             }
-
+            
             [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-            public unsafe partial struct _mjVisual_rgba
+            public unsafe partial struct mjVisual__rgba
             {
                 /// <summary>
                 /// fog
                 /// </summary>
                 public fixed float fog[4];
-
+                
                 /// <summary>
                 /// haze
                 /// </summary>
                 public fixed float haze[4];
-
+                
                 /// <summary>
                 /// external force
                 /// </summary>
                 public fixed float force[4];
-
+                
                 /// <summary>
                 /// inertia box
                 /// </summary>
                 public fixed float inertia[4];
-
+                
                 /// <summary>
                 /// joint
                 /// </summary>
                 public fixed float joint[4];
-
+                
                 /// <summary>
                 /// actuator, neutral
                 /// </summary>
                 public fixed float actuator[4];
-
+                
                 /// <summary>
                 /// actuator, negative limit
                 /// </summary>
                 public fixed float actuatornegative[4];
-
+                
                 /// <summary>
                 /// actuator, positive limit
                 /// </summary>
                 public fixed float actuatorpositive[4];
-
+                
                 /// <summary>
                 /// center of mass
                 /// </summary>
                 public fixed float com[4];
-
+                
                 /// <summary>
                 /// camera object
                 /// </summary>
                 public fixed float camera[4];
-
+                
                 /// <summary>
                 /// light object
                 /// </summary>
                 public fixed float light[4];
-
+                
                 /// <summary>
                 /// selection point
                 /// </summary>
                 public fixed float selectpoint[4];
-
+                
                 /// <summary>
                 /// auto connect
                 /// </summary>
                 public fixed float connect[4];
-
+                
                 /// <summary>
                 /// contact point
                 /// </summary>
                 public fixed float contactpoint[4];
-
+                
                 /// <summary>
                 /// contact force
                 /// </summary>
                 public fixed float contactforce[4];
-
+                
                 /// <summary>
                 /// contact friction force
                 /// </summary>
                 public fixed float contactfriction[4];
-
+                
                 /// <summary>
                 /// contact torque
                 /// </summary>
                 public fixed float contacttorque[4];
-
+                
                 /// <summary>
                 /// contact point in gap
                 /// </summary>
                 public fixed float contactgap[4];
-
+                
                 /// <summary>
                 /// rangefinder ray
                 /// </summary>
                 public fixed float rangefinder[4];
-
+                
                 /// <summary>
                 /// constraint
                 /// </summary>
                 public fixed float constraint[4];
-
+                
                 /// <summary>
                 /// slidercrank
                 /// </summary>
                 public fixed float slidercrank[4];
-
+                
                 /// <summary>
                 /// used when crank must be stretched/broken
                 /// </summary>
                 public fixed float crankbroken[4];
             }
-
-            public libnative._mjVisual._mjVisual_global global;
-
-            public libnative._mjVisual._mjVisual_quality quality;
-
-            public libnative._mjVisual._mjVisual_headlight headlight;
-
-            public libnative._mjVisual._mjVisual_map map;
-
-            public libnative._mjVisual._mjVisual_scale scale;
-
-            public libnative._mjVisual._mjVisual_rgba rgba;
+            
+            public libnative.mjVisual_.mjVisual__global global;
+            
+            public libnative.mjVisual_.mjVisual__quality quality;
+            
+            public libnative.mjVisual_.mjVisual__headlight headlight;
+            
+            public libnative.mjVisual_.mjVisual__map map;
+            
+            public libnative.mjVisual_.mjVisual__scale scale;
+            
+            public libnative.mjVisual_.mjVisual__rgba rgba;
         }
-
+        
         /// <summary>
-        /// ------------------------------ mjStatistic --------------------------------------------
+        /// ---------------------------------- mjStatistic ---------------------------------------------------
         /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public unsafe partial struct _mjStatistic
+        public unsafe partial struct mjStatistic_
         {
             /// <summary>
             /// mean diagonal inertia
             /// </summary>
-            public libnative.mjtNum meaninertia;
-
+            public double meaninertia;
+            
             /// <summary>
             /// mean body mass
             /// </summary>
-            public libnative.mjtNum meanmass;
-
+            public double meanmass;
+            
             /// <summary>
             /// mean body size
             /// </summary>
-            public libnative.mjtNum meansize;
-
+            public double meansize;
+            
             /// <summary>
             /// spatial extent
             /// </summary>
-            public libnative.mjtNum extent;
-
+            public double extent;
+            
             /// <summary>
             /// center of model
             /// </summary>
             public fixed double center[3];
         }
-
+        
         /// <summary>
-        /// ---------------------------------- mjModel --------------------------------------------
+        /// ---------------------------------- mjModel -------------------------------------------------------
         /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public partial struct _mjModel
+        public partial struct mjModel_
         {
             /// <summary>
             /// number of generalized coordinates = dim(qpos)
             /// </summary>
             public int nq;
-
+            
             /// <summary>
             /// number of degrees of freedom = dim(qvel)
             /// </summary>
             public int nv;
-
+            
             /// <summary>
             /// number of actuators/controls = dim(ctrl)
             /// </summary>
             public int nu;
-
+            
             /// <summary>
             /// number of activation states = dim(act)
             /// </summary>
             public int na;
-
+            
             /// <summary>
             /// number of bodies
             /// </summary>
             public int nbody;
-
+            
             /// <summary>
             /// number of joints
             /// </summary>
             public int njnt;
-
+            
             /// <summary>
             /// number of geoms
             /// </summary>
             public int ngeom;
-
+            
             /// <summary>
             /// number of sites
             /// </summary>
             public int nsite;
-
+            
             /// <summary>
             /// number of cameras
             /// </summary>
             public int ncam;
-
+            
             /// <summary>
             /// number of lights
             /// </summary>
             public int nlight;
-
+            
             /// <summary>
             /// number of meshes
             /// </summary>
             public int nmesh;
-
+            
             /// <summary>
             /// number of vertices in all meshes
             /// </summary>
             public int nmeshvert;
-
+            
             /// <summary>
             /// number of vertices with texcoords in all meshes
             /// </summary>
             public int nmeshtexvert;
-
+            
             /// <summary>
             /// number of triangular faces in all meshes
             /// </summary>
             public int nmeshface;
-
+            
             /// <summary>
             /// number of ints in mesh auxiliary data
             /// </summary>
             public int nmeshgraph;
-
+            
             /// <summary>
             /// number of skins
             /// </summary>
             public int nskin;
-
+            
             /// <summary>
             /// number of vertices in all skins
             /// </summary>
             public int nskinvert;
-
+            
             /// <summary>
             /// number of vertiex with texcoords in all skins
             /// </summary>
             public int nskintexvert;
-
+            
             /// <summary>
             /// number of triangular faces in all skins
             /// </summary>
             public int nskinface;
-
+            
             /// <summary>
             /// number of bones in all skins
             /// </summary>
             public int nskinbone;
-
+            
             /// <summary>
             /// number of vertices in all skin bones
             /// </summary>
             public int nskinbonevert;
-
+            
             /// <summary>
             /// number of heightfields
             /// </summary>
             public int nhfield;
-
+            
             /// <summary>
             /// number of data points in all heightfields
             /// </summary>
             public int nhfielddata;
-
+            
             /// <summary>
             /// number of textures
             /// </summary>
             public int ntex;
-
+            
             /// <summary>
             /// number of bytes in texture rgb data
             /// </summary>
             public int ntexdata;
-
+            
             /// <summary>
             /// number of materials
             /// </summary>
             public int nmat;
-
+            
             /// <summary>
             /// number of predefined geom pairs
             /// </summary>
             public int npair;
-
+            
             /// <summary>
             /// number of excluded geom pairs
             /// </summary>
             public int nexclude;
-
+            
             /// <summary>
             /// number of equality constraints
             /// </summary>
             public int neq;
-
+            
             /// <summary>
             /// number of tendons
             /// </summary>
             public int ntendon;
-
+            
             /// <summary>
             /// number of wrap objects in all tendon paths
             /// </summary>
             public int nwrap;
-
+            
             /// <summary>
             /// number of sensors
             /// </summary>
             public int nsensor;
-
+            
             /// <summary>
             /// number of numeric custom fields
             /// </summary>
             public int nnumeric;
-
+            
             /// <summary>
             /// number of mjtNums in all numeric fields
             /// </summary>
             public int nnumericdata;
-
+            
             /// <summary>
             /// number of text custom fields
             /// </summary>
             public int ntext;
-
+            
             /// <summary>
             /// number of mjtBytes in all text fields
             /// </summary>
             public int ntextdata;
-
+            
             /// <summary>
             /// number of tuple custom fields
             /// </summary>
             public int ntuple;
-
+            
             /// <summary>
             /// number of objects in all tuple fields
             /// </summary>
             public int ntupledata;
-
+            
             /// <summary>
             /// number of keyframes
             /// </summary>
             public int nkey;
-
+            
             /// <summary>
             /// number of mocap bodies
             /// </summary>
             public int nmocap;
-
+            
             /// <summary>
             /// number of mjtNums in body_user
             /// </summary>
             public int nuser_body;
-
+            
             /// <summary>
             /// number of mjtNums in jnt_user
             /// </summary>
             public int nuser_jnt;
-
+            
             /// <summary>
             /// number of mjtNums in geom_user
             /// </summary>
             public int nuser_geom;
-
+            
             /// <summary>
             /// number of mjtNums in site_user
             /// </summary>
             public int nuser_site;
-
+            
             /// <summary>
             /// number of mjtNums in cam_user
             /// </summary>
             public int nuser_cam;
-
+            
             /// <summary>
             /// number of mjtNums in tendon_user
             /// </summary>
             public int nuser_tendon;
-
+            
             /// <summary>
             /// number of mjtNums in actuator_user
             /// </summary>
             public int nuser_actuator;
-
+            
             /// <summary>
             /// number of mjtNums in sensor_user
             /// </summary>
             public int nuser_sensor;
-
+            
             /// <summary>
             /// number of chars in all names
             /// </summary>
             public int nnames;
-
+            
             /// <summary>
             /// number of non-zeros in sparse inertia matrix
             /// </summary>
             public int nM;
-
+            
             /// <summary>
             /// number of potential equality-constraint rows
             /// </summary>
             public int nemax;
-
+            
             /// <summary>
             /// number of available rows in constraint Jacobian
             /// </summary>
             public int njmax;
-
+            
             /// <summary>
             /// number of potential contacts in contact list
             /// </summary>
             public int nconmax;
-
+            
             /// <summary>
             /// number of fields in mjData stack
             /// </summary>
             public int nstack;
-
+            
             /// <summary>
             /// number of extra fields in mjData
             /// </summary>
             public int nuserdata;
-
+            
             /// <summary>
             /// number of fields in sensor data vector
             /// </summary>
             public int nsensordata;
-
+            
             /// <summary>
             /// number of bytes in buffer
             /// </summary>
             public int nbuffer;
-
+            
             /// <summary>
             /// physics options
             /// </summary>
-            public libnative.mjOption opt;
-
+            public libnative.mjOption_ opt;
+            
             /// <summary>
             /// visualization options
             /// </summary>
-            public libnative.mjVisual vis;
-
+            public libnative.mjVisual_ vis;
+            
             /// <summary>
             /// model statistics
             /// </summary>
-            public libnative.mjStatistic stat;
-
+            public libnative.mjStatistic_ stat;
+            
             /// <summary>
             /// main buffer; all pointers point in it    (nbuffer)
             /// </summary>
             public IntPtr buffer;
-
+            
             /// <summary>
             /// qpos values at default pose              (nq x 1)
             /// </summary>
             public IntPtr qpos0;
-
+            
             /// <summary>
             /// reference pose for springs               (nq x 1)
             /// </summary>
             public IntPtr qpos_spring;
-
+            
             /// <summary>
             /// id of body's parent                      (nbody x 1)
             /// </summary>
             public IntPtr body_parentid;
-
+            
             /// <summary>
             /// id of root above body                    (nbody x 1)
             /// </summary>
             public IntPtr body_rootid;
-
+            
             /// <summary>
             /// id of body that this body is welded to   (nbody x 1)
             /// </summary>
             public IntPtr body_weldid;
-
+            
             /// <summary>
             /// id of mocap data; -1: none               (nbody x 1)
             /// </summary>
             public IntPtr body_mocapid;
-
+            
             /// <summary>
             /// number of joints for this body           (nbody x 1)
             /// </summary>
             public IntPtr body_jntnum;
-
+            
             /// <summary>
             /// start addr of joints; -1: no joints      (nbody x 1)
             /// </summary>
             public IntPtr body_jntadr;
-
+            
             /// <summary>
             /// number of motion degrees of freedom      (nbody x 1)
             /// </summary>
             public IntPtr body_dofnum;
-
+            
             /// <summary>
             /// start addr of dofs; -1: no dofs          (nbody x 1)
             /// </summary>
             public IntPtr body_dofadr;
-
+            
             /// <summary>
             /// number of geoms                          (nbody x 1)
             /// </summary>
             public IntPtr body_geomnum;
-
+            
             /// <summary>
             /// start addr of geoms; -1: no geoms        (nbody x 1)
             /// </summary>
             public IntPtr body_geomadr;
-
+            
             /// <summary>
             /// body is simple (has diagonal M)          (nbody x 1)
             /// </summary>
             public IntPtr body_simple;
-
+            
             /// <summary>
             /// inertial frame is same as body frame     (nbody x 1)
             /// </summary>
             public IntPtr body_sameframe;
-
+            
             /// <summary>
             /// position offset rel. to parent body      (nbody x 3)
             /// </summary>
             public IntPtr body_pos;
-
+            
             /// <summary>
             /// orientation offset rel. to parent body   (nbody x 4)
             /// </summary>
             public IntPtr body_quat;
-
+            
             /// <summary>
             /// local position of center of mass         (nbody x 3)
             /// </summary>
             public IntPtr body_ipos;
-
+            
             /// <summary>
             /// local orientation of inertia ellipsoid   (nbody x 4)
             /// </summary>
             public IntPtr body_iquat;
-
+            
             /// <summary>
             /// mass                                     (nbody x 1)
             /// </summary>
             public IntPtr body_mass;
-
+            
             /// <summary>
             /// mass of subtree starting at this body    (nbody x 1)
             /// </summary>
             public IntPtr body_subtreemass;
-
+            
             /// <summary>
             /// diagonal inertia in ipos/iquat frame     (nbody x 3)
             /// </summary>
             public IntPtr body_inertia;
-
+            
             /// <summary>
             /// mean inv inert in qpos0 (trn, rot)       (nbody x 2)
             /// </summary>
             public IntPtr body_invweight0;
-
+            
             /// <summary>
             /// user data                                (nbody x nuser_body)
             /// </summary>
             public IntPtr body_user;
-
+            
             /// <summary>
             /// type of joint (mjtJoint)                 (njnt x 1)
             /// </summary>
             public IntPtr jnt_type;
-
+            
             /// <summary>
             /// start addr in 'qpos' for joint's data    (njnt x 1)
             /// </summary>
             public IntPtr jnt_qposadr;
-
+            
             /// <summary>
             /// start addr in 'qvel' for joint's data    (njnt x 1)
             /// </summary>
             public IntPtr jnt_dofadr;
-
+            
             /// <summary>
             /// id of joint's body                       (njnt x 1)
             /// </summary>
             public IntPtr jnt_bodyid;
-
+            
             /// <summary>
             /// group for visibility                     (njnt x 1)
             /// </summary>
             public IntPtr jnt_group;
-
+            
             /// <summary>
             /// does joint have limits                   (njnt x 1)
             /// </summary>
             public IntPtr jnt_limited;
-
+            
             /// <summary>
             /// constraint solver reference: limit       (njnt x mjNREF)
             /// </summary>
             public IntPtr jnt_solref;
-
+            
             /// <summary>
             /// constraint solver impedance: limit       (njnt x mjNIMP)
             /// </summary>
             public IntPtr jnt_solimp;
-
+            
             /// <summary>
             /// local anchor position                    (njnt x 3)
             /// </summary>
             public IntPtr jnt_pos;
-
+            
             /// <summary>
             /// local joint axis                         (njnt x 3)
             /// </summary>
             public IntPtr jnt_axis;
-
+            
             /// <summary>
             /// stiffness coefficient                    (njnt x 1)
             /// </summary>
             public IntPtr jnt_stiffness;
-
+            
             /// <summary>
             /// joint limits                             (njnt x 2)
             /// </summary>
             public IntPtr jnt_range;
-
+            
             /// <summary>
             /// min distance for limit detection         (njnt x 1)
             /// </summary>
             public IntPtr jnt_margin;
-
+            
             /// <summary>
             /// user data                                (njnt x nuser_jnt)
             /// </summary>
             public IntPtr jnt_user;
-
+            
             /// <summary>
             /// id of dof's body                         (nv x 1)
             /// </summary>
             public IntPtr dof_bodyid;
-
+            
             /// <summary>
             /// id of dof's joint                        (nv x 1)
             /// </summary>
             public IntPtr dof_jntid;
-
+            
             /// <summary>
             /// id of dof's parent; -1: none             (nv x 1)
             /// </summary>
             public IntPtr dof_parentid;
-
+            
             /// <summary>
             /// dof address in M-diagonal                (nv x 1)
             /// </summary>
             public IntPtr dof_Madr;
-
+            
             /// <summary>
             /// number of consecutive simple dofs        (nv x 1)
             /// </summary>
             public IntPtr dof_simplenum;
-
+            
             /// <summary>
             /// constraint solver reference:frictionloss (nv x mjNREF)
             /// </summary>
             public IntPtr dof_solref;
-
+            
             /// <summary>
             /// constraint solver impedance:frictionloss (nv x mjNIMP)
             /// </summary>
             public IntPtr dof_solimp;
-
+            
             /// <summary>
             /// dof friction loss                        (nv x 1)
             /// </summary>
             public IntPtr dof_frictionloss;
-
+            
             /// <summary>
             /// dof armature inertia/mass                (nv x 1)
             /// </summary>
             public IntPtr dof_armature;
-
+            
             /// <summary>
             /// damping coefficient                      (nv x 1)
             /// </summary>
             public IntPtr dof_damping;
-
+            
             /// <summary>
             /// diag. inverse inertia in qpos0           (nv x 1)
             /// </summary>
             public IntPtr dof_invweight0;
-
+            
             /// <summary>
             /// diag. inertia in qpos0                   (nv x 1)
             /// </summary>
             public IntPtr dof_M0;
-
+            
             /// <summary>
             /// geometric type (mjtGeom)                 (ngeom x 1)
             /// </summary>
             public IntPtr geom_type;
-
+            
             /// <summary>
             /// geom contact type                        (ngeom x 1)
             /// </summary>
             public IntPtr geom_contype;
-
+            
             /// <summary>
             /// geom contact affinity                    (ngeom x 1)
             /// </summary>
             public IntPtr geom_conaffinity;
-
+            
             /// <summary>
             /// contact dimensionality (1, 3, 4, 6)      (ngeom x 1)
             /// </summary>
             public IntPtr geom_condim;
-
+            
             /// <summary>
             /// id of geom's body                        (ngeom x 1)
             /// </summary>
             public IntPtr geom_bodyid;
-
+            
             /// <summary>
             /// id of geom's mesh/hfield (-1: none)      (ngeom x 1)
             /// </summary>
             public IntPtr geom_dataid;
-
+            
             /// <summary>
             /// material id for rendering                (ngeom x 1)
             /// </summary>
             public IntPtr geom_matid;
-
+            
             /// <summary>
             /// group for visibility                     (ngeom x 1)
             /// </summary>
             public IntPtr geom_group;
-
+            
             /// <summary>
             /// geom contact priority                    (ngeom x 1)
             /// </summary>
             public IntPtr geom_priority;
-
+            
             /// <summary>
             /// same as body frame (1) or iframe (2)     (ngeom x 1)
             /// </summary>
             public IntPtr geom_sameframe;
-
+            
             /// <summary>
             /// mixing coef for solref/imp in geom pair  (ngeom x 1)
             /// </summary>
             public IntPtr geom_solmix;
-
+            
             /// <summary>
             /// constraint solver reference: contact     (ngeom x mjNREF)
             /// </summary>
             public IntPtr geom_solref;
-
+            
             /// <summary>
             /// constraint solver impedance: contact     (ngeom x mjNIMP)
             /// </summary>
             public IntPtr geom_solimp;
-
+            
             /// <summary>
             /// geom-specific size parameters            (ngeom x 3)
             /// </summary>
             public IntPtr geom_size;
-
+            
             /// <summary>
             /// radius of bounding sphere                (ngeom x 1)
             /// </summary>
             public IntPtr geom_rbound;
-
+            
             /// <summary>
             /// local position offset rel. to body       (ngeom x 3)
             /// </summary>
             public IntPtr geom_pos;
-
+            
             /// <summary>
             /// local orientation offset rel. to body    (ngeom x 4)
             /// </summary>
             public IntPtr geom_quat;
-
+            
             /// <summary>
             /// friction for (slide, spin, roll)         (ngeom x 3)
             /// </summary>
             public IntPtr geom_friction;
-
+            
             /// <summary>
             /// detect contact if dist
             /// &lt;margin
             /// (ngeom x 1)
             /// </summary>
             public IntPtr geom_margin;
-
+            
             /// <summary>
             /// include in solver if dist
             /// &lt;margin
             /// -gap     (ngeom x 1)
             /// </summary>
             public IntPtr geom_gap;
-
+            
+            /// <summary>
+            /// fluid interaction parameters             (ngeom x mjNFLUID)
+            /// </summary>
+            public IntPtr geom_fluid;
+            
             /// <summary>
             /// user data                                (ngeom x nuser_geom)
             /// </summary>
             public IntPtr geom_user;
-
+            
             /// <summary>
             /// rgba when material is omitted            (ngeom x 4)
             /// </summary>
             public IntPtr geom_rgba;
-
+            
             /// <summary>
             /// geom type for rendering (mjtGeom)        (nsite x 1)
             /// </summary>
             public IntPtr site_type;
-
+            
             /// <summary>
             /// id of site's body                        (nsite x 1)
             /// </summary>
             public IntPtr site_bodyid;
-
+            
             /// <summary>
             /// material id for rendering                (nsite x 1)
             /// </summary>
             public IntPtr site_matid;
-
+            
             /// <summary>
             /// group for visibility                     (nsite x 1)
             /// </summary>
             public IntPtr site_group;
-
+            
             /// <summary>
             /// same as body frame (1) or iframe (2)     (nsite x 1)
             /// </summary>
             public IntPtr site_sameframe;
-
+            
             /// <summary>
             /// geom size for rendering                  (nsite x 3)
             /// </summary>
             public IntPtr site_size;
-
+            
             /// <summary>
             /// local position offset rel. to body       (nsite x 3)
             /// </summary>
             public IntPtr site_pos;
-
+            
             /// <summary>
             /// local orientation offset rel. to body    (nsite x 4)
             /// </summary>
             public IntPtr site_quat;
-
+            
             /// <summary>
             /// user data                                (nsite x nuser_site)
             /// </summary>
             public IntPtr site_user;
-
+            
             /// <summary>
             /// rgba when material is omitted            (nsite x 4)
             /// </summary>
             public IntPtr site_rgba;
-
+            
             /// <summary>
             /// camera tracking mode (mjtCamLight)       (ncam x 1)
             /// </summary>
             public IntPtr cam_mode;
-
+            
             /// <summary>
             /// id of camera's body                      (ncam x 1)
             /// </summary>
             public IntPtr cam_bodyid;
-
+            
             /// <summary>
             /// id of targeted body; -1: none            (ncam x 1)
             /// </summary>
             public IntPtr cam_targetbodyid;
-
+            
             /// <summary>
             /// position rel. to body frame              (ncam x 3)
             /// </summary>
             public IntPtr cam_pos;
-
+            
             /// <summary>
             /// orientation rel. to body frame           (ncam x 4)
             /// </summary>
             public IntPtr cam_quat;
-
+            
             /// <summary>
             /// global position rel. to sub-com in qpos0 (ncam x 3)
             /// </summary>
             public IntPtr cam_poscom0;
-
+            
             /// <summary>
             /// global position rel. to body in qpos0    (ncam x 3)
             /// </summary>
             public IntPtr cam_pos0;
-
+            
             /// <summary>
             /// global orientation in qpos0              (ncam x 9)
             /// </summary>
             public IntPtr cam_mat0;
-
+            
             /// <summary>
             /// y-field of view (deg)                    (ncam x 1)
             /// </summary>
             public IntPtr cam_fovy;
-
+            
             /// <summary>
             /// inter-pupilary distance                  (ncam x 1)
             /// </summary>
             public IntPtr cam_ipd;
-
+            
             /// <summary>
             /// user data                                (ncam x nuser_cam)
             /// </summary>
             public IntPtr cam_user;
-
+            
             /// <summary>
             /// light tracking mode (mjtCamLight)        (nlight x 1)
             /// </summary>
             public IntPtr light_mode;
-
+            
             /// <summary>
             /// id of light's body                       (nlight x 1)
             /// </summary>
             public IntPtr light_bodyid;
-
+            
             /// <summary>
             /// id of targeted body; -1: none            (nlight x 1)
             /// </summary>
             public IntPtr light_targetbodyid;
-
+            
             /// <summary>
             /// directional light                        (nlight x 1)
             /// </summary>
             public IntPtr light_directional;
-
+            
             /// <summary>
             /// does light cast shadows                  (nlight x 1)
             /// </summary>
             public IntPtr light_castshadow;
-
+            
             /// <summary>
             /// is light on                              (nlight x 1)
             /// </summary>
             public IntPtr light_active;
-
+            
             /// <summary>
             /// position rel. to body frame              (nlight x 3)
             /// </summary>
             public IntPtr light_pos;
-
+            
             /// <summary>
             /// direction rel. to body frame             (nlight x 3)
             /// </summary>
             public IntPtr light_dir;
-
+            
             /// <summary>
             /// global position rel. to sub-com in qpos0 (nlight x 3)
             /// </summary>
             public IntPtr light_poscom0;
-
+            
             /// <summary>
             /// global position rel. to body in qpos0    (nlight x 3)
             /// </summary>
             public IntPtr light_pos0;
-
+            
             /// <summary>
             /// global direction in qpos0                (nlight x 3)
             /// </summary>
             public IntPtr light_dir0;
-
+            
             /// <summary>
             /// OpenGL attenuation (quadratic model)     (nlight x 3)
             /// </summary>
             public IntPtr light_attenuation;
-
+            
             /// <summary>
             /// OpenGL cutoff                            (nlight x 1)
             /// </summary>
             public IntPtr light_cutoff;
-
+            
             /// <summary>
             /// OpenGL exponent                          (nlight x 1)
             /// </summary>
             public IntPtr light_exponent;
-
+            
             /// <summary>
             /// ambient rgb (alpha=1)                    (nlight x 3)
             /// </summary>
             public IntPtr light_ambient;
-
+            
             /// <summary>
             /// diffuse rgb (alpha=1)                    (nlight x 3)
             /// </summary>
             public IntPtr light_diffuse;
-
+            
             /// <summary>
             /// specular rgb (alpha=1)                   (nlight x 3)
             /// </summary>
             public IntPtr light_specular;
-
+            
             /// <summary>
             /// first vertex address                     (nmesh x 1)
             /// </summary>
             public IntPtr mesh_vertadr;
-
+            
             /// <summary>
             /// number of vertices                       (nmesh x 1)
             /// </summary>
             public IntPtr mesh_vertnum;
-
+            
             /// <summary>
             /// texcoord data address; -1: no texcoord   (nmesh x 1)
             /// </summary>
             public IntPtr mesh_texcoordadr;
-
+            
             /// <summary>
             /// first face address                       (nmesh x 1)
             /// </summary>
             public IntPtr mesh_faceadr;
-
+            
             /// <summary>
             /// number of faces                          (nmesh x 1)
             /// </summary>
             public IntPtr mesh_facenum;
-
+            
             /// <summary>
             /// graph data address; -1: no graph         (nmesh x 1)
             /// </summary>
             public IntPtr mesh_graphadr;
-
+            
             /// <summary>
             /// vertex positions for all meshe           (nmeshvert x 3)
             /// </summary>
             public IntPtr mesh_vert;
-
+            
             /// <summary>
             /// vertex normals for all meshes            (nmeshvert x 3)
             /// </summary>
             public IntPtr mesh_normal;
-
+            
             /// <summary>
             /// vertex texcoords for all meshes          (nmeshtexvert x 2)
             /// </summary>
             public IntPtr mesh_texcoord;
-
+            
             /// <summary>
             /// triangle face data                       (nmeshface x 3)
             /// </summary>
             public IntPtr mesh_face;
-
+            
             /// <summary>
             /// convex graph data                        (nmeshgraph x 1)
             /// </summary>
             public IntPtr mesh_graph;
-
+            
             /// <summary>
             /// skin material id; -1: none               (nskin x 1)
             /// </summary>
             public IntPtr skin_matid;
-
+            
             /// <summary>
             /// skin rgba                                (nskin x 4)
             /// </summary>
             public IntPtr skin_rgba;
-
+            
             /// <summary>
             /// inflate skin in normal direction         (nskin x 1)
             /// </summary>
             public IntPtr skin_inflate;
-
+            
             /// <summary>
             /// first vertex address                     (nskin x 1)
             /// </summary>
             public IntPtr skin_vertadr;
-
+            
             /// <summary>
             /// number of vertices                       (nskin x 1)
             /// </summary>
             public IntPtr skin_vertnum;
-
+            
             /// <summary>
             /// texcoord data address; -1: no texcoord   (nskin x 1)
             /// </summary>
             public IntPtr skin_texcoordadr;
-
+            
             /// <summary>
             /// first face address                       (nskin x 1)
             /// </summary>
             public IntPtr skin_faceadr;
-
+            
             /// <summary>
             /// number of faces                          (nskin x 1)
             /// </summary>
             public IntPtr skin_facenum;
-
+            
             /// <summary>
             /// first bone in skin                       (nskin x 1)
             /// </summary>
             public IntPtr skin_boneadr;
-
+            
             /// <summary>
             /// number of bones in skin                  (nskin x 1)
             /// </summary>
             public IntPtr skin_bonenum;
-
+            
             /// <summary>
             /// vertex positions for all skin meshes     (nskinvert x 3)
             /// </summary>
             public IntPtr skin_vert;
-
+            
             /// <summary>
             /// vertex texcoords for all skin meshes     (nskintexvert x 2)
             /// </summary>
             public IntPtr skin_texcoord;
-
+            
             /// <summary>
             /// triangle faces for all skin meshes       (nskinface x 3)
             /// </summary>
             public IntPtr skin_face;
-
+            
             /// <summary>
             /// first vertex in each bone                (nskinbone x 1)
             /// </summary>
             public IntPtr skin_bonevertadr;
-
+            
             /// <summary>
             /// number of vertices in each bone          (nskinbone x 1)
             /// </summary>
             public IntPtr skin_bonevertnum;
-
+            
             /// <summary>
             /// bind pos of each bone                    (nskinbone x 3)
             /// </summary>
             public IntPtr skin_bonebindpos;
-
+            
             /// <summary>
             /// bind quat of each bone                   (nskinbone x 4)
             /// </summary>
             public IntPtr skin_bonebindquat;
-
+            
             /// <summary>
             /// body id of each bone                     (nskinbone x 1)
             /// </summary>
             public IntPtr skin_bonebodyid;
-
+            
             /// <summary>
             /// mesh ids of vertices in each bone        (nskinbonevert x 1)
             /// </summary>
             public IntPtr skin_bonevertid;
-
+            
             /// <summary>
             /// weights of vertices in each bone         (nskinbonevert x 1)
             /// </summary>
             public IntPtr skin_bonevertweight;
-
+            
             /// <summary>
             /// (x, y, z_top, z_bottom)                  (nhfield x 4)
             /// </summary>
             public IntPtr hfield_size;
-
+            
             /// <summary>
             /// number of rows in grid                   (nhfield x 1)
             /// </summary>
             public IntPtr hfield_nrow;
-
+            
             /// <summary>
             /// number of columns in grid                (nhfield x 1)
             /// </summary>
             public IntPtr hfield_ncol;
-
+            
             /// <summary>
             /// address in hfield_data                   (nhfield x 1)
             /// </summary>
             public IntPtr hfield_adr;
-
+            
             /// <summary>
             /// elevation data                           (nhfielddata x 1)
             /// </summary>
             public IntPtr hfield_data;
-
+            
             /// <summary>
             /// texture type (mjtTexture)                (ntex x 1)
             /// </summary>
             public IntPtr tex_type;
-
+            
             /// <summary>
             /// number of rows in texture image          (ntex x 1)
             /// </summary>
             public IntPtr tex_height;
-
+            
             /// <summary>
             /// number of columns in texture image       (ntex x 1)
             /// </summary>
             public IntPtr tex_width;
-
+            
             /// <summary>
             /// address in rgb                           (ntex x 1)
             /// </summary>
             public IntPtr tex_adr;
-
+            
             /// <summary>
             /// rgb (alpha = 1)                          (ntexdata x 1)
             /// </summary>
             public IntPtr tex_rgb;
-
+            
             /// <summary>
             /// texture id; -1: none                     (nmat x 1)
             /// </summary>
             public IntPtr mat_texid;
-
+            
             /// <summary>
             /// make texture cube uniform                (nmat x 1)
             /// </summary>
             public IntPtr mat_texuniform;
-
+            
             /// <summary>
             /// texture repetition for 2d mapping        (nmat x 2)
             /// </summary>
             public IntPtr mat_texrepeat;
-
+            
             /// <summary>
             /// emission (x rgb)                         (nmat x 1)
             /// </summary>
             public IntPtr mat_emission;
-
+            
             /// <summary>
             /// specular (x white)                       (nmat x 1)
             /// </summary>
             public IntPtr mat_specular;
-
+            
             /// <summary>
             /// shininess coef                           (nmat x 1)
             /// </summary>
             public IntPtr mat_shininess;
-
+            
             /// <summary>
             /// reflectance (0: disable)                 (nmat x 1)
             /// </summary>
             public IntPtr mat_reflectance;
-
+            
             /// <summary>
             /// rgba                                     (nmat x 4)
             /// </summary>
             public IntPtr mat_rgba;
-
+            
             /// <summary>
             /// contact dimensionality                   (npair x 1)
             /// </summary>
             public IntPtr pair_dim;
-
+            
             /// <summary>
             /// id of geom1                              (npair x 1)
             /// </summary>
             public IntPtr pair_geom1;
-
+            
             /// <summary>
             /// id of geom2                              (npair x 1)
             /// </summary>
             public IntPtr pair_geom2;
-
+            
             /// <summary>
             /// (body1+1)
             /// &lt;
@@ -5062,36 +5059,36 @@ namespace MuJoCoSharp
             /// 16 + body2+1                  (npair x 1)
             /// </summary>
             public IntPtr pair_signature;
-
+            
             /// <summary>
             /// constraint solver reference: contact     (npair x mjNREF)
             /// </summary>
             public IntPtr pair_solref;
-
+            
             /// <summary>
             /// constraint solver impedance: contact     (npair x mjNIMP)
             /// </summary>
             public IntPtr pair_solimp;
-
+            
             /// <summary>
             /// detect contact if dist
             /// &lt;margin
             /// (npair x 1)
             /// </summary>
             public IntPtr pair_margin;
-
+            
             /// <summary>
             /// include in solver if dist
             /// &lt;margin
             /// -gap     (npair x 1)
             /// </summary>
             public IntPtr pair_gap;
-
+            
             /// <summary>
             /// tangent1, 2, spin, roll1, 2              (npair x 5)
             /// </summary>
             public IntPtr pair_friction;
-
+            
             /// <summary>
             /// (body1+1)
             /// &lt;
@@ -5099,2809 +5096,1894 @@ namespace MuJoCoSharp
             /// 16 + body2+1                  (nexclude x 1)
             /// </summary>
             public IntPtr exclude_signature;
-
+            
             /// <summary>
             /// constraint type (mjtEq)                  (neq x 1)
             /// </summary>
             public IntPtr eq_type;
-
+            
             /// <summary>
             /// id of object 1                           (neq x 1)
             /// </summary>
             public IntPtr eq_obj1id;
-
+            
             /// <summary>
             /// id of object 2                           (neq x 1)
             /// </summary>
             public IntPtr eq_obj2id;
-
+            
             /// <summary>
             /// enable/disable constraint                (neq x 1)
             /// </summary>
             public IntPtr eq_active;
-
+            
             /// <summary>
             /// constraint solver reference              (neq x mjNREF)
             /// </summary>
             public IntPtr eq_solref;
-
+            
             /// <summary>
             /// constraint solver impedance              (neq x mjNIMP)
             /// </summary>
             public IntPtr eq_solimp;
-
+            
             /// <summary>
             /// numeric data for constraint              (neq x mjNEQDATA)
             /// </summary>
             public IntPtr eq_data;
-
+            
             /// <summary>
             /// address of first object in tendon's path (ntendon x 1)
             /// </summary>
             public IntPtr tendon_adr;
-
+            
             /// <summary>
             /// number of objects in tendon's path       (ntendon x 1)
             /// </summary>
             public IntPtr tendon_num;
-
+            
             /// <summary>
             /// material id for rendering                (ntendon x 1)
             /// </summary>
             public IntPtr tendon_matid;
-
+            
             /// <summary>
             /// group for visibility                     (ntendon x 1)
             /// </summary>
             public IntPtr tendon_group;
-
+            
             /// <summary>
             /// does tendon have length limits           (ntendon x 1)
             /// </summary>
             public IntPtr tendon_limited;
-
+            
             /// <summary>
             /// width for rendering                      (ntendon x 1)
             /// </summary>
             public IntPtr tendon_width;
-
+            
             /// <summary>
             /// constraint solver reference: limit       (ntendon x mjNREF)
             /// </summary>
             public IntPtr tendon_solref_lim;
-
+            
             /// <summary>
             /// constraint solver impedance: limit       (ntendon x mjNIMP)
             /// </summary>
             public IntPtr tendon_solimp_lim;
-
+            
             /// <summary>
             /// constraint solver reference: friction    (ntendon x mjNREF)
             /// </summary>
             public IntPtr tendon_solref_fri;
-
+            
             /// <summary>
             /// constraint solver impedance: friction    (ntendon x mjNIMP)
             /// </summary>
             public IntPtr tendon_solimp_fri;
-
+            
             /// <summary>
             /// tendon length limits                     (ntendon x 2)
             /// </summary>
             public IntPtr tendon_range;
-
+            
             /// <summary>
             /// min distance for limit detection         (ntendon x 1)
             /// </summary>
             public IntPtr tendon_margin;
-
+            
             /// <summary>
             /// stiffness coefficient                    (ntendon x 1)
             /// </summary>
             public IntPtr tendon_stiffness;
-
+            
             /// <summary>
             /// damping coefficient                      (ntendon x 1)
             /// </summary>
             public IntPtr tendon_damping;
-
+            
             /// <summary>
             /// loss due to friction                     (ntendon x 1)
             /// </summary>
             public IntPtr tendon_frictionloss;
-
+            
             /// <summary>
             /// tendon length in qpos_spring             (ntendon x 1)
             /// </summary>
             public IntPtr tendon_lengthspring;
-
+            
             /// <summary>
             /// tendon length in qpos0                   (ntendon x 1)
             /// </summary>
             public IntPtr tendon_length0;
-
+            
             /// <summary>
             /// inv. weight in qpos0                     (ntendon x 1)
             /// </summary>
             public IntPtr tendon_invweight0;
-
+            
             /// <summary>
             /// user data                                (ntendon x nuser_tendon)
             /// </summary>
             public IntPtr tendon_user;
-
+            
             /// <summary>
             /// rgba when material is omitted            (ntendon x 4)
             /// </summary>
             public IntPtr tendon_rgba;
-
+            
             /// <summary>
             /// wrap object type (mjtWrap)               (nwrap x 1)
             /// </summary>
             public IntPtr wrap_type;
-
+            
             /// <summary>
             /// object id: geom, site, joint             (nwrap x 1)
             /// </summary>
             public IntPtr wrap_objid;
-
+            
             /// <summary>
             /// divisor, joint coef, or site id          (nwrap x 1)
             /// </summary>
             public IntPtr wrap_prm;
-
+            
             /// <summary>
             /// transmission type (mjtTrn)               (nu x 1)
             /// </summary>
             public IntPtr actuator_trntype;
-
+            
             /// <summary>
             /// dynamics type (mjtDyn)                   (nu x 1)
             /// </summary>
             public IntPtr actuator_dyntype;
-
+            
             /// <summary>
             /// gain type (mjtGain)                      (nu x 1)
             /// </summary>
             public IntPtr actuator_gaintype;
-
+            
             /// <summary>
             /// bias type (mjtBias)                      (nu x 1)
             /// </summary>
             public IntPtr actuator_biastype;
-
+            
             /// <summary>
             /// transmission id: joint, tendon, site     (nu x 2)
             /// </summary>
             public IntPtr actuator_trnid;
-
+            
             /// <summary>
             /// group for visibility                     (nu x 1)
             /// </summary>
             public IntPtr actuator_group;
-
+            
             /// <summary>
             /// is control limited                       (nu x 1)
             /// </summary>
             public IntPtr actuator_ctrllimited;
-
+            
             /// <summary>
             /// is force limited                         (nu x 1)
             /// </summary>
             public IntPtr actuator_forcelimited;
-
+            
             /// <summary>
             /// dynamics parameters                      (nu x mjNDYN)
             /// </summary>
             public IntPtr actuator_dynprm;
-
+            
             /// <summary>
             /// gain parameters                          (nu x mjNGAIN)
             /// </summary>
             public IntPtr actuator_gainprm;
-
+            
             /// <summary>
             /// bias parameters                          (nu x mjNBIAS)
             /// </summary>
             public IntPtr actuator_biasprm;
-
+            
             /// <summary>
             /// range of controls                        (nu x 2)
             /// </summary>
             public IntPtr actuator_ctrlrange;
-
+            
             /// <summary>
             /// range of forces                          (nu x 2)
             /// </summary>
             public IntPtr actuator_forcerange;
-
+            
             /// <summary>
             /// scale length and transmitted force       (nu x 6)
             /// </summary>
             public IntPtr actuator_gear;
-
+            
             /// <summary>
             /// crank length for slider-crank            (nu x 1)
             /// </summary>
             public IntPtr actuator_cranklength;
-
+            
             /// <summary>
             /// acceleration from unit force in qpos0    (nu x 1)
             /// </summary>
             public IntPtr actuator_acc0;
-
+            
             /// <summary>
             /// actuator length in qpos0                 (nu x 1)
             /// </summary>
             public IntPtr actuator_length0;
-
+            
             /// <summary>
             /// feasible actuator length range           (nu x 2)
             /// </summary>
             public IntPtr actuator_lengthrange;
-
+            
             /// <summary>
             /// user data                                (nu x nuser_actuator)
             /// </summary>
             public IntPtr actuator_user;
-
+            
             /// <summary>
             /// sensor type (mjtSensor)                  (nsensor x 1)
             /// </summary>
             public IntPtr sensor_type;
-
+            
             /// <summary>
             /// numeric data type (mjtDataType)          (nsensor x 1)
             /// </summary>
             public IntPtr sensor_datatype;
-
+            
             /// <summary>
             /// required compute stage (mjtStage)        (nsensor x 1)
             /// </summary>
             public IntPtr sensor_needstage;
-
+            
             /// <summary>
             /// type of sensorized object (mjtObj)       (nsensor x 1)
             /// </summary>
             public IntPtr sensor_objtype;
-
+            
             /// <summary>
             /// id of sensorized object                  (nsensor x 1)
             /// </summary>
             public IntPtr sensor_objid;
-
+            
+            /// <summary>
+            /// type of reference frame (mjtObj)         (nsensor x 1)
+            /// </summary>
+            public IntPtr sensor_reftype;
+            
+            /// <summary>
+            /// id of reference frame; -1: global frame  (nsensor x 1)
+            /// </summary>
+            public IntPtr sensor_refid;
+            
             /// <summary>
             /// number of scalar outputs                 (nsensor x 1)
             /// </summary>
             public IntPtr sensor_dim;
-
+            
             /// <summary>
             /// address in sensor array                  (nsensor x 1)
             /// </summary>
             public IntPtr sensor_adr;
-
+            
             /// <summary>
             /// cutoff for real and positive; 0: ignore  (nsensor x 1)
             /// </summary>
             public IntPtr sensor_cutoff;
-
+            
             /// <summary>
             /// noise standard deviation                 (nsensor x 1)
             /// </summary>
             public IntPtr sensor_noise;
-
+            
             /// <summary>
             /// user data                                (nsensor x nuser_sensor)
             /// </summary>
             public IntPtr sensor_user;
-
+            
             /// <summary>
             /// address of field in numeric_data         (nnumeric x 1)
             /// </summary>
             public IntPtr numeric_adr;
-
+            
             /// <summary>
             /// size of numeric field                    (nnumeric x 1)
             /// </summary>
             public IntPtr numeric_size;
-
+            
             /// <summary>
             /// array of all numeric fields              (nnumericdata x 1)
             /// </summary>
             public IntPtr numeric_data;
-
+            
             /// <summary>
             /// address of text in text_data             (ntext x 1)
             /// </summary>
             public IntPtr text_adr;
-
+            
             /// <summary>
             /// size of text field (strlen+1)            (ntext x 1)
             /// </summary>
             public IntPtr text_size;
-
+            
             /// <summary>
             /// array of all text fields (0-terminated)  (ntextdata x 1)
             /// </summary>
             public IntPtr text_data;
-
+            
             /// <summary>
             /// address of text in text_data             (ntuple x 1)
             /// </summary>
             public IntPtr tuple_adr;
-
+            
             /// <summary>
             /// number of objects in tuple               (ntuple x 1)
             /// </summary>
             public IntPtr tuple_size;
-
+            
             /// <summary>
             /// array of object types in all tuples      (ntupledata x 1)
             /// </summary>
             public IntPtr tuple_objtype;
-
+            
             /// <summary>
             /// array of object ids in all tuples        (ntupledata x 1)
             /// </summary>
             public IntPtr tuple_objid;
-
+            
             /// <summary>
             /// array of object params in all tuples     (ntupledata x 1)
             /// </summary>
             public IntPtr tuple_objprm;
-
+            
             /// <summary>
             /// key time                                 (nkey x 1)
             /// </summary>
             public IntPtr key_time;
-
+            
             /// <summary>
             /// key position                             (nkey x nq)
             /// </summary>
             public IntPtr key_qpos;
-
+            
             /// <summary>
             /// key velocity                             (nkey x nv)
             /// </summary>
             public IntPtr key_qvel;
-
+            
             /// <summary>
             /// key activation                           (nkey x na)
             /// </summary>
             public IntPtr key_act;
-
+            
             /// <summary>
             /// key mocap position                       (nkey x 3*nmocap)
             /// </summary>
             public IntPtr key_mpos;
-
+            
             /// <summary>
             /// key mocap quaternion                     (nkey x 4*nmocap)
             /// </summary>
             public IntPtr key_mquat;
-
+            
             /// <summary>
             /// body name pointers                       (nbody x 1)
             /// </summary>
             public IntPtr name_bodyadr;
-
+            
             /// <summary>
             /// joint name pointers                      (njnt x 1)
             /// </summary>
             public IntPtr name_jntadr;
-
+            
             /// <summary>
             /// geom name pointers                       (ngeom x 1)
             /// </summary>
             public IntPtr name_geomadr;
-
+            
             /// <summary>
             /// site name pointers                       (nsite x 1)
             /// </summary>
             public IntPtr name_siteadr;
-
+            
             /// <summary>
             /// camera name pointers                     (ncam x 1)
             /// </summary>
             public IntPtr name_camadr;
-
+            
             /// <summary>
             /// light name pointers                      (nlight x 1)
             /// </summary>
             public IntPtr name_lightadr;
-
+            
             /// <summary>
             /// mesh name pointers                       (nmesh x 1)
             /// </summary>
             public IntPtr name_meshadr;
-
+            
             /// <summary>
             /// skin name pointers                       (nskin x 1)
             /// </summary>
             public IntPtr name_skinadr;
-
+            
             /// <summary>
             /// hfield name pointers                     (nhfield x 1)
             /// </summary>
             public IntPtr name_hfieldadr;
-
+            
             /// <summary>
             /// texture name pointers                    (ntex x 1)
             /// </summary>
             public IntPtr name_texadr;
-
+            
             /// <summary>
             /// material name pointers                   (nmat x 1)
             /// </summary>
             public IntPtr name_matadr;
-
+            
             /// <summary>
             /// geom pair name pointers                  (npair x 1)
             /// </summary>
             public IntPtr name_pairadr;
-
+            
             /// <summary>
             /// exclude name pointers                    (nexclude x 1)
             /// </summary>
             public IntPtr name_excludeadr;
-
+            
             /// <summary>
             /// equality constraint name pointers        (neq x 1)
             /// </summary>
             public IntPtr name_eqadr;
-
+            
             /// <summary>
             /// tendon name pointers                     (ntendon x 1)
             /// </summary>
             public IntPtr name_tendonadr;
-
+            
             /// <summary>
             /// actuator name pointers                   (nu x 1)
             /// </summary>
             public IntPtr name_actuatoradr;
-
+            
             /// <summary>
             /// sensor name pointers                     (nsensor x 1)
             /// </summary>
             public IntPtr name_sensoradr;
-
+            
             /// <summary>
             /// numeric name pointers                    (nnumeric x 1)
             /// </summary>
             public IntPtr name_numericadr;
-
+            
             /// <summary>
             /// text name pointers                       (ntext x 1)
             /// </summary>
             public IntPtr name_textadr;
-
+            
             /// <summary>
             /// tuple name pointers                      (ntuple x 1)
             /// </summary>
             public IntPtr name_tupleadr;
-
+            
             /// <summary>
             /// keyframe name pointers                   (nkey x 1)
             /// </summary>
             public IntPtr name_keyadr;
-
+            
             /// <summary>
             /// names of all objects, 0-terminated       (nnames x 1)
             /// </summary>
             public IntPtr names;
         }
-
+        
         /// <summary>
-        /// ------------------------------ mjOption -----------------------------------------------
+        /// ---------------------------------- mjContact -----------------------------------------------------
         /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjOption : IEquatable<mjOption>
-        {
-            public mjOption(libnative._mjOption value) => this.Value = value;
-
-            public readonly libnative._mjOption Value;
-
-            public bool Equals(mjOption other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjOption other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjOption(mjOption from) => from.Value;
-
-            public static implicit operator mjOption(libnative._mjOption from) => new mjOption(from);
-
-            public static bool operator ==(mjOption left, mjOption right) => left.Equals(right);
-
-            public static bool operator !=(mjOption left, mjOption right) => !left.Equals(right);
-        }
-
-        /// <summary>
-        /// ------------------------------ mjVisual -----------------------------------------------
-        /// </summary>
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjVisual : IEquatable<mjVisual>
-        {
-            public mjVisual(libnative._mjVisual value) => this.Value = value;
-
-            public readonly libnative._mjVisual Value;
-
-            public bool Equals(mjVisual other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjVisual other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjVisual(mjVisual from) => from.Value;
-
-            public static implicit operator mjVisual(libnative._mjVisual from) => new mjVisual(from);
-
-            public static bool operator ==(mjVisual left, mjVisual right) => left.Equals(right);
-
-            public static bool operator !=(mjVisual left, mjVisual right) => !left.Equals(right);
-        }
-
-        /// <summary>
-        /// ------------------------------ mjStatistic --------------------------------------------
-        /// </summary>
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjStatistic : IEquatable<mjStatistic>
-        {
-            public mjStatistic(libnative._mjStatistic value) => this.Value = value;
-
-            public readonly libnative._mjStatistic Value;
-
-            public bool Equals(mjStatistic other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjStatistic other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjStatistic(mjStatistic from) => from.Value;
-
-            public static implicit operator mjStatistic(libnative._mjStatistic from) => new mjStatistic(from);
-
-            public static bool operator ==(mjStatistic left, mjStatistic right) => left.Equals(right);
-
-            public static bool operator !=(mjStatistic left, mjStatistic right) => !left.Equals(right);
-        }
-
-        /// <summary>
-        /// ---------------------------- primitive types (mjt) ------------------------------------
-        /// </summary>
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtByte : IEquatable<mjtByte>
-        {
-            public mjtByte(byte value) => this.Value = value;
-
-            public readonly byte Value;
-
-            public bool Equals(mjtByte other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtByte other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator byte(mjtByte from) => from.Value;
-
-            public static implicit operator mjtByte(byte from) => new mjtByte(from);
-
-            public static bool operator ==(mjtByte left, mjtByte right) => left.Equals(right);
-
-            public static bool operator !=(mjtByte left, mjtByte right) => !left.Equals(right);
-        }
-
-        /// <summary>
-        /// ------------------------------ mjContact ----------------------------------------------
-        /// </summary>
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public unsafe partial struct _mjContact
+        public unsafe partial struct mjContact_
         {
             /// <summary>
             /// distance between nearest points; neg: penetration
             /// </summary>
-            public libnative.mjtNum dist;
-
+            public double dist;
+            
             /// <summary>
             /// position of contact point: midpoint between geoms
             /// </summary>
             public fixed double pos[3];
-
+            
             /// <summary>
             /// normal is in [0-2]
             /// </summary>
             public fixed double frame[9];
-
+            
             /// <summary>
             /// include if dist
             /// &lt;includemargin
             /// =margin-gap
             /// </summary>
-            public libnative.mjtNum includemargin;
-
+            public double includemargin;
+            
             /// <summary>
             /// tangent1, 2, spin, roll1, 2
             /// </summary>
             public fixed double friction[5];
-
+            
             /// <summary>
             /// constraint solver reference
             /// </summary>
             public fixed double solref[2];
-
+            
             /// <summary>
             /// constraint solver impedance
             /// </summary>
             public fixed double solimp[5];
-
+            
             /// <summary>
             /// friction of regularized cone, set by mj_makeConstraint
             /// </summary>
-            public libnative.mjtNum mu;
-
+            public double mu;
+            
             /// <summary>
             /// cone Hessian, set by mj_updateConstraint
             /// </summary>
             public fixed double H[36];
-
+            
             /// <summary>
             /// contact space dimensionality: 1, 3, 4 or 6
             /// </summary>
             public int dim;
-
+            
             /// <summary>
             /// id of geom 1
             /// </summary>
             public int geom1;
-
+            
             /// <summary>
             /// id of geom 2
             /// </summary>
             public int geom2;
-
+            
             /// <summary>
             /// 0: include, 1: in gap, 2: fused, 3: equality, 4: no dofs
             /// </summary>
             public int exclude;
-
+            
             /// <summary>
             /// address in efc; -1: not included, -2-i: distance constraint i
             /// </summary>
             public int efc_address;
         }
-
+        
         /// <summary>
-        /// ------------------------------ diagnostics --------------------------------------------
+        /// ---------------------------------- diagnostics ---------------------------------------------------
         /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public partial struct _mjWarningStat
+        public partial struct mjWarningStat_
         {
             /// <summary>
             /// info from last warning
             /// </summary>
             public int lastinfo;
-
+            
             /// <summary>
             /// how many times was warning raised
             /// </summary>
             public int number;
         }
-
+        
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public partial struct _mjTimerStat
+        public partial struct mjTimerStat_
         {
             /// <summary>
             /// cumulative duration
             /// </summary>
-            public libnative.mjtNum duration;
-
+            public double duration;
+            
             /// <summary>
             /// how many times was timer called
             /// </summary>
             public int number;
         }
-
+        
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public partial struct _mjSolverStat
+        public partial struct mjSolverStat_
         {
             /// <summary>
             /// cost reduction, scaled by 1/trace(M(qpos0))
             /// </summary>
-            public libnative.mjtNum improvement;
-
+            public double improvement;
+            
             /// <summary>
             /// gradient norm (primal only, scaled)
             /// </summary>
-            public libnative.mjtNum gradient;
-
+            public double gradient;
+            
             /// <summary>
             /// slope in linesearch
             /// </summary>
-            public libnative.mjtNum lineslope;
-
+            public double lineslope;
+            
             /// <summary>
             /// number of active constraints
             /// </summary>
             public int nactive;
-
+            
             /// <summary>
             /// number of constraint state changes
             /// </summary>
             public int nchange;
-
+            
             /// <summary>
             /// number of cost evaluations in line search
             /// </summary>
             public int neval;
-
+            
             /// <summary>
             /// number of Cholesky updates in line search
             /// </summary>
             public int nupdate;
         }
-
+        
         /// <summary>
-        /// ---------------------------------- mjData ---------------------------------------------
+        /// ---------------------------------- mjData --------------------------------------------------------
         /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public unsafe partial struct _mjData
+        public unsafe partial struct mjData_
         {
             /// <summary>
             /// number of mjtNums that can fit in stack
             /// </summary>
             public int nstack;
-
+            
             /// <summary>
             /// size of main buffer in bytes
             /// </summary>
             public int nbuffer;
-
+            
             /// <summary>
             /// first available mjtNum address in stack
             /// </summary>
             public int pstack;
-
+            
             /// <summary>
             /// maximum stack allocation
             /// </summary>
             public int maxuse_stack;
-
+            
             /// <summary>
             /// maximum number of contacts
             /// </summary>
             public int maxuse_con;
-
+            
             /// <summary>
             /// maximum number of scalar constraints
             /// </summary>
             public int maxuse_efc;
-
+            
             /// <summary>
             /// warning statistics
             /// </summary>
             [MarshalAs(UnmanagedType.LPArray, SizeConst = 8)]
-            public libnative.mjWarningStat[] warning;
-
+            public libnative.mjWarningStat_[] warning;
+            
             /// <summary>
             /// timer statistics
             /// </summary>
             [MarshalAs(UnmanagedType.LPArray, SizeConst = 13)]
-            public libnative.mjTimerStat[] timer;
-
+            public libnative.mjTimerStat_[] timer;
+            
             /// <summary>
             /// solver statistics per iteration
             /// </summary>
             [MarshalAs(UnmanagedType.LPArray, SizeConst = 1000)]
-            public libnative.mjSolverStat[] solver;
-
+            public libnative.mjSolverStat_[] solver;
+            
             /// <summary>
             /// number of solver iterations
             /// </summary>
             public int solver_iter;
-
+            
             /// <summary>
             /// number of non-zeros in Hessian or efc_AR
             /// </summary>
             public int solver_nnz;
-
+            
             /// <summary>
             /// forward-inverse comparison: qfrc, efc
             /// </summary>
             public fixed double solver_fwdinv[2];
-
+            
             /// <summary>
             /// number of equality constraints
             /// </summary>
             public int ne;
-
+            
             /// <summary>
             /// number of friction constraints
             /// </summary>
             public int nf;
-
+            
             /// <summary>
             /// number of constraints
             /// </summary>
             public int nefc;
-
+            
             /// <summary>
             /// number of detected contacts
             /// </summary>
             public int ncon;
-
+            
             /// <summary>
             /// simulation time
             /// </summary>
-            public libnative.mjtNum time;
-
+            public double time;
+            
             /// <summary>
             /// potential, kinetic energy
             /// </summary>
             public fixed double energy[2];
-
+            
             /// <summary>
             /// main buffer; all pointers point in it    (nbuffer bytes)
             /// </summary>
             public IntPtr buffer;
-
+            
             /// <summary>
             /// stack buffer                             (nstack mjtNums)
             /// </summary>
             public IntPtr stack;
-
+            
             /// <summary>
             /// position                                 (nq x 1)
             /// </summary>
             public IntPtr qpos;
-
+            
             /// <summary>
             /// velocity                                 (nv x 1)
             /// </summary>
             public IntPtr qvel;
-
+            
             /// <summary>
             /// actuator activation                      (na x 1)
             /// </summary>
             public IntPtr act;
-
+            
             /// <summary>
             /// acceleration used for warmstart          (nv x 1)
             /// </summary>
             public IntPtr qacc_warmstart;
-
+            
             /// <summary>
             /// control                                  (nu x 1)
             /// </summary>
             public IntPtr ctrl;
-
+            
             /// <summary>
             /// applied generalized force                (nv x 1)
             /// </summary>
             public IntPtr qfrc_applied;
-
+            
             /// <summary>
             /// applied Cartesian force/torque           (nbody x 6)
             /// </summary>
             public IntPtr xfrc_applied;
-
-            /// <summary>
-            /// acceleration                             (nv x 1)
-            /// </summary>
-            public IntPtr qacc;
-
-            /// <summary>
-            /// time-derivative of actuator activation   (na x 1)
-            /// </summary>
-            public IntPtr act_dot;
-
+            
             /// <summary>
             /// positions of mocap bodies                (nmocap x 3)
             /// </summary>
             public IntPtr mocap_pos;
-
+            
             /// <summary>
             /// orientations of mocap bodies             (nmocap x 4)
             /// </summary>
             public IntPtr mocap_quat;
-
+            
+            /// <summary>
+            /// acceleration                             (nv x 1)
+            /// </summary>
+            public IntPtr qacc;
+            
+            /// <summary>
+            /// time-derivative of actuator activation   (na x 1)
+            /// </summary>
+            public IntPtr act_dot;
+            
             /// <summary>
             /// user data, not touched by engine         (nuserdata x 1)
             /// </summary>
             public IntPtr userdata;
-
+            
             /// <summary>
             /// sensor data array                        (nsensordata x 1)
             /// </summary>
             public IntPtr sensordata;
-
+            
             /// <summary>
             /// Cartesian position of body frame         (nbody x 3)
             /// </summary>
             public IntPtr xpos;
-
+            
             /// <summary>
             /// Cartesian orientation of body frame      (nbody x 4)
             /// </summary>
             public IntPtr xquat;
-
+            
             /// <summary>
             /// Cartesian orientation of body frame      (nbody x 9)
             /// </summary>
             public IntPtr xmat;
-
+            
             /// <summary>
             /// Cartesian position of body com           (nbody x 3)
             /// </summary>
             public IntPtr xipos;
-
+            
             /// <summary>
             /// Cartesian orientation of body inertia    (nbody x 9)
             /// </summary>
             public IntPtr ximat;
-
+            
             /// <summary>
             /// Cartesian position of joint anchor       (njnt x 3)
             /// </summary>
             public IntPtr xanchor;
-
+            
             /// <summary>
             /// Cartesian joint axis                     (njnt x 3)
             /// </summary>
             public IntPtr xaxis;
-
+            
             /// <summary>
             /// Cartesian geom position                  (ngeom x 3)
             /// </summary>
             public IntPtr geom_xpos;
-
+            
             /// <summary>
             /// Cartesian geom orientation               (ngeom x 9)
             /// </summary>
             public IntPtr geom_xmat;
-
+            
             /// <summary>
             /// Cartesian site position                  (nsite x 3)
             /// </summary>
             public IntPtr site_xpos;
-
+            
             /// <summary>
             /// Cartesian site orientation               (nsite x 9)
             /// </summary>
             public IntPtr site_xmat;
-
+            
             /// <summary>
             /// Cartesian camera position                (ncam x 3)
             /// </summary>
             public IntPtr cam_xpos;
-
+            
             /// <summary>
             /// Cartesian camera orientation             (ncam x 9)
             /// </summary>
             public IntPtr cam_xmat;
-
+            
             /// <summary>
             /// Cartesian light position                 (nlight x 3)
             /// </summary>
             public IntPtr light_xpos;
-
+            
             /// <summary>
             /// Cartesian light direction                (nlight x 3)
             /// </summary>
             public IntPtr light_xdir;
-
+            
             /// <summary>
             /// center of mass of each subtree           (nbody x 3)
             /// </summary>
             public IntPtr subtree_com;
-
+            
             /// <summary>
             /// com-based motion axis of each dof        (nv x 6)
             /// </summary>
             public IntPtr cdof;
-
+            
             /// <summary>
             /// com-based body inertia and mass          (nbody x 10)
             /// </summary>
             public IntPtr cinert;
-
+            
             /// <summary>
             /// start address of tendon's path           (ntendon x 1)
             /// </summary>
             public IntPtr ten_wrapadr;
-
+            
             /// <summary>
             /// number of wrap points in path            (ntendon x 1)
             /// </summary>
             public IntPtr ten_wrapnum;
-
+            
             /// <summary>
             /// number of non-zeros in Jacobian row      (ntendon x 1)
             /// </summary>
             public IntPtr ten_J_rownnz;
-
+            
             /// <summary>
             /// row start address in colind array        (ntendon x 1)
             /// </summary>
             public IntPtr ten_J_rowadr;
-
+            
             /// <summary>
             /// column indices in sparse Jacobian        (ntendon x nv)
             /// </summary>
             public IntPtr ten_J_colind;
-
+            
             /// <summary>
             /// tendon lengths                           (ntendon x 1)
             /// </summary>
             public IntPtr ten_length;
-
+            
             /// <summary>
             /// tendon Jacobian                          (ntendon x nv)
             /// </summary>
             public IntPtr ten_J;
-
+            
             /// <summary>
             /// geom id; -1: site; -2: pulley            (nwrap*2 x 1)
             /// </summary>
             public IntPtr wrap_obj;
-
+            
             /// <summary>
             /// Cartesian 3D points in all path          (nwrap*2 x 3)
             /// </summary>
             public IntPtr wrap_xpos;
-
+            
             /// <summary>
             /// actuator lengths                         (nu x 1)
             /// </summary>
             public IntPtr actuator_length;
-
+            
             /// <summary>
             /// actuator moments                         (nu x nv)
             /// </summary>
             public IntPtr actuator_moment;
-
+            
             /// <summary>
             /// com-based composite inertia and mass     (nbody x 10)
             /// </summary>
             public IntPtr crb;
-
+            
             /// <summary>
             /// total inertia                            (nM x 1)
             /// </summary>
             public IntPtr qM;
-
+            
             /// <summary>
             /// L'*D*L factorization of M                (nM x 1)
             /// </summary>
             public IntPtr qLD;
-
+            
             /// <summary>
             /// 1/diag(D)                                (nv x 1)
             /// </summary>
             public IntPtr qLDiagInv;
-
+            
             /// <summary>
             /// 1/sqrt(diag(D))                          (nv x 1)
             /// </summary>
             public IntPtr qLDiagSqrtInv;
-
+            
             /// <summary>
             /// list of all detected contacts            (nconmax x 1)
             /// </summary>
             public IntPtr contact;
-
+            
             /// <summary>
             /// constraint type (mjtConstraint)          (njmax x 1)
             /// </summary>
             public IntPtr efc_type;
-
+            
             /// <summary>
             /// id of object of specified type           (njmax x 1)
             /// </summary>
             public IntPtr efc_id;
-
+            
             /// <summary>
             /// number of non-zeros in Jacobian row      (njmax x 1)
             /// </summary>
             public IntPtr efc_J_rownnz;
-
+            
             /// <summary>
             /// row start address in colind array        (njmax x 1)
             /// </summary>
             public IntPtr efc_J_rowadr;
-
+            
             /// <summary>
             /// number of subsequent rows in supernode   (njmax x 1)
             /// </summary>
             public IntPtr efc_J_rowsuper;
-
+            
             /// <summary>
             /// column indices in Jacobian               (njmax x nv)
             /// </summary>
             public IntPtr efc_J_colind;
-
+            
             /// <summary>
             /// number of non-zeros in Jacobian row    T (nv x 1)
             /// </summary>
             public IntPtr efc_JT_rownnz;
-
+            
             /// <summary>
             /// row start address in colind array      T (nv x 1)
             /// </summary>
             public IntPtr efc_JT_rowadr;
-
+            
             /// <summary>
             /// number of subsequent rows in supernode T (nv x 1)
             /// </summary>
             public IntPtr efc_JT_rowsuper;
-
+            
             /// <summary>
             /// column indices in Jacobian             T (nv x njmax)
             /// </summary>
             public IntPtr efc_JT_colind;
-
+            
             /// <summary>
             /// constraint Jacobian                      (njmax x nv)
             /// </summary>
             public IntPtr efc_J;
-
+            
             /// <summary>
             /// constraint Jacobian transposed           (nv x njmax)
             /// </summary>
             public IntPtr efc_JT;
-
+            
             /// <summary>
             /// constraint position (equality, contact)  (njmax x 1)
             /// </summary>
             public IntPtr efc_pos;
-
+            
             /// <summary>
             /// inclusion margin (contact)               (njmax x 1)
             /// </summary>
             public IntPtr efc_margin;
-
+            
             /// <summary>
             /// frictionloss (friction)                  (njmax x 1)
             /// </summary>
             public IntPtr efc_frictionloss;
-
+            
             /// <summary>
             /// approximation to diagonal of A           (njmax x 1)
             /// </summary>
             public IntPtr efc_diagApprox;
-
+            
             /// <summary>
             /// stiffness, damping, impedance, imp'      (njmax x 4)
             /// </summary>
             public IntPtr efc_KBIP;
-
+            
             /// <summary>
             /// constraint mass                          (njmax x 1)
             /// </summary>
             public IntPtr efc_D;
-
+            
             /// <summary>
             /// inverse constraint mass                  (njmax x 1)
             /// </summary>
             public IntPtr efc_R;
-
+            
             /// <summary>
             /// number of non-zeros in AR                (njmax x 1)
             /// </summary>
             public IntPtr efc_AR_rownnz;
-
+            
             /// <summary>
             /// row start address in colind array        (njmax x 1)
             /// </summary>
             public IntPtr efc_AR_rowadr;
-
+            
             /// <summary>
             /// column indices in sparse AR              (njmax x njmax)
             /// </summary>
             public IntPtr efc_AR_colind;
-
+            
             /// <summary>
             /// J*inv(M)*J' + R                          (njmax x njmax)
             /// </summary>
             public IntPtr efc_AR;
-
+            
             /// <summary>
             /// tendon velocities                        (ntendon x 1)
             /// </summary>
             public IntPtr ten_velocity;
-
+            
             /// <summary>
             /// actuator velocities                      (nu x 1)
             /// </summary>
             public IntPtr actuator_velocity;
-
+            
             /// <summary>
             /// com-based velocity [3D rot; 3D tran]     (nbody x 6)
             /// </summary>
             public IntPtr cvel;
-
+            
             /// <summary>
             /// time-derivative of cdof                  (nv x 6)
             /// </summary>
             public IntPtr cdof_dot;
-
+            
             /// <summary>
             /// C(qpos,qvel)                             (nv x 1)
             /// </summary>
             public IntPtr qfrc_bias;
-
+            
             /// <summary>
             /// passive force                            (nv x 1)
             /// </summary>
             public IntPtr qfrc_passive;
-
+            
             /// <summary>
             /// velocity in constraint space: J*qvel     (njmax x 1)
             /// </summary>
             public IntPtr efc_vel;
-
+            
             /// <summary>
             /// reference pseudo-acceleration            (njmax x 1)
             /// </summary>
             public IntPtr efc_aref;
-
+            
             /// <summary>
             /// linear velocity of subtree com           (nbody x 3)
             /// </summary>
             public IntPtr subtree_linvel;
-
+            
             /// <summary>
             /// angular momentum about subtree com       (nbody x 3)
             /// </summary>
             public IntPtr subtree_angmom;
-
+            
             /// <summary>
             /// actuator force in actuation space        (nu x 1)
             /// </summary>
             public IntPtr actuator_force;
-
+            
             /// <summary>
             /// actuator force                           (nv x 1)
             /// </summary>
             public IntPtr qfrc_actuator;
-
+            
             /// <summary>
             /// net unconstrained force                  (nv x 1)
             /// </summary>
             public IntPtr qfrc_unc;
-
+            
             /// <summary>
             /// unconstrained acceleration               (nv x 1)
             /// </summary>
             public IntPtr qacc_unc;
-
+            
             /// <summary>
             /// linear cost term: J*qacc_unc - aref      (njmax x 1)
             /// </summary>
             public IntPtr efc_b;
-
+            
             /// <summary>
             /// constraint force in constraint space     (njmax x 1)
             /// </summary>
             public IntPtr efc_force;
-
+            
             /// <summary>
             /// constraint state (mjtConstraintState)    (njmax x 1)
             /// </summary>
             public IntPtr efc_state;
-
+            
             /// <summary>
             /// constraint force                         (nv x 1)
             /// </summary>
             public IntPtr qfrc_constraint;
-
+            
             /// <summary>
             /// net external force; should equal:        (nv x 1)
             /// qfrc_applied + J'*xfrc_applied + qfrc_actuator
             /// </summary>
             public IntPtr qfrc_inverse;
-
+            
             /// <summary>
             /// com-based acceleration                   (nbody x 6)
             /// </summary>
             public IntPtr cacc;
-
+            
             /// <summary>
             /// com-based interaction force with parent  (nbody x 6)
             /// </summary>
             public IntPtr cfrc_int;
-
+            
             /// <summary>
             /// com-based external force on body         (nbody x 6)
             /// </summary>
             public IntPtr cfrc_ext;
         }
-
-        /// <summary>
-        /// ------------------------------ diagnostics --------------------------------------------
-        /// </summary>
+        
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjWarningStat : IEquatable<mjWarningStat>
-        {
-            public mjWarningStat(libnative._mjWarningStat value) => this.Value = value;
-
-            public readonly libnative._mjWarningStat Value;
-
-            public bool Equals(mjWarningStat other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjWarningStat other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjWarningStat(mjWarningStat from) => from.Value;
-
-            public static implicit operator mjWarningStat(libnative._mjWarningStat from) => new mjWarningStat(from);
-
-            public static bool operator ==(mjWarningStat left, mjWarningStat right) => left.Equals(right);
-
-            public static bool operator !=(mjWarningStat left, mjWarningStat right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjTimerStat : IEquatable<mjTimerStat>
-        {
-            public mjTimerStat(libnative._mjTimerStat value) => this.Value = value;
-
-            public readonly libnative._mjTimerStat Value;
-
-            public bool Equals(mjTimerStat other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjTimerStat other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjTimerStat(mjTimerStat from) => from.Value;
-
-            public static implicit operator mjTimerStat(libnative._mjTimerStat from) => new mjTimerStat(from);
-
-            public static bool operator ==(mjTimerStat left, mjTimerStat right) => left.Equals(right);
-
-            public static bool operator !=(mjTimerStat left, mjTimerStat right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjSolverStat : IEquatable<mjSolverStat>
-        {
-            public mjSolverStat(libnative._mjSolverStat value) => this.Value = value;
-
-            public readonly libnative._mjSolverStat Value;
-
-            public bool Equals(mjSolverStat other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjSolverStat other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjSolverStat(mjSolverStat from) => from.Value;
-
-            public static implicit operator mjSolverStat(libnative._mjSolverStat from) => new mjSolverStat(from);
-
-            public static bool operator ==(mjSolverStat left, mjSolverStat right) => left.Equals(right);
-
-            public static bool operator !=(mjSolverStat left, mjSolverStat right) => !left.Equals(right);
-        }
-
-        /// <summary>
-        /// ------------------------------ mjContact ----------------------------------------------
-        /// </summary>
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjContact : IEquatable<mjContact>
-        {
-            public mjContact(libnative._mjContact value) => this.Value = value;
-
-            public readonly libnative._mjContact Value;
-
-            public bool Equals(mjContact other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjContact other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjContact(mjContact from) => from.Value;
-
-            public static implicit operator mjContact(libnative._mjContact from) => new mjContact(from);
-
-            public static bool operator ==(mjContact left, mjContact right) => left.Equals(right);
-
-            public static bool operator !=(mjContact left, mjContact right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public unsafe partial struct _mjvPerturb
-        {
-            /// <summary>
-            /// selected body id; non-positive: none
-            /// </summary>
-            public int select;
-
-            /// <summary>
-            /// selected skin id; negative: none
-            /// </summary>
-            public int skinselect;
-
-            /// <summary>
-            /// perturbation bitmask (mjtPertBit)
-            /// </summary>
-            public int active;
-
-            /// <summary>
-            /// secondary perturbation bitmask (mjtPertBit)
-            /// </summary>
-            public int active2;
-
-            /// <summary>
-            /// desired position for selected object
-            /// </summary>
-            public fixed double refpos[3];
-
-            /// <summary>
-            /// desired orientation for selected object
-            /// </summary>
-            public fixed double refquat[4];
-
-            /// <summary>
-            /// selection point in object coordinates
-            /// </summary>
-            public fixed double localpos[3];
-
-            /// <summary>
-            /// relative mouse motion-to-space scaling (set by initPerturb)
-            /// </summary>
-            public libnative.mjtNum scale;
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public unsafe partial struct _mjvCamera
-        {
-            /// <summary>
-            /// camera type (mjtCamera)
-            /// </summary>
-            public int type;
-
-            /// <summary>
-            /// fixed camera id
-            /// </summary>
-            public int fixedcamid;
-
-            /// <summary>
-            /// body id to track
-            /// </summary>
-            public int trackbodyid;
-
-            /// <summary>
-            /// lookat point
-            /// </summary>
-            public fixed double lookat[3];
-
-            /// <summary>
-            /// distance to lookat point or tracked body
-            /// </summary>
-            public libnative.mjtNum distance;
-
-            /// <summary>
-            /// camera azimuth (deg)
-            /// </summary>
-            public libnative.mjtNum azimuth;
-
-            /// <summary>
-            /// camera elevation (deg)
-            /// </summary>
-            public libnative.mjtNum elevation;
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public unsafe partial struct _mjvGLCamera
-        {
-            /// <summary>
-            /// position
-            /// </summary>
-            public fixed float pos[3];
-
-            /// <summary>
-            /// forward direction
-            /// </summary>
-            public fixed float forward[3];
-
-            /// <summary>
-            /// up direction
-            /// </summary>
-            public fixed float up[3];
-
-            /// <summary>
-            /// hor. center (left,right set to match aspect)
-            /// </summary>
-            public float frustum_center;
-
-            /// <summary>
-            /// bottom
-            /// </summary>
-            public float frustum_bottom;
-
-            /// <summary>
-            /// top
-            /// </summary>
-            public float frustum_top;
-
-            /// <summary>
-            /// near
-            /// </summary>
-            public float frustum_near;
-
-            /// <summary>
-            /// far
-            /// </summary>
-            public float frustum_far;
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public unsafe partial struct _mjvGeom
-        {
-            /// <summary>
-            /// geom type (mjtGeom)
-            /// </summary>
-            public int type;
-
-            /// <summary>
-            /// mesh, hfield or plane id; -1: none
-            /// </summary>
-            public int dataid;
-
-            /// <summary>
-            /// mujoco object type; mjOBJ_UNKNOWN for decor
-            /// </summary>
-            public int objtype;
-
-            /// <summary>
-            /// mujoco object id; -1 for decor
-            /// </summary>
-            public int objid;
-
-            /// <summary>
-            /// visual category
-            /// </summary>
-            public int category;
-
-            /// <summary>
-            /// texture id; -1: no texture
-            /// </summary>
-            public int texid;
-
-            /// <summary>
-            /// uniform cube mapping
-            /// </summary>
-            public int texuniform;
-
-            /// <summary>
-            /// mesh geom has texture coordinates
-            /// </summary>
-            public int texcoord;
-
-            /// <summary>
-            /// segmentation id; -1: not shown
-            /// </summary>
-            public int segid;
-
-            /// <summary>
-            /// texture repetition for 2D mapping
-            /// </summary>
-            public fixed float texrepeat[2];
-
-            /// <summary>
-            /// size parameters
-            /// </summary>
-            public fixed float size[3];
-
-            /// <summary>
-            /// Cartesian position
-            /// </summary>
-            public fixed float pos[3];
-
-            /// <summary>
-            /// Cartesian orientation
-            /// </summary>
-            public fixed float mat[9];
-
-            /// <summary>
-            /// color and transparency
-            /// </summary>
-            public fixed float rgba[4];
-
-            /// <summary>
-            /// emission coef
-            /// </summary>
-            public float emission;
-
-            /// <summary>
-            /// specular coef
-            /// </summary>
-            public float specular;
-
-            /// <summary>
-            /// shininess coef
-            /// </summary>
-            public float shininess;
-
-            /// <summary>
-            /// reflectance coef
-            /// </summary>
-            public float reflectance;
-
-            /// <summary>
-            /// text label
-            /// </summary>
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 100)]
-            public string label;
-
-            /// <summary>
-            /// distance to camera (used by sorter)
-            /// </summary>
-            public float camdist;
-
-            /// <summary>
-            /// geom rbound from model, 0 if not model geom
-            /// </summary>
-            public float modelrbound;
-
-            /// <summary>
-            /// treat geom as transparent
-            /// </summary>
-            public libnative.mjtByte transparent;
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public unsafe partial struct _mjvLight
-        {
-            /// <summary>
-            /// position rel. to body frame
-            /// </summary>
-            public fixed float pos[3];
-
-            /// <summary>
-            /// direction rel. to body frame
-            /// </summary>
-            public fixed float dir[3];
-
-            /// <summary>
-            /// OpenGL attenuation (quadratic model)
-            /// </summary>
-            public fixed float attenuation[3];
-
-            /// <summary>
-            /// OpenGL cutoff
-            /// </summary>
-            public float cutoff;
-
-            /// <summary>
-            /// OpenGL exponent
-            /// </summary>
-            public float exponent;
-
-            /// <summary>
-            /// ambient rgb (alpha=1)
-            /// </summary>
-            public fixed float ambient[3];
-
-            /// <summary>
-            /// diffuse rgb (alpha=1)
-            /// </summary>
-            public fixed float diffuse[3];
-
-            /// <summary>
-            /// specular rgb (alpha=1)
-            /// </summary>
-            public fixed float specular[3];
-
-            /// <summary>
-            /// headlight
-            /// </summary>
-            public libnative.mjtByte headlight;
-
-            /// <summary>
-            /// directional light
-            /// </summary>
-            public libnative.mjtByte directional;
-
-            /// <summary>
-            /// does light cast shadows
-            /// </summary>
-            public libnative.mjtByte castshadow;
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public unsafe partial struct _mjvOption
-        {
-            /// <summary>
-            /// what objects to label (mjtLabel)
-            /// </summary>
-            public int label;
-
-            /// <summary>
-            /// which frame to show (mjtFrame)
-            /// </summary>
-            public int frame;
-
-            /// <summary>
-            /// geom visualization by group
-            /// </summary>
-            public fixed byte geomgroup[6];
-
-            /// <summary>
-            /// site visualization by group
-            /// </summary>
-            public fixed byte sitegroup[6];
-
-            /// <summary>
-            /// joint visualization by group
-            /// </summary>
-            public fixed byte jointgroup[6];
-
-            /// <summary>
-            /// tendon visualization by group
-            /// </summary>
-            public fixed byte tendongroup[6];
-
-            /// <summary>
-            /// actuator visualization by group
-            /// </summary>
-            public fixed byte actuatorgroup[6];
-
-            /// <summary>
-            /// visualization flags (indexed by mjtVisFlag)
-            /// </summary>
-            public fixed byte flags[22];
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public unsafe partial struct _mjvScene
-        {
-            /// <summary>
-            /// size of allocated geom buffer
-            /// </summary>
-            public int maxgeom;
-
-            /// <summary>
-            /// number of geoms currently in buffer
-            /// </summary>
-            public int ngeom;
-
-            /// <summary>
-            /// buffer for geoms
-            /// </summary>
-            public IntPtr geoms;
-
-            /// <summary>
-            /// buffer for ordering geoms by distance to camera
-            /// </summary>
-            public IntPtr geomorder;
-
-            /// <summary>
-            /// number of skins
-            /// </summary>
-            public int nskin;
-
-            /// <summary>
-            /// number of faces in skin
-            /// </summary>
-            public IntPtr skinfacenum;
-
-            /// <summary>
-            /// address of skin vertices
-            /// </summary>
-            public IntPtr skinvertadr;
-
-            /// <summary>
-            /// number of vertices in skin
-            /// </summary>
-            public IntPtr skinvertnum;
-
-            /// <summary>
-            /// skin vertex data
-            /// </summary>
-            public IntPtr skinvert;
-
-            /// <summary>
-            /// skin normal data
-            /// </summary>
-            public IntPtr skinnormal;
-
-            /// <summary>
-            /// number of lights currently in buffer
-            /// </summary>
-            public int nlight;
-
-            /// <summary>
-            /// buffer for lights
-            /// </summary>
-            [MarshalAs(UnmanagedType.LPArray, SizeConst = 8)]
-            public libnative.mjvLight[] lights;
-
-            /// <summary>
-            /// left and right camera
-            /// </summary>
-            [MarshalAs(UnmanagedType.LPArray, SizeConst = 2)]
-            public libnative.mjvGLCamera[] camera;
-
-            /// <summary>
-            /// enable model transformation
-            /// </summary>
-            public libnative.mjtByte enabletransform;
-
-            /// <summary>
-            /// model translation
-            /// </summary>
-            public fixed float translate[3];
-
-            /// <summary>
-            /// model quaternion rotation
-            /// </summary>
-            public fixed float rotate[4];
-
-            /// <summary>
-            /// model scaling
-            /// </summary>
-            public float scale;
-
-            /// <summary>
-            /// stereoscopic rendering (mjtStereo)
-            /// </summary>
-            public int stereo;
-
-            /// <summary>
-            /// rendering flags (indexed by mjtRndFlag)
-            /// </summary>
-            public fixed byte flags[9];
-
-            /// <summary>
-            /// frame pixel width; 0: disable framing
-            /// </summary>
-            public int framewidth;
-
-            /// <summary>
-            /// frame color
-            /// </summary>
-            public fixed float framergb[3];
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjvGeom : IEquatable<mjvGeom>
-        {
-            public mjvGeom(libnative._mjvGeom value) => this.Value = value;
-
-            public readonly libnative._mjvGeom Value;
-
-            public bool Equals(mjvGeom other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjvGeom other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjvGeom(mjvGeom from) => from.Value;
-
-            public static implicit operator mjvGeom(libnative._mjvGeom from) => new mjvGeom(from);
-
-            public static bool operator ==(mjvGeom left, mjvGeom right) => left.Equals(right);
-
-            public static bool operator !=(mjvGeom left, mjvGeom right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjvLight : IEquatable<mjvLight>
-        {
-            public mjvLight(libnative._mjvLight value) => this.Value = value;
-
-            public readonly libnative._mjvLight Value;
-
-            public bool Equals(mjvLight other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjvLight other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjvLight(mjvLight from) => from.Value;
-
-            public static implicit operator mjvLight(libnative._mjvLight from) => new mjvLight(from);
-
-            public static bool operator ==(mjvLight left, mjvLight right) => left.Equals(right);
-
-            public static bool operator !=(mjvLight left, mjvLight right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjvGLCamera : IEquatable<mjvGLCamera>
-        {
-            public mjvGLCamera(libnative._mjvGLCamera value) => this.Value = value;
-
-            public readonly libnative._mjvGLCamera Value;
-
-            public bool Equals(mjvGLCamera other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjvGLCamera other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjvGLCamera(mjvGLCamera from) => from.Value;
-
-            public static implicit operator mjvGLCamera(libnative._mjvGLCamera from) => new mjvGLCamera(from);
-
-            public static bool operator ==(mjvGLCamera left, mjvGLCamera right) => left.Equals(right);
-
-            public static bool operator !=(mjvGLCamera left, mjvGLCamera right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public unsafe partial struct _mjvFigure
-        {
-            /// <summary>
-            /// show legend
-            /// </summary>
-            public int flg_legend;
-
-            /// <summary>
-            /// show grid tick labels (x,y)
-            /// </summary>
-            public fixed int flg_ticklabel[2];
-
-            /// <summary>
-            /// automatically extend axis ranges to fit data
-            /// </summary>
-            public int flg_extend;
-
-            /// <summary>
-            /// isolated line segments (i.e. GL_LINES)
-            /// </summary>
-            public int flg_barplot;
-
-            /// <summary>
-            /// vertical selection line
-            /// </summary>
-            public int flg_selection;
-
-            /// <summary>
-            /// symmetric y-axis
-            /// </summary>
-            public int flg_symmetric;
-
-            /// <summary>
-            /// line width
-            /// </summary>
-            public float linewidth;
-
-            /// <summary>
-            /// grid line width
-            /// </summary>
-            public float gridwidth;
-
-            /// <summary>
-            /// number of grid points in (x,y)
-            /// </summary>
-            public fixed int gridsize[2];
-
-            /// <summary>
-            /// grid line rgb
-            /// </summary>
-            public fixed float gridrgb[3];
-
-            /// <summary>
-            /// figure color and alpha
-            /// </summary>
-            public fixed float figurergba[4];
-
-            /// <summary>
-            /// pane color and alpha
-            /// </summary>
-            public fixed float panergba[4];
-
-            /// <summary>
-            /// legend color and alpha
-            /// </summary>
-            public fixed float legendrgba[4];
-
-            /// <summary>
-            /// text color
-            /// </summary>
-            public fixed float textrgb[3];
-
-            /// <summary>
-            /// line colors
-            /// </summary>
-            [MarshalAs(UnmanagedType.LPArray, SizeConst = 300)]
-            public float[][] linergb;
-
-            /// <summary>
-            /// axis ranges; (min&gt;=max) automatic
-            /// </summary>
-            [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)]
-            public float[][] range;
-
-            /// <summary>
-            /// x-tick label format for sprintf
-            /// </summary>
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 20)]
-            public string xformat;
-
-            /// <summary>
-            /// y-tick label format for sprintf
-            /// </summary>
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 20)]
-            public string yformat;
-
-            /// <summary>
-            /// string used to determine min y-tick width
-            /// </summary>
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 20)]
-            public string minwidth;
-
-            /// <summary>
-            /// figure title; subplots separated with 2+ spaces
-            /// </summary>
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 1000)]
-            public string title;
-
-            /// <summary>
-            /// x-axis label
-            /// </summary>
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 100)]
-            public string xlabel;
-
-            /// <summary>
-            /// line names for legend
-            /// </summary>
-            [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.ByValTStr, SizeConst = 100)]
-            public string[] linename;
-
-            /// <summary>
-            /// number of lines to offset legend
-            /// </summary>
-            public int legendoffset;
-
-            /// <summary>
-            /// selected subplot (for title rendering)
-            /// </summary>
-            public int subplot;
-
-            /// <summary>
-            /// if point is in legend rect, highlight line
-            /// </summary>
-            public fixed int highlight[2];
-
-            /// <summary>
-            /// if id&gt;=0 and no point, highlight id
-            /// </summary>
-            public int highlightid;
-
-            /// <summary>
-            /// selection line x-value
-            /// </summary>
-            public float selection;
-
-            /// <summary>
-            /// number of points in line; (0) disable
-            /// </summary>
-            public fixed int linepnt[100];
-
-            /// <summary>
-            /// line data (x,y)
-            /// </summary>
-            [MarshalAs(UnmanagedType.LPArray, SizeConst = 200000)]
-            public float[][] linedata;
-
-            /// <summary>
-            /// range of x-axis in pixels
-            /// </summary>
-            public fixed int xaxispixel[2];
-
-            /// <summary>
-            /// range of y-axis in pixels
-            /// </summary>
-            public fixed int yaxispixel[2];
-
-            /// <summary>
-            /// range of x-axis in data units
-            /// </summary>
-            public fixed float xaxisdata[2];
-
-            /// <summary>
-            /// range of y-axis in data units
-            /// </summary>
-            public fixed float yaxisdata[2];
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public partial struct _mjrRect
+        public partial struct mjrRect_
         {
             /// <summary>
             /// left (usually 0)
             /// </summary>
             public int left;
-
+            
             /// <summary>
             /// bottom (usually 0)
             /// </summary>
             public int bottom;
-
+            
             /// <summary>
             /// width (usually buffer width)
             /// </summary>
             public int width;
-
+            
             /// <summary>
             /// height (usually buffer height)
             /// </summary>
             public int height;
         }
-
+        
+        /// <summary>
+        /// ---------------------------------- mjrContext ----------------------------------------------------
+        /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public unsafe partial struct _mjrContext
+        public unsafe partial struct mjrContext_
         {
             /// <summary>
             /// line width for wireframe rendering
             /// </summary>
             public float lineWidth;
-
+            
             /// <summary>
             /// clipping radius for directional lights
             /// </summary>
             public float shadowClip;
-
+            
             /// <summary>
             /// fraction of light cutoff for spot lights
             /// </summary>
             public float shadowScale;
-
+            
             /// <summary>
             /// fog start = stat.extent * vis.map.fogstart
             /// </summary>
             public float fogStart;
-
+            
             /// <summary>
             /// fog end = stat.extent * vis.map.fogend
             /// </summary>
             public float fogEnd;
-
+            
             /// <summary>
             /// fog rgba
             /// </summary>
             public fixed float fogRGBA[4];
-
+            
             /// <summary>
             /// size of shadow map texture
             /// </summary>
             public int shadowSize;
-
+            
             /// <summary>
             /// width of offscreen buffer
             /// </summary>
             public int offWidth;
-
+            
             /// <summary>
             /// height of offscreen buffer
             /// </summary>
             public int offHeight;
-
+            
             /// <summary>
             /// number of offscreen buffer multisamples
             /// </summary>
             public int offSamples;
-
+            
             /// <summary>
             /// font scale
             /// </summary>
             public int fontScale;
-
+            
             /// <summary>
             /// auxiliary buffer width
             /// </summary>
             public fixed int auxWidth[10];
-
+            
             /// <summary>
             /// auxiliary buffer height
             /// </summary>
             public fixed int auxHeight[10];
-
+            
             /// <summary>
             /// auxiliary buffer multisamples
             /// </summary>
             public fixed int auxSamples[10];
-
+            
             /// <summary>
             /// offscreen framebuffer object
             /// </summary>
             public uint offFBO;
-
+            
             /// <summary>
             /// offscreen framebuffer for resolving multisamples
             /// </summary>
             public uint offFBO_r;
-
+            
             /// <summary>
             /// offscreen color buffer
             /// </summary>
             public uint offColor;
-
+            
             /// <summary>
             /// offscreen color buffer for resolving multisamples
             /// </summary>
             public uint offColor_r;
-
+            
             /// <summary>
             /// offscreen depth and stencil buffer
             /// </summary>
             public uint offDepthStencil;
-
+            
             /// <summary>
             /// offscreen depth and stencil buffer for resolving multisamples
             /// </summary>
             public uint offDepthStencil_r;
-
+            
             /// <summary>
             /// shadow map framebuffer object
             /// </summary>
             public uint shadowFBO;
-
+            
             /// <summary>
             /// shadow map texture
             /// </summary>
             public uint shadowTex;
-
+            
             /// <summary>
             /// auxiliary framebuffer object
             /// </summary>
             public fixed uint auxFBO[10];
-
+            
             /// <summary>
             /// auxiliary framebuffer object for resolving
             /// </summary>
             public fixed uint auxFBO_r[10];
-
+            
             /// <summary>
             /// auxiliary color buffer
             /// </summary>
             public fixed uint auxColor[10];
-
+            
             /// <summary>
             /// auxiliary color buffer for resolving
             /// </summary>
             public fixed uint auxColor_r[10];
-
+            
             /// <summary>
             /// number of allocated textures
             /// </summary>
             public int ntexture;
-
+            
             /// <summary>
             /// type of texture (mjtTexture)
             /// </summary>
             public fixed int textureType[100];
-
+            
             /// <summary>
             /// texture names
             /// </summary>
             public fixed uint texture[100];
-
+            
             /// <summary>
             /// all planes from model
             /// </summary>
             public uint basePlane;
-
+            
             /// <summary>
             /// all meshes from model
             /// </summary>
             public uint baseMesh;
-
+            
             /// <summary>
             /// all hfields from model
             /// </summary>
             public uint baseHField;
-
+            
             /// <summary>
             /// all buildin geoms, with quality from model
             /// </summary>
             public uint baseBuiltin;
-
+            
             /// <summary>
             /// normal font
             /// </summary>
             public uint baseFontNormal;
-
+            
             /// <summary>
             /// shadow font
             /// </summary>
             public uint baseFontShadow;
-
+            
             /// <summary>
             /// big font
             /// </summary>
             public uint baseFontBig;
-
+            
             /// <summary>
             /// all planes from model
             /// </summary>
             public int rangePlane;
-
+            
             /// <summary>
             /// all meshes from model
             /// </summary>
             public int rangeMesh;
-
+            
             /// <summary>
             /// all hfields from model
             /// </summary>
             public int rangeHField;
-
+            
             /// <summary>
             /// all builtin geoms, with quality from model
             /// </summary>
             public int rangeBuiltin;
-
+            
             /// <summary>
             /// all characters in font
             /// </summary>
             public int rangeFont;
-
+            
             /// <summary>
             /// number of skins
             /// </summary>
             public int nskin;
-
+            
             /// <summary>
             /// skin vertex position VBOs
             /// </summary>
             public IntPtr skinvertVBO;
-
+            
             /// <summary>
             /// skin vertex normal VBOs
             /// </summary>
             public IntPtr skinnormalVBO;
-
+            
             /// <summary>
             /// skin vertex texture coordinate VBOs
             /// </summary>
             public IntPtr skintexcoordVBO;
-
+            
             /// <summary>
             /// skin face index VBOs
             /// </summary>
             public IntPtr skinfaceVBO;
-
+            
             /// <summary>
             /// character widths: normal and shadow
             /// </summary>
             public fixed int charWidth[127];
-
+            
             /// <summary>
             /// chacarter widths: big
             /// </summary>
             public fixed int charWidthBig[127];
-
+            
             /// <summary>
             /// character heights: normal and shadow
             /// </summary>
             public int charHeight;
-
+            
             /// <summary>
             /// character heights: big
             /// </summary>
             public int charHeightBig;
-
+            
             /// <summary>
-            /// is glew initialized
+            /// is OpenGL initialized
             /// </summary>
-            public int glewInitialized;
-
+            public int glInitialized;
+            
             /// <summary>
             /// is default/window framebuffer available
             /// </summary>
             public int windowAvailable;
-
+            
             /// <summary>
             /// number of samples for default/window framebuffer
             /// </summary>
             public int windowSamples;
-
+            
             /// <summary>
             /// is stereo available for default/window framebuffer
             /// </summary>
             public int windowStereo;
-
+            
             /// <summary>
             /// is default/window framebuffer double buffered
             /// </summary>
             public int windowDoublebuffer;
-
+            
             /// <summary>
             /// currently active framebuffer: mjFB_WINDOW or mjFB_OFFSCREEN
             /// </summary>
             public int currentBuffer;
         }
-
+        
+        /// <summary>
+        /// ---------------------------------- mjuiState -----------------------------------------------------
+        /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public partial struct _mjuiState
+        public partial struct mjuiState_
         {
             /// <summary>
             /// number of rectangles used
             /// </summary>
             public int nrect;
-
+            
             /// <summary>
             /// rectangles (index 0: entire window)
             /// </summary>
             [MarshalAs(UnmanagedType.LPArray, SizeConst = 25)]
-            public libnative.mjrRect[] rect;
-
+            public libnative.mjrRect_[] rect;
+            
             /// <summary>
             /// pointer to user data (for callbacks)
             /// </summary>
             public IntPtr userdata;
-
+            
             /// <summary>
             /// (type mjtEvent)
             /// </summary>
             public int type;
-
+            
             /// <summary>
             /// is left button down
             /// </summary>
             public int left;
-
+            
             /// <summary>
             /// is right button down
             /// </summary>
             public int right;
-
+            
             /// <summary>
             /// is middle button down
             /// </summary>
             public int middle;
-
+            
             /// <summary>
             /// is last press a double click
             /// </summary>
             public int doubleclick;
-
+            
             /// <summary>
             /// which button was pressed (mjtButton)
             /// </summary>
             public int button;
-
+            
             /// <summary>
             /// time of last button press
             /// </summary>
             public double buttontime;
-
+            
             /// <summary>
             /// x position
             /// </summary>
             public double x;
-
+            
             /// <summary>
             /// y position
             /// </summary>
             public double y;
-
+            
             /// <summary>
             /// x displacement
             /// </summary>
             public double dx;
-
+            
             /// <summary>
             /// y displacement
             /// </summary>
             public double dy;
-
+            
             /// <summary>
             /// x scroll
             /// </summary>
             public double sx;
-
+            
             /// <summary>
             /// y scroll
             /// </summary>
             public double sy;
-
+            
             /// <summary>
             /// is control down
             /// </summary>
             public int control;
-
+            
             /// <summary>
             /// is shift down
             /// </summary>
             public int shift;
-
+            
             /// <summary>
             /// is alt down
             /// </summary>
             public int alt;
-
+            
             /// <summary>
             /// which key was pressed
             /// </summary>
             public int key;
-
+            
             /// <summary>
             /// time of last key press
             /// </summary>
             public double keytime;
-
+            
             /// <summary>
             /// which rectangle contains mouse
             /// </summary>
             public int mouserect;
-
+            
             /// <summary>
             /// which rectangle is dragged with mouse
             /// </summary>
             public int dragrect;
-
+            
             /// <summary>
             /// which button started drag (mjtButton)
             /// </summary>
             public int dragbutton;
         }
-
+        
+        /// <summary>
+        /// ---------------------------------- mjuiThemeSpacing ----------------------------------------------
+        /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjrRect : IEquatable<mjrRect>
-        {
-            public mjrRect(libnative._mjrRect value) => this.Value = value;
-
-            public readonly libnative._mjrRect Value;
-
-            public bool Equals(mjrRect other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjrRect other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjrRect(mjrRect from) => from.Value;
-
-            public static implicit operator mjrRect(libnative._mjrRect from) => new mjrRect(from);
-
-            public static bool operator ==(mjrRect left, mjrRect right) => left.Equals(right);
-
-            public static bool operator !=(mjrRect left, mjrRect right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public partial struct _mjuiThemeSpacing
+        public partial struct mjuiThemeSpacing_
         {
             /// <summary>
             /// total width
             /// </summary>
             public int total;
-
+            
             /// <summary>
             /// scrollbar width
             /// </summary>
             public int scroll;
-
+            
             /// <summary>
             /// label width
             /// </summary>
             public int label;
-
+            
             /// <summary>
             /// section gap
             /// </summary>
             public int section;
-
+            
             /// <summary>
             /// item side gap
             /// </summary>
             public int itemside;
-
+            
             /// <summary>
             /// item middle gap
             /// </summary>
             public int itemmid;
-
+            
             /// <summary>
             /// item vertical gap
             /// </summary>
             public int itemver;
-
+            
             /// <summary>
             /// text horizontal gap
             /// </summary>
             public int texthor;
-
+            
             /// <summary>
             /// text vertical gap
             /// </summary>
             public int textver;
-
+            
             /// <summary>
             /// number of pixels to scroll
             /// </summary>
             public int linescroll;
-
+            
             /// <summary>
             /// number of multisamples
             /// </summary>
             public int samples;
         }
-
+        
+        /// <summary>
+        /// ---------------------------------- mjuiThemeColor ------------------------------------------------
+        /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public unsafe partial struct _mjuiThemeColor
+        public unsafe partial struct mjuiThemeColor_
         {
             /// <summary>
             /// master background
             /// </summary>
             public fixed float master[3];
-
+            
             /// <summary>
             /// scrollbar thumb
             /// </summary>
             public fixed float thumb[3];
-
+            
             /// <summary>
             /// section title
             /// </summary>
             public fixed float secttitle[3];
-
+            
             /// <summary>
             /// section font
             /// </summary>
             public fixed float sectfont[3];
-
+            
             /// <summary>
             /// section symbol
             /// </summary>
             public fixed float sectsymbol[3];
-
+            
             /// <summary>
             /// section pane
             /// </summary>
             public fixed float sectpane[3];
-
+            
             /// <summary>
             /// shortcut background
             /// </summary>
             public fixed float shortcut[3];
-
+            
             /// <summary>
             /// font active
             /// </summary>
             public fixed float fontactive[3];
-
+            
             /// <summary>
             /// font inactive
             /// </summary>
             public fixed float fontinactive[3];
-
+            
             /// <summary>
             /// decor inactive
             /// </summary>
             public fixed float decorinactive[3];
-
+            
             /// <summary>
             /// inactive slider color 2
             /// </summary>
             public fixed float decorinactive2[3];
-
+            
             /// <summary>
             /// button
             /// </summary>
             public fixed float button[3];
-
+            
             /// <summary>
             /// check
             /// </summary>
             public fixed float check[3];
-
+            
             /// <summary>
             /// radio
             /// </summary>
             public fixed float radio[3];
-
+            
             /// <summary>
             /// select
             /// </summary>
             public fixed float select[3];
-
+            
             /// <summary>
             /// select pane
             /// </summary>
             public fixed float select2[3];
-
+            
             /// <summary>
             /// slider
             /// </summary>
             public fixed float slider[3];
-
+            
             /// <summary>
             /// slider color 2
             /// </summary>
             public fixed float slider2[3];
-
+            
             /// <summary>
             /// edit
             /// </summary>
             public fixed float edit[3];
-
+            
             /// <summary>
             /// edit invalid
             /// </summary>
             public fixed float edit2[3];
-
+            
             /// <summary>
             /// edit cursor
             /// </summary>
             public fixed float cursor[3];
         }
-
+        
+        /// <summary>
+        /// ---------------------------------- mjuiItem ------------------------------------------------------
+        /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public partial struct _mjuiItemSingle
+        public partial struct mjuiItemSingle_
         {
             /// <summary>
             /// 0: none, 1: control, 2: shift; 4: alt
             /// </summary>
             public int modifier;
-
+            
             /// <summary>
             /// shortcut key; 0: undefined
             /// </summary>
             public int shortcut;
         }
-
+        
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public partial struct _mjuiItemMulti
+        public partial struct mjuiItemMulti_
         {
             /// <summary>
             /// number of elements in group
             /// </summary>
             public int nelem;
-
+            
             /// <summary>
             /// element names
             /// </summary>
             [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.ByValTStr, SizeConst = 35)]
             public string[] name;
         }
-
+        
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public unsafe partial struct _mjuiItemSlider
+        public unsafe partial struct mjuiItemSlider_
         {
             /// <summary>
             /// slider range
             /// </summary>
             public fixed double range[2];
-
+            
             /// <summary>
             /// number of range divisions
             /// </summary>
             public double divisions;
         }
-
+        
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public unsafe partial struct _mjuiItemEdit
+        public unsafe partial struct mjuiItemEdit_
         {
             /// <summary>
             /// number of elements in list
@@ -7911,3395 +6993,2631 @@ namespace MuJoCoSharp
             /// <summary>
             /// element range (min&gt;=max: ignore)
             /// </summary>
-            [MarshalAs(UnmanagedType.LPArray, SizeConst = 14)]
+            [MarshalAs(UnmanagedType.LPArray, SizeConst = 7*2)]
             public double[][] range;
         }
-
+        
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public partial struct _mjuiItem
+        public partial struct mjuiItem_
         {
             /// <summary>
             /// type-specific properties
             /// </summary>
             [StructLayout(LayoutKind.Explicit, CharSet = CharSet.Ansi)]
-            public partial struct _mjuiItemunion
+            public partial struct mjuiItem_union
             {
                 /// <summary>
                 /// check and button
                 /// </summary>
                 [FieldOffset(0)]
-                public libnative._mjuiItemSingle single;
-
+                public libnative.mjuiItemSingle_ single;
+                
                 /// <summary>
                 /// static, radio and select
                 /// </summary>
                 [FieldOffset(0)]
-                public libnative._mjuiItemMulti multi;
-
+                public libnative.mjuiItemMulti_ multi;
+                
                 /// <summary>
                 /// slider
                 /// </summary>
                 [FieldOffset(0)]
-                public libnative._mjuiItemSlider slider;
-
+                public libnative.mjuiItemSlider_ slider;
+                
                 /// <summary>
                 /// edit
                 /// </summary>
                 [FieldOffset(0)]
-                public libnative._mjuiItemEdit edit;
+                public libnative.mjuiItemEdit_ edit;
             }
-
+            
             /// <summary>
             /// type (mjtItem)
             /// </summary>
             public int type;
-
+            
             /// <summary>
             /// name
             /// </summary>
             [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 40)]
             public string name;
-
+            
             /// <summary>
             /// 0: disable, 1: enable, 2+: use predicate
             /// </summary>
             public int state;
-
+            
             /// <summary>
             /// data pointer (type-specific)
             /// </summary>
             public IntPtr pdata;
-
+            
             /// <summary>
             /// id of section containing item
             /// </summary>
             public int sectionid;
-
+            
             /// <summary>
             /// id of item within section
             /// </summary>
             public int itemid;
-
+            
             /// <summary>
             /// rectangle occupied by item
             /// </summary>
-            public libnative.mjrRect rect;
+            public libnative.mjrRect_ rect;
         }
-
+        
+        /// <summary>
+        /// ---------------------------------- mjuiSection ---------------------------------------------------
+        /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public partial struct _mjuiSection
+        public partial struct mjuiSection_
         {
             /// <summary>
             /// name
             /// </summary>
             [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 40)]
             public string name;
-
+            
             /// <summary>
             /// 0: closed, 1: open
             /// </summary>
             public int state;
-
+            
             /// <summary>
             /// 0: none, 1: control, 2: shift; 4: alt
             /// </summary>
             public int modifier;
-
+            
             /// <summary>
             /// shortcut key; 0: undefined
             /// </summary>
             public int shortcut;
-
+            
             /// <summary>
             /// number of items in use
             /// </summary>
             public int nitem;
-
+            
             /// <summary>
             /// preallocated array of items
             /// </summary>
             [MarshalAs(UnmanagedType.LPArray, SizeConst = 80)]
-            public libnative.mjuiItem[] item;
-
+            public libnative.mjuiItem_[] item;
+            
             /// <summary>
             /// rectangle occupied by title
             /// </summary>
-            public libnative.mjrRect rtitle;
-
+            public libnative.mjrRect_ rtitle;
+            
             /// <summary>
             /// rectangle occupied by content
             /// </summary>
-            public libnative.mjrRect rcontent;
+            public libnative.mjrRect_ rcontent;
         }
-
+        
+        /// <summary>
+        /// ---------------------------------- mjUI ----------------------------------------------------------
+        /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjuiItem : IEquatable<mjuiItem>
-        {
-            public mjuiItem(libnative._mjuiItem value) => this.Value = value;
-
-            public readonly libnative._mjuiItem Value;
-
-            public bool Equals(mjuiItem other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjuiItem other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjuiItem(mjuiItem from) => from.Value;
-
-            public static implicit operator mjuiItem(libnative._mjuiItem from) => new mjuiItem(from);
-
-            public static bool operator ==(mjuiItem left, mjuiItem right) => left.Equals(right);
-
-            public static bool operator !=(mjuiItem left, mjuiItem right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public partial struct _mjUI
+        public partial struct mjUI_
         {
             /// <summary>
             /// UI theme spacing
             /// </summary>
-            public libnative.mjuiThemeSpacing spacing;
-
+            public libnative.mjuiThemeSpacing_ spacing;
+            
             /// <summary>
             /// UI theme color
             /// </summary>
-            public libnative.mjuiThemeColor color;
-
+            public libnative.mjuiThemeColor_ color;
+            
             /// <summary>
             /// callback to set item state programmatically
             /// </summary>
             public libnative.mjfItemEnable predicate;
-
+            
             /// <summary>
             /// pointer to user data (passed to predicate)
             /// </summary>
             public IntPtr userdata;
-
+            
             /// <summary>
             /// index of this ui rectangle in mjuiState
             /// </summary>
             public int rectid;
-
+            
             /// <summary>
             /// aux buffer index of this ui
             /// </summary>
             public int auxid;
-
+            
             /// <summary>
             /// number of radio columns (0 defaults to 2)
             /// </summary>
             public int radiocol;
-
+            
             /// <summary>
             /// width
             /// </summary>
             public int width;
-
+            
             /// <summary>
             /// current heigth
             /// </summary>
             public int height;
-
+            
             /// <summary>
             /// height when all sections open
             /// </summary>
             public int maxheight;
-
+            
             /// <summary>
             /// scroll from top of UI
             /// </summary>
             public int scroll;
-
+            
             /// <summary>
             /// 0: none, -1: scroll, otherwise 1+section
             /// </summary>
             public int mousesect;
-
+            
             /// <summary>
             /// item within section
             /// </summary>
             public int mouseitem;
-
+            
             /// <summary>
             /// help button down: print shortcuts
             /// </summary>
             public int mousehelp;
-
+            
             /// <summary>
             /// 0: none, otherwise 1+section
             /// </summary>
             public int editsect;
-
+            
             /// <summary>
             /// item within section
             /// </summary>
             public int edititem;
-
+            
             /// <summary>
             /// cursor position
             /// </summary>
             public int editcursor;
-
+            
             /// <summary>
             /// horizontal scroll
             /// </summary>
             public int editscroll;
-
+            
             /// <summary>
             /// current text
             /// </summary>
             [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 300)]
             public string edittext;
-
+            
             /// <summary>
             /// pointer to changed edit in last mjui_event
             /// </summary>
             public IntPtr editchanged;
-
+            
             /// <summary>
             /// number of sections in use
             /// </summary>
             public int nsect;
-
+            
             /// <summary>
             /// preallocated array of sections
             /// </summary>
             [MarshalAs(UnmanagedType.LPArray, SizeConst = 10)]
-            public libnative.mjuiSection[] sect;
+            public libnative.mjuiSection_[] sect;
         }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjuiThemeSpacing : IEquatable<mjuiThemeSpacing>
-        {
-            public mjuiThemeSpacing(libnative._mjuiThemeSpacing value) => this.Value = value;
-
-            public readonly libnative._mjuiThemeSpacing Value;
-
-            public bool Equals(mjuiThemeSpacing other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjuiThemeSpacing other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjuiThemeSpacing(mjuiThemeSpacing from) => from.Value;
-
-            public static implicit operator mjuiThemeSpacing(libnative._mjuiThemeSpacing from) => new mjuiThemeSpacing(from);
-
-            public static bool operator ==(mjuiThemeSpacing left, mjuiThemeSpacing right) => left.Equals(right);
-
-            public static bool operator !=(mjuiThemeSpacing left, mjuiThemeSpacing right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjuiThemeColor : IEquatable<mjuiThemeColor>
-        {
-            public mjuiThemeColor(libnative._mjuiThemeColor value) => this.Value = value;
-
-            public readonly libnative._mjuiThemeColor Value;
-
-            public bool Equals(mjuiThemeColor other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjuiThemeColor other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjuiThemeColor(mjuiThemeColor from) => from.Value;
-
-            public static implicit operator mjuiThemeColor(libnative._mjuiThemeColor from) => new mjuiThemeColor(from);
-
-            public static bool operator ==(mjuiThemeColor left, mjuiThemeColor right) => left.Equals(right);
-
-            public static bool operator !=(mjuiThemeColor left, mjuiThemeColor right) => !left.Equals(right);
-        }
-
+        
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int mjfItemEnable(int category, IntPtr data);
-
+        
+        /// <summary>
+        /// ---------------------------------- mjuiDef -------------------------------------------------------
+        /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjuiSection : IEquatable<mjuiSection>
-        {
-            public mjuiSection(libnative._mjuiSection value) => this.Value = value;
-
-            public readonly libnative._mjuiSection Value;
-
-            public bool Equals(mjuiSection other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjuiSection other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjuiSection(mjuiSection from) => from.Value;
-
-            public static implicit operator mjuiSection(libnative._mjuiSection from) => new mjuiSection(from);
-
-            public static bool operator ==(mjuiSection left, mjuiSection right) => left.Equals(right);
-
-            public static bool operator !=(mjuiSection left, mjuiSection right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public partial struct _mjuiDef
+        public partial struct mjuiDef_
         {
             /// <summary>
             /// type (mjtItem); -1: section
             /// </summary>
             public int type;
-
+            
             /// <summary>
             /// name
             /// </summary>
             [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 40)]
             public string name;
-
+            
             /// <summary>
             /// state
             /// </summary>
             public int state;
-
+            
             /// <summary>
             /// pointer to data
             /// </summary>
             public IntPtr pdata;
-
+            
             /// <summary>
             /// string with type-specific properties
             /// </summary>
             [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 300)]
             public string other;
         }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtDisableBit : IEquatable<mjtDisableBit>
-        {
-            public mjtDisableBit(libnative._mjtDisableBit value) => this.Value = value;
-
-            public readonly libnative._mjtDisableBit Value;
-
-            public bool Equals(mjtDisableBit other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtDisableBit other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtDisableBit(mjtDisableBit from) => from.Value;
-
-            public static implicit operator mjtDisableBit(libnative._mjtDisableBit from) => new mjtDisableBit(from);
-
-            public static bool operator ==(mjtDisableBit left, mjtDisableBit right) => left.Equals(right);
-
-            public static bool operator !=(mjtDisableBit left, mjtDisableBit right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtEnableBit : IEquatable<mjtEnableBit>
-        {
-            public mjtEnableBit(libnative._mjtEnableBit value) => this.Value = value;
-
-            public readonly libnative._mjtEnableBit Value;
-
-            public bool Equals(mjtEnableBit other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtEnableBit other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtEnableBit(mjtEnableBit from) => from.Value;
-
-            public static implicit operator mjtEnableBit(libnative._mjtEnableBit from) => new mjtEnableBit(from);
-
-            public static bool operator ==(mjtEnableBit left, mjtEnableBit right) => left.Equals(right);
-
-            public static bool operator !=(mjtEnableBit left, mjtEnableBit right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtJoint : IEquatable<mjtJoint>
-        {
-            public mjtJoint(libnative._mjtJoint value) => this.Value = value;
-
-            public readonly libnative._mjtJoint Value;
-
-            public bool Equals(mjtJoint other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtJoint other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtJoint(mjtJoint from) => from.Value;
-
-            public static implicit operator mjtJoint(libnative._mjtJoint from) => new mjtJoint(from);
-
-            public static bool operator ==(mjtJoint left, mjtJoint right) => left.Equals(right);
-
-            public static bool operator !=(mjtJoint left, mjtJoint right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtGeom : IEquatable<mjtGeom>
-        {
-            public mjtGeom(libnative._mjtGeom value) => this.Value = value;
-
-            public readonly libnative._mjtGeom Value;
-
-            public bool Equals(mjtGeom other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtGeom other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtGeom(mjtGeom from) => from.Value;
-
-            public static implicit operator mjtGeom(libnative._mjtGeom from) => new mjtGeom(from);
-
-            public static bool operator ==(mjtGeom left, mjtGeom right) => left.Equals(right);
-
-            public static bool operator !=(mjtGeom left, mjtGeom right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtCamLight : IEquatable<mjtCamLight>
-        {
-            public mjtCamLight(libnative._mjtCamLight value) => this.Value = value;
-
-            public readonly libnative._mjtCamLight Value;
-
-            public bool Equals(mjtCamLight other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtCamLight other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtCamLight(mjtCamLight from) => from.Value;
-
-            public static implicit operator mjtCamLight(libnative._mjtCamLight from) => new mjtCamLight(from);
-
-            public static bool operator ==(mjtCamLight left, mjtCamLight right) => left.Equals(right);
-
-            public static bool operator !=(mjtCamLight left, mjtCamLight right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtTexture : IEquatable<mjtTexture>
-        {
-            public mjtTexture(libnative._mjtTexture value) => this.Value = value;
-
-            public readonly libnative._mjtTexture Value;
-
-            public bool Equals(mjtTexture other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtTexture other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtTexture(mjtTexture from) => from.Value;
-
-            public static implicit operator mjtTexture(libnative._mjtTexture from) => new mjtTexture(from);
-
-            public static bool operator ==(mjtTexture left, mjtTexture right) => left.Equals(right);
-
-            public static bool operator !=(mjtTexture left, mjtTexture right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtIntegrator : IEquatable<mjtIntegrator>
-        {
-            public mjtIntegrator(libnative._mjtIntegrator value) => this.Value = value;
-
-            public readonly libnative._mjtIntegrator Value;
-
-            public bool Equals(mjtIntegrator other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtIntegrator other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtIntegrator(mjtIntegrator from) => from.Value;
-
-            public static implicit operator mjtIntegrator(libnative._mjtIntegrator from) => new mjtIntegrator(from);
-
-            public static bool operator ==(mjtIntegrator left, mjtIntegrator right) => left.Equals(right);
-
-            public static bool operator !=(mjtIntegrator left, mjtIntegrator right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtCollision : IEquatable<mjtCollision>
-        {
-            public mjtCollision(libnative._mjtCollision value) => this.Value = value;
-
-            public readonly libnative._mjtCollision Value;
-
-            public bool Equals(mjtCollision other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtCollision other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtCollision(mjtCollision from) => from.Value;
-
-            public static implicit operator mjtCollision(libnative._mjtCollision from) => new mjtCollision(from);
-
-            public static bool operator ==(mjtCollision left, mjtCollision right) => left.Equals(right);
-
-            public static bool operator !=(mjtCollision left, mjtCollision right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtCone : IEquatable<mjtCone>
-        {
-            public mjtCone(libnative._mjtCone value) => this.Value = value;
-
-            public readonly libnative._mjtCone Value;
-
-            public bool Equals(mjtCone other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtCone other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtCone(mjtCone from) => from.Value;
-
-            public static implicit operator mjtCone(libnative._mjtCone from) => new mjtCone(from);
-
-            public static bool operator ==(mjtCone left, mjtCone right) => left.Equals(right);
-
-            public static bool operator !=(mjtCone left, mjtCone right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtJacobian : IEquatable<mjtJacobian>
-        {
-            public mjtJacobian(libnative._mjtJacobian value) => this.Value = value;
-
-            public readonly libnative._mjtJacobian Value;
-
-            public bool Equals(mjtJacobian other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtJacobian other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtJacobian(mjtJacobian from) => from.Value;
-
-            public static implicit operator mjtJacobian(libnative._mjtJacobian from) => new mjtJacobian(from);
-
-            public static bool operator ==(mjtJacobian left, mjtJacobian right) => left.Equals(right);
-
-            public static bool operator !=(mjtJacobian left, mjtJacobian right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtSolver : IEquatable<mjtSolver>
-        {
-            public mjtSolver(libnative._mjtSolver value) => this.Value = value;
-
-            public readonly libnative._mjtSolver Value;
-
-            public bool Equals(mjtSolver other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtSolver other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtSolver(mjtSolver from) => from.Value;
-
-            public static implicit operator mjtSolver(libnative._mjtSolver from) => new mjtSolver(from);
-
-            public static bool operator ==(mjtSolver left, mjtSolver right) => left.Equals(right);
-
-            public static bool operator !=(mjtSolver left, mjtSolver right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtEq : IEquatable<mjtEq>
-        {
-            public mjtEq(libnative._mjtEq value) => this.Value = value;
-
-            public readonly libnative._mjtEq Value;
-
-            public bool Equals(mjtEq other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtEq other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtEq(mjtEq from) => from.Value;
-
-            public static implicit operator mjtEq(libnative._mjtEq from) => new mjtEq(from);
-
-            public static bool operator ==(mjtEq left, mjtEq right) => left.Equals(right);
-
-            public static bool operator !=(mjtEq left, mjtEq right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtWrap : IEquatable<mjtWrap>
-        {
-            public mjtWrap(libnative._mjtWrap value) => this.Value = value;
-
-            public readonly libnative._mjtWrap Value;
-
-            public bool Equals(mjtWrap other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtWrap other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtWrap(mjtWrap from) => from.Value;
-
-            public static implicit operator mjtWrap(libnative._mjtWrap from) => new mjtWrap(from);
-
-            public static bool operator ==(mjtWrap left, mjtWrap right) => left.Equals(right);
-
-            public static bool operator !=(mjtWrap left, mjtWrap right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtTrn : IEquatable<mjtTrn>
-        {
-            public mjtTrn(libnative._mjtTrn value) => this.Value = value;
-
-            public readonly libnative._mjtTrn Value;
-
-            public bool Equals(mjtTrn other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtTrn other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtTrn(mjtTrn from) => from.Value;
-
-            public static implicit operator mjtTrn(libnative._mjtTrn from) => new mjtTrn(from);
-
-            public static bool operator ==(mjtTrn left, mjtTrn right) => left.Equals(right);
-
-            public static bool operator !=(mjtTrn left, mjtTrn right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtDyn : IEquatable<mjtDyn>
-        {
-            public mjtDyn(libnative._mjtDyn value) => this.Value = value;
-
-            public readonly libnative._mjtDyn Value;
-
-            public bool Equals(mjtDyn other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtDyn other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtDyn(mjtDyn from) => from.Value;
-
-            public static implicit operator mjtDyn(libnative._mjtDyn from) => new mjtDyn(from);
-
-            public static bool operator ==(mjtDyn left, mjtDyn right) => left.Equals(right);
-
-            public static bool operator !=(mjtDyn left, mjtDyn right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtGain : IEquatable<mjtGain>
-        {
-            public mjtGain(libnative._mjtGain value) => this.Value = value;
-
-            public readonly libnative._mjtGain Value;
-
-            public bool Equals(mjtGain other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtGain other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtGain(mjtGain from) => from.Value;
-
-            public static implicit operator mjtGain(libnative._mjtGain from) => new mjtGain(from);
-
-            public static bool operator ==(mjtGain left, mjtGain right) => left.Equals(right);
-
-            public static bool operator !=(mjtGain left, mjtGain right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtBias : IEquatable<mjtBias>
-        {
-            public mjtBias(libnative._mjtBias value) => this.Value = value;
-
-            public readonly libnative._mjtBias Value;
-
-            public bool Equals(mjtBias other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtBias other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtBias(mjtBias from) => from.Value;
-
-            public static implicit operator mjtBias(libnative._mjtBias from) => new mjtBias(from);
-
-            public static bool operator ==(mjtBias left, mjtBias right) => left.Equals(right);
-
-            public static bool operator !=(mjtBias left, mjtBias right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtObj : IEquatable<mjtObj>
-        {
-            public mjtObj(libnative._mjtObj value) => this.Value = value;
-
-            public readonly libnative._mjtObj Value;
-
-            public bool Equals(mjtObj other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtObj other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtObj(mjtObj from) => from.Value;
-
-            public static implicit operator mjtObj(libnative._mjtObj from) => new mjtObj(from);
-
-            public static bool operator ==(mjtObj left, mjtObj right) => left.Equals(right);
-
-            public static bool operator !=(mjtObj left, mjtObj right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtConstraint : IEquatable<mjtConstraint>
-        {
-            public mjtConstraint(libnative._mjtConstraint value) => this.Value = value;
-
-            public readonly libnative._mjtConstraint Value;
-
-            public bool Equals(mjtConstraint other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtConstraint other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtConstraint(mjtConstraint from) => from.Value;
-
-            public static implicit operator mjtConstraint(libnative._mjtConstraint from) => new mjtConstraint(from);
-
-            public static bool operator ==(mjtConstraint left, mjtConstraint right) => left.Equals(right);
-
-            public static bool operator !=(mjtConstraint left, mjtConstraint right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtConstraintState : IEquatable<mjtConstraintState>
-        {
-            public mjtConstraintState(libnative._mjtConstraintState value) => this.Value = value;
-
-            public readonly libnative._mjtConstraintState Value;
-
-            public bool Equals(mjtConstraintState other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtConstraintState other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtConstraintState(mjtConstraintState from) => from.Value;
-
-            public static implicit operator mjtConstraintState(libnative._mjtConstraintState from) => new mjtConstraintState(from);
-
-            public static bool operator ==(mjtConstraintState left, mjtConstraintState right) => left.Equals(right);
-
-            public static bool operator !=(mjtConstraintState left, mjtConstraintState right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtSensor : IEquatable<mjtSensor>
-        {
-            public mjtSensor(libnative._mjtSensor value) => this.Value = value;
-
-            public readonly libnative._mjtSensor Value;
-
-            public bool Equals(mjtSensor other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtSensor other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtSensor(mjtSensor from) => from.Value;
-
-            public static implicit operator mjtSensor(libnative._mjtSensor from) => new mjtSensor(from);
-
-            public static bool operator ==(mjtSensor left, mjtSensor right) => left.Equals(right);
-
-            public static bool operator !=(mjtSensor left, mjtSensor right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtStage : IEquatable<mjtStage>
-        {
-            public mjtStage(libnative._mjtStage value) => this.Value = value;
-
-            public readonly libnative._mjtStage Value;
-
-            public bool Equals(mjtStage other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtStage other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtStage(mjtStage from) => from.Value;
-
-            public static implicit operator mjtStage(libnative._mjtStage from) => new mjtStage(from);
-
-            public static bool operator ==(mjtStage left, mjtStage right) => left.Equals(right);
-
-            public static bool operator !=(mjtStage left, mjtStage right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtDataType : IEquatable<mjtDataType>
-        {
-            public mjtDataType(libnative._mjtDataType value) => this.Value = value;
-
-            public readonly libnative._mjtDataType Value;
-
-            public bool Equals(mjtDataType other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtDataType other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtDataType(mjtDataType from) => from.Value;
-
-            public static implicit operator mjtDataType(libnative._mjtDataType from) => new mjtDataType(from);
-
-            public static bool operator ==(mjtDataType left, mjtDataType right) => left.Equals(right);
-
-            public static bool operator !=(mjtDataType left, mjtDataType right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtLRMode : IEquatable<mjtLRMode>
-        {
-            public mjtLRMode(libnative._mjtLRMode value) => this.Value = value;
-
-            public readonly libnative._mjtLRMode Value;
-
-            public bool Equals(mjtLRMode other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtLRMode other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtLRMode(mjtLRMode from) => from.Value;
-
-            public static implicit operator mjtLRMode(libnative._mjtLRMode from) => new mjtLRMode(from);
-
-            public static bool operator ==(mjtLRMode left, mjtLRMode right) => left.Equals(right);
-
-            public static bool operator !=(mjtLRMode left, mjtLRMode right) => !left.Equals(right);
-        }
-
+        
         /// <summary>
-        /// ------------------------------ mjLROpt ------------------------------------------------
+        /// ---------------------------------- mjvPerturb ----------------------------------------------------
         /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjLROpt : IEquatable<mjLROpt>
+        public unsafe partial struct mjvPerturb_
         {
-            public mjLROpt(libnative._mjLROpt value) => this.Value = value;
-
-            public readonly libnative._mjLROpt Value;
-
-            public bool Equals(mjLROpt other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjLROpt other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjLROpt(mjLROpt from) => from.Value;
-
-            public static implicit operator mjLROpt(libnative._mjLROpt from) => new mjLROpt(from);
-
-            public static bool operator ==(mjLROpt left, mjLROpt right) => left.Equals(right);
-
-            public static bool operator !=(mjLROpt left, mjLROpt right) => !left.Equals(right);
+            /// <summary>
+            /// selected body id; non-positive: none
+            /// </summary>
+            public int select;
+            
+            /// <summary>
+            /// selected skin id; negative: none
+            /// </summary>
+            public int skinselect;
+            
+            /// <summary>
+            /// perturbation bitmask (mjtPertBit)
+            /// </summary>
+            public int active;
+            
+            /// <summary>
+            /// secondary perturbation bitmask (mjtPertBit)
+            /// </summary>
+            public int active2;
+            
+            /// <summary>
+            /// desired position for selected object
+            /// </summary>
+            public fixed double refpos[3];
+            
+            /// <summary>
+            /// desired orientation for selected object
+            /// </summary>
+            public fixed double refquat[4];
+            
+            /// <summary>
+            /// selection point in object coordinates
+            /// </summary>
+            public fixed double localpos[3];
+            
+            /// <summary>
+            /// relative mouse motion-to-space scaling (set by initPerturb)
+            /// </summary>
+            public double scale;
         }
-
+        
         /// <summary>
-        /// ------------------------------ mjVFS --------------------------------------------------
+        /// ---------------------------------- mjvCamera -----------------------------------------------------
         /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjVFS : IEquatable<mjVFS>
+        public unsafe partial struct mjvCamera_
         {
-            public mjVFS(libnative._mjVFS value) => this.Value = value;
-
-            public readonly libnative._mjVFS Value;
-
-            public bool Equals(mjVFS other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjVFS other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjVFS(mjVFS from) => from.Value;
-
-            public static implicit operator mjVFS(libnative._mjVFS from) => new mjVFS(from);
-
-            public static bool operator ==(mjVFS left, mjVFS right) => left.Equals(right);
-
-            public static bool operator !=(mjVFS left, mjVFS right) => !left.Equals(right);
+            /// <summary>
+            /// camera type (mjtCamera)
+            /// </summary>
+            public int type;
+            
+            /// <summary>
+            /// fixed camera id
+            /// </summary>
+            public int fixedcamid;
+            
+            /// <summary>
+            /// body id to track
+            /// </summary>
+            public int trackbodyid;
+            
+            /// <summary>
+            /// lookat point
+            /// </summary>
+            public fixed double lookat[3];
+            
+            /// <summary>
+            /// distance to lookat point or tracked body
+            /// </summary>
+            public double distance;
+            
+            /// <summary>
+            /// camera azimuth (deg)
+            /// </summary>
+            public double azimuth;
+            
+            /// <summary>
+            /// camera elevation (deg)
+            /// </summary>
+            public double elevation;
         }
-
+        
         /// <summary>
-        /// ---------------------------------- mjModel --------------------------------------------
+        /// ---------------------------------- mjvGLCamera ---------------------------------------------------
         /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjModel : IEquatable<mjModel>
+        public unsafe partial struct mjvGLCamera_
         {
-            public mjModel(libnative._mjModel value) => this.Value = value;
-
-            public readonly libnative._mjModel Value;
-
-            public bool Equals(mjModel other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjModel other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjModel(mjModel from) => from.Value;
-
-            public static implicit operator mjModel(libnative._mjModel from) => new mjModel(from);
-
-            public static bool operator ==(mjModel left, mjModel right) => left.Equals(right);
-
-            public static bool operator !=(mjModel left, mjModel right) => !left.Equals(right);
+            /// <summary>
+            /// position
+            /// </summary>
+            public fixed float pos[3];
+            
+            /// <summary>
+            /// forward direction
+            /// </summary>
+            public fixed float forward[3];
+            
+            /// <summary>
+            /// up direction
+            /// </summary>
+            public fixed float up[3];
+            
+            /// <summary>
+            /// hor. center (left,right set to match aspect)
+            /// </summary>
+            public float frustum_center;
+            
+            /// <summary>
+            /// bottom
+            /// </summary>
+            public float frustum_bottom;
+            
+            /// <summary>
+            /// top
+            /// </summary>
+            public float frustum_top;
+            
+            /// <summary>
+            /// near
+            /// </summary>
+            public float frustum_near;
+            
+            /// <summary>
+            /// far
+            /// </summary>
+            public float frustum_far;
         }
-
+        
         /// <summary>
-        /// ---------------------------- primitive types (mjt) ------------------------------------
+        /// ---------------------------------- mjvGeom -------------------------------------------------------
         /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtWarning : IEquatable<mjtWarning>
+        public unsafe partial struct mjvGeom_
         {
-            public mjtWarning(libnative._mjtWarning value) => this.Value = value;
-
-            public readonly libnative._mjtWarning Value;
-
-            public bool Equals(mjtWarning other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtWarning other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtWarning(mjtWarning from) => from.Value;
-
-            public static implicit operator mjtWarning(libnative._mjtWarning from) => new mjtWarning(from);
-
-            public static bool operator ==(mjtWarning left, mjtWarning right) => left.Equals(right);
-
-            public static bool operator !=(mjtWarning left, mjtWarning right) => !left.Equals(right);
+            /// <summary>
+            /// geom type (mjtGeom)
+            /// </summary>
+            public int type;
+            
+            /// <summary>
+            /// mesh, hfield or plane id; -1: none
+            /// </summary>
+            public int dataid;
+            
+            /// <summary>
+            /// mujoco object type; mjOBJ_UNKNOWN for decor
+            /// </summary>
+            public int objtype;
+            
+            /// <summary>
+            /// mujoco object id; -1 for decor
+            /// </summary>
+            public int objid;
+            
+            /// <summary>
+            /// visual category
+            /// </summary>
+            public int category;
+            
+            /// <summary>
+            /// texture id; -1: no texture
+            /// </summary>
+            public int texid;
+            
+            /// <summary>
+            /// uniform cube mapping
+            /// </summary>
+            public int texuniform;
+            
+            /// <summary>
+            /// mesh geom has texture coordinates
+            /// </summary>
+            public int texcoord;
+            
+            /// <summary>
+            /// segmentation id; -1: not shown
+            /// </summary>
+            public int segid;
+            
+            /// <summary>
+            /// texture repetition for 2D mapping
+            /// </summary>
+            public fixed float texrepeat[2];
+            
+            /// <summary>
+            /// size parameters
+            /// </summary>
+            public fixed float size[3];
+            
+            /// <summary>
+            /// Cartesian position
+            /// </summary>
+            public fixed float pos[3];
+            
+            /// <summary>
+            /// Cartesian orientation
+            /// </summary>
+            public fixed float mat[9];
+            
+            /// <summary>
+            /// color and transparency
+            /// </summary>
+            public fixed float rgba[4];
+            
+            /// <summary>
+            /// emission coef
+            /// </summary>
+            public float emission;
+            
+            /// <summary>
+            /// specular coef
+            /// </summary>
+            public float specular;
+            
+            /// <summary>
+            /// shininess coef
+            /// </summary>
+            public float shininess;
+            
+            /// <summary>
+            /// reflectance coef
+            /// </summary>
+            public float reflectance;
+            
+            /// <summary>
+            /// text label
+            /// </summary>
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 100)]
+            public string label;
+            
+            /// <summary>
+            /// distance to camera (used by sorter)
+            /// </summary>
+            public float camdist;
+            
+            /// <summary>
+            /// geom rbound from model, 0 if not model geom
+            /// </summary>
+            public float modelrbound;
+            
+            /// <summary>
+            /// treat geom as transparent
+            /// </summary>
+            public byte transparent;
         }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtTimer : IEquatable<mjtTimer>
-        {
-            public mjtTimer(libnative._mjtTimer value) => this.Value = value;
-
-            public readonly libnative._mjtTimer Value;
-
-            public bool Equals(mjtTimer other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtTimer other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtTimer(mjtTimer from) => from.Value;
-
-            public static implicit operator mjtTimer(libnative._mjtTimer from) => new mjtTimer(from);
-
-            public static bool operator ==(mjtTimer left, mjtTimer right) => left.Equals(right);
-
-            public static bool operator !=(mjtTimer left, mjtTimer right) => !left.Equals(right);
-        }
-
+        
         /// <summary>
-        /// ---------------------------------- mjData ---------------------------------------------
+        /// ---------------------------------- mjvLight ------------------------------------------------------
         /// </summary>
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjData : IEquatable<mjData>
+        public unsafe partial struct mjvLight_
         {
-            public mjData(libnative._mjData value) => this.Value = value;
-
-            public readonly libnative._mjData Value;
-
-            public bool Equals(mjData other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjData other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjData(mjData from) => from.Value;
-
-            public static implicit operator mjData(libnative._mjData from) => new mjData(from);
-
-            public static bool operator ==(mjData left, mjData right) => left.Equals(right);
-
-            public static bool operator !=(mjData left, mjData right) => !left.Equals(right);
+            /// <summary>
+            /// position rel. to body frame
+            /// </summary>
+            public fixed float pos[3];
+            
+            /// <summary>
+            /// direction rel. to body frame
+            /// </summary>
+            public fixed float dir[3];
+            
+            /// <summary>
+            /// OpenGL attenuation (quadratic model)
+            /// </summary>
+            public fixed float attenuation[3];
+            
+            /// <summary>
+            /// OpenGL cutoff
+            /// </summary>
+            public float cutoff;
+            
+            /// <summary>
+            /// OpenGL exponent
+            /// </summary>
+            public float exponent;
+            
+            /// <summary>
+            /// ambient rgb (alpha=1)
+            /// </summary>
+            public fixed float ambient[3];
+            
+            /// <summary>
+            /// diffuse rgb (alpha=1)
+            /// </summary>
+            public fixed float diffuse[3];
+            
+            /// <summary>
+            /// specular rgb (alpha=1)
+            /// </summary>
+            public fixed float specular[3];
+            
+            /// <summary>
+            /// headlight
+            /// </summary>
+            public byte headlight;
+            
+            /// <summary>
+            /// directional light
+            /// </summary>
+            public byte directional;
+            
+            /// <summary>
+            /// does light cast shadows
+            /// </summary>
+            public byte castshadow;
         }
-
+        
+        /// <summary>
+        /// ---------------------------------- mjvOption -----------------------------------------------------
+        /// </summary>
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+        public unsafe partial struct mjvOption_
+        {
+            /// <summary>
+            /// what objects to label (mjtLabel)
+            /// </summary>
+            public int label;
+            
+            /// <summary>
+            /// which frame to show (mjtFrame)
+            /// </summary>
+            public int frame;
+            
+            /// <summary>
+            /// geom visualization by group
+            /// </summary>
+            public fixed byte geomgroup[6];
+            
+            /// <summary>
+            /// site visualization by group
+            /// </summary>
+            public fixed byte sitegroup[6];
+            
+            /// <summary>
+            /// joint visualization by group
+            /// </summary>
+            public fixed byte jointgroup[6];
+            
+            /// <summary>
+            /// tendon visualization by group
+            /// </summary>
+            public fixed byte tendongroup[6];
+            
+            /// <summary>
+            /// actuator visualization by group
+            /// </summary>
+            public fixed byte actuatorgroup[6];
+            
+            /// <summary>
+            /// visualization flags (indexed by mjtVisFlag)
+            /// </summary>
+            public fixed byte flags[22];
+        }
+        
+        /// <summary>
+        /// ---------------------------------- mjvScene ------------------------------------------------------
+        /// </summary>
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+        public unsafe partial struct mjvScene_
+        {
+            /// <summary>
+            /// size of allocated geom buffer
+            /// </summary>
+            public int maxgeom;
+            
+            /// <summary>
+            /// number of geoms currently in buffer
+            /// </summary>
+            public int ngeom;
+            
+            /// <summary>
+            /// buffer for geoms
+            /// </summary>
+            public IntPtr geoms;
+            
+            /// <summary>
+            /// buffer for ordering geoms by distance to camera
+            /// </summary>
+            public IntPtr geomorder;
+            
+            /// <summary>
+            /// number of skins
+            /// </summary>
+            public int nskin;
+            
+            /// <summary>
+            /// number of faces in skin
+            /// </summary>
+            public IntPtr skinfacenum;
+            
+            /// <summary>
+            /// address of skin vertices
+            /// </summary>
+            public IntPtr skinvertadr;
+            
+            /// <summary>
+            /// number of vertices in skin
+            /// </summary>
+            public IntPtr skinvertnum;
+            
+            /// <summary>
+            /// skin vertex data
+            /// </summary>
+            public IntPtr skinvert;
+            
+            /// <summary>
+            /// skin normal data
+            /// </summary>
+            public IntPtr skinnormal;
+            
+            /// <summary>
+            /// number of lights currently in buffer
+            /// </summary>
+            public int nlight;
+            
+            /// <summary>
+            /// buffer for lights
+            /// </summary>
+            [MarshalAs(UnmanagedType.LPArray, SizeConst = 100)]
+            public libnative.mjvLight_[] lights;
+            
+            /// <summary>
+            /// left and right camera
+            /// </summary>
+            [MarshalAs(UnmanagedType.LPArray, SizeConst = 2)]
+            public libnative.mjvGLCamera_[] camera;
+            
+            /// <summary>
+            /// enable model transformation
+            /// </summary>
+            public byte enabletransform;
+            
+            /// <summary>
+            /// model translation
+            /// </summary>
+            public fixed float translate[3];
+            
+            /// <summary>
+            /// model quaternion rotation
+            /// </summary>
+            public fixed float rotate[4];
+            
+            /// <summary>
+            /// model scaling
+            /// </summary>
+            public float scale;
+            
+            /// <summary>
+            /// stereoscopic rendering (mjtStereo)
+            /// </summary>
+            public int stereo;
+            
+            /// <summary>
+            /// rendering flags (indexed by mjtRndFlag)
+            /// </summary>
+            public fixed byte flags[9];
+            
+            /// <summary>
+            /// frame pixel width; 0: disable framing
+            /// </summary>
+            public int framewidth;
+            
+            /// <summary>
+            /// frame color
+            /// </summary>
+            public fixed float framergb[3];
+        }
+        
+        /// <summary>
+        /// ---------------------------------- mjvFigure -----------------------------------------------------
+        /// </summary>
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+        public unsafe partial struct mjvFigure_
+        {
+            /// <summary>
+            /// show legend
+            /// </summary>
+            public int flg_legend;
+            
+            /// <summary>
+            /// show grid tick labels (x,y)
+            /// </summary>
+            public fixed int flg_ticklabel[2];
+            
+            /// <summary>
+            /// automatically extend axis ranges to fit data
+            /// </summary>
+            public int flg_extend;
+            
+            /// <summary>
+            /// isolated line segments (i.e. GL_LINES)
+            /// </summary>
+            public int flg_barplot;
+            
+            /// <summary>
+            /// vertical selection line
+            /// </summary>
+            public int flg_selection;
+            
+            /// <summary>
+            /// symmetric y-axis
+            /// </summary>
+            public int flg_symmetric;
+            
+            /// <summary>
+            /// line width
+            /// </summary>
+            public float linewidth;
+            
+            /// <summary>
+            /// grid line width
+            /// </summary>
+            public float gridwidth;
+            
+            /// <summary>
+            /// number of grid points in (x,y)
+            /// </summary>
+            public fixed int gridsize[2];
+            
+            /// <summary>
+            /// grid line rgb
+            /// </summary>
+            public fixed float gridrgb[3];
+            
+            /// <summary>
+            /// figure color and alpha
+            /// </summary>
+            public fixed float figurergba[4];
+            
+            /// <summary>
+            /// pane color and alpha
+            /// </summary>
+            public fixed float panergba[4];
+            
+            /// <summary>
+            /// legend color and alpha
+            /// </summary>
+            public fixed float legendrgba[4];
+            
+            /// <summary>
+            /// text color
+            /// </summary>
+            public fixed float textrgb[3];
+            
+            /// <summary>
+            /// line colors
+            /// </summary>
+            [MarshalAs(UnmanagedType.LPArray, SizeConst = 100*3)]
+            public float[][] linergb;
+            
+            /// <summary>
+            /// axis ranges; (min&gt;=max) automatic
+            /// </summary>
+            [MarshalAs(UnmanagedType.LPArray, SizeConst = 2*2)]
+            public float[][] range;
+            
+            /// <summary>
+            /// x-tick label format for sprintf
+            /// </summary>
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 20)]
+            public string xformat;
+            
+            /// <summary>
+            /// y-tick label format for sprintf
+            /// </summary>
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 20)]
+            public string yformat;
+            
+            /// <summary>
+            /// string used to determine min y-tick width
+            /// </summary>
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 20)]
+            public string minwidth;
+            
+            /// <summary>
+            /// figure title; subplots separated with 2+ spaces
+            /// </summary>
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 1000)]
+            public string title;
+            
+            /// <summary>
+            /// x-axis label
+            /// </summary>
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 100)]
+            public string xlabel;
+            
+            /// <summary>
+            /// line names for legend
+            /// </summary>
+            [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.ByValTStr, SizeConst = 100)]
+            public string[] linename;
+            
+            /// <summary>
+            /// number of lines to offset legend
+            /// </summary>
+            public int legendoffset;
+            
+            /// <summary>
+            /// selected subplot (for title rendering)
+            /// </summary>
+            public int subplot;
+            
+            /// <summary>
+            /// if point is in legend rect, highlight line
+            /// </summary>
+            public fixed int highlight[2];
+            
+            /// <summary>
+            /// if id&gt;=0 and no point, highlight id
+            /// </summary>
+            public int highlightid;
+            
+            /// <summary>
+            /// selection line x-value
+            /// </summary>
+            public float selection;
+            
+            /// <summary>
+            /// number of points in line; (0) disable
+            /// </summary>
+            public fixed int linepnt[100];
+            
+            /// <summary>
+            /// line data (x,y)
+            /// </summary>
+            [MarshalAs(UnmanagedType.LPArray, SizeConst = 100*2000)]
+            public float[][] linedata;
+            
+            /// <summary>
+            /// range of x-axis in pixels
+            /// </summary>
+            public fixed int xaxispixel[2];
+            
+            /// <summary>
+            /// range of y-axis in pixels
+            /// </summary>
+            public fixed int yaxispixel[2];
+            
+            /// <summary>
+            /// range of x-axis in data units
+            /// </summary>
+            public fixed float xaxisdata[2];
+            
+            /// <summary>
+            /// range of y-axis in data units
+            /// </summary>
+            public fixed float yaxisdata[2];
+        }
+        
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void mjfGeneric(ref libnative.mjModel m, ref libnative.mjData d);
-
+        public delegate void mjfGeneric(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate int mjfConFilt(ref libnative.mjModel m, ref libnative.mjData d, int geom1, int geom2);
-
+        public delegate int mjfConFilt(ref libnative.mjModel_ m, ref libnative.mjData_ d, int geom1, int geom2);
+        
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void mjfSensor(ref libnative.mjModel m, ref libnative.mjData d, int stage);
-
+        public delegate void mjfSensor(ref libnative.mjModel_ m, ref libnative.mjData_ d, int stage);
+        
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate libnative.mjtNum mjfTime();
-
+        public delegate double mjfTime();
+        
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate libnative.mjtNum mjfAct(ref libnative.mjModel m, ref libnative.mjData d, int id);
-
+        public delegate double mjfAct(ref libnative.mjModel_ m, ref libnative.mjData_ d, int id);
+        
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate int mjfCollision(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjContact con, int g1, int g2, libnative.mjtNum margin);
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtCatBit : IEquatable<mjtCatBit>
-        {
-            public mjtCatBit(libnative._mjtCatBit value) => this.Value = value;
-
-            public readonly libnative._mjtCatBit Value;
-
-            public bool Equals(mjtCatBit other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtCatBit other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtCatBit(mjtCatBit from) => from.Value;
-
-            public static implicit operator mjtCatBit(libnative._mjtCatBit from) => new mjtCatBit(from);
-
-            public static bool operator ==(mjtCatBit left, mjtCatBit right) => left.Equals(right);
-
-            public static bool operator !=(mjtCatBit left, mjtCatBit right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtMouse : IEquatable<mjtMouse>
-        {
-            public mjtMouse(libnative._mjtMouse value) => this.Value = value;
-
-            public readonly libnative._mjtMouse Value;
-
-            public bool Equals(mjtMouse other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtMouse other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtMouse(mjtMouse from) => from.Value;
-
-            public static implicit operator mjtMouse(libnative._mjtMouse from) => new mjtMouse(from);
-
-            public static bool operator ==(mjtMouse left, mjtMouse right) => left.Equals(right);
-
-            public static bool operator !=(mjtMouse left, mjtMouse right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtPertBit : IEquatable<mjtPertBit>
-        {
-            public mjtPertBit(libnative._mjtPertBit value) => this.Value = value;
-
-            public readonly libnative._mjtPertBit Value;
-
-            public bool Equals(mjtPertBit other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtPertBit other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtPertBit(mjtPertBit from) => from.Value;
-
-            public static implicit operator mjtPertBit(libnative._mjtPertBit from) => new mjtPertBit(from);
-
-            public static bool operator ==(mjtPertBit left, mjtPertBit right) => left.Equals(right);
-
-            public static bool operator !=(mjtPertBit left, mjtPertBit right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtCamera : IEquatable<mjtCamera>
-        {
-            public mjtCamera(libnative._mjtCamera value) => this.Value = value;
-
-            public readonly libnative._mjtCamera Value;
-
-            public bool Equals(mjtCamera other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtCamera other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtCamera(mjtCamera from) => from.Value;
-
-            public static implicit operator mjtCamera(libnative._mjtCamera from) => new mjtCamera(from);
-
-            public static bool operator ==(mjtCamera left, mjtCamera right) => left.Equals(right);
-
-            public static bool operator !=(mjtCamera left, mjtCamera right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtLabel : IEquatable<mjtLabel>
-        {
-            public mjtLabel(libnative._mjtLabel value) => this.Value = value;
-
-            public readonly libnative._mjtLabel Value;
-
-            public bool Equals(mjtLabel other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtLabel other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtLabel(mjtLabel from) => from.Value;
-
-            public static implicit operator mjtLabel(libnative._mjtLabel from) => new mjtLabel(from);
-
-            public static bool operator ==(mjtLabel left, mjtLabel right) => left.Equals(right);
-
-            public static bool operator !=(mjtLabel left, mjtLabel right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtFrame : IEquatable<mjtFrame>
-        {
-            public mjtFrame(libnative._mjtFrame value) => this.Value = value;
-
-            public readonly libnative._mjtFrame Value;
-
-            public bool Equals(mjtFrame other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtFrame other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtFrame(mjtFrame from) => from.Value;
-
-            public static implicit operator mjtFrame(libnative._mjtFrame from) => new mjtFrame(from);
-
-            public static bool operator ==(mjtFrame left, mjtFrame right) => left.Equals(right);
-
-            public static bool operator !=(mjtFrame left, mjtFrame right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtVisFlag : IEquatable<mjtVisFlag>
-        {
-            public mjtVisFlag(libnative._mjtVisFlag value) => this.Value = value;
-
-            public readonly libnative._mjtVisFlag Value;
-
-            public bool Equals(mjtVisFlag other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtVisFlag other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtVisFlag(mjtVisFlag from) => from.Value;
-
-            public static implicit operator mjtVisFlag(libnative._mjtVisFlag from) => new mjtVisFlag(from);
-
-            public static bool operator ==(mjtVisFlag left, mjtVisFlag right) => left.Equals(right);
-
-            public static bool operator !=(mjtVisFlag left, mjtVisFlag right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtRndFlag : IEquatable<mjtRndFlag>
-        {
-            public mjtRndFlag(libnative._mjtRndFlag value) => this.Value = value;
-
-            public readonly libnative._mjtRndFlag Value;
-
-            public bool Equals(mjtRndFlag other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtRndFlag other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtRndFlag(mjtRndFlag from) => from.Value;
-
-            public static implicit operator mjtRndFlag(libnative._mjtRndFlag from) => new mjtRndFlag(from);
-
-            public static bool operator ==(mjtRndFlag left, mjtRndFlag right) => left.Equals(right);
-
-            public static bool operator !=(mjtRndFlag left, mjtRndFlag right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtStereo : IEquatable<mjtStereo>
-        {
-            public mjtStereo(libnative._mjtStereo value) => this.Value = value;
-
-            public readonly libnative._mjtStereo Value;
-
-            public bool Equals(mjtStereo other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtStereo other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtStereo(mjtStereo from) => from.Value;
-
-            public static implicit operator mjtStereo(libnative._mjtStereo from) => new mjtStereo(from);
-
-            public static bool operator ==(mjtStereo left, mjtStereo right) => left.Equals(right);
-
-            public static bool operator !=(mjtStereo left, mjtStereo right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjvPerturb : IEquatable<mjvPerturb>
-        {
-            public mjvPerturb(libnative._mjvPerturb value) => this.Value = value;
-
-            public readonly libnative._mjvPerturb Value;
-
-            public bool Equals(mjvPerturb other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjvPerturb other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjvPerturb(mjvPerturb from) => from.Value;
-
-            public static implicit operator mjvPerturb(libnative._mjvPerturb from) => new mjvPerturb(from);
-
-            public static bool operator ==(mjvPerturb left, mjvPerturb right) => left.Equals(right);
-
-            public static bool operator !=(mjvPerturb left, mjvPerturb right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjvCamera : IEquatable<mjvCamera>
-        {
-            public mjvCamera(libnative._mjvCamera value) => this.Value = value;
-
-            public readonly libnative._mjvCamera Value;
-
-            public bool Equals(mjvCamera other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjvCamera other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjvCamera(mjvCamera from) => from.Value;
-
-            public static implicit operator mjvCamera(libnative._mjvCamera from) => new mjvCamera(from);
-
-            public static bool operator ==(mjvCamera left, mjvCamera right) => left.Equals(right);
-
-            public static bool operator !=(mjvCamera left, mjvCamera right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjvOption : IEquatable<mjvOption>
-        {
-            public mjvOption(libnative._mjvOption value) => this.Value = value;
-
-            public readonly libnative._mjvOption Value;
-
-            public bool Equals(mjvOption other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjvOption other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjvOption(mjvOption from) => from.Value;
-
-            public static implicit operator mjvOption(libnative._mjvOption from) => new mjvOption(from);
-
-            public static bool operator ==(mjvOption left, mjvOption right) => left.Equals(right);
-
-            public static bool operator !=(mjvOption left, mjvOption right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjvScene : IEquatable<mjvScene>
-        {
-            public mjvScene(libnative._mjvScene value) => this.Value = value;
-
-            public readonly libnative._mjvScene Value;
-
-            public bool Equals(mjvScene other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjvScene other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjvScene(mjvScene from) => from.Value;
-
-            public static implicit operator mjvScene(libnative._mjvScene from) => new mjvScene(from);
-
-            public static bool operator ==(mjvScene left, mjvScene right) => left.Equals(right);
-
-            public static bool operator !=(mjvScene left, mjvScene right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjvFigure : IEquatable<mjvFigure>
-        {
-            public mjvFigure(libnative._mjvFigure value) => this.Value = value;
-
-            public readonly libnative._mjvFigure Value;
-
-            public bool Equals(mjvFigure other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjvFigure other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjvFigure(mjvFigure from) => from.Value;
-
-            public static implicit operator mjvFigure(libnative._mjvFigure from) => new mjvFigure(from);
-
-            public static bool operator ==(mjvFigure left, mjvFigure right) => left.Equals(right);
-
-            public static bool operator !=(mjvFigure left, mjvFigure right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtGridPos : IEquatable<mjtGridPos>
-        {
-            public mjtGridPos(libnative._mjtGridPos value) => this.Value = value;
-
-            public readonly libnative._mjtGridPos Value;
-
-            public bool Equals(mjtGridPos other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtGridPos other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtGridPos(mjtGridPos from) => from.Value;
-
-            public static implicit operator mjtGridPos(libnative._mjtGridPos from) => new mjtGridPos(from);
-
-            public static bool operator ==(mjtGridPos left, mjtGridPos right) => left.Equals(right);
-
-            public static bool operator !=(mjtGridPos left, mjtGridPos right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtFramebuffer : IEquatable<mjtFramebuffer>
-        {
-            public mjtFramebuffer(libnative._mjtFramebuffer value) => this.Value = value;
-
-            public readonly libnative._mjtFramebuffer Value;
-
-            public bool Equals(mjtFramebuffer other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtFramebuffer other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtFramebuffer(mjtFramebuffer from) => from.Value;
-
-            public static implicit operator mjtFramebuffer(libnative._mjtFramebuffer from) => new mjtFramebuffer(from);
-
-            public static bool operator ==(mjtFramebuffer left, mjtFramebuffer right) => left.Equals(right);
-
-            public static bool operator !=(mjtFramebuffer left, mjtFramebuffer right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtFontScale : IEquatable<mjtFontScale>
-        {
-            public mjtFontScale(libnative._mjtFontScale value) => this.Value = value;
-
-            public readonly libnative._mjtFontScale Value;
-
-            public bool Equals(mjtFontScale other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtFontScale other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtFontScale(mjtFontScale from) => from.Value;
-
-            public static implicit operator mjtFontScale(libnative._mjtFontScale from) => new mjtFontScale(from);
-
-            public static bool operator ==(mjtFontScale left, mjtFontScale right) => left.Equals(right);
-
-            public static bool operator !=(mjtFontScale left, mjtFontScale right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtFont : IEquatable<mjtFont>
-        {
-            public mjtFont(libnative._mjtFont value) => this.Value = value;
-
-            public readonly libnative._mjtFont Value;
-
-            public bool Equals(mjtFont other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtFont other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtFont(mjtFont from) => from.Value;
-
-            public static implicit operator mjtFont(libnative._mjtFont from) => new mjtFont(from);
-
-            public static bool operator ==(mjtFont left, mjtFont right) => left.Equals(right);
-
-            public static bool operator !=(mjtFont left, mjtFont right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjrContext : IEquatable<mjrContext>
-        {
-            public mjrContext(libnative._mjrContext value) => this.Value = value;
-
-            public readonly libnative._mjrContext Value;
-
-            public bool Equals(mjrContext other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjrContext other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjrContext(mjrContext from) => from.Value;
-
-            public static implicit operator mjrContext(libnative._mjrContext from) => new mjrContext(from);
-
-            public static bool operator ==(mjrContext left, mjrContext right) => left.Equals(right);
-
-            public static bool operator !=(mjrContext left, mjrContext right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtButton : IEquatable<mjtButton>
-        {
-            public mjtButton(libnative._mjtButton value) => this.Value = value;
-
-            public readonly libnative._mjtButton Value;
-
-            public bool Equals(mjtButton other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtButton other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtButton(mjtButton from) => from.Value;
-
-            public static implicit operator mjtButton(libnative._mjtButton from) => new mjtButton(from);
-
-            public static bool operator ==(mjtButton left, mjtButton right) => left.Equals(right);
-
-            public static bool operator !=(mjtButton left, mjtButton right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtEvent : IEquatable<mjtEvent>
-        {
-            public mjtEvent(libnative._mjtEvent value) => this.Value = value;
-
-            public readonly libnative._mjtEvent Value;
-
-            public bool Equals(mjtEvent other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtEvent other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtEvent(mjtEvent from) => from.Value;
-
-            public static implicit operator mjtEvent(libnative._mjtEvent from) => new mjtEvent(from);
-
-            public static bool operator ==(mjtEvent left, mjtEvent right) => left.Equals(right);
-
-            public static bool operator !=(mjtEvent left, mjtEvent right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjtItem : IEquatable<mjtItem>
-        {
-            public mjtItem(libnative._mjtItem value) => this.Value = value;
-
-            public readonly libnative._mjtItem Value;
-
-            public bool Equals(mjtItem other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjtItem other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjtItem(mjtItem from) => from.Value;
-
-            public static implicit operator mjtItem(libnative._mjtItem from) => new mjtItem(from);
-
-            public static bool operator ==(mjtItem left, mjtItem right) => left.Equals(right);
-
-            public static bool operator !=(mjtItem left, mjtItem right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjuiState : IEquatable<mjuiState>
-        {
-            public mjuiState(libnative._mjuiState value) => this.Value = value;
-
-            public readonly libnative._mjuiState Value;
-
-            public bool Equals(mjuiState other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjuiState other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjuiState(mjuiState from) => from.Value;
-
-            public static implicit operator mjuiState(libnative._mjuiState from) => new mjuiState(from);
-
-            public static bool operator ==(mjuiState left, mjuiState right) => left.Equals(right);
-
-            public static bool operator !=(mjuiState left, mjuiState right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjUI : IEquatable<mjUI>
-        {
-            public mjUI(libnative._mjUI value) => this.Value = value;
-
-            public readonly libnative._mjUI Value;
-
-            public bool Equals(mjUI other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjUI other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjUI(mjUI from) => from.Value;
-
-            public static implicit operator mjUI(libnative._mjUI from) => new mjUI(from);
-
-            public static bool operator ==(mjUI left, mjUI right) => left.Equals(right);
-
-            public static bool operator !=(mjUI left, mjUI right) => !left.Equals(right);
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct mjuiDef : IEquatable<mjuiDef>
-        {
-            public mjuiDef(libnative._mjuiDef value) => this.Value = value;
-
-            public readonly libnative._mjuiDef Value;
-
-            public bool Equals(mjuiDef other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is mjuiDef other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator libnative._mjuiDef(mjuiDef from) => from.Value;
-
-            public static implicit operator mjuiDef(libnative._mjuiDef from) => new mjuiDef(from);
-
-            public static bool operator ==(mjuiDef left, mjuiDef right) => left.Equals(right);
-
-            public static bool operator !=(mjuiDef left, mjuiDef right) => !left.Equals(right);
-        }
-
-        /// <summary>
-        /// Return 1 (for backward compatibility).
-        /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mj_activate([MarshalAs(UnmanagedType.LPStr)] string filename);
-
-        /// <summary>
-        /// Do nothing (for backward compatibility).
-        /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_deactivate();
-
+        public delegate int mjfCollision(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref libnative.mjContact_ con, int g1, int g2, double margin);
+        
         /// <summary>
         /// Initialize VFS to empty (no deallocation).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_defaultVFS(ref libnative.mjVFS vfs);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_defaultVFS(ref libnative.mjVFS_ vfs);
+        
         /// <summary>
-        /// Add file to VFS, return 0: success, 1: full, 2: repeated name, -1: not found on disk.
+        /// Add file to VFS, return 0: success, 1: full, 2: repeated name, -1: failed to load.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mj_addFileVFS(ref libnative.mjVFS vfs, [MarshalAs(UnmanagedType.LPStr)] string directory, [MarshalAs(UnmanagedType.LPStr)] string filename);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mj_addFileVFS(ref libnative.mjVFS_ vfs, [MarshalAs(UnmanagedType.LPStr)] string directory, [MarshalAs(UnmanagedType.LPStr)] string filename);
+        
         /// <summary>
         /// Make empty file in VFS, return 0: success, 1: full, 2: repeated name.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mj_makeEmptyFileVFS(ref libnative.mjVFS vfs, [MarshalAs(UnmanagedType.LPStr)] string filename, int filesize);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mj_makeEmptyFileVFS(ref libnative.mjVFS_ vfs, [MarshalAs(UnmanagedType.LPStr)] string filename, int filesize);
+        
         /// <summary>
         /// Return file index in VFS, or -1 if not found in VFS.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mj_findFileVFS(ref libnative.mjVFS vfs, [MarshalAs(UnmanagedType.LPStr)] string filename);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mj_findFileVFS(ref libnative.mjVFS_ vfs, [MarshalAs(UnmanagedType.LPStr)] string filename);
+        
         /// <summary>
         /// Delete file from VFS, return 0: success, -1: not found in VFS.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mj_deleteFileVFS(ref libnative.mjVFS vfs, [MarshalAs(UnmanagedType.LPStr)] string filename);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mj_deleteFileVFS(ref libnative.mjVFS_ vfs, [MarshalAs(UnmanagedType.LPStr)] string filename);
+        
         /// <summary>
         /// Delete all files from VFS.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_deleteVFS(ref libnative.mjVFS vfs);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_deleteVFS(ref libnative.mjVFS_ vfs);
+        
         /// <summary>
         /// Parse XML file in MJCF or URDF format, compile it, return low-level model.
         /// If vfs is not NULL, look up files in vfs before reading from disk.
         /// If error is not NULL, it must have size error_sz.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static unsafe extern ref libnative.mjModel mj_loadXML([MarshalAs(UnmanagedType.LPStr)] string filename, ref libnative.mjVFS vfs, IntPtr error, int error_sz);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern ref libnative.mjModel_ mj_loadXML([MarshalAs(UnmanagedType.LPStr)] string filename, ref libnative.mjVFS_ vfs, IntPtr error, int error_sz);
+        
         /// <summary>
         /// Update XML data structures with info from low-level model, save as MJCF.
         /// If error is not NULL, it must have size error_sz.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mj_saveLastXML([MarshalAs(UnmanagedType.LPStr)] string filename, ref libnative.mjModel m, IntPtr error, int error_sz);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mj_saveLastXML([MarshalAs(UnmanagedType.LPStr)] string filename, ref libnative.mjModel_ m, IntPtr error, int error_sz);
+        
         /// <summary>
         /// Free last XML model if loaded. Called internally at each load.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_freeLastXML();
-
+        
         /// <summary>
-        /// Print internal XML schema as plain text or HTML, with style-padding or
+        /// Print internal XML schema as plain text or HTML, with style-padding or 
         /// .
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mj_printSchema([MarshalAs(UnmanagedType.LPStr)] string filename, IntPtr buffer, int buffer_sz, int flg_html, int flg_pad);
-
+        
         /// <summary>
         /// Advance simulation, use control callback to obtain external force and control.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_step(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_step(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Advance simulation in two steps: before external force and control is set by user.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_step1(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_step1(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Advance simulation in two steps: after external force and control is set by user.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_step2(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_step2(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Forward dynamics: same as mj_step but do not integrate in time.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_forward(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_forward(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Inverse dynamics: qacc must be set before calling.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_inverse(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_inverse(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Forward dynamics with skip; skipstage is mjtStage.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_forwardSkip(ref libnative.mjModel m, ref libnative.mjData d, int skipstage, int skipsensor);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_forwardSkip(ref libnative.mjModel_ m, ref libnative.mjData_ d, int skipstage, int skipsensor);
+        
         /// <summary>
         /// Inverse dynamics with skip; skipstage is mjtStage.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_inverseSkip(ref libnative.mjModel m, ref libnative.mjData d, int skipstage, int skipsensor);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_inverseSkip(ref libnative.mjModel_ m, ref libnative.mjData_ d, int skipstage, int skipsensor);
+        
         /// <summary>
         /// Set default options for length range computation.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_defaultLROpt(ref libnative.mjLROpt opt);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_defaultLROpt(ref libnative.mjLROpt_ opt);
+        
         /// <summary>
         /// Set solver parameters to default values.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_defaultSolRefImp(ref libnative.mjtNum solref, ref libnative.mjtNum solimp);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_defaultSolRefImp(ref double solref, ref double solimp);
+        
         /// <summary>
         /// Set physics options to default values.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_defaultOption(ref libnative.mjOption opt);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_defaultOption(ref libnative.mjOption_ opt);
+        
         /// <summary>
         /// Set visual options to default values.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_defaultVisual(ref libnative.mjVisual vis);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_defaultVisual(ref libnative.mjVisual_ vis);
+        
         /// <summary>
         /// Copy mjModel, allocate new if dest is NULL.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern ref libnative.mjModel mj_copyModel(ref libnative.mjModel dest, ref libnative.mjModel src);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern ref libnative.mjModel_ mj_copyModel(ref libnative.mjModel_ dest, ref libnative.mjModel_ src);
+        
         /// <summary>
         /// Save model to binary MJB file or memory buffer; buffer has precedence when given.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_saveModel(ref libnative.mjModel m, [MarshalAs(UnmanagedType.LPStr)] string filename, IntPtr buffer, int buffer_sz);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_saveModel(ref libnative.mjModel_ m, [MarshalAs(UnmanagedType.LPStr)] string filename, IntPtr buffer, int buffer_sz);
+        
         /// <summary>
         /// Load model from binary MJB file.
         /// If vfs is not NULL, look up file in vfs before reading from disk.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern ref libnative.mjModel mj_loadModel([MarshalAs(UnmanagedType.LPStr)] string filename, ref libnative.mjVFS vfs);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern ref libnative.mjModel_ mj_loadModel([MarshalAs(UnmanagedType.LPStr)] string filename, ref libnative.mjVFS_ vfs);
+        
         /// <summary>
         /// Free memory allocation in model.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_deleteModel(ref libnative.mjModel m);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_deleteModel(ref libnative.mjModel_ m);
+        
         /// <summary>
         /// Return size of buffer needed to hold model.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mj_sizeModel(ref libnative.mjModel m);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mj_sizeModel(ref libnative.mjModel_ m);
+        
         /// <summary>
         /// Allocate mjData correponding to given model.
+        /// If the model buffer is unallocated the initial configuration will not be set.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern ref libnative.mjData mj_makeData(ref libnative.mjModel m);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern ref libnative.mjData_ mj_makeData(ref libnative.mjModel_ m);
+        
         /// <summary>
         /// Copy mjData.
+        /// m is only required to contain the size fields from MJMODEL_INTS.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern ref libnative.mjData mj_copyData(ref libnative.mjData dest, ref libnative.mjModel m, ref libnative.mjData src);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern ref libnative.mjData_ mj_copyData(ref libnative.mjData_ dest, ref libnative.mjModel_ m, ref libnative.mjData_ src);
+        
         /// <summary>
         /// Reset data to defaults.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_resetData(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_resetData(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Reset data to defaults, fill everything else with debug_value.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_resetDataDebug(ref libnative.mjModel m, ref libnative.mjData d, byte debug_value);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_resetDataDebug(ref libnative.mjModel_ m, ref libnative.mjData_ d, byte debug_value);
+        
         /// <summary>
         /// Reset data, set fields from specified keyframe.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_resetDataKeyframe(ref libnative.mjModel m, ref libnative.mjData d, int key);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_resetDataKeyframe(ref libnative.mjModel_ m, ref libnative.mjData_ d, int key);
+        
         /// <summary>
         /// Allocate array of specified size on mjData stack. Call mju_error on stack overflow.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern ref libnative.mjtNum mj_stackAlloc(ref libnative.mjData d, int size);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern ref double mj_stackAlloc(ref libnative.mjData_ d, int size);
+        
         /// <summary>
         /// Free memory allocation in mjData.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_deleteData(ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_deleteData(ref libnative.mjData_ d);
+        
         /// <summary>
         /// Reset all callbacks to NULL pointers (NULL is the default).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mj_resetCallbacks();
-
+        
         /// <summary>
         /// Set constant fields of mjModel, corresponding to qpos0 configuration.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_setConst(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_setConst(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Set actuator_lengthrange for specified actuator; return 1 if ok, 0 if error.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mj_setLengthRange(ref libnative.mjModel m, ref libnative.mjData d, int index, ref libnative.mjLROpt opt, IntPtr error, int error_sz);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mj_setLengthRange(ref libnative.mjModel_ m, ref libnative.mjData_ d, int index, ref libnative.mjLROpt_ opt, IntPtr error, int error_sz);
+        
+        /// <summary>
+        /// Print mjModel to text file, specifying format.
+        /// float_format must be a valid printf-style format string for a single float value.
+        /// </summary>
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_printFormattedModel(ref libnative.mjModel_ m, [MarshalAs(UnmanagedType.LPStr)] string filename, [MarshalAs(UnmanagedType.LPStr)] string float_format);
+        
         /// <summary>
         /// Print model to text file.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_printModel(ref libnative.mjModel m, [MarshalAs(UnmanagedType.LPStr)] string filename);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_printModel(ref libnative.mjModel_ m, [MarshalAs(UnmanagedType.LPStr)] string filename);
+        
+        /// <summary>
+        /// Print mjData to text file, specifying format.
+        /// float_format must be a valid printf-style format string for a single float value
+        /// </summary>
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_printFormattedData(ref libnative.mjModel_ m, ref libnative.mjData_ d, [MarshalAs(UnmanagedType.LPStr)] string filename, [MarshalAs(UnmanagedType.LPStr)] string float_format);
+        
         /// <summary>
         /// Print data to text file.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_printData(ref libnative.mjModel m, ref libnative.mjData d, [MarshalAs(UnmanagedType.LPStr)] string filename);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_printData(ref libnative.mjModel_ m, ref libnative.mjData_ d, [MarshalAs(UnmanagedType.LPStr)] string filename);
+        
         /// <summary>
         /// Print matrix to screen.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_printMat(ref libnative.mjtNum mat, int nr, int nc);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_printMat(ref double mat, int nr, int nc);
+        
         /// <summary>
         /// Print sparse matrix to screen.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_printMatSparse(ref libnative.mjtNum mat, int nr, ref int rownnz, ref int rowadr, ref int colind);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_printMatSparse(ref double mat, int nr, ref int rownnz, ref int rowadr, ref int colind);
+        
         /// <summary>
         /// Run position-dependent computations.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_fwdPosition(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_fwdPosition(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Run velocity-dependent computations.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_fwdVelocity(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_fwdVelocity(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Compute actuator force qfrc_actuation.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_fwdActuation(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_fwdActuation(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Add up all non-constraint forces, compute qacc_unc.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_fwdAcceleration(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_fwdAcceleration(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Run selected constraint solver.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_fwdConstraint(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_fwdConstraint(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Euler integrator, semi-implicit in velocity.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_Euler(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_Euler(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Runge-Kutta explicit order-N integrator.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_RungeKutta(ref libnative.mjModel m, ref libnative.mjData d, int N);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_RungeKutta(ref libnative.mjModel_ m, ref libnative.mjData_ d, int N);
+        
         /// <summary>
         /// Run position-dependent computations in inverse dynamics.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_invPosition(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_invPosition(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Run velocity-dependent computations in inverse dynamics.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_invVelocity(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_invVelocity(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Apply the analytical formula for inverse constraint dynamics.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_invConstraint(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_invConstraint(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Compare forward and inverse dynamics, save results in fwdinv.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_compareFwdInv(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_compareFwdInv(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Evaluate position-dependent sensors.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_sensorPos(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_sensorPos(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Evaluate velocity-dependent sensors.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_sensorVel(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_sensorVel(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Evaluate acceleration and force-dependent sensors.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_sensorAcc(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_sensorAcc(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Evaluate position-dependent energy (potential).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_energyPos(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_energyPos(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Evaluate velocity-dependent energy (kinetic).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_energyVel(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_energyVel(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Check qpos, reset if any element is too big or nan.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_checkPos(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_checkPos(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Check qvel, reset if any element is too big or nan.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_checkVel(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_checkVel(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Check qacc, reset if any element is too big or nan.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_checkAcc(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_checkAcc(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Run forward kinematics.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_kinematics(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_kinematics(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Map inertias and motion dofs to global frame centered at CoM.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_comPos(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_comPos(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Compute camera and light positions and orientations.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_camlight(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_camlight(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Compute tendon lengths, velocities and moment arms.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_tendon(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_tendon(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Compute actuator transmission lengths and moments.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_transmission(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_transmission(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Run composite rigid body inertia algorithm (CRB).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_crb(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_crb(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Compute sparse L'*D*L factorizaton of inertia matrix.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_factorM(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_factorM(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Solve linear system M * x = y using factorization:  x = inv(L'*D*L)*y
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_solveM(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum x, ref libnative.mjtNum y, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_solveM(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref double x, ref double y, int n);
+        
         /// <summary>
         /// Half of linear solve:  x = sqrt(inv(D))*inv(L')*y
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_solveM2(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum x, ref libnative.mjtNum y, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_solveM2(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref double x, ref double y, int n);
+        
         /// <summary>
         /// Compute cvel, cdof_dot.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_comVel(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_comVel(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Compute qfrc_passive from spring-dampers, viscosity and density.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_passive(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_passive(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// subtree linear velocity and angular momentum
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_subtreeVel(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_subtreeVel(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// RNE: compute M(qpos)*qacc + C(qpos,qvel); flg_acc=0 removes inertial term.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_rne(ref libnative.mjModel m, ref libnative.mjData d, int flg_acc, ref libnative.mjtNum result);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_rne(ref libnative.mjModel_ m, ref libnative.mjData_ d, int flg_acc, ref double result);
+        
         /// <summary>
         /// RNE with complete data: compute cacc, cfrc_ext, cfrc_int.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_rnePostConstraint(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_rnePostConstraint(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Run collision detection.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_collision(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_collision(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Construct constraints.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_makeConstraint(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_makeConstraint(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Compute inverse constaint inertia efc_AR.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_projectConstraint(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_projectConstraint(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Compute efc_vel, efc_aref.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_referenceConstraint(ref libnative.mjModel m, ref libnative.mjData d);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_referenceConstraint(ref libnative.mjModel_ m, ref libnative.mjData_ d);
+        
         /// <summary>
         /// Compute efc_state, efc_force, qfrc_constraint, and (optionally) cone Hessians.
         /// If cost is not NULL, set *cost = s(jar) where jar = Jac*qacc-aref.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_constraintUpdate(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum jar, ref libnative.mjtNum cost, int flg_coneHessian);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_constraintUpdate(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref double jar, [MarshalAs(UnmanagedType.LPArray, SizeConst = 1)] double[] cost, int flg_coneHessian);
+        
         /// <summary>
         /// Add contact to d-&gt;contact list; return 0 if success; 1 if buffer full.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mj_addContact(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjContact con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mj_addContact(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref libnative.mjContact_ con);
+        
         /// <summary>
         /// Determine type of friction cone.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mj_isPyramidal(ref libnative.mjModel m);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mj_isPyramidal(ref libnative.mjModel_ m);
+        
         /// <summary>
         /// Determine type of constraint Jacobian.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mj_isSparse(ref libnative.mjModel m);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mj_isSparse(ref libnative.mjModel_ m);
+        
         /// <summary>
         /// Determine type of solver (PGS is dual, CG and Newton are primal).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mj_isDual(ref libnative.mjModel m);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mj_isDual(ref libnative.mjModel_ m);
+        
         /// <summary>
         /// Multiply dense or sparse constraint Jacobian by vector.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_mulJacVec(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum res, ref libnative.mjtNum vec);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_mulJacVec(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref double res, ref double vec);
+        
         /// <summary>
         /// Multiply dense or sparse constraint Jacobian transpose by vector.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_mulJacTVec(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum res, ref libnative.mjtNum vec);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_mulJacTVec(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref double res, ref double vec);
+        
         /// <summary>
         /// Compute 3/6-by-nv end-effector Jacobian of global point attached to given body.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_jac(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum jacp, ref libnative.mjtNum jacr, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] point, int body);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_jac(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref double jacp, ref double jacr, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] point, int body);
+        
         /// <summary>
         /// Compute body frame end-effector Jacobian.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_jacBody(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum jacp, ref libnative.mjtNum jacr, int body);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_jacBody(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref double jacp, ref double jacr, int body);
+        
         /// <summary>
         /// Compute body center-of-mass end-effector Jacobian.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_jacBodyCom(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum jacp, ref libnative.mjtNum jacr, int body);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_jacBodyCom(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref double jacp, ref double jacr, int body);
+        
         /// <summary>
         /// Compute geom end-effector Jacobian.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_jacGeom(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum jacp, ref libnative.mjtNum jacr, int geom);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_jacGeom(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref double jacp, ref double jacr, int geom);
+        
         /// <summary>
         /// Compute site end-effector Jacobian.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_jacSite(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum jacp, ref libnative.mjtNum jacr, int site);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_jacSite(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref double jacp, ref double jacr, int site);
+        
         /// <summary>
         /// Compute translation end-effector Jacobian of point, and rotation Jacobian of axis.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_jacPointAxis(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum jacPoint, ref libnative.mjtNum jacAxis, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] point, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] axis, int body);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_jacPointAxis(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref double jacPoint, ref double jacAxis, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] point, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] axis, int body);
+        
         /// <summary>
         /// Get id of object with specified name, return -1 if not found; type is mjtObj.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mj_name2id(ref libnative.mjModel m, int type, [MarshalAs(UnmanagedType.LPStr)] string name);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mj_name2id(ref libnative.mjModel_ m, int type, [MarshalAs(UnmanagedType.LPStr)] string name);
+        
         /// <summary>
         /// Get name of object with specified id, return 0 if invalid type or id; type is mjtObj.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        [return: MarshalAs(UnmanagedType.LPStr)]
-        public static extern string mj_id2name(ref libnative.mjModel m, int type, int id);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        [return:MarshalAs(UnmanagedType.LPStr)]
+        public static extern string mj_id2name(ref libnative.mjModel_ m, int type, int id);
+        
         /// <summary>
         /// Convert sparse inertia matrix M into full (i.e. dense) matrix.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_fullM(ref libnative.mjModel m, ref libnative.mjtNum dst, ref libnative.mjtNum M);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_fullM(ref libnative.mjModel_ m, ref double dst, ref double M);
+        
         /// <summary>
         /// Multiply vector by inertia matrix.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_mulM(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum res, ref libnative.mjtNum vec);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_mulM(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref double res, ref double vec);
+        
         /// <summary>
         /// Multiply vector by (inertia matrix)^(1/2).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_mulM2(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum res, ref libnative.mjtNum vec);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_mulM2(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref double res, ref double vec);
+        
         /// <summary>
         /// Add inertia matrix to destination matrix.
         /// Destination can be sparse uncompressed, or dense when all int* are NULL
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_addM(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum dst, ref int rownnz, ref int rowadr, ref int colind);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_addM(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref double dst, ref int rownnz, ref int rowadr, ref int colind);
+        
         /// <summary>
         /// Apply cartesian force and torque (outside xfrc_applied mechanism).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_applyFT(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum force, ref libnative.mjtNum torque, ref libnative.mjtNum point, int body, ref libnative.mjtNum qfrc_target);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_applyFT(ref libnative.mjModel_ m, ref libnative.mjData_ d, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] force, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] torque, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] point, int body, ref double qfrc_target);
+        
         /// <summary>
         /// Compute object 6D velocity in object-centered frame, world/local orientation.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_objectVelocity(ref libnative.mjModel m, ref libnative.mjData d, int objtype, int objid, ref libnative.mjtNum res, int flg_local);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_objectVelocity(ref libnative.mjModel_ m, ref libnative.mjData_ d, int objtype, int objid, [MarshalAs(UnmanagedType.LPArray, SizeConst = 6)] double[] res, int flg_local);
+        
         /// <summary>
         /// Compute object 6D acceleration in object-centered frame, world/local orientation.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_objectAcceleration(ref libnative.mjModel m, ref libnative.mjData d, int objtype, int objid, ref libnative.mjtNum res, int flg_local);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_objectAcceleration(ref libnative.mjModel_ m, ref libnative.mjData_ d, int objtype, int objid, [MarshalAs(UnmanagedType.LPArray, SizeConst = 6)] double[] res, int flg_local);
+        
         /// <summary>
-        /// Extract 6D force:torque for one contact, in contact frame.
+        /// Extract 6D force:torque given contact id, in the contact frame.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_contactForce(ref libnative.mjModel m, ref libnative.mjData d, int id, ref libnative.mjtNum result);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_contactForce(ref libnative.mjModel_ m, ref libnative.mjData_ d, int id, [MarshalAs(UnmanagedType.LPArray, SizeConst = 6)] double[] result);
+        
         /// <summary>
         /// Compute velocity by finite-differencing two positions.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_differentiatePos(ref libnative.mjModel m, ref libnative.mjtNum qvel, libnative.mjtNum dt, ref libnative.mjtNum qpos1, ref libnative.mjtNum qpos2);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_differentiatePos(ref libnative.mjModel_ m, ref double qvel, double dt, ref double qpos1, ref double qpos2);
+        
         /// <summary>
         /// Integrate position with given velocity.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_integratePos(ref libnative.mjModel m, ref libnative.mjtNum qpos, ref libnative.mjtNum qvel, libnative.mjtNum dt);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_integratePos(ref libnative.mjModel_ m, ref double qpos, ref double qvel, double dt);
+        
         /// <summary>
         /// Normalize all quaterions in qpos-type vector.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_normalizeQuat(ref libnative.mjModel m, ref libnative.mjtNum qpos);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_normalizeQuat(ref libnative.mjModel_ m, ref double qpos);
+        
         /// <summary>
         /// Map from body local to global Cartesian coordinates.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_local2Global(ref libnative.mjData d, ref libnative.mjtNum xpos, ref libnative.mjtNum xmat, ref libnative.mjtNum pos, ref libnative.mjtNum quat, int body, libnative.mjtByte sameframe);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_local2Global(ref libnative.mjData_ d, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] xpos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] double[] xmat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] pos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] quat, int body, byte sameframe);
+        
         /// <summary>
         /// Sum all body masses.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mj_getTotalmass(ref libnative.mjModel m);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mj_getTotalmass(ref libnative.mjModel_ m);
+        
         /// <summary>
         /// Scale body masses and inertias to achieve specified total mass.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_setTotalmass(ref libnative.mjModel m, libnative.mjtNum newmass);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_setTotalmass(ref libnative.mjModel_ m, double newmass);
+        
         /// <summary>
         /// Return version number: 1.0.2 is encoded as 102.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mj_version();
-
+        
+        /// <summary>
+        /// Return the current version of MuJoCo as a null-terminated string.
+        /// </summary>
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        [return:MarshalAs(UnmanagedType.LPStr)]
+        public static extern string mj_versionString();
+        
         /// <summary>
         /// Intersect ray (pnt+x*vec, x&gt;=0) with visible geoms, except geoms in bodyexclude.
-        /// Return geomid and distance (x) to nearest surface, or -1 if no intersection.
+        /// Return distance (x) to nearest surface, or -1 if no intersection and output geomid.
         /// geomgroup, flg_static are as in mjvOption; geomgroup==NULL skips group exclusion.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mj_ray(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjtNum pnt, ref libnative.mjtNum vec, ref libnative.mjtByte geomgroup, libnative.mjtByte flg_static, int bodyexclude, ref int geomid);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mj_ray(ref libnative.mjModel_ m, ref libnative.mjData_ d, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] pnt, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec, ref byte geomgroup, byte flg_static, int bodyexclude, [MarshalAs(UnmanagedType.LPArray, SizeConst = 1)] int[] geomid);
+        
         /// <summary>
         /// Interect ray with hfield, return nearest distance or -1 if no intersection.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mj_rayHfield(ref libnative.mjModel m, ref libnative.mjData d, int geomid, ref libnative.mjtNum pnt, ref libnative.mjtNum vec);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mj_rayHfield(ref libnative.mjModel_ m, ref libnative.mjData_ d, int geomid, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] pnt, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec);
+        
         /// <summary>
         /// Interect ray with mesh, return nearest distance or -1 if no intersection.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mj_rayMesh(ref libnative.mjModel m, ref libnative.mjData d, int geomid, ref libnative.mjtNum pnt, ref libnative.mjtNum vec);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mj_rayMesh(ref libnative.mjModel_ m, ref libnative.mjData_ d, int geomid, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] pnt, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec);
+        
         /// <summary>
         /// Interect ray with pure geom, return nearest distance or -1 if no intersection.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_rayGeom(ref libnative.mjtNum pos, ref libnative.mjtNum mat, ref libnative.mjtNum size, ref libnative.mjtNum pnt, ref libnative.mjtNum vec, int geomtype);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_rayGeom([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] pos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] double[] mat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] size, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] pnt, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec, int geomtype);
+        
         /// <summary>
-        /// Interect ray with skin, return nearest vertex id.
+        /// Interect ray with skin, return nearest distance or -1 if no intersection,
+        /// and also output nearest vertex id.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_raySkin(int nface, int nvert, ref int face, ref float vert, ref libnative.mjtNum pnt, ref libnative.mjtNum vec, ref int vertid);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_raySkin(int nface, int nvert, ref int face, ref float vert, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] pnt, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec, [MarshalAs(UnmanagedType.LPArray, SizeConst = 1)] int[] vertid);
+        
         /// <summary>
         /// Set default camera.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_defaultCamera(ref libnative.mjvCamera cam);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_defaultCamera(ref libnative.mjvCamera_ cam);
+        
         /// <summary>
         /// Set default perturbation.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_defaultPerturb(ref libnative.mjvPerturb pert);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_defaultPerturb(ref libnative.mjvPerturb_ pert);
+        
         /// <summary>
         /// Transform pose from room to model space.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_room2model(ref libnative.mjtNum modelpos, ref libnative.mjtNum modelquat, ref libnative.mjtNum roompos, ref libnative.mjtNum roomquat, ref libnative.mjvScene scn);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_room2model([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] modelpos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] modelquat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] roompos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] roomquat, ref libnative.mjvScene_ scn);
+        
         /// <summary>
         /// Transform pose from model to room space.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_model2room(ref libnative.mjtNum roompos, ref libnative.mjtNum roomquat, ref libnative.mjtNum modelpos, ref libnative.mjtNum modelquat, ref libnative.mjvScene scn);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_model2room([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] roompos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] roomquat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] modelpos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] modelquat, ref libnative.mjvScene_ scn);
+        
         /// <summary>
         /// Get camera info in model space; average left and right OpenGL cameras.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_cameraInModel(ref libnative.mjtNum headpos, ref libnative.mjtNum forward, ref libnative.mjtNum up, ref libnative.mjvScene scn);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_cameraInModel([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] headpos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] forward, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] up, ref libnative.mjvScene_ scn);
+        
         /// <summary>
         /// Get camera info in room space; average left and right OpenGL cameras.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_cameraInRoom(ref libnative.mjtNum headpos, ref libnative.mjtNum forward, ref libnative.mjtNum up, ref libnative.mjvScene scn);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_cameraInRoom([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] headpos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] forward, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] up, ref libnative.mjvScene_ scn);
+        
         /// <summary>
         /// Get frustum height at unit distance from camera; average left and right OpenGL cameras.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mjv_frustumHeight(ref libnative.mjvScene scn);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mjv_frustumHeight(ref libnative.mjvScene_ scn);
+        
         /// <summary>
         /// Rotate 3D vec in horizontal plane by angle between (0,1) and (forward_x,forward_y).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_alignToCamera(ref libnative.mjtNum res, ref libnative.mjtNum vec, ref libnative.mjtNum forward);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_alignToCamera([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] forward);
+        
         /// <summary>
         /// Move camera with mouse; action is mjtMouse.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_moveCamera(ref libnative.mjModel m, int action, libnative.mjtNum reldx, libnative.mjtNum reldy, ref libnative.mjvScene scn, ref libnative.mjvCamera cam);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_moveCamera(ref libnative.mjModel_ m, int action, double reldx, double reldy, ref libnative.mjvScene_ scn, ref libnative.mjvCamera_ cam);
+        
         /// <summary>
         /// Move perturb object with mouse; action is mjtMouse.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_movePerturb(ref libnative.mjModel m, ref libnative.mjData d, int action, libnative.mjtNum reldx, libnative.mjtNum reldy, ref libnative.mjvScene scn, ref libnative.mjvPerturb pert);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_movePerturb(ref libnative.mjModel_ m, ref libnative.mjData_ d, int action, double reldx, double reldy, ref libnative.mjvScene_ scn, ref libnative.mjvPerturb_ pert);
+        
         /// <summary>
         /// Move model with mouse; action is mjtMouse.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_moveModel(ref libnative.mjModel m, int action, libnative.mjtNum reldx, libnative.mjtNum reldy, ref libnative.mjtNum roomup, ref libnative.mjvScene scn);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_moveModel(ref libnative.mjModel_ m, int action, double reldx, double reldy, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] roomup, ref libnative.mjvScene_ scn);
+        
         /// <summary>
         /// Copy perturb pos,quat from selected body; set scale for perturbation.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_initPerturb(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjvScene scn, ref libnative.mjvPerturb pert);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_initPerturb(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref libnative.mjvScene_ scn, ref libnative.mjvPerturb_ pert);
+        
         /// <summary>
         /// Set perturb pos,quat in d-&gt;mocap when selected body is mocap, and in d-&gt;qpos otherwise.
         /// Write d-&gt;qpos only if flg_paused and subtree root for selected body has free joint.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_applyPerturbPose(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjvPerturb pert, int flg_paused);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_applyPerturbPose(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref libnative.mjvPerturb_ pert, int flg_paused);
+        
         /// <summary>
         /// Set perturb force,torque in d-&gt;xfrc_applied, if selected body is dynamic.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_applyPerturbForce(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjvPerturb pert);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_applyPerturbForce(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref libnative.mjvPerturb_ pert);
+        
         /// <summary>
         /// Return the average of two OpenGL cameras.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjvGLCamera mjv_averageCamera(ref libnative.mjvGLCamera cam1, ref libnative.mjvGLCamera cam2);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern libnative.mjvGLCamera_ mjv_averageCamera(ref libnative.mjvGLCamera_ cam1, ref libnative.mjvGLCamera_ cam2);
+        
         /// <summary>
         /// Select geom or skin with mouse, return bodyid; -1: none selected.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mjv_select(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjvOption vopt, libnative.mjtNum aspectratio, libnative.mjtNum relx, libnative.mjtNum rely, ref libnative.mjvScene scn, ref libnative.mjtNum selpnt, ref int geomid, ref int skinid);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mjv_select(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref libnative.mjvOption_ vopt, double aspectratio, double relx, double rely, ref libnative.mjvScene_ scn, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] selpnt, [MarshalAs(UnmanagedType.LPArray, SizeConst = 1)] int[] geomid, [MarshalAs(UnmanagedType.LPArray, SizeConst = 1)] int[] skinid);
+        
         /// <summary>
         /// Set default visualization options.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_defaultOption(ref libnative.mjvOption opt);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_defaultOption(ref libnative.mjvOption_ opt);
+        
         /// <summary>
         /// Set default figure.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_defaultFigure(ref libnative.mjvFigure fig);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_defaultFigure(ref libnative.mjvFigure_ fig);
+        
         /// <summary>
         /// Initialize given geom fields when not NULL, set the rest to their default values.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_initGeom(ref libnative.mjvGeom geom, int type, ref libnative.mjtNum size, ref libnative.mjtNum pos, ref libnative.mjtNum mat, ref float rgba);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_initGeom(ref libnative.mjvGeom_ geom, int type, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] size, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] pos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] double[] mat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] float[] rgba);
+        
         /// <summary>
         /// Set (type, size, pos, mat) for connector-type geom between given points.
         /// Assume that mjv_initGeom was already called to set all other properties.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_makeConnector(ref libnative.mjvGeom geom, int type, libnative.mjtNum width, libnative.mjtNum a0, libnative.mjtNum a1, libnative.mjtNum a2, libnative.mjtNum b0, libnative.mjtNum b1, libnative.mjtNum b2);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_makeConnector(ref libnative.mjvGeom_ geom, int type, double width, double a0, double a1, double a2, double b0, double b1, double b2);
+        
         /// <summary>
         /// Set default abstract scene.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_defaultScene(ref libnative.mjvScene scn);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_defaultScene(ref libnative.mjvScene_ scn);
+        
         /// <summary>
         /// Allocate resources in abstract scene.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_makeScene(ref libnative.mjModel m, ref libnative.mjvScene scn, int maxgeom);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_makeScene(ref libnative.mjModel_ m, ref libnative.mjvScene_ scn, int maxgeom);
+        
         /// <summary>
         /// Free abstract scene.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_freeScene(ref libnative.mjvScene scn);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_freeScene(ref libnative.mjvScene_ scn);
+        
         /// <summary>
         /// Update entire scene given model state.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_updateScene(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjvOption opt, ref libnative.mjvPerturb pert, ref libnative.mjvCamera cam, int catmask, ref libnative.mjvScene scn);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_updateScene(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref libnative.mjvOption_ opt, ref libnative.mjvPerturb_ pert, ref libnative.mjvCamera_ cam, int catmask, ref libnative.mjvScene_ scn);
+        
         /// <summary>
         /// Add geoms from selected categories.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_addGeoms(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjvOption opt, ref libnative.mjvPerturb pert, int catmask, ref libnative.mjvScene scn);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_addGeoms(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref libnative.mjvOption_ opt, ref libnative.mjvPerturb_ pert, int catmask, ref libnative.mjvScene_ scn);
+        
         /// <summary>
         /// Make list of lights.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_makeLights(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjvScene scn);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_makeLights(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref libnative.mjvScene_ scn);
+        
         /// <summary>
         /// Update camera.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_updateCamera(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjvCamera cam, ref libnative.mjvScene scn);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_updateCamera(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref libnative.mjvCamera_ cam, ref libnative.mjvScene_ scn);
+        
         /// <summary>
         /// Update skins.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjv_updateSkin(ref libnative.mjModel m, ref libnative.mjData d, ref libnative.mjvScene scn);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjv_updateSkin(ref libnative.mjModel_ m, ref libnative.mjData_ d, ref libnative.mjvScene_ scn);
+        
         /// <summary>
         /// Set default mjrContext.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_defaultContext(ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_defaultContext(ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Allocate resources in custom OpenGL context; fontscale is mjtFontScale.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_makeContext(ref libnative.mjModel m, ref libnative.mjrContext con, int fontscale);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_makeContext(ref libnative.mjModel_ m, ref libnative.mjrContext_ con, int fontscale);
+        
         /// <summary>
         /// Change font of existing context.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_changeFont(int fontscale, ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_changeFont(int fontscale, ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Add Aux buffer with given index to context; free previous Aux buffer.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_addAux(int index, int width, int height, int samples, ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_addAux(int index, int width, int height, int samples, ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Free resources in custom OpenGL context, set to default.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_freeContext(ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_freeContext(ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Upload texture to GPU, overwriting previous upload if any.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_uploadTexture(ref libnative.mjModel m, ref libnative.mjrContext con, int texid);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_uploadTexture(ref libnative.mjModel_ m, ref libnative.mjrContext_ con, int texid);
+        
         /// <summary>
         /// Upload mesh to GPU, overwriting previous upload if any.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_uploadMesh(ref libnative.mjModel m, ref libnative.mjrContext con, int meshid);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_uploadMesh(ref libnative.mjModel_ m, ref libnative.mjrContext_ con, int meshid);
+        
         /// <summary>
         /// Upload height field to GPU, overwriting previous upload if any.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_uploadHField(ref libnative.mjModel m, ref libnative.mjrContext con, int hfieldid);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_uploadHField(ref libnative.mjModel_ m, ref libnative.mjrContext_ con, int hfieldid);
+        
         /// <summary>
         /// Make con-&gt;currentBuffer current again.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_restoreBuffer(ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_restoreBuffer(ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Set OpenGL framebuffer for rendering: mjFB_WINDOW or mjFB_OFFSCREEN.
         /// If only one buffer is available, set that buffer and ignore framebuffer argument.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_setBuffer(int framebuffer, ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_setBuffer(int framebuffer, ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Read pixels from current OpenGL framebuffer to client buffer.
         /// Viewport is in OpenGL framebuffer; client buffer starts at (0,0).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_readPixels(IntPtr rgb, ref float depth, libnative.mjrRect viewport, ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_readPixels(IntPtr rgb, ref float depth, libnative.mjrRect_ viewport, ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Draw pixels from client buffer to current OpenGL framebuffer.
         /// Viewport is in OpenGL framebuffer; client buffer starts at (0,0).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_drawPixels(IntPtr rgb, ref float depth, libnative.mjrRect viewport, ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_drawPixels(IntPtr rgb, ref float depth, libnative.mjrRect_ viewport, ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Blit from src viewpoint in current framebuffer to dst viewport in other framebuffer.
         /// If src, dst have different size and flg_depth==0, color is interpolated with GL_LINEAR.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_blitBuffer(libnative.mjrRect src, libnative.mjrRect dst, int flg_color, int flg_depth, ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_blitBuffer(libnative.mjrRect_ src, libnative.mjrRect_ dst, int flg_color, int flg_depth, ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Set Aux buffer for custom OpenGL rendering (call restoreBuffer when done).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_setAux(int index, ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_setAux(int index, ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Blit from Aux buffer to con-&gt;currentBuffer.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_blitAux(int index, libnative.mjrRect src, int left, int bottom, ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_blitAux(int index, libnative.mjrRect_ src, int left, int bottom, ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Draw text at (x,y) in relative coordinates; font is mjtFont.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_text(int font, [MarshalAs(UnmanagedType.LPStr)] string txt, ref libnative.mjrContext con, float x, float y, float r, float g, float b);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_text(int font, [MarshalAs(UnmanagedType.LPStr)] string txt, ref libnative.mjrContext_ con, float x, float y, float r, float g, float b);
+        
         /// <summary>
         /// Draw text overlay; font is mjtFont; gridpos is mjtGridPos.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_overlay(int font, int gridpos, libnative.mjrRect viewport, [MarshalAs(UnmanagedType.LPStr)] string overlay, [MarshalAs(UnmanagedType.LPStr)] string overlay2, ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_overlay(int font, int gridpos, libnative.mjrRect_ viewport, [MarshalAs(UnmanagedType.LPStr)] string overlay, [MarshalAs(UnmanagedType.LPStr)] string overlay2, ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Get maximum viewport for active buffer.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjrRect mjr_maxViewport(ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern libnative.mjrRect_ mjr_maxViewport(ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Draw rectangle.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_rectangle(libnative.mjrRect viewport, float r, float g, float b, float a);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_rectangle(libnative.mjrRect_ viewport, float r, float g, float b, float a);
+        
         /// <summary>
         /// Draw rectangle with centered text.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_label(libnative.mjrRect viewport, int font, [MarshalAs(UnmanagedType.LPStr)] string txt, float r, float g, float b, float a, float rt, float gt, float bt, ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_label(libnative.mjrRect_ viewport, int font, [MarshalAs(UnmanagedType.LPStr)] string txt, float r, float g, float b, float a, float rt, float gt, float bt, ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Draw 2D figure.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_figure(libnative.mjrRect viewport, ref libnative.mjvFigure fig, ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_figure(libnative.mjrRect_ viewport, ref libnative.mjvFigure_ fig, ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Render 3D scene.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjr_render(libnative.mjrRect viewport, ref libnative.mjvScene scn, ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjr_render(libnative.mjrRect_ viewport, ref libnative.mjvScene_ scn, ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Call glFinish.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mjr_finish();
-
+        
         /// <summary>
         /// Call glGetError and return result.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mjr_getError();
-
+        
         /// <summary>
         /// Find first rectangle containing mouse, -1: not found.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mjr_findRect(int x, int y, int nrect, ref libnative.mjrRect rect);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mjr_findRect(int x, int y, int nrect, ref libnative.mjrRect_ rect);
+        
         /// <summary>
         /// Get builtin UI theme spacing (ind: 0-1).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjuiThemeSpacing mjui_themeSpacing(int ind);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern libnative.mjuiThemeSpacing_ mjui_themeSpacing(int ind);
+        
         /// <summary>
         /// Get builtin UI theme color (ind: 0-3).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjuiThemeColor mjui_themeColor(int ind);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern libnative.mjuiThemeColor_ mjui_themeColor(int ind);
+        
         /// <summary>
         /// Add definitions to UI.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjui_add(ref libnative.mjUI ui, ref libnative.mjuiDef def);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjui_add(ref libnative.mjUI_ ui, ref libnative.mjuiDef_ def);
+        
         /// <summary>
         /// Add definitions to UI section.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjui_addToSection(ref libnative.mjUI ui, int sect, ref libnative.mjuiDef def);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjui_addToSection(ref libnative.mjUI_ ui, int sect, ref libnative.mjuiDef_ def);
+        
         /// <summary>
         /// Compute UI sizes.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjui_resize(ref libnative.mjUI ui, ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjui_resize(ref libnative.mjUI_ ui, ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Update specific section/item; -1: update all.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjui_update(int section, int item, ref libnative.mjUI ui, ref libnative.mjuiState state, ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjui_update(int section, int item, ref libnative.mjUI_ ui, ref libnative.mjuiState_ state, ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Handle UI event, return pointer to changed item, NULL if no change.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern ref libnative.mjuiItem mjui_event(ref libnative.mjUI ui, ref libnative.mjuiState state, ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern ref libnative.mjuiItem_ mjui_event(ref libnative.mjUI_ ui, ref libnative.mjuiState_ state, ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Copy UI image to current buffer.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mjui_render(ref libnative.mjUI ui, ref libnative.mjuiState state, ref libnative.mjrContext con);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mjui_render(ref libnative.mjUI_ ui, ref libnative.mjuiState_ state, ref libnative.mjrContext_ con);
+        
         /// <summary>
         /// Main error function; does not return to caller.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_error([MarshalAs(UnmanagedType.LPStr)] string msg);
-
+        
         /// <summary>
         /// Error function with int argument; msg is a printf format string.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_error_i([MarshalAs(UnmanagedType.LPStr)] string msg, int i);
-
+        
         /// <summary>
         /// Error function with string argument.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_error_s([MarshalAs(UnmanagedType.LPStr)] string msg, [MarshalAs(UnmanagedType.LPStr)] string text);
-
+        
         /// <summary>
         /// Main warning function; returns to caller.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_warning([MarshalAs(UnmanagedType.LPStr)] string msg);
-
+        
         /// <summary>
         /// Warning function with int argument.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_warning_i([MarshalAs(UnmanagedType.LPStr)] string msg, int i);
-
+        
         /// <summary>
         /// Warning function with string argument.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_warning_s([MarshalAs(UnmanagedType.LPStr)] string msg, [MarshalAs(UnmanagedType.LPStr)] string text);
-
+        
         /// <summary>
         /// Clear user error and memory handlers.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_clearHandlers();
-
+        
         /// <summary>
         /// Allocate memory; byte-align on 8; pad size to multiple of 8.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr mju_malloc(libnative.size_t size);
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public readonly partial struct size_t : IEquatable<size_t>
-        {
-            public size_t(IntPtr value) => this.Value = value;
-
-            public readonly IntPtr Value;
-
-            public bool Equals(size_t other) => Value.Equals(other.Value);
-
-            public override bool Equals(object obj) => obj is size_t other && Equals(other);
-
-            public override int GetHashCode() => Value.GetHashCode();
-
-            public override string ToString() => Value.ToString();
-
-            public static implicit operator IntPtr(size_t from) => from.Value;
-
-            public static implicit operator size_t(IntPtr from) => new size_t(from);
-
-            public static bool operator ==(size_t left, size_t right) => left.Equals(right);
-
-            public static bool operator !=(size_t left, size_t right) => !left.Equals(right);
-        }
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr mju_malloc(ulong size);
+        
         /// <summary>
         /// Free memory, using free() by default.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_free(IntPtr ptr);
-
+        
         /// <summary>
         /// High-level warning function: count warnings in mjData, print only the first.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mj_warning(ref libnative.mjData d, int warning, int info);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_warning(ref libnative.mjData_ d, int warning, int info);
+        
         /// <summary>
         /// Write [datetime, type: message] to MUJOCO_LOG.TXT.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_writeLog([MarshalAs(UnmanagedType.LPStr)] string type, [MarshalAs(UnmanagedType.LPStr)] string msg);
-
+        
+        /// <summary>
+        /// Return 1 (for backward compatibility).
+        /// </summary>
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mj_activate([MarshalAs(UnmanagedType.LPStr)] string filename);
+        
+        /// <summary>
+        /// Do nothing (for backward compatibility).
+        /// </summary>
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mj_deactivate();
+        
         /// <summary>
         /// Set res = 0.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_zero3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_zero3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] res);
+        
         /// <summary>
         /// Set res = vec.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_copy3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] data);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_copy3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] data);
+        
         /// <summary>
         /// Set res = vec*scl.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_scl3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec, libnative.mjtNum scl);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_scl3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec, double scl);
+        
         /// <summary>
         /// Set res = vec1 + vec2.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_add3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec2);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_add3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec2);
+        
         /// <summary>
         /// Set res = vec1 - vec2.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_sub3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec2);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_sub3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec2);
+        
         /// <summary>
         /// Set res = res + vec.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_addTo3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_addTo3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec);
+        
         /// <summary>
         /// Set res = res - vec.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_subFrom3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_subFrom3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec);
+        
         /// <summary>
         /// Set res = res + vec*scl.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_addToScl3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec, libnative.mjtNum scl);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_addToScl3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec, double scl);
+        
         /// <summary>
         /// Set res = vec1 + vec2*scl.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_addScl3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec2, libnative.mjtNum scl);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_addScl3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec2, double scl);
+        
         /// <summary>
         /// Normalize vector, return length before normalization.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_normalize3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_normalize3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] res);
+        
         /// <summary>
         /// Return vector length (without normalizing the vector).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_norm3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_norm3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec);
+        
         /// <summary>
         /// Return dot-product of vec1 and vec2.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_dot3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec2);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_dot3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec2);
+        
         /// <summary>
         /// Return Cartesian distance between 3D vectors pos1 and pos2.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_dist3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] pos1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] pos2);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_dist3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] pos1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] pos2);
+        
         /// <summary>
         /// Multiply vector by 3D rotation matrix: res = mat * vec.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_rotVecMat([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] libnative.mjtNum[] mat);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_rotVecMat([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] double[] mat);
+        
         /// <summary>
         /// Multiply vector by transposed 3D rotation matrix: res = mat' * vec.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_rotVecMatT([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] libnative.mjtNum[] mat);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_rotVecMatT([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] double[] mat);
+        
         /// <summary>
         /// Compute cross-product: res = cross(a, b).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_cross([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] a, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] b);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_cross([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] a, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] b);
+        
         /// <summary>
         /// Set res = 0.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_zero4([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] res);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_zero4([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] res);
+        
         /// <summary>
         /// Set res = (1,0,0,0).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_unit4([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] res);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_unit4([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] res);
+        
         /// <summary>
         /// Set res = vec.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_copy4([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] data);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_copy4([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] data);
+        
         /// <summary>
         /// Normalize vector, return length before normalization.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_normalize4([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] res);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_normalize4([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] res);
+        
         /// <summary>
         /// Set res = 0.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_zero(ref libnative.mjtNum res, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_zero(ref double res, int n);
+        
         /// <summary>
         /// Set res = vec.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_copy(ref libnative.mjtNum res, ref libnative.mjtNum data, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_copy(ref double res, ref double data, int n);
+        
         /// <summary>
         /// Return sum(vec).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_sum(ref libnative.mjtNum vec, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_sum(ref double vec, int n);
+        
         /// <summary>
         /// Return L1 norm: sum(abs(vec)).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_L1(ref libnative.mjtNum vec, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_L1(ref double vec, int n);
+        
         /// <summary>
         /// Set res = vec*scl.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_scl(ref libnative.mjtNum res, ref libnative.mjtNum vec, libnative.mjtNum scl, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_scl(ref double res, ref double vec, double scl, int n);
+        
         /// <summary>
         /// Set res = vec1 + vec2.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_add(ref libnative.mjtNum res, ref libnative.mjtNum vec1, ref libnative.mjtNum vec2, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_add(ref double res, ref double vec1, ref double vec2, int n);
+        
         /// <summary>
         /// Set res = vec1 - vec2.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_sub(ref libnative.mjtNum res, ref libnative.mjtNum vec1, ref libnative.mjtNum vec2, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_sub(ref double res, ref double vec1, ref double vec2, int n);
+        
         /// <summary>
         /// Set res = res + vec.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_addTo(ref libnative.mjtNum res, ref libnative.mjtNum vec, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_addTo(ref double res, ref double vec, int n);
+        
         /// <summary>
         /// Set res = res - vec.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_subFrom(ref libnative.mjtNum res, ref libnative.mjtNum vec, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_subFrom(ref double res, ref double vec, int n);
+        
         /// <summary>
         /// Set res = res + vec*scl.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_addToScl(ref libnative.mjtNum res, ref libnative.mjtNum vec, libnative.mjtNum scl, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_addToScl(ref double res, ref double vec, double scl, int n);
+        
         /// <summary>
         /// Set res = vec1 + vec2*scl.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_addScl(ref libnative.mjtNum res, ref libnative.mjtNum vec1, ref libnative.mjtNum vec2, libnative.mjtNum scl, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_addScl(ref double res, ref double vec1, ref double vec2, double scl, int n);
+        
         /// <summary>
         /// Normalize vector, return length before normalization.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_normalize(ref libnative.mjtNum res, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_normalize(ref double res, int n);
+        
         /// <summary>
         /// Return vector length (without normalizing vector).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_norm(ref libnative.mjtNum res, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_norm(ref double res, int n);
+        
         /// <summary>
         /// Return dot-product of vec1 and vec2.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_dot(ref libnative.mjtNum vec1, ref libnative.mjtNum vec2, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_dot(ref double vec1, ref double vec2, int n);
+        
         /// <summary>
         /// Multiply matrix and vector: res = mat * vec.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_mulMatVec(ref libnative.mjtNum res, ref libnative.mjtNum mat, ref libnative.mjtNum vec, int nr, int nc);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_mulMatVec(ref double res, ref double mat, ref double vec, int nr, int nc);
+        
         /// <summary>
         /// Multiply transposed matrix and vector: res = mat' * vec.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_mulMatTVec(ref libnative.mjtNum res, ref libnative.mjtNum mat, ref libnative.mjtNum vec, int nr, int nc);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_mulMatTVec(ref double res, ref double mat, ref double vec, int nr, int nc);
+        
         /// <summary>
         /// Transpose matrix: res = mat'.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_transpose(ref libnative.mjtNum res, ref libnative.mjtNum mat, int nr, int nc);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_transpose(ref double res, ref double mat, int nr, int nc);
+        
         /// <summary>
         /// Multiply matrices: res = mat1 * mat2.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_mulMatMat(ref libnative.mjtNum res, ref libnative.mjtNum mat1, ref libnative.mjtNum mat2, int r1, int c1, int c2);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_mulMatMat(ref double res, ref double mat1, ref double mat2, int r1, int c1, int c2);
+        
         /// <summary>
         /// Multiply matrices, second argument transposed: res = mat1 * mat2'.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_mulMatMatT(ref libnative.mjtNum res, ref libnative.mjtNum mat1, ref libnative.mjtNum mat2, int r1, int c1, int r2);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_mulMatMatT(ref double res, ref double mat1, ref double mat2, int r1, int c1, int r2);
+        
         /// <summary>
         /// Multiply matrices, first argument transposed: res = mat1' * mat2.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_mulMatTMat(ref libnative.mjtNum res, ref libnative.mjtNum mat1, ref libnative.mjtNum mat2, int r1, int c1, int c2);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_mulMatTMat(ref double res, ref double mat1, ref double mat2, int r1, int c1, int c2);
+        
         /// <summary>
         /// Set res = mat' * diag * mat if diag is not NULL, and res = mat' * mat otherwise.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_sqrMatTD(ref libnative.mjtNum res, ref libnative.mjtNum mat, ref libnative.mjtNum diag, int nr, int nc);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_sqrMatTD(ref double res, ref double mat, ref double diag, int nr, int nc);
+        
         /// <summary>
         /// Coordinate transform of 6D motion or force vector in rotation:translation format.
         /// rotnew2old is 3-by-3, NULL means no rotation; flg_force specifies force or motion type.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_transformSpatial([MarshalAs(UnmanagedType.LPArray, SizeConst = 6)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 6)] libnative.mjtNum[] vec, int flg_force, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] newpos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] oldpos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] libnative.mjtNum[] rotnew2old);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_transformSpatial([MarshalAs(UnmanagedType.LPArray, SizeConst = 6)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 6)] double[] vec, int flg_force, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] newpos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] oldpos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] double[] rotnew2old);
+        
         /// <summary>
         /// Rotate vector by quaternion.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_rotVecQuat([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_rotVecQuat([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] quat);
+        
         /// <summary>
         /// Conjugate quaternion, corresponding to opposite rotation.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_negQuat([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_negQuat([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] quat);
+        
         /// <summary>
         /// Muiltiply quaternions.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_mulQuat([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat2);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_mulQuat([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] quat1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] quat2);
+        
         /// <summary>
         /// Muiltiply quaternion and axis.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_mulQuatAxis([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] axis);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_mulQuatAxis([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] quat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] axis);
+        
         /// <summary>
         /// Convert axisAngle to quaternion.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_axisAngle2Quat([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] axis, libnative.mjtNum angle);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_axisAngle2Quat([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] axis, double angle);
+        
         /// <summary>
         /// Convert quaternion (corresponding to orientation difference) to 3D velocity.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_quat2Vel([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat, libnative.mjtNum dt);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_quat2Vel([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] quat, double dt);
+        
         /// <summary>
         /// Subtract quaternions, express as 3D velocity: qb*quat(res) = qa.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_subQuat([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] qa, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] qb);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_subQuat([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] qa, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] qb);
+        
         /// <summary>
         /// Convert quaternion to 3D rotation matrix.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_quat2Mat([MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_quat2Mat([MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] quat);
+        
         /// <summary>
         /// Convert 3D rotation matrix to quaterion.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_mat2Quat([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] libnative.mjtNum[] mat);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_mat2Quat([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] quat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] double[] mat);
+        
         /// <summary>
         /// Compute time-derivative of quaternion, given 3D rotational velocity.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_derivQuat([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vel);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_derivQuat([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] quat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vel);
+        
         /// <summary>
         /// Integrate quaterion given 3D angular velocity.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_quatIntegrate([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vel, libnative.mjtNum scale);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_quatIntegrate([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] quat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vel, double scale);
+        
         /// <summary>
         /// Construct quaternion performing rotation from z-axis to given vector.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_quatZ2Vec([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_quatZ2Vec([MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] quat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec);
+        
         /// <summary>
         /// Multiply two poses.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_mulPose([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] posres, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quatres, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] pos1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] pos2, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat2);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_mulPose([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] posres, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] quatres, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] pos1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] quat1, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] pos2, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] quat2);
+        
         /// <summary>
         /// Conjugate pose, corresponding to the opposite spatial transformation.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_negPose([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] posres, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quatres, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] pos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_negPose([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] posres, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] quatres, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] pos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] quat);
+        
         /// <summary>
         /// Transform vector by pose.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_trnVecPose([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] pos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] libnative.mjtNum[] quat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] libnative.mjtNum[] vec);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_trnVecPose([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] res, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] pos, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] quat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] vec);
+        
         /// <summary>
-        /// Cholesky decomposition: mat = L*L'; return rank.
+        /// Cholesky decomposition: mat = L*L'; return rank, decomposition performed in-place into mat.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mju_cholFactor(ref libnative.mjtNum mat, int n, libnative.mjtNum mindiag);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mju_cholFactor(ref double mat, int n, double mindiag);
+        
         /// <summary>
         /// Solve mat * res = vec, where mat is Cholesky-factorized
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_cholSolve(ref libnative.mjtNum res, ref libnative.mjtNum mat, ref libnative.mjtNum vec, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_cholSolve(ref double res, ref double mat, ref double vec, int n);
+        
         /// <summary>
         /// Cholesky rank-one update: L*L' +/- x*x'; return rank.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mju_cholUpdate(ref libnative.mjtNum mat, ref libnative.mjtNum x, int n, int flg_plus);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mju_cholUpdate(ref double mat, ref double x, int n, int flg_plus);
+        
         /// <summary>
         /// Eigenvalue decomposition of symmetric 3x3 matrix.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mju_eig3(ref libnative.mjtNum eigval, ref libnative.mjtNum eigvec, ref libnative.mjtNum quat, ref libnative.mjtNum mat);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mju_eig3([MarshalAs(UnmanagedType.LPArray, SizeConst = 3)] double[] eigval, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] double[] eigvec, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] double[] quat, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] double[] mat);
+        
         /// <summary>
         /// Muscle active force, prm = (range[2], force, scale, lmin, lmax, vmax, fpmax, fvmax).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_muscleGain(libnative.mjtNum len, libnative.mjtNum vel, [MarshalAs(UnmanagedType.LPArray, SizeConst = 2)] libnative.mjtNum[] lengthrange, libnative.mjtNum acc0, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] libnative.mjtNum[] prm);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_muscleGain(double len, double vel, [MarshalAs(UnmanagedType.LPArray, SizeConst = 2)] double[] lengthrange, double acc0, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] double[] prm);
+        
         /// <summary>
         /// Muscle passive force, prm = (range[2], force, scale, lmin, lmax, vmax, fpmax, fvmax).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_muscleBias(libnative.mjtNum len, [MarshalAs(UnmanagedType.LPArray, SizeConst = 2)] libnative.mjtNum[] lengthrange, libnative.mjtNum acc0, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] libnative.mjtNum[] prm);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_muscleBias(double len, [MarshalAs(UnmanagedType.LPArray, SizeConst = 2)] double[] lengthrange, double acc0, [MarshalAs(UnmanagedType.LPArray, SizeConst = 9)] double[] prm);
+        
         /// <summary>
         /// Muscle activation dynamics, prm = (tau_act, tau_deact).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_muscleDynamics(libnative.mjtNum ctrl, libnative.mjtNum act, [MarshalAs(UnmanagedType.LPArray, SizeConst = 2)] libnative.mjtNum[] prm);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_muscleDynamics(double ctrl, double act, [MarshalAs(UnmanagedType.LPArray, SizeConst = 2)] double[] prm);
+        
         /// <summary>
         /// Convert contact force to pyramid representation.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_encodePyramid(ref libnative.mjtNum pyramid, ref libnative.mjtNum force, ref libnative.mjtNum mu, int dim);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_encodePyramid(ref double pyramid, ref double force, ref double mu, int dim);
+        
         /// <summary>
         /// Convert pyramid representation to contact force.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_decodePyramid(ref libnative.mjtNum force, ref libnative.mjtNum pyramid, ref libnative.mjtNum mu, int dim);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_decodePyramid(ref double force, ref double pyramid, ref double mu, int dim);
+        
         /// <summary>
         /// Integrate spring-damper analytically, return pos(dt).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_springDamper(libnative.mjtNum pos0, libnative.mjtNum vel0, libnative.mjtNum Kp, libnative.mjtNum Kv, libnative.mjtNum dt);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_springDamper(double pos0, double vel0, double Kp, double Kv, double dt);
+        
         /// <summary>
         /// Return min(a,b) with single evaluation of a and b.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_min(libnative.mjtNum a, libnative.mjtNum b);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_min(double a, double b);
+        
         /// <summary>
         /// Return max(a,b) with single evaluation of a and b.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_max(libnative.mjtNum a, libnative.mjtNum b);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_max(double a, double b);
+        
         /// <summary>
         /// Return sign of x: +1, -1 or 0.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_sign(libnative.mjtNum x);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_sign(double x);
+        
         /// <summary>
         /// Round x to nearest integer.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mju_round(libnative.mjtNum x);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mju_round(double x);
+        
         /// <summary>
         /// Convert type id (mjtObj) to type name.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        [return: MarshalAs(UnmanagedType.LPStr)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        [return:MarshalAs(UnmanagedType.LPStr)]
         public static extern string mju_type2Str(int type);
-
+        
         /// <summary>
         /// Convert type name to type id (mjtObj).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
         public static extern int mju_str2Type([MarshalAs(UnmanagedType.LPStr)] string str);
-
+        
         /// <summary>
         /// Construct a warning message given the warning type and info.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        [return: MarshalAs(UnmanagedType.LPStr)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        [return:MarshalAs(UnmanagedType.LPStr)]
         public static extern string mju_warningText(int warning, int info);
-
+        
         /// <summary>
         /// Return 1 if nan or abs(x)&gt;mjMAXVAL, 0 otherwise. Used by check functions.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mju_isBad(libnative.mjtNum x);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mju_isBad(double x);
+        
         /// <summary>
         /// Return 1 if all elements are 0.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int mju_isZero(ref libnative.mjtNum vec, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int mju_isZero(ref double vec, int n);
+        
         /// <summary>
         /// Standard normal random number generator (optional second number).
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_standardNormal(ref libnative.mjtNum num2);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_standardNormal(ref double num2);
+        
         /// <summary>
         /// Convert from float to mjtNum.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_f2n(ref libnative.mjtNum res, ref float vec, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_f2n(ref double res, ref float vec, int n);
+        
         /// <summary>
         /// Convert from mjtNum to float.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_n2f(ref float res, ref libnative.mjtNum vec, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_n2f(ref float res, ref double vec, int n);
+        
         /// <summary>
         /// Convert from double to mjtNum.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_d2n(ref libnative.mjtNum res, ref double vec, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_d2n(ref double res, ref double vec, int n);
+        
         /// <summary>
         /// Convert from mjtNum to double.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_n2d(ref double res, ref libnative.mjtNum vec, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_n2d(ref double res, ref double vec, int n);
+        
         /// <summary>
         /// Insertion sort, resulting list is in increasing order.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void mju_insertionSort(ref libnative.mjtNum list, int n);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void mju_insertionSort(ref double list, int n);
+        
         /// <summary>
         /// Integer insertion sort, resulting list is in increasing order.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
         public static extern void mju_insertionSortInt(ref int list, int n);
-
+        
         /// <summary>
         /// Generate Halton sequence.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_Halton(int index, int @base);
-
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_Halton(int index, int @base);
+        
         /// <summary>
         /// Call strncpy, then set dst[n-1] = 0.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr mju_strncpy(IntPtr dst, [MarshalAs(UnmanagedType.LPStr)] string src, int n);
-
+        
         /// <summary>
         /// Sigmoid function over 0
         /// &lt;
@@ -11307,7 +9625,7 @@ namespace MuJoCoSharp
         /// &lt;
         /// =1 constructed from half-quadratics.
         /// </summary>
-        [DllImport("mujoco210", CallingConvention = CallingConvention.Cdecl)]
-        public static extern libnative.mjtNum mju_sigmoid(libnative.mjtNum x);
+        [DllImport("mujoco", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double mju_sigmoid(double x);
     }
 }

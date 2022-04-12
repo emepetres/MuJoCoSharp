@@ -6,13 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\lib\mujoco210\bin\glfw3.dll" Link="glfw3.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="..\lib\mujoco210\bin\mujoco210.dll" Link="mujoco210.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="..\lib\mujoco210\bin\mujoco210nogl.dll" Link="mujoco210nogl.dll">
+    <None Include="..\lib\mujoco214\bin\mujoco.dll" Link="mujoco.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
